@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/index.css" />
+    <link rel="icon" type="image/png" href="/assets/images/pfp.jpg" />
+  </head>
+  <body>
+    {% if page.url == "/" %}
+        {% include profile.html %}
+    {% endif %}
+    <div id="holyGrailContainer">
+      {% include nav.html %}
+      <main>
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </main>
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

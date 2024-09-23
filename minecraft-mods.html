@@ -1,0 +1,17 @@
+---
+layout: default
+title: Minecraft Mods
+permalink: /minecraft-mods/
+---
+
+<div>
+    {% for item in site.data.minecraft-mods %}
+        <div class="horizontalCard">
+            <a href="{{ item.url }}">{{ item.name }}</a>
+            <p>{{ item.description }}</p>
+            <p>{{ item.languages }}</p>
+        </div>
+    {% endfor %}
+</div>
+<hr>
+<hr>

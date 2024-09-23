@@ -1,0 +1,67 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
+<p>
+  Hello! My name is Thomas, and this is my website that I designed from scratch
+  in HTML/CSS (+ a tiny bit of JS) and Jekyll for templating (so I don't
+  have to copy/paste my nav and footer 6 billion times). Here you can find
+  my social media links, projects I'm working on and my rhythm game stats.
+</p>
+<p>
+  I'm a 3rd year university student currently looking for part-time work
+  in the IT industry (will be ready to transition to full-time after my
+  graduation in late 2025).
+</p>
+<p>
+  I specialise in web design (HTML, CSS, SvelteKit), web development
+  (JS, TypeScript, Node.js, Express.js) and Minecraft modding (Java -
+  Forge 1.8.9 and Fabric 1.19.x/1.20.x/1.21.x)
+</p>
+<p>
+  <b>For serious/business-related inquiries: please email me at </b
+  ><a target="_blank" href="mailto:{{ site.email }}"
+    >{{ site.email }}</a
+  >.
+</p>
+<p>
+  If you're interested in my social media links, visit the
+  <a target="_blank" href="socials">Socials</a> page.
+</p>
+<p>
+  If you're interested in the websites I'm building, visit the
+  <a target="_blank" href="websites">Websites</a> page.
+</p>
+<p>
+  If you're interested in the Minecraft mods I've built, visit the
+  <a target="_blank" href="minecraft-mods">Minecraft Mods</a>
+  page.
+</p>
+<p>
+  If you're interested in my work related to graphic design (such as
+  YouTube thumbnails), visit the
+  <a target="_blank" href="graphic-design">Graphic Design</a>
+  page.
+</p>
+<p>
+  If you're interested in my rhythm game stats and rival/friend codes,
+  visit the
+  <a target="_blank" href="rhythm-games">Rhythm Games</a> page.
+</p>
+<h1>Webring</h1>
+<div id="webring">
+  {% for item in site.data.webring %}
+    <a href="{{ item.link }}" title="{{ item.name }}" class="webring-image" target="_blank" rel="noreferrer">
+      <img
+        src="assets/images/webring/{{ item.file }}"
+        alt="{{ item.name }}"
+        title="{{ item.name }}"
+        width="88px"
+        height="31px" />
+    </a>
+  {% endfor %}
+</div>
+<hr>
+<hr>

@@ -1,0 +1,20 @@
+---
+layout: default
+title: Socials
+permalink: /socials/
+---
+
+<div id="cardContainer">
+  {% for social in site.data.socials %}
+  <div>
+    <h1>{{ social.title }}</h1>
+    {% for item in social.items %}
+      {% if item.link == "" %}
+      <p>{{ item.name }}</p>
+      {% else %}
+      <a href="{{ item.link }}" target="_blank">{{ item.name }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endfor %}
+</div>

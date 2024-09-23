@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: Socials
+  link: /socials/
+- name: Websites
+  link: /websites/
+- name: Minecraft Mods
+  link: /minecraft-mods/
+- name: Graphic Design
+  link: /graphic-design/
+- name: Rhythm Games
+  link: /rhythm-games/

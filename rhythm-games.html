@@ -1,0 +1,26 @@
+---
+layout: default
+title: Rhythm Games
+permalink: /rhythm-games/
+---
+
+<p>
+  I first started playing rhythm games over 7 years ago in September 2017,
+  where I downloaded osu! and played the same 20 songs over and over until
+  I realised I could make an account online and download more maps (lol).
+  Here are some of my stats from various rhythm games:
+</p>
+
+<div id="cardContainerFlex">
+  {% for game in site.data.rhythm-games %}
+    <div>
+      <h1>{{ game.name }}</h1>
+      <p>Username: {{ game.username }}</p>
+      <p>Started: {{ game.started }}</p>
+      <p>Best score: {{ game.best-score }}</p>
+      {% for item in game.items %}
+        <p>{{ item }}</p>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

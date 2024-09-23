@@ -1,0 +1,49 @@
+---
+layout: default
+title: Graphic Design
+permalink: /graphic-design/
+---
+
+<h2>Thumbnails</h2>
+<div id="cardContainerThreeWide">
+  {% for item in site.data.graphic-design-thumbnails %}
+    <a href="{{ item.link }}" title="{{ item.title }}" target="_blank" rel="noreferrer">
+      <img
+        src="/assets/images/graphic-design/thumbnails/{{ item.file }}.jpg"
+        alt="{{ item.title }}"
+        title="{{ item.title }}" 
+        style="width: 30vw;"
+        />
+    </a>
+  {% endfor %}
+</div>
+<hr>
+<hr>
+
+<h2>Banners</h2>
+<div id="cardContainerOneWide">
+  {% for item in site.data.graphic-design-banners %}
+    <img
+    src="/assets/images/graphic-design/banners/{{ item.file }}.jpg"
+    alt="{{ item.title }}"
+    title="{{ item.title }}" 
+    style="width: 80vw;"
+    />
+  {% endfor %}
+</div>
+<hr>
+<hr>
+
+<h2>Profile Pictures</h2>
+<div id="cardContainerOneWide">
+  {% for item in site.data.graphic-design-profile-pictures %}
+    <img
+    src="/assets/images/graphic-design/profile-pictures/{{ item.file }}.jpg"
+    alt="{{ item.title }}"
+    title="{{ item.title }}" 
+    style="width: 10vw;"
+    />
+  {% endfor %}
+</div>
+<hr>
+<hr>
