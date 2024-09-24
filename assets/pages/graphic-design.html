@@ -4,8 +4,8 @@ title: Graphic Design
 permalink: /graphic-design/
 ---
 
-<h2>Thumbnails</h2>
-<div id="cardContainerThreeWide">
+<h2>My YouTube Video Thumbnails</h2>
+<div id="cardContainer">
   {% for item in site.data.graphic-design-thumbnails %}
     <a href="{{ item.link }}" title="{{ item.title }}" target="_blank" rel="noreferrer">
       <img
@@ -17,25 +17,21 @@ permalink: /graphic-design/
     </a>
   {% endfor %}
 </div>
-<hr>
-<hr>
 
 <h2>Banners</h2>
-<div id="cardContainerOneWide">
+<div id="cardContainer">
   {% for item in site.data.graphic-design-banners %}
     <img
     src="/assets/images/graphic-design/banners/{{ item.file }}.jpg"
     alt="{{ item.title }}"
     title="{{ item.title }}" 
-    style="width: 80vw;"
+    style="width: 80%;"
     />
   {% endfor %}
 </div>
-<hr>
-<hr>
 
 <h2>Profile Pictures</h2>
-<div id="cardContainerOneWide">
+<div id="cardContainer">
   {% for item in site.data.graphic-design-profile-pictures %}
     <img
     src="/assets/images/graphic-design/profile-pictures/{{ item.file }}.jpg"
@@ -45,5 +41,6 @@ permalink: /graphic-design/
     />
   {% endfor %}
 </div>
+
 <hr>
 <hr>

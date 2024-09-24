@@ -6,10 +6,6 @@
   url: https://github.com/brainage04/DatapackTemplate
   description:  My datapack template for Minecraft 1.21, complete with useful features such as install/uninstall/on player join functions.
   languages: mcfunction
-- name: FuckWaterBoard (WIP - see README.md)
-  url: https://github.com/brainage04/FuckWaterBoard
-  description: inside joke (Forge 1.8.9)
-  languages: Kotlin, Java
 - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
   url: https://github.com/brainage04/ToggleSprint
   description: A simple toggle sprint/sneak and HUD mod that is allowed on Hypixel. (Forge 1.8.9)

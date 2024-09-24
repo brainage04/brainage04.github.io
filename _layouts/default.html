@@ -2,20 +2,15 @@
 <html>
   <head>
     <title>{{ page.title }} | {{ site.title }}</title>
-    <link rel="stylesheet" href="/assets/index.css" />
-    <link rel="icon" type="image/png" href="/assets/images/pfp.jpg" />
+    <link rel="stylesheet" href="/assets/stylesheets/index.css" />
+    <link rel="icon" type="image/png" href="/assets/images/graphic-design/profile-pictures/brainage04.jpg" />
   </head>
   <body>
-    {% if page.url == "/" %}
-        {% include profile.html %}
-    {% endif %}
-    <div id="holyGrailContainer">
-      {% include nav.html %}
-      <main>
-        <h1>{{ page.title }}</h1>
-        {{ content }}
-      </main>
-      {% include footer.html %}
-    </div>
+    {% include nav.html %}
+    <main>
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+    </main>
+    {% include footer.html %}
   </body>
 </html>

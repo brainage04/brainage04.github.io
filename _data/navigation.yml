@@ -1,7 +1,7 @@
 - name: Home
   link: /
-- name: Socials
-  link: /socials/
+- name: About
+  link: /about/
 - name: Websites
   link: /websites/
 - name: Minecraft Mods
