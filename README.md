@@ -1,3 +1,5 @@
+To run locally, clone the repo and run `bundle exec jekyll serve`
+
 # Credits
 Inspiration for this website (and the usage of Jekyll/Liquid templating as a whole): [espi.me](https://espi.me)
 

@@ -1,0 +1,19 @@
+---
+layout: default
+title: Skills
+permalink: /skills/
+---
+
+<div style="text-align: left;">
+    {% for category in site.data.skills %}
+        <h2>{{ category.title }}</h2>
+        <ul>
+            {% for item in category.items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+
+<hr />
+<hr />
