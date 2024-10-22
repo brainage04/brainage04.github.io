@@ -1,12 +1,12 @@
-- name: "Discord"
-  link: "https://discord.gg/9228kZNyca"
-  file: "discord.png"
-- name: "Twitter / X"
-  link: "https://www.twitter.com/brainage04"
-  file: "x.png"
-- name: "YouTube"
-  link: "https://www.youtube.com/@Brainage04"
-  file: "youtube.png"
-- name: "Twitch"
-  link: "https://twitch.tv/brainage04"
-  file: "twitch.png"
+- name: Discord
+  link: https://discord.gg/9228kZNyca
+  file: discord.png
+- name: Twitter / X
+  link: https://www.twitter.com/brainage04
+  file: x.png
+- name: YouTube
+  link: https://www.youtube.com/@Brainage04
+  file: youtube.png
+- name: Twitch
+  link: https://twitch.tv/brainage04
+  file: twitch.png

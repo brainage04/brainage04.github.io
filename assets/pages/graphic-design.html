@@ -4,43 +4,27 @@ title: Graphic Design
 permalink: /graphic-design/
 ---
 
-<h2>My YouTube Video Thumbnails</h2>
-<div id="cardContainer">
-  {% for item in site.data.graphic-design-thumbnails %}
-    <a href="{{ item.link }}" title="{{ item.title }}" target="_blank" rel="noreferrer">
-      <img
-        src="/assets/images/graphic-design/thumbnails/{{ item.file }}.jpg"
-        alt="{{ item.title }}"
-        title="{{ item.title }}" 
-        style="width: 30vw;"
-        />
-    </a>
-  {% endfor %}
-</div>
+{% for category in site.data.graphic-design %}
+    <h2>{{ category.title }}</h2>
+    <div id="cardContainer">
+        {% for item in category.items %}
+            <a
+                {% if item.link %}
+                href="{{ item.link }}"
+                {% endif %}
+                title="{{ item.title }}"
+                target="_blank"
+                rel="noreferrer"
+            >
+            <img
+                src="/assets/images/graphic-design/{{ category.directory }}/{{ item.file }}.jpg"
+                alt="{{ item.title }}"
+                title="{{ item.title }}"
+                {{ category.item-style }}
+            />
+        {% endfor %}
+    </div>
+{% endfor %}
 
-<h2>Banners</h2>
-<div id="cardContainer">
-  {% for item in site.data.graphic-design-banners %}
-    <img
-    src="/assets/images/graphic-design/banners/{{ item.file }}.jpg"
-    alt="{{ item.title }}"
-    title="{{ item.title }}" 
-    style="width: 80%;"
-    />
-  {% endfor %}
-</div>
-
-<h2>Profile Pictures</h2>
-<div id="cardContainer">
-  {% for item in site.data.graphic-design-profile-pictures %}
-    <img
-    src="/assets/images/graphic-design/profile-pictures/{{ item.file }}.jpg"
-    alt="{{ item.title }}"
-    title="{{ item.title }}" 
-    style="width: 10vw;"
-    />
-  {% endfor %}
-</div>
-
-<hr>
-<hr>
+<hr />
+<hr />
