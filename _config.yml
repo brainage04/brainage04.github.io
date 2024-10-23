@@ -18,13 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-username: "brainage04"
 title: "brainage04's Website"
 email: "thomasmcmah21@gmail.com"
-description: "My GitHub Pages website."
-domain: "brainage04.github.io"
+username: "brainage04"
 url: "https://brainage04.github.io"
-baseurl: ""
 
 # Build settings
 theme: minima
