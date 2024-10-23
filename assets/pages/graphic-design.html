@@ -10,10 +10,10 @@ permalink: /graphic-design/
         {% for item in category.items %}
             <a
                 {% if item.link %}
+                target="_blank"
                 href="{{ item.link }}"
                 {% endif %}
                 title="{{ item.title }}"
-                target="_blank"
                 rel="noreferrer"
             >
             <img
