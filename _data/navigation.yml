@@ -1,14 +1,21 @@
 - name: Home
+  description: This website's home page
   link: /
 - name: About
+  description: My social media links/contact info/more information about me
   link: /about/
 - name: Skills
+  description: My experience with various languages, frameworks and libraries
   link: /skills/
-- name: Blog
-  link: /blog/
 - name: Coding Projects
+  description: The projects I've built/I'm building
   link: /coding-projects/
+- name: Blog
+  description: My blog where I talk about various CS topics and projects
+  link: /blog/
 - name: Graphic Design
+  description: My graphic design work (such as YouTube thumbnails)
   link: /graphic-design/
 - name: Rhythm Games
+  description: My rhythm game stats and rival/friend codes
   link: /rhythm-games/
