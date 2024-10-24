@@ -3,34 +3,38 @@
   - name: brainage04.github.io
     url: https://github.com/brainage04/brainage04.github.io
     description: The source code for this website.
-    languages: HTML, CSS, JS/JavaScript, Jekyll
+    technologies: HTML, CSS, JS/JavaScript, Jekyll
   - name: SkyBrain (WIP - early development)
     url: https://github.com/brainage04/SkyBrain
     description: A website that displays publicly accessible Hypixel Skyblock API data similarly to how it would be displayed in-game.
-    languages: HTML, CSS, JS/JavaScript, TS/TypeScript, SvelteKit
+    technologies: HTML, CSS, JS/JavaScript, TS/TypeScript, SvelteKit
+  - name: SkyBrainDB (WIP - early development)
+    url: https://github.com/brainage04/SkyBrainDB
+    description: An Express.js API that stores JSON data from Hypixel's API in an SQLite database.
+    technologies: Express.js, REST API, SQL, SQLite
 
 - title: Minecraft Projects
   items:
   - name: DatapackTemplate
     url: https://github.com/brainage04/DatapackTemplate
     description:  My datapack template for Minecraft 1.21, complete with useful features such as install/uninstall/on player join functions.
-    languages: mcfunction
+    technologies: mcfunction
   - name: BrainageHUD (WIP - almost done polishing)
     url: https://github.com/brainage04/BrainageHUD
     description: A client-side mod that adds useful HUD elements to Minecraft. (Fabric 1.21)
-    languages: Java 21
+    technologies: Java 21
   - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
     url: https://github.com/brainage04/ToggleSprint
     description: A simple toggle sprint/sneak and HUD mod that is allowed on Hypixel. (Forge 1.8.9)
-    languages: Kotlin, Java 8
+    technologies: Kotlin, Java 8
   - name: ProjectileMania (WIP - need to rewrite from scratch for 1.21)
     url: https://github.com/brainage04/ProjectileMania
     description: A mod that adds a TON of projectiles to Minecraft (among other fun things). (Fabric 1.20.4)
-    languages: Java 21, Kotlin
+    technologies: Java 21, Kotlin
 
 - title: University Projects
   items:
   - name: CAB302_Assessment1
     url: https://github.com/brainage04/CAB302_Assessment1
     description: An application for exercise, calorie and health metric tracking written in Java.
-    languages: Java, JavaFX, JDBC, SQL, SQLite, JUnit
+    technologies: Java, JavaFX, JDBC, SQL, SQLite, JUnit
