@@ -1,17 +1,17 @@
 - title: "Experienced with:"
   items:
   - Java, JavaFX, JDBC, JUnit
-  - SQL, SQLite
   - HTML, CSS, JS (JavaScript), JSON, XML
   - Node.js, SvelteKit, TS (TypeScript), Jekyll
+  - Express.js, REST APIs
+  - SQL, SQLite
   - Python, NumPy, Keras, TensorFlow
   - C#, Unity
-  - Windows and Linux-based operating systems (desktop and server, Debian-based and Arch-based)
+  - Windows 10, Linux-based operating systems (desktop and server, Debian-based and Arch-based)
 - title: "Familiar with:"
   items:
   - Windows and Linux shell scripting
   - Git, GitHub, GitHub Actions
-  - REST APIs
   - Django, PostgreSQL
   - PHP, PHP PDO, XAMPP
 - title: "Willing to learn:"
