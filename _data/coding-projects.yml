@@ -17,20 +17,32 @@
   items:
   - name: DatapackTemplate
     url: https://github.com/brainage04/DatapackTemplate
-    description:  My datapack template for Minecraft 1.21, complete with useful features such as install/uninstall/on player join functions.
+    description:  My Minecraft datapack template.
     technologies: mcfunction
-  - name: BrainageHUD (WIP - almost done polishing)
+  - name: HudRendererLib (WIP - reworking config/rendering)
+    url: https://github.com/brainage04/HudRendererLib
+    description: A Minecraft Fabric client-side library for rendering HUD elements.
+    technologies: Java 21
+  - name: BrainageHUD (WIP)
     url: https://github.com/brainage04/BrainageHUD
-    description: A client-side mod that adds useful HUD elements to Minecraft. (Fabric 1.21)
+    description: A Minecraft Fabric client-side mod that adds useful HUD elements to Minecraft.
     technologies: Java 21
   - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
     url: https://github.com/brainage04/ToggleSprint
     description: A simple toggle sprint/sneak and HUD mod that is allowed on Hypixel. (Forge 1.8.9)
     technologies: Kotlin, Java 8
-  - name: ProjectileMania (WIP - need to rewrite from scratch for 1.21)
-    url: https://github.com/brainage04/ProjectileMania
-    description: A mod that adds a TON of projectiles to Minecraft (among other fun things). (Fabric 1.20.4)
-    technologies: Java 21, Kotlin
+  - name: SimpleTwitchChat
+    url: https://github.com/brainage04/SimpleTwitchChat
+    description: A Fabric mod that integrates Twitch chat with Minecraft chat.
+    technologies: Java 21, Twitch4J
+  - name: GetEnchantInfo
+    url: https://github.com/brainage04/GetEnchantInfo
+    description: A Minecraft Fabric client-side mod that adds commands that provide helpful information related to enchantments.
+    technologies: Java 21
+  - name: MaxLibrarianTrades
+    url: https://github.com/brainage04/MaxLibrarianTrades
+    description: A Minecraft Fabric server-side mod that guarantees max-level books from Librarian trades.
+    technologies: Java 21
 
 - title: University Projects
   items:

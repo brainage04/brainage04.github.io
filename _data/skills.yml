@@ -11,6 +11,7 @@
 - title: "Familiar with:"
   items:
   - Windows and Linux shell scripting
+  - Gradle scripting
   - Git, GitHub, GitHub Actions
   - Django, PostgreSQL
   - PHP, PHP PDO, XAMPP
@@ -24,5 +25,4 @@
   - SQL Server
   - .NET, .NET Core
   - Android SDK, Android Studio
-  - Gradle scripting
   - Lower level languages (x86 ASM, C, C++)
