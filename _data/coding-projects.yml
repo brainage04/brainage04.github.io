@@ -4,33 +4,9 @@
     url: https://github.com/brainage04/brainage04.github.io
     description: The source code for this website.
     technologies: HTML, CSS, JS/JavaScript, Jekyll
-  - name: SkyBrain (WIP - early development)
-    url: https://github.com/brainage04/SkyBrain
-    description: A website that displays publicly accessible Hypixel Skyblock API data similarly to how it would be displayed in-game.
-    technologies: HTML, CSS, JS/JavaScript, TS/TypeScript, SvelteKit
-  - name: SkyBrainDB (WIP - early development)
-    url: https://github.com/brainage04/SkyBrainDB
-    description: An Express.js API that stores JSON data from Hypixel's API in an SQLite database.
-    technologies: Express.js, REST API, SQL, SQLite
 
 - title: Minecraft Projects
   items:
-  - name: DatapackTemplate
-    url: https://github.com/brainage04/DatapackTemplate
-    description:  My Minecraft datapack template.
-    technologies: mcfunction
-  - name: HudRendererLib (WIP - reworking config/rendering)
-    url: https://github.com/brainage04/HudRendererLib
-    description: A Minecraft Fabric client-side library for rendering HUD elements.
-    technologies: Java 21
-  - name: BrainageHUD (WIP)
-    url: https://github.com/brainage04/BrainageHUD
-    description: A Minecraft Fabric client-side mod that adds useful HUD elements to Minecraft.
-    technologies: Java 21
-  - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
-    url: https://github.com/brainage04/ToggleSprint
-    description: A simple toggle sprint/sneak and HUD mod that is allowed on Hypixel. (Forge 1.8.9)
-    technologies: Kotlin, Java 8
   - name: SimpleTwitchChat
     url: https://github.com/brainage04/SimpleTwitchChat
     description: A Fabric mod that integrates Twitch chat with Minecraft chat.
@@ -43,6 +19,29 @@
     url: https://github.com/brainage04/MaxLibrarianTrades
     description: A Minecraft Fabric server-side mod that guarantees max-level books from Librarian trades.
     technologies: Java 21
+  - name: SimpleTPA
+    url: https://github.com/brainage04/SimpleTPA
+    description: A Minecraft Fabric server-side mod that implements a simple teleport requesting system.
+    technologies: Java 21
+
+  - name: DatapackTemplate
+    url: https://github.com/brainage04/DatapackTemplate
+    description:  My Minecraft datapack template.
+    technologies: mcfunction
+
+  - name: HudRendererLib (WIP - reworking config/rendering)
+    url: https://github.com/brainage04/HudRendererLib
+    description: A Minecraft Fabric client-side library for rendering HUD elements.
+    technologies: Java 21, Cloth Config/AutoConfig
+
+  - name: BrainageHUD (WIP)
+    url: https://github.com/brainage04/BrainageHUD
+    description: A Minecraft Fabric client-side HUD mod.
+    technologies: Java 21, Cloth Config/AutoConfig
+  - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
+    url: https://github.com/brainage04/ToggleSprint
+    description: A Minecraft Forge 1.8.9 client-side toggle sprint/sneak and HUD mod that is allowed on Hypixel.
+    technologies: Kotlin, Java 8
 
 - title: University Projects
   items:
