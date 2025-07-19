@@ -5,10 +5,10 @@
   description: My social media links/contact info/more information about me
   link: /about/
 - name: Skills
-  description: My experience with various languages, frameworks and libraries
+  description: My experience with various languages, frameworks, libraries and software
   link: /skills/
 - name: Coding Projects
-  description: The projects I've built/I'm building
+  description: The projects I have created/am currently working on
   link: /coding-projects/
 - name: Graphic Design
   description: My graphic design work (YouTube thumbnails)
