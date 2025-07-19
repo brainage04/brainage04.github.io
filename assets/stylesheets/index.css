@@ -83,6 +83,9 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
 #cardContainer a, #cardContainer p {
   margin: 0;
 }
+#cardContainer iframe {
+  margin: 1em 0;
+}
 
 #rhythmGames {
   justify-self: center;
@@ -116,7 +119,7 @@ a, p {
   color: white;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0;
 }
 

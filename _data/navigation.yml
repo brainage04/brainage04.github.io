@@ -10,12 +10,15 @@
 - name: Coding Projects
   description: The projects I've built/I'm building
   link: /coding-projects/
+- name: Graphic Design
+  description: My graphic design work (YouTube thumbnails)
+  link: /graphic-design/
+- name: Video Editing
+  description: My video editing work (YouTube videos)
+  link: /video-editing/
 - name: Blog
   description: My blog where I talk about various CS topics and projects
   link: /blog/
-- name: Graphic Design
-  description: My graphic design work (such as YouTube thumbnails)
-  link: /graphic-design/
 - name: Rhythm Games
   description: My rhythm game stats and rival/friend codes
   link: /rhythm-games/
