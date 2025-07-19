@@ -5,16 +5,20 @@
   - Node.js, SvelteKit, TS (TypeScript), Jekyll
   - Express.js, REST APIs
   - SQL, SQLite
-  - Python, NumPy, Keras, TensorFlow
+  - Python, NumPy, Keras, TensorFlow, Pandas, OpenCV
   - C#, Unity
   - Windows 10, Linux-based operating systems (desktop and server, Debian-based and Arch-based)
+  - Video-editing software (mainly Adobe Premiere Pro but also KDEnlive)
+  - Image-editing software (mainly Adobe Photoshop but also GIMP and Krita)
+
 - title: "Familiar with:"
   items:
   - Windows and Linux shell scripting
   - Gradle scripting
-  - Git, GitHub, GitHub Actions
+  - Git, GitHub, GitHub Actions, GitHub Pages
   - Django, PostgreSQL
   - PHP, PHP PDO, XAMPP
+
 - title: "Willing to learn:"
   items:
   - JQuery
