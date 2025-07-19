@@ -45,24 +45,3 @@ permalink: /about/
         </a>
     {% endfor %}
 </div>
-
-<h1>Webring</h1>
-<div id="webring">
-    {% for item in site.data.webring %}
-        <a
-            href="{{ item.link }}"
-            title="{{ item.name }}"
-            class="webring-image"
-            target="_blank"
-            rel="noreferrer"
-        >
-        <img
-            src="/assets/images/webring/{{ item.file }}"
-            alt="{{ item.name }}"
-            title="{{ item.name }}"
-            width="88px"
-            height="31px"
-        />
-        </a>
-    {% endfor %}
-</div>

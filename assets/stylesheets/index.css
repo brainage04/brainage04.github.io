@@ -58,18 +58,11 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
   text-align: left;
 }
 
-#socials {
-  border-bottom: 4px solid white;
-}
 #socials * {
   margin: 0.5rem;
 }
 
-#webring * {
-  margin: 0.25rem;
-}
-
-#profile, #socials, #webring {
+#profile, #socials {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,11 +101,6 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
 }
 .horizontalCard * {
   margin: 0;
-}
-
-.webring-image {
-  image-rendering: pixelated;
-  text-decoration: none;
 }
 
 a, p {
