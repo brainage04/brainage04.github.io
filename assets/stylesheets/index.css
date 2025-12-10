@@ -22,7 +22,7 @@ body main {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  max-width: 60vw;
+  max-width: 50vw;
 }
 body footer {
   display: grid;
@@ -51,18 +51,25 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
 #profile div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 #profile div * {
   margin: 0;
+  padding: 0;
   text-align: left;
 }
-
-#socials * {
-  margin: 0.5rem;
+#profile div div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#profile div div * {
+  margin-right: 1rem;
+}
+#profile div div *:last-child {
+  margin-right: 0;
 }
 
-#profile, #socials {
+#profile {
   display: flex;
   align-items: center;
   justify-content: center;

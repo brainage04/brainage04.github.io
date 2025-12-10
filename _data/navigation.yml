@@ -1,9 +1,6 @@
 - name: Home
   description: This website's home page
   link: /
-- name: About
-  description: My social media links/contact info/more information about me
-  link: /about/
 - name: Skills
   description: My experience with various languages, frameworks, libraries and software
   link: /skills/

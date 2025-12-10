@@ -13,7 +13,7 @@ Run site locally: `bundle exec jekyll serve`
 
 (Install SASS)[https://sass-lang.com/install/]: `sudo pacman -S dart-sass`
 
-Compile changes to SASS: `sass assets/stylesheets/index.sass assets/stylesheets/index.css`
+Compile changes to SASS: `sass --watch assets/stylesheets/index.sass:assets/stylesheets/index.css`
 
 # Credits
 Inspiration for this website (and the usage of Jekyll/Liquid templating as a whole): [espi.me](https://espi.me)

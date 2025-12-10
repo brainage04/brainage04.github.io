@@ -4,38 +4,47 @@ title: Home
 permalink: /
 ---
 
-<p>
-    Hello! My name is Thomas, and this is my website that I designed from scratch in HTML/CSS and Jekyll for templating (so I don't have to copy/paste my nav and footer 6 billion times). Here you can find my social media links, my skills, coding projects I'm working on and my rhythm game stats.
-</p>
-<p>
-    I'm a final year university student currently looking for part-time work in the IT/CS industry (will be ready to transition to full-time after I graduate in November 2025).
-</p>
-<p>
-    I specialise in web design, web development and Minecraft modding. Specifics can be found on the
-    <a href="/skills/">Skills</a> page. Proof of experience (projects) can be found on the
-    <a href="/coding-projects/">Coding Projects</a> page.
-</p>
-<p>
-    I'm also good at video editing (YouTube videos) and especially good at graphic design (YouTube thumbnails). Proof of experience can be found on the
-    <a href="/video-ediitng/">Video Editing</a> and
-    <a href="/graphic-design/">Graphic Design</a> pages respectively.
-</p>
+<div id="profile">
+    <img src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" width="128px" height="128px" />
+    <div>
+        <div>
+            <h1>Thomas McMah</h1>
+            <a href="mailto:thomasmcmah21@gmail.com" title="Email" target="_blank" rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-4 h-4 text-gray-400 hover:text-white">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+            </a>
+            {% for social in site.data.socials %}
+            <a href="{{ social.link }}" title="{{ social.name }}" target="_blank" rel="noreferrer">
+                <img src="/assets/images/socials/{{ social.file }}" alt="{{ social.name }}" title="{{ social.name }}"
+                    width="24" />
+            </a>
+            {% endfor %}
+        </div>
+        <p>Bachelor of Information Technology (Computer Science) - with Distinction</p>
+        <p>Minors: Intelligent Systems, Computational and Simulation Science</p>
+    </div>
+</div>
 
-<h2>If you're interested in:</h2>
-<ul>
-    {% for item in site.data.navigation %}
-        {% if item.name != "Home" %}
-            <li>
-                {{ item.description }} - 
-                {% if page.url == item.link %}
-                    <a href="{{ item.link }}"><b>{{ item.name }}</b></a>
-                {% else %}
-                    <a href="{{ item.link }}">{{ item.name }}</a>
-                {% endif %}
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
-
-<hr />
-<hr />
+<p>
+    Hello! My name is Thomas. I'm a recent graduate from QUT Gardens Point with a Bachelor of Information Technology in
+    Computer Science, and I'm seeking a full-time software developer role.
+</p>
+<p>
+    I specialise in Java development (Minecraft modding), C# development (Unity games) and Python development (for
+    smaller projects like web scrapers and simple macros).
+</p>
+<p>
+    Specifics can be found on the <a href="/skills/">Skills</a> page.
+</p>
+<p>
+    Proof of experience (projects) can be found on the <a href="/coding-projects/">Coding Projects</a> page.
+</p>
+<p>
+    I'm also good at video editing (YouTube videos) and especially good at graphic design (YouTube thumbnails).
+    Proof of experience can be found on the <a href="/video-ediitng/">Video Editing</a> and <a
+        href="/graphic-design/">Graphic Design</a> pages respectively.
+</p>
