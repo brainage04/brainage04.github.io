@@ -23,7 +23,7 @@ body
         justify-content: center
         display: flex
         flex-direction: column
-        max-width: 60vw
+        max-width: 50vw
 
     footer
         display: grid
@@ -51,17 +51,24 @@ body
     div
         display: flex
         flex-direction: column
-        justify-content: center
 
         *
             margin: 0
+            padding: 0
             text-align: left
 
-#socials
-    *
-        margin: 0.5rem
+        div
+            display: flex
+            flex-direction: row
+            align-items: center
 
-#profile, #socials
+            *
+                margin-right: 1rem
+
+            *:last-child
+                margin-right: 0
+
+#profile
     display: flex
     align-items: center
     justify-content: center

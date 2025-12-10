@@ -1,18 +1,9 @@
-- name: Discord
-  link: https://discord.gg/9228kZNyca
-  file: discord.png
+- name: GitHub
+  link: https://github.com/brainage04
+  file: github.png
 - name: Twitter / X
   link: https://www.twitter.com/brainage19
   file: x.png
-- name: YouTube (Brainage - osu! videos)
-  link: https://www.youtube.com/@Brainage04
-  file: youtube.png
-- name: YouTube (brainage04 - Educational tech videos)
-  link: https://www.youtube.com/@brainagetech
-  file: youtube.png 
-- name: YouTube (156ee - Entertaining Minecraft videos)
-  link: https://www.youtube.com/@156ee
-  file: youtube.png
-- name: Twitch
-  link: https://twitch.tv/brainage04
-  file: twitch.png
+- name: Discord
+  link: https://discord.com/users/508541102220116000
+  file: discord.png

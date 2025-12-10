@@ -3,33 +3,70 @@
   - name: brainage04.github.io
     url: https://github.com/brainage04/brainage04.github.io
     description: The source code for this website.
-    technologies: HTML, CSS, Jekyll
+    technologies: HTML, CSS, SASS, Jekyll
 
-- title: Minecraft Projects
+- title: Minecraft Datapacks
   items:
-  - name: SimpleTwitchChat
-    url: https://github.com/brainage04/SimpleTwitchChat
-    description: A Fabric mod that integrates Twitch chat with Minecraft chat.
-    technologies: Java 21, Twitch4J
-  - name: GetEnchantInfo
-    url: https://github.com/brainage04/GetEnchantInfo
-    description: A Minecraft Fabric client-side mod that adds commands that provide helpful information related to enchantments.
+  - name: DatapackTemplate
+    url: https://github.com/brainage04/DatapackTemplate
+    description: My Minecraft datapack template.
+    technologies: mcfunction, bash
+
+- title: Minecraft Mods (Server and Client)
+  items:
+  - name: MagicCarpet
+    url: https://github.com/brainage04/MagicCarpet
+    description: A Minecraft Fabric mod that adds a magic carpet vehicle.
     technologies: Java 21
-  - name: MaxLibrarianTrades
-    url: https://github.com/brainage04/MaxLibrarianTrades
-    description: A Minecraft Fabric server-side mod that guarantees max-level books from Librarian trades.
-    technologies: Java 21
+
+- title: Minecraft Server Mods
+  items:
+  - name: FabricTemplateServer
+    url: https://github.com/brainage04/FabricTemplateServer
+    description: My Minecraft Fabric server-side modding template.
+    technologies: Java 21, bash
+
+  - name: ProceduralDungeon (WIP - private for now)
+    url: https://github.com/brainage04/ProceduralDungeon
+    description: A Minecraft Fabric server-side mod that adds a massive procedurally generated dungeon to Minecraft with 5 difficulty/loot tiers and 6 unique themes.
+    technologies: Java 21, mcfunction
+  
   - name: SimpleTPA
     url: https://github.com/brainage04/SimpleTPA
     description: A Minecraft Fabric server-side mod that implements a simple teleport requesting system.
     technologies: Java 21
+  - name: SimpleTelekinesis
+    url: https://github.com/brainage04/SimpleTelekinesis
+    description: A Minecraft Fabric server-side mod that teleports your block drops to you.
+    technologies: Java 21
+  - name: SimpleVeinMiner
+    url: https://github.com/brainage04/SimpleVeinMiner
+    description: A Minecraft Fabric server-side mod that mines all blocks in an ore vein when you mine one of them.
+    technologies: Java 21
 
-  - name: DatapackTemplate
-    url: https://github.com/brainage04/DatapackTemplate
-    description:  My Minecraft datapack template.
-    technologies: mcfunction
+  - name: MaxLibrarianTrades
+    url: https://github.com/brainage04/MaxLibrarianTrades
+    description: A Minecraft Fabric server-side mod that guarantees max-level books from Librarian trades.
+    technologies: Java 21
 
-  - name: HudRendererLib (WIP - reworking config/rendering)
+- title: Minecraft Client Mods
+  items:
+  - name: FabricTemplateClient
+    url: https://github.com/brainage04/FabricTemplateClient
+    description: My Minecraft Fabric client-side modding template.
+    technologies: Java 21, bash
+
+  - name: SimpleTwitchChat
+    url: https://github.com/brainage04/SimpleTwitchChat
+    description: A Minecraft Fabric client-side mod that integrates your Twitch chat with your Minecraft chat.
+    technologies: Java 21, Twitch4J
+  
+  - name: GetEnchantInfo
+    url: https://github.com/brainage04/GetEnchantInfo
+    description: A Minecraft Fabric client-side mod that adds commands that provide helpful information related to enchantments.
+    technologies: Java 21
+
+  - name: HudRendererLib
     url: https://github.com/brainage04/HudRendererLib
     description: A Minecraft Fabric client-side library for rendering HUD elements.
     technologies: Java 21, Cloth Config/AutoConfig
@@ -41,7 +78,7 @@
   - name: ToggleSprint (WIP - needs refactoring to match BrainageHUD functionality)
     url: https://github.com/brainage04/ToggleSprint
     description: A Minecraft Forge 1.8.9 client-side toggle sprint/sneak and HUD mod that is allowed on Hypixel.
-    technologies: Kotlin, Java 8
+    technologies: Kotlin, Java 8, MoulConfig
 
 - title: University Projects
   items:
