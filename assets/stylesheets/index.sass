@@ -3,7 +3,6 @@ html
     background: #1f1f1f
     color: white
     font-family: "Courier New", Courier, monospace
-    text-align: center
 
 // todo: mobile formatting for widths below 740px
 
@@ -30,6 +29,7 @@ body
         grid-template-columns: 1fr 1fr 1fr
         justify-content: space-evenly
         border-top: 4px solid white
+        text-align: center
 
     nav, footer
         padding: 0
@@ -43,6 +43,9 @@ body
                 transition: 150ms
 
 #profile
+    display: flex
+    align-items: center
+    justify-content: center
     border-bottom: 4px solid white
     
     img, div
@@ -68,34 +71,6 @@ body
             *:last-child
                 margin-right: 0
 
-#profile
-    display: flex
-    align-items: center
-    justify-content: center
-
-#cardContainer
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-
-    a, p
-        margin: 0
-
-    iframe
-        margin: 1em 0
-
-#rhythmGames
-    justify-self: center
-    display: grid
-    grid-template-columns: 1fr 1fr
-    text-align: left
-    
-    div
-        padding: 0 1rem
-
-    a, p
-        margin: 0
-
 .horizontalCard
     min-width: 600px
     border-bottom: 4px solid white
@@ -113,6 +88,3 @@ h1, h2, h3, h4, h5, h6
 
 hr
     border: 0
-
-ul, ol
-    list-style-position: inside
