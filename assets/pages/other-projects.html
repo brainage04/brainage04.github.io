@@ -1,0 +1,19 @@
+---
+layout: default
+title: Other Projects
+permalink: /coding-projects/other/
+---
+
+{% for category in site.data.coding_projects.other %}
+    <h2>{{ category.title }}</h2>
+    {% for item in category.items %}
+        <div class="horizontalCard">
+            <a target="_blank" href="{{ item.url }}">{{ item.name }}</a>
+            <p>{{ item.description }}</p>
+            <p>{{ item.technologies }}</p>
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<hr>
+<hr>

@@ -1,0 +1,28 @@
+- title: C# Projects
+  items:
+  - name: MaimaiViewerEditor (WIP)
+    url: https://github.com/brainage04/MaimaiViewerEditor
+    description: Emulates viewing, editing and playing charts for the MaiMai rhythm game, aiming to match original game behaviour as closely as possible
+    technologies: C#, Unity
+  - name: ImageBrowser
+    url: https://github.com/brainage04/ImageBrowser
+    description: A simple, standalone C# WinForms image browser.
+    technologies: C#, WinForms
+
+- title: Python Projects
+  items:
+  - name: MXB362_CaseStudy
+    url: https://github.com/brainage04/MXB362_CaseStudy
+    description: A Python university assignment from MXB362 Advanced Visualisation and Data Science where I downloaded data on hundreds of LLMs from Artificial Analysis and compared benchmark scores to visualise the progress of LLM intelligence, speed and cost over time
+    technologies: Python, MatPlotLib, Pandas, Seaborn
+  - name: JobScraper (WIP)
+    url: https://github.com/brainage04/JobScraper
+    description: Scrapes HTML from SEEK URLs and stores job info in a SQLite database to be used in template resume/cover letter formatting.
+    technologies: Python, urllib, bs4, docxedit, sqlite3
+
+- title: Web Projects
+  items:
+  - name: brainage04.github.io
+    url: https://github.com/brainage04/brainage04.github.io
+    description: The source code for this website.
+    technologies: HTML, CSS, SASS, Jekyll
