@@ -3,7 +3,6 @@ html {
   background: #1f1f1f;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  text-align: center;
 }
 
 body {
@@ -29,6 +28,7 @@ body footer {
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-evenly;
   border-top: 4px solid white;
+  text-align: center;
 }
 body nav, body footer {
   padding: 0;
@@ -43,6 +43,9 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
 }
 
 #profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 4px solid white;
 }
 #profile img, #profile div {
@@ -69,37 +72,6 @@ body nav a:hover, body nav p:hover, body footer a:hover, body footer p:hover {
   margin-right: 0;
 }
 
-#profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#cardContainer a, #cardContainer p {
-  margin: 0;
-}
-#cardContainer iframe {
-  margin: 1em 0;
-}
-
-#rhythmGames {
-  justify-self: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
-}
-#rhythmGames div {
-  padding: 0 1rem;
-}
-#rhythmGames a, #rhythmGames p {
-  margin: 0;
-}
-
 .horizontalCard {
   min-width: 600px;
   border-bottom: 4px solid white;
@@ -120,10 +92,6 @@ h1, h2, h3, h4, h5, h6 {
 
 hr {
   border: 0;
-}
-
-ul, ol {
-  list-style-position: inside;
 }
 
 /*# sourceMappingURL=index.css.map */
