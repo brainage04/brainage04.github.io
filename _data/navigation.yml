@@ -7,6 +7,12 @@
 - name: Coding Projects
   description: The projects I have created/am currently working on
   link: /coding-projects/
+- name: Java Projects
+  description: The Java projects I have created/am currently working on
+  link: /coding-projects/java
+- name: Other Projects
+  description: The C#/Python/web projects I have created/am currently working on
+  link: /coding-projects/other
 - name: Blog
   description: My blog where I talk about various CS topics and projects
   link: /blog/
