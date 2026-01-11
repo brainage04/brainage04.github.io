@@ -1,32 +1,24 @@
 - title: "Experienced with:"
   items:
-  - Java, JavaFX, JDBC, JUnit
-  - HTML, CSS, JS (JavaScript), JSON, XML
-  - Node.js, SvelteKit, TS (TypeScript), Jekyll
-  - Express.js, REST APIs
-  - SQL, SQLite
-  - Python, NumPy, Keras, TensorFlow, Pandas, OpenCV
-  - C#, Unity
+  - Java (over a dozen Minecraft mods, CAB302 Software Development)
+  - C# (Unity, WinForms)
+  - Python (game macros, web scraping, data visualisation notably from MXB362 Advanced Visualisation and Data Science)
+  - HTML, CSS/SASS, YAML, Jekyll (this website!)
+  - Git
+  - GitHub Actions (CI/CD with my Minecraft mod/datapack templates)
+  - GitHub Pages (also this website!)
+  - JSON (a lot of Minecraft modding is data-driven and is stored as JSON)
+  - SQL
+  - SQLite (my go-to database for all projects that require one)
   - Windows 10, Linux-based operating systems (desktop and server, Debian-based and Arch-based)
-  - Video-editing software (mainly Adobe Premiere Pro but also KDEnlive)
-  - Image-editing software (mainly Adobe Photoshop but also GIMP and Krita)
 
 - title: "Familiar with:"
   items:
-  - Windows and Linux shell scripting
-  - Gradle scripting
-  - Git, GitHub, GitHub Actions, GitHub Pages
-  - Django, PostgreSQL
-  - PHP, PHP PDO, XAMPP
-  - Lower level languages (x86 ASM, C, C++)
-
-- title: "Willing to learn:"
-  items:
-  - JQuery
-  - JS front-end web frameworks (React)
-  - Java frameworks (Spring)
-  - Docker
-  - PHP Laravel
-  - SQL Server
-  - .NET, .NET Core
-  - Android SDK, Android Studio
+  - JavaFX, JDBC, JUnit (CAB302 Software Development)
+  - NumPy, Keras, TensorFlow (CAB420 Machine Learning)
+  - MatPlotLib, Pandas, Seaborn (MXB362 Advanced Visualisation and Data Science)
+  - OpenCV (EGB339 Introduction to Robotics)
+  - bash scripting (CI/CD with my Minecraft mod/datapack templates + setting up Minecraft servers)
+  - Gradle scripting (Minecraft mods)
+  - PostgreSQL, Django, FastAPI, AJAX (mainly from my capstone project)
+  - Node.js, SvelteKit, Express.js, REST APIs, JS/JavaScript, TS/TypeScript (various attempts at creating an online Hypixel SkyBlock Bazaar viewer - will make another one and finish it one day...)

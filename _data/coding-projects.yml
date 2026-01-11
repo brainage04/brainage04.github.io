@@ -1,30 +1,25 @@
-- title: Web Projects
-  items:
-  - name: brainage04.github.io
-    url: https://github.com/brainage04/brainage04.github.io
-    description: The source code for this website.
-    technologies: HTML, CSS, SASS, Jekyll
-
-- title: Minecraft Datapacks
-  items:
-  - name: DatapackTemplate
-    url: https://github.com/brainage04/DatapackTemplate
-    description: My Minecraft datapack template.
-    technologies: mcfunction, bash
-
-- title: Minecraft Mods (Server and Client)
+- title: Java Projects - Minecraft Mods (Server and Client)
   items:
   - name: MagicCarpet
     url: https://github.com/brainage04/MagicCarpet
-    description: A Minecraft Fabric mod that adds a magic carpet vehicle.
+    description: A Minecraft Fabric mod that adds three tiers of Magic Carpets!
+    technologies: Java 21
+  - name: IceSkates (WIP)
+    url: https://github.com/brainage04/IceSkates
+    description: A Minecraft Fabric mod that adds Ice Skates (and Roller Skates!)
     technologies: Java 21
 
-- title: Minecraft Server Mods
+- title: Java Projects - Minecraft Server Mods
   items:
   - name: FabricTemplateServer
     url: https://github.com/brainage04/FabricTemplateServer
     description: My Minecraft Fabric server-side modding template.
     technologies: Java 21, bash
+
+  - name: RevivalSMPPlugin (commission, private)
+    url: https://github.com/cptpuffy/RevivalSMPPlugin
+    description: Hardcore SMP with minigames that allow players to revive each other.
+    technologies: Java 21
 
   - name: ProceduralDungeon (WIP - private for now)
     url: https://github.com/brainage04/ProceduralDungeon
@@ -49,12 +44,17 @@
     description: A Minecraft Fabric server-side mod that guarantees max-level books from Librarian trades.
     technologies: Java 21
 
-- title: Minecraft Client Mods
+- title: Java Projects - Minecraft Client Mods
   items:
   - name: FabricTemplateClient
     url: https://github.com/brainage04/FabricTemplateClient
     description: My Minecraft Fabric client-side modding template.
     technologies: Java 21, bash
+
+  - name: TwitchPlaysMinecraft (commission, private for now)
+    url: https://github.com/brainage04/TwitchPlaysMinecraft
+    description: Adds a Twitch bot that allows viewers to control the player through chat commands with the goal of beating the game
+    technologies: Java 21, Twitch4J
 
   - name: SimpleTwitchChat
     url: https://github.com/brainage04/SimpleTwitchChat
@@ -80,9 +80,38 @@
     description: A Minecraft Forge 1.8.9 client-side toggle sprint/sneak and HUD mod that is allowed on Hypixel.
     technologies: Kotlin, Java 8, MoulConfig
 
-- title: University Projects
+- title: Minecraft Datapacks
   items:
-  - name: CAB302_Assessment1
-    url: https://github.com/brainage04/CAB302_Assessment1
-    description: An application for exercise, calorie and health metric tracking written in Java.
-    technologies: Java, JavaFX, JDBC, SQL, SQLite, JUnit
+  - name: DatapackTemplate
+    url: https://github.com/brainage04/DatapackTemplate
+    description: My Minecraft datapack template.
+    technologies: mcfunction, bash
+
+- title: C# Projects
+  items:
+  - name: MaimaiViewerEditor (WIP)
+    url: https://github.com/brainage04/MaimaiViewerEditor
+    description: Emulates viewing, editing and playing charts for the MaiMai rhythm game, aiming to match original game behaviour as closely as possible
+    technologies: C#, Unity
+  - name: ImageBrowser
+    url: https://github.com/brainage04/ImageBrowser
+    description: A simple, standalone C# WinForms image browser.
+    technologies: C#, WinForms
+
+- title: Python Projects
+  items:
+  - name: MXB362_CaseStudy
+    url: https://github.com/brainage04/MXB362_CaseStudy
+    description: A Python university assignment from MXB362 Advanced Visualisation and Data Science where I downloaded data on hundreds of LLMs from Artificial Analysis and compared benchmark scores to visualise the progress of LLM intelligence, speed and cost over time
+    technologies: Python, MatPlotLib, Pandas, Seaborn
+  - name: JobScraper (WIP)
+    url: https://github.com/brainage04/JobScraper
+    description: Scrapes HTML from SEEK URLs and stores job info in a SQLite database to be used in template resume/cover letter formatting.
+    technologies: Python, urllib, bs4, docxedit, sqlite3
+
+- title: Web Projects
+  items:
+  - name: brainage04.github.io
+    url: https://github.com/brainage04/brainage04.github.io
+    description: The source code for this website.
+    technologies: HTML, CSS, SASS, Jekyll
