@@ -5,10 +5,11 @@ permalink: /coding-projects/java/
 ---
 
 {% for category in site.data.coding_projects.java %}
+    <hr>
     <h2>{{ category.title }}</h2>
     {% for item in category.items %}
         <div class="horizontalCard">
-            <a target="_blank" href="{{ item.url }}">{{ item.name }}</a>
+            <h3><a target="_blank" href="{{ item.url }}">{{ item.name }}</a></h3>
             <p>{{ item.description }}</p>
             <p>{{ item.technologies }}</p>
         </div>
