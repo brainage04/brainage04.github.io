@@ -1,0 +1,36 @@
+export type SkillGroup = {
+  title: string;
+  items: string[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: 'Experienced with',
+    items: [
+      'Java (over a dozen Minecraft mods, CAB302 Software Development)',
+      'C# (Unity, WinForms)',
+      'Python (game macros, web scraping, data visualisation notably from MXB362 Advanced Visualisation and Data Science)',
+      'HTML, CSS/SASS, YAML, Jekyll (this website!)',
+      'Git',
+      'GitHub Actions (CI/CD with my Minecraft mod/datapack templates)',
+      'GitHub Pages (also this website!)',
+      'JSON (a lot of Minecraft modding is data-driven and is stored as JSON)',
+      'SQL',
+      'SQLite (my go-to database for all projects that require one)',
+      'Windows 10, Linux-based operating systems (desktop and server, Debian-based and Arch-based)',
+    ],
+  },
+  {
+    title: 'Familiar with',
+    items: [
+      'JavaFX, JDBC, JUnit (CAB302 Software Development)',
+      'NumPy, Keras, TensorFlow (CAB420 Machine Learning)',
+      'MatPlotLib, Pandas, Seaborn (MXB362 Advanced Visualisation and Data Science)',
+      'OpenCV (EGB339 Introduction to Robotics)',
+      'bash scripting (CI/CD with my Minecraft mod/datapack templates + setting up Minecraft servers)',
+      'Gradle scripting (Minecraft mods)',
+      'PostgreSQL, Django, FastAPI, AJAX (mainly from my capstone project)',
+      'Node.js, SvelteKit, Express.js, REST APIs, JS/JavaScript, TS/TypeScript (various attempts at creating an online Hypixel SkyBlock Bazaar viewer - will make another one and finish it one day...)',
+    ],
+  },
+];

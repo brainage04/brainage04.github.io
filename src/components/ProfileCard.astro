@@ -1,0 +1,90 @@
+---
+import { socials } from '../data/socials';
+---
+
+<section class="profile-card terminal-panel" box-="square" shear-="top">
+  <img class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" alt="brainage04 profile picture" width="160" height="160" loading="eager" />
+  <div class="profile-copy">
+    <div class="name-row">
+      <h2>Thomas McMah</h2>
+      <div class="socials" aria-label="Social links">
+        <a href="mailto:thomasmcmah21@gmail.com" title="Email" aria-label="Email">
+          <span aria-hidden="true">✉</span>
+        </a>
+        {socials.map((social) => (
+          <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
+            <img src={social.icon} alt="" width="22" height="22" loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </div>
+    <p>Bachelor of Information Technology (Computer Science) - with Distinction</p>
+    <p>Minors: Intelligent Systems, Computational and Simulation Science</p>
+  </div>
+</section>
+
+<style>
+  .profile-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(1rem, 4vw, 2rem);
+    align-items: center;
+  }
+
+  .avatar {
+    width: clamp(6rem, 18vw, 10rem);
+    border-radius: 50%;
+    image-rendering: auto;
+  }
+
+  .profile-copy {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .name-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  p {
+    margin: 0;
+    color: var(--foreground1);
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .socials a {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+  }
+
+  .socials img {
+    display: block;
+    filter: grayscale(1) brightness(1.8);
+  }
+
+  .socials a:hover img {
+    filter: none;
+  }
+
+  @media (max-width: 620px) {
+    .profile-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

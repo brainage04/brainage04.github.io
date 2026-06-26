@@ -1,0 +1,35 @@
+---
+import { projectNavigation } from '../data/navigation';
+
+const pathname = Astro.url.pathname;
+---
+
+<nav class="project-tabs" aria-label="Project sections">
+  {projectNavigation.map((item) => {
+    const isActive = pathname === item.href;
+    return (
+      <a is-="badge" href={item.href} aria-current={isActive ? 'page' : undefined} variant-="background2" data-active={isActive ? 'true' : undefined}>
+        {item.name}
+      </a>
+    );
+  })}
+</nav>
+
+<style>
+  .project-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a[data-active='true'] {
+    background: var(--foreground0);
+    color: var(--background0);
+    text-decoration: none;
+  }
+</style>

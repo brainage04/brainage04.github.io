@@ -1,0 +1,35 @@
+---
+import PageHeader from '../../../components/PageHeader.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import ProjectTabs from '../../../components/ProjectTabs.astro';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getProjectsByArea, groupProjects } from '../../../data/projects';
+
+const groupedProjects = groupProjects(getProjectsByArea('java'));
+const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
+---
+
+<SiteLayout title="Java Projects" description="Minecraft mods, datapacks, templates, and tools by brainage04.">
+  <div class="site-stack">
+    <PageHeader title="Java Projects" eyebrow="minecraft + modding" description="Minecraft mods, datapacks, templates, and tools. Most are Fabric projects, with some Forge-era tooling." />
+    <ProjectTabs />
+
+    {Object.entries(groupedProjects).map(([category, items]) => (
+      <section class="site-stack" aria-labelledby={`heading-${category.replaceAll(' ', '-').toLowerCase()}`}>
+        <div class="panel-header">
+          <h2 id={`heading-${category.replaceAll(' ', '-').toLowerCase()}`}>{category}</h2>
+          <span>{projectCountLabel(items.length)}</span>
+        </div>
+        <div class="grid">
+          {items.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</SiteLayout>
+
+<style>
+  .panel-header h2 {
+    margin: 0;
+  }
+</style>

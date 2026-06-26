@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const date = post.data.pubDate.toLocaleDateString('en-AU', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<article class="blog-card terminal-panel" box-="square" shear-="top">
+  <p class="eyebrow">{date}</p>
+  <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
+  <p>{post.data.description}</p>
+</article>
+
+<style>
+  .blog-card {
+    padding: 1rem;
+  }
+
+  h2 {
+    margin: 0.25rem 0;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  p {
+    margin: 0;
+    color: var(--foreground1);
+  }
+</style>

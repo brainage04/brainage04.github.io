@@ -1,0 +1,30 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BlogPostLayout from '../../../../../layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => {
+    const match = post.data.slug.match(/^(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/(?<slug>.+)\.html$/);
+    if (!match?.groups) {
+      throw new Error(`Invalid blog slug: ${post.data.slug}`);
+    }
+
+    return {
+      params: match.groups,
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout title={post.data.title} description={post.data.description} pubDate={post.data.pubDate} author={post.data.author}>
+  <Content />
+</BlogPostLayout>

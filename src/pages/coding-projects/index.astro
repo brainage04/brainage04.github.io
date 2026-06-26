@@ -1,0 +1,42 @@
+---
+import PageHeader from '../../components/PageHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ProjectTabs from '../../components/ProjectTabs.astro';
+import TerminalPanel from '../../components/TerminalPanel.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getFeaturedProjects, getProjectsByArea } from '../../data/projects';
+
+const javaCount = getProjectsByArea('java').length;
+const otherCount = getProjectsByArea('other').length;
+const featuredProjects = getFeaturedProjects();
+---
+
+<SiteLayout title="Coding Projects" description="Minecraft mods, tools, web projects, and other software by brainage04.">
+  <div class="site-stack">
+    <PageHeader title="Coding Projects" eyebrow="proof of work" description="Minecraft mods, templates, datapacks, utilities, web experiments, and university/personal projects." />
+    <ProjectTabs />
+
+    <div class="two-column">
+      <TerminalPanel title="Project areas" command="tree projects">
+        <ul marker-="tree">
+          <li><a href="/coding-projects/java/">Java Projects</a> - {javaCount} Minecraft/modding/datapack entries</li>
+          <li><a href="/coding-projects/other/">Other Projects</a> - {otherCount} C#, Python, web, and tooling entries</li>
+        </ul>
+      </TerminalPanel>
+      <TerminalPanel title="Notes" command="cat notes.txt">
+        <p>
+          Java projects are separated because most of my work is Minecraft related. Other projects cover C#, Python, browser extensions, bots, and this website.
+        </p>
+      </TerminalPanel>
+    </div>
+
+    <section class="site-stack" aria-labelledby="featured-heading">
+      <div class="panel-header">
+        <h2 id="featured-heading">Featured</h2>
+      </div>
+      <div class="grid">
+        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </div>
+</SiteLayout>

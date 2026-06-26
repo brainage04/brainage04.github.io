@@ -1,0 +1,61 @@
+---
+import type { Project } from '../data/projects';
+
+export interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const statusVariant = project.status === 'wip' || project.status === 'private' ? 'yellow' : 'background2';
+---
+
+<article class="project-card terminal-panel" box-="square" shear-="top">
+  <div class="project-card__meta">
+    <span is-="badge" variant-={statusVariant}>{project.status ?? 'project'}</span>
+    <span class="category">{project.category}</span>
+  </div>
+  <h3><a href={project.url} target="_blank" rel="noreferrer">{project.name}</a></h3>
+  <p>{project.description}</p>
+  <ul class="tech-list" aria-label={`${project.name} technologies`}>
+    {project.technologies.map((technology) => <li is-="badge" variant-="background1">{technology}</li>)}
+  </ul>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .project-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    color: var(--foreground2);
+  }
+
+  .category {
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  }
+
+  p {
+    margin: 0;
+    color: var(--foreground1);
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+</style>

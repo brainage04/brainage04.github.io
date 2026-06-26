@@ -1,0 +1,66 @@
+---
+import PageHeader from '../components/PageHeader.astro';
+import ProfileCard from '../components/ProfileCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import TerminalPanel from '../components/TerminalPanel.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getFeaturedProjects } from '../data/projects';
+
+const featuredProjects = getFeaturedProjects();
+---
+
+<SiteLayout title="Home" description="Portfolio, projects, and blog for brainage04.">
+  <div class="site-stack">
+    <PageHeader title="Thomas McMah" eyebrow="brainage04" description="Software developer based in Brisbane, Australia. I mostly build Minecraft mods, tools, data visualisations, and web experiments." />
+    <ProfileCard />
+
+    <div class="two-column">
+      <TerminalPanel title="About" command="cat about.txt">
+        <p>
+          Hello! My name is Thomas. I'm a software developer who recently graduated from QUT Gardens Point with a
+          Bachelor of Information Technology in Computer Science, and I'm based in Brisbane, Queensland, Australia.
+        </p>
+        <p>I specialise in:</p>
+        <ul marker-="tree">
+          <li>Java (Minecraft modding)</li>
+          <li>C# (Unity games)</li>
+          <li>Python (game macros, web scrapers, data visualisation)</li>
+        </ul>
+        <p>
+          I'm looking for a full-time software developer role —
+          <a href="mailto:thomasmcmah21@gmail.com" title="Email">email me</a>
+          if you think I'm what you're looking for!
+        </p>
+      </TerminalPanel>
+
+      <TerminalPanel title="Quick links" command="ls pages">
+        <ul marker-="tree">
+          <li><a href="/skills/">Skills</a></li>
+          <li><a href="/coding-projects/">Coding Projects</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="https://github.com/brainage04" target="_blank" rel="noreferrer">GitHub</a></li>
+        </ul>
+      </TerminalPanel>
+    </div>
+
+    <section class="site-stack" aria-labelledby="featured-projects-heading">
+      <div class="panel-header">
+        <h2 id="featured-projects-heading">Featured projects</h2>
+        <a href="/coding-projects/">View all projects</a>
+      </div>
+      <div class="grid">
+        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  p {
+    color: var(--foreground1);
+  }
+
+  .panel-header h2 {
+    margin: 0;
+  }
+</style>

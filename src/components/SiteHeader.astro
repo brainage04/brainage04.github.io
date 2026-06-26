@@ -1,0 +1,79 @@
+---
+import { navigation } from '../data/navigation';
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <nav aria-label="Primary navigation" box-="square" shear-="both">
+    <a class="brand" href="/" aria-label="brainage04 home">~/brainage04</a>
+    <div class="nav-links">
+      {navigation.map((item) => {
+        const isActive = item.match?.(pathname) ?? pathname === item.href;
+        return (
+          <a href={item.href} aria-current={isActive ? 'page' : undefined} data-active={isActive ? 'true' : undefined}>
+            {item.name}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 5;
+    background: color-mix(in srgb, var(--background0) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-block-end: 1px solid var(--foreground2);
+  }
+
+  nav {
+    width: min(100% - 1rem, 72rem);
+    margin-inline: auto;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+  }
+
+  .brand {
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    padding: 0.2rem 0.35rem;
+    color: var(--foreground1);
+  }
+
+  .nav-links a[data-active='true'] {
+    color: var(--foreground0);
+    background: var(--background2);
+    text-decoration-thickness: 0.16em;
+  }
+
+  @media (max-width: 520px) {
+    nav {
+      align-items: flex-start;
+    }
+
+    .nav-links {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

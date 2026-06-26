@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BlogCard from '../../components/BlogCard.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<SiteLayout title="Blog" description="Blog posts by brainage04.">
+  <div class="site-stack blog-index">
+    <PageHeader title="Blog" eyebrow="notes" description="Project updates, development notes, and occasional long-form thoughts." />
+    <div class="post-list">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+  </div>
+</SiteLayout>
+
+<style>
+  .blog-index {
+    width: min(100%, 56rem);
+    margin-inline: auto;
+  }
+
+  .post-list {
+    display: grid;
+    gap: 1rem;
+  }
+</style>

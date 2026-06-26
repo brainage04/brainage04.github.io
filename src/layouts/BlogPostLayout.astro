@@ -1,0 +1,70 @@
+---
+import SiteLayout from './SiteLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+}
+
+const { title, description, pubDate, author } = Astro.props;
+const date = pubDate.toLocaleDateString('en-AU', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<SiteLayout title={title} description={description}>
+  <article class="blog-post terminal-panel" box-="square" shear-="top">
+    <header>
+      <p class="eyebrow">Blog entry</p>
+      <h1>{title}</h1>
+      <p class="post-meta">{date} - {author}</p>
+      <p class="description">{description}</p>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</SiteLayout>
+
+<style>
+  .blog-post {
+    width: min(100%, 82ch);
+    margin-inline: auto;
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+
+  header {
+    margin-block-end: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .post-meta,
+  .description {
+    color: var(--foreground1);
+  }
+
+  .prose :global(p),
+  .prose :global(ol),
+  .prose :global(ul) {
+    margin-block: 1rem;
+  }
+
+  .prose :global(li + li) {
+    margin-block-start: 0.25rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    max-width: 72ch;
+  }
+</style>
