@@ -22,8 +22,6 @@
   --panel-bg: color-mix(in srgb, var(--background1) 92%, transparent);
   --panel-border: color-mix(in srgb, var(--foreground2) 68%, transparent);
   --panel-shadow: 0 1.25rem 3rem color-mix(in srgb, #000 28%, transparent);
-  --cursor-x: 50vw;
-  --cursor-y: 50vh;
   --font-family: 'Courier New', Courier, monospace;
   color-scheme: dark;
 }
@@ -55,30 +53,6 @@ body::before {
   opacity: 0.08;
 }
 
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at var(--cursor-x) var(--cursor-y),
-    color-mix(in srgb, var(--accent-cyan) 22%, transparent) 0,
-    color-mix(in srgb, var(--accent-cyan) 12%, transparent) 8rem,
-    transparent 22rem
-  );
-  opacity: 0;
-  transition: opacity 1.4s ease-out;
-  will-change: opacity, background;
-}
-
-html[data-cursor-glow='active'] body::after {
-  opacity: 1;
-  transition-duration: 120ms;
-}
-
-html[data-cursor-glow='fading'] body::after {
-  opacity: 0;
-}
 
 main {
   min-width: 0;
@@ -147,7 +121,7 @@ hr,
 
 .site-badge__label {
   display: block;
-  transform: translateY(0.75px);
+  transform: translateY(1.25px);
 }
 
 .site-stack {

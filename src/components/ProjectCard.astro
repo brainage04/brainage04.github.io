@@ -11,7 +11,7 @@ const { project } = Astro.props;
 <article class="project-card terminal-panel" box-="square" shear-="top">
   <div class="project-card__meta">
     <span class="site-badge status-badge" is-="badge" variant-="background2" data-status={project.status}><span class="site-badge__label">{project.status.toUpperCase()}</span></span>
-    <span class="category">{project.category}</span>
+    <span class="site-badge category-badge" is-="badge" variant-="background3"><span class="site-badge__label">{project.category.toUpperCase()}</span></span>
   </div>
   <h3><a href={project.url} target="_blank" rel="noreferrer">{project.name}</a></h3>
   <p>{project.description}</p>
@@ -37,12 +37,11 @@ const { project } = Astro.props;
     color: var(--foreground2);
   }
 
-  .category {
-    font-size: 0.78rem;
-    color: var(--foreground2);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    transform: translateY(1px);
+  .category-badge {
+    --badge-color: color-mix(in srgb, var(--background3) 74%, var(--foreground0) 12%);
+    --badge-text: var(--foreground1);
+    color: var(--badge-text);
+    font-weight: 700;
   }
 
   h3 {

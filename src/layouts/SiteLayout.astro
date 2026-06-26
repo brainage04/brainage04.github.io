@@ -28,39 +28,6 @@ const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | braina
       <slot />
     </main>
     <SiteFooter />
-    <script is:inline>
-      let cursorFrame = 0;
-      let cursorFadeTimer = 0;
-      let cursorX = 0;
-      let cursorY = 0;
-
-      const root = document.documentElement;
-
-      const fadeCursorGlow = () => {
-        root.dataset.cursorGlow = 'fading';
-      };
-
-      const updateCursorGlow = () => {
-        root.style.setProperty('--cursor-x', `${cursorX}px`);
-        root.style.setProperty('--cursor-y', `${cursorY}px`);
-        cursorFrame = 0;
-      };
-
-      window.addEventListener('pointermove', (event) => {
-        if (event.pointerType === 'touch') return;
-        cursorX = event.clientX;
-        cursorY = event.clientY;
-        root.dataset.cursorGlow = 'active';
-        clearTimeout(cursorFadeTimer);
-        cursorFadeTimer = window.setTimeout(fadeCursorGlow, 850);
-        if (!cursorFrame) cursorFrame = requestAnimationFrame(updateCursorGlow);
-      }, { passive: true });
-
-      document.addEventListener('pointerleave', () => {
-        clearTimeout(cursorFadeTimer);
-        fadeCursorGlow();
-      });
-    </script>
   </body>
 </html>
 
