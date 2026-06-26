@@ -224,25 +224,6 @@ export const projects: Project[] = [
     status: 'released',
   },
   {
-    name: 'ImageBrowser',
-    url: 'https://github.com/brainage04/ImageBrowser',
-    description: 'A simple, standalone C# WinForms image browser.',
-    technologies: ['C#', 'WinForms'],
-    category: 'C# Projects',
-    area: 'other',
-    status: 'released',
-  },
-  {
-    name: 'MXB362_CaseStudy',
-    url: 'https://github.com/brainage04/MXB362_CaseStudy',
-    description: 'A Python university assignment visualising the progress of LLM intelligence, speed, and cost over time using Artificial Analysis data.',
-    technologies: ['Python', 'MatPlotLib', 'Pandas', 'Seaborn'],
-    category: 'Python Projects',
-    area: 'other',
-    status: 'released',
-    featured: true,
-  },
-  {
     name: 'SoundFinder',
     url: 'https://github.com/brainage04/SoundFinder',
     description: 'A tool for locating Minecraft sounds stored inside .jar files.',
@@ -288,15 +269,6 @@ export const projects: Project[] = [
     status: 'released',
   },
   {
-    name: 'DiscordDataParser',
-    url: 'https://github.com/brainage04/DiscordDataParser',
-    description: 'A Node.js program that parses Discord user data into a more human-readable and searchable format.',
-    technologies: ['Node.js', 'JavaScript'],
-    category: 'Web Projects',
-    area: 'other',
-    status: 'released',
-  },
-  {
     name: 'brainage04.github.io',
     url: 'https://github.com/brainage04/brainage04.github.io',
     description: 'The source code for this website.',
@@ -310,7 +282,7 @@ export const projects: Project[] = [
 export const projectAreas = {
   java: {
     name: 'Java',
-    href: '/coding-projects/java/',
+    href: '/projects/java/',
     title: 'Java Projects',
     description: 'Minecraft mods, datapacks, templates, and tools. Most are Fabric projects, with some Forge-era tooling.',
     metaDescription: 'Minecraft mods, datapacks, templates, and tools by brainage04.',
@@ -318,7 +290,7 @@ export const projectAreas = {
   },
   other: {
     name: 'Other',
-    href: '/coding-projects/other/',
+    href: '/projects/other/',
     title: 'Other Projects',
     description: 'C#, Python, data visualisation, browser extensions, Discord bots, and web projects.',
     metaDescription: 'C#, Python, browser extension, Discord bot, and web projects by brainage04.',

@@ -8,16 +8,15 @@ export type NavItem = {
 
 export const navigation: NavItem[] = [
   { name: 'Home', href: '/', match: (pathname) => pathname === '/' },
-  { name: 'Skills', href: '/skills/', match: (pathname) => pathname.startsWith('/skills') },
   {
     name: 'Projects',
-    href: '/coding-projects/',
-    match: (pathname) => pathname.startsWith('/coding-projects'),
+    href: '/projects/',
+    match: (pathname) => pathname.startsWith('/projects'),
   },
   { name: 'Blog', href: '/blog/', match: (pathname) => pathname.startsWith('/blog') },
 ];
 
 export const projectNavigation = [
-  { name: 'Overview', href: '/coding-projects/' },
+  { name: 'Overview', href: '/projects/' },
   ...projectAreaEntries.map(([, { name, href }]) => ({ name, href })),
 ] as const;
