@@ -8,8 +8,8 @@ const pathname = Astro.url.pathname;
   {projectNavigation.map((item) => {
     const isActive = pathname === item.href;
     return (
-      <a is-="badge" href={item.href} aria-current={isActive ? 'page' : undefined} variant-="background2" data-active={isActive ? 'true' : undefined}>
-        {item.name}
+      <a class="site-badge project-tab" is-="badge" href={item.href} aria-current={isActive ? 'page' : undefined} variant-="background2" data-active={isActive ? 'true' : undefined}>
+        <span class="site-badge__label">{item.name}</span>
       </a>
     );
   })}
@@ -21,18 +21,19 @@ const pathname = Astro.url.pathname;
     flex-wrap: wrap;
     gap: 0.65rem;
     margin-block-end: 1.15rem;
+    line-height: 1.35;
   }
 
   a {
-    background: color-mix(in srgb, var(--background3) 82%, var(--accent-cyan) 8%);
-    color: var(--foreground0);
+    --badge-color: color-mix(in srgb, var(--background3) 72%, var(--accent-cyan) 18%);
+    --badge-text: var(--foreground0);
+    color: var(--badge-text);
     text-decoration: none;
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground0) 20%, transparent);
   }
 
   a[data-active='true'] {
-    background: var(--accent-cyan);
-    color: var(--background0);
-    box-shadow: none;
+    --badge-color: color-mix(in srgb, var(--accent-cyan) 82%, var(--foreground0));
+    --badge-text: var(--background0);
+    font-weight: 700;
   }
 </style>

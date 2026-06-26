@@ -1,17 +1,13 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { formatBlogDate } from '../lib/formatDate';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
 }
 
 const { post } = Astro.props;
-const date = post.data.pubDate.toLocaleDateString('en-AU', {
-  day: '2-digit',
-  month: 'short',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+const date = formatBlogDate(post.data.pubDate);
 ---
 
 <article class="blog-card terminal-panel" box-="square" shear-="top">

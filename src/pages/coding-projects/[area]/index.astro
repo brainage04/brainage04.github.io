@@ -1,0 +1,43 @@
+---
+import PageHeader from '../../../components/PageHeader.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import ProjectTabs from '../../../components/ProjectTabs.astro';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getProjectsByArea, groupProjects, projectAreaEntries, projectAreas, type ProjectArea } from '../../../data/projects';
+
+type Props = {
+  area: ProjectArea;
+};
+
+export function getStaticPaths() {
+  return projectAreaEntries.map(([area]) => ({
+    params: { area },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+const page = projectAreas[area];
+const groupedProjects = groupProjects(getProjectsByArea(area));
+const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
+const headingId = (category: string) => `heading-${category.replaceAll(' ', '-').toLowerCase()}`;
+---
+
+<SiteLayout title={page.title} description={page.metaDescription}>
+  <div class="site-stack">
+    <PageHeader title={page.title} eyebrow={page.eyebrow} description={page.description} />
+    <ProjectTabs />
+
+    {Object.entries(groupedProjects).map(([category, items]) => (
+      <section class="site-stack" aria-labelledby={headingId(category)}>
+        <div class="panel-header">
+          <h2 id={headingId(category)}>{category}</h2>
+          <span>{projectCountLabel(items.length)}</span>
+        </div>
+        <div class="grid">
+          {items.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</SiteLayout>

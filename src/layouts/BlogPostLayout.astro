@@ -1,5 +1,6 @@
 ---
 import SiteLayout from './SiteLayout.astro';
+import { formatBlogDate } from '../lib/formatDate';
 
 export interface Props {
   title: string;
@@ -9,12 +10,7 @@ export interface Props {
 }
 
 const { title, description, pubDate, author } = Astro.props;
-const date = pubDate.toLocaleDateString('en-AU', {
-  day: '2-digit',
-  month: 'short',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+const date = formatBlogDate(pubDate);
 ---
 
 <SiteLayout title={title} description={description}>

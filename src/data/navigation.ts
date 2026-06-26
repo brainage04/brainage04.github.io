@@ -1,3 +1,5 @@
+import { projectAreaEntries } from './projects';
+
 export type NavItem = {
   name: string;
   href: string;
@@ -17,6 +19,5 @@ export const navigation: NavItem[] = [
 
 export const projectNavigation = [
   { name: 'Overview', href: '/coding-projects/' },
-  { name: 'Java', href: '/coding-projects/java/' },
-  { name: 'Other', href: '/coding-projects/other/' },
+  ...projectAreaEntries.map(([, { name, href }]) => ({ name, href })),
 ] as const;

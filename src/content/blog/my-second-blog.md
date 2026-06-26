@@ -4,7 +4,6 @@ description: "An update to my first blog after several months."
 pubDate: 2025-05-06T14:08:20+10:00
 author: "brainage04"
 slug: "2025/05/06/my-second-blog.html"
-tags: ["blog"]
 ---
 
 A lot has happened since my last blog (which was over 6 months ago now):

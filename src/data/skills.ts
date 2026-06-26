@@ -10,7 +10,7 @@ export const skillGroups: SkillGroup[] = [
       'Java (over a dozen Minecraft mods, CAB302 Software Development)',
       'C# (Unity, WinForms)',
       'Python (game macros, web scraping, data visualisation notably from MXB362 Advanced Visualisation and Data Science)',
-      'HTML, CSS/SASS, YAML, Jekyll (this website!)',
+      'HTML, CSS/SASS, YAML, Jekyll',
       'Git',
       'GitHub Actions (CI/CD with my Minecraft mod/datapack templates)',
       'GitHub Pages (also this website!)',
@@ -24,6 +24,7 @@ export const skillGroups: SkillGroup[] = [
     title: 'Familiar with',
     items: [
       'JavaFX, JDBC, JUnit (CAB302 Software Development)',
+      'Astro (this website)',
       'NumPy, Keras, TensorFlow (CAB420 Machine Learning)',
       'MatPlotLib, Pandas, Seaborn (MXB362 Advanced Visualisation and Data Science)',
       'OpenCV (EGB339 Introduction to Robotics)',

@@ -4,10 +4,12 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import ProjectTabs from '../../components/ProjectTabs.astro';
 import TerminalPanel from '../../components/TerminalPanel.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getFeaturedProjects, getProjectsByArea } from '../../data/projects';
+import { getFeaturedProjects, getProjectsByArea, projectAreaEntries } from '../../data/projects';
 
-const javaCount = getProjectsByArea('java').length;
-const otherCount = getProjectsByArea('other').length;
+const projectAreaSummaries = projectAreaEntries.map(([area, page]) => ({
+  ...page,
+  count: getProjectsByArea(area).length,
+}));
 const featuredProjects = getFeaturedProjects();
 ---
 
@@ -19,8 +21,9 @@ const featuredProjects = getFeaturedProjects();
     <div class="two-column">
       <TerminalPanel title="Project areas">
         <ul marker-="tree">
-          <li><a href="/coding-projects/java/">Java Projects</a> - {javaCount} Minecraft/modding/datapack entries</li>
-          <li><a href="/coding-projects/other/">Other Projects</a> - {otherCount} C#, Python, web, and tooling entries</li>
+          {projectAreaSummaries.map((area) => (
+            <li><a href={area.href}>{area.title}</a> - {area.count} {area.summary}</li>
+          ))}
         </ul>
       </TerminalPanel>
       <TerminalPanel title="Notes">

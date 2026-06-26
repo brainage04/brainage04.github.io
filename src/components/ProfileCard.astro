@@ -9,7 +9,9 @@ import { socials } from '../data/socials';
       <h2>Thomas</h2>
       <div class="socials" aria-label="Social links">
         <a href="mailto:thomasmcmah21@gmail.com" title="Email" aria-label="Email">
-          <span aria-hidden="true">✉</span>
+          <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" width="22" height="22">
+            <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z" />
+          </svg>
         </a>
         {socials.map((social) => (
           <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
@@ -76,19 +78,23 @@ import { socials } from '../data/socials';
     min-height: 1.5rem;
   }
 
-  .socials a[aria-label='Email'] span {
+  .socials :is(img, .social-icon) {
     display: block;
-    font-size: 1.35rem;
-    line-height: 1;
-  }
-
-  .socials img {
-    display: block;
+    width: 22px;
+    height: 22px;
     filter: grayscale(1) brightness(1.8);
   }
 
-  .socials a:hover img {
+  .social-icon {
+    color: var(--foreground0);
+  }
+
+  .socials a:hover :is(img, .social-icon) {
     filter: none;
+  }
+
+  .socials a:hover .social-icon {
+    color: var(--accent-cyan);
   }
 
   @media (max-width: 620px) {

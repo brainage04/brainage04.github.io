@@ -1,5 +1,15 @@
 export type ProjectArea = 'java' | 'other';
 
+export type ProjectAreaPage = {
+  name: string;
+  href: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  metaDescription: string;
+  summary: string;
+};
+
 export type Project = {
   name: string;
   url: string;
@@ -7,7 +17,7 @@ export type Project = {
   technologies: string[];
   category: string;
   area: ProjectArea;
-  status?: 'released' | 'wip' | 'template' | 'commission' | 'private' | 'archived';
+  status: 'released' | 'wip' | 'template';
   featured?: boolean;
 };
 
@@ -299,9 +309,27 @@ export const projects: Project[] = [
 ];
 
 export const projectAreas = {
-  java: 'Java Projects',
-  other: 'Other Projects',
-} as const;
+  java: {
+    name: 'Java',
+    href: '/coding-projects/java/',
+    title: 'Java Projects',
+    eyebrow: 'minecraft + modding',
+    description: 'Minecraft mods, datapacks, templates, and tools. Most are Fabric projects, with some Forge-era tooling.',
+    metaDescription: 'Minecraft mods, datapacks, templates, and tools by brainage04.',
+    summary: 'Minecraft/modding/datapack entries',
+  },
+  other: {
+    name: 'Other',
+    href: '/coding-projects/other/',
+    title: 'Other Projects',
+    eyebrow: 'tools + experiments',
+    description: 'C#, Python, data visualisation, browser extensions, Discord bots, and web projects.',
+    metaDescription: 'C#, Python, browser extension, Discord bot, and web projects by brainage04.',
+    summary: 'C#, Python, web, and tooling entries',
+  },
+} satisfies Record<ProjectArea, ProjectAreaPage>;
+
+export const projectAreaEntries = Object.entries(projectAreas) as [ProjectArea, ProjectAreaPage][];
 
 export const getProjectsByArea = (area: ProjectArea) => projects.filter((project) => project.area === area);
 
