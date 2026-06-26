@@ -1,0 +1,195 @@
+@layer base, utils, components;
+
+@import '@webtui/css/base.css';
+@import '@webtui/css/utils/box.css';
+@import '@webtui/css/components/typography.css';
+@import '@webtui/css/components/button.css';
+@import '@webtui/css/components/badge.css';
+@import '@webtui/css/components/separator.css';
+@import '@webtui/css/components/pre.css';
+
+:root {
+  --background0: #151515;
+  --background1: #1f1f1f;
+  --background2: #2a2a2a;
+  --background3: #3a3a3a;
+  --foreground0: #f5f5f5;
+  --foreground1: #d7d7d7;
+  --foreground2: #9f9f9f;
+  --accent: #f36f9f;
+  --accent-cyan: #8bd5ff;
+  --accent-yellow: #f7d774;
+  --panel-bg: color-mix(in srgb, var(--background1) 92%, transparent);
+  --panel-border: color-mix(in srgb, var(--foreground2) 68%, transparent);
+  --panel-shadow: 0 1.25rem 3rem color-mix(in srgb, #000 28%, transparent);
+  --font-family: 'Courier New', Courier, monospace;
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-width: 0;
+  min-height: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  line-height: 1.55;
+  background: var(--background0);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(color-mix(in srgb, var(--foreground0) 4%, transparent) 1px, transparent 1px);
+  background-size: 100% 1lh;
+  opacity: 0.08;
+}
+
+
+main {
+  min-width: 0;
+  width: min(100% - 1.5rem, 70rem);
+  margin-inline: auto;
+  padding-block: clamp(1.75rem, 4vw, 4.5rem);
+}
+
+a {
+  color: var(--foreground0);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--accent-cyan);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 0.2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+li {
+  max-width: 72ch;
+}
+
+ul,
+ol {
+  padding-inline-start: 2ch;
+}
+
+hr,
+[is-='separator'] {
+  border: 0;
+  border-block-start: 1px solid var(--foreground2);
+  width: 100%;
+}
+
+.site-badge {
+  --badge-pad: 1.18ch;
+  align-items: center;
+  height: calc(1lh + 2px);
+  line-height: 1lh;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(var(--badge-pad) - 1px),
+    var(--badge-color) calc(var(--badge-pad) - 1px),
+    var(--badge-color) calc(100% - var(--badge-pad) + 1px),
+    transparent calc(100% - var(--badge-pad) + 1px),
+    transparent
+  );
+}
+
+.site-badge::before,
+.site-badge::after {
+  width: var(--badge-pad);
+  height: 100%;
+}
+
+.site-badge__label {
+  display: block;
+  transform: translateY(1.25px);
+}
+
+.site-stack {
+  display: grid;
+  gap: clamp(1.25rem, 2.25vw, 1.85rem);
+}
+
+.page-header {
+  display: grid;
+  gap: clamp(0.75rem, 1.8vw, 1.1rem);
+  margin-block-end: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.88rem;
+}
+
+.terminal-panel {
+  border-color: var(--panel-border);
+  background: var(--panel-bg);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--foreground0) 7%, transparent), var(--panel-shadow);
+  padding: clamp(1.1rem, 2.5vw, 1.65rem);
+}
+
+.panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.85rem 1rem;
+  margin-block-end: 1.15rem;
+  padding-block-end: 0.55rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--foreground2) 38%, transparent);
+  color: var(--foreground2);
+}
+
+.panel-header :is(h2, h3) {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 26rem);
+  gap: clamp(1rem, 4vw, 2rem);
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  main {
+    width: min(100% - 1.25rem, 70rem);
+    padding-block: 1.15rem 2.25rem;
+  }
+
+  .site-stack {
+    gap: 1.35rem;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}

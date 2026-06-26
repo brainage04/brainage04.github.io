@@ -1,29 +1,36 @@
-# Hosting
+# brainage04.github.io
 
-Concise guide (mainly for my sake) based on the GitHub pages ["Test site locally with Jekyll"](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) page:
+Astro static site using WebTUI CSS.
 
-[Install Ruby](https://www.ruby-lang.org/en/documentation/installation/): `sudo pacman -S ruby base-devel ruby-erb`
+## Local development
 
-Add Ruby to PATH (version number 3.4.0 might change): `export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"`
+Install dependencies:
 
-Reload shell: `source ~/.bashrc`
+```sh
+npm install
+```
 
-Install dependencies: `bundle install`
+Run the dev server:
 
-Run site locally: `bundle exec jekyll serve`
+```sh
+npm run dev
+```
 
-[Install SASS](https://sass-lang.com/install/): `sudo pacman -S dart-sass`
+Validate and build:
 
-Compile changes to SASS: `sass --watch assets/stylesheets/index.sass:assets/stylesheets/index.css`
+```sh
+npm run check
+npm run build
+```
 
-## Credits
+Preview the production build:
 
-Inspiration for this website (and the usage of Jekyll/Liquid templating as a whole): [espi.me](https://espi.me)
+```sh
+npm run preview
+```
 
-Webring HTML/CSS: [espi.me Source Code](https://github.com/espimarisa/espi.me)
+## Notes
 
-## Todo
-
-Implement mobile CSS for device widths less than 740px
-
-Implement light mode + toggle between light/dark mode
+- Blog posts live in `src/content/blog`.
+- Shared project, skill, social, and navigation data live in `src/data`.
+- Static images live under `public/assets/images`.

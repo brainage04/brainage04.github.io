@@ -1,0 +1,48 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | brainage04`;
+---
+
+<!doctype html>
+<html lang="en" data-webtui-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/jpeg" href="/assets/images/graphic-design/profile-pictures/brainage04.jpg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: fixed;
+    z-index: 10;
+    inset-block-start: 0.5rem;
+    inset-inline-start: 0.5rem;
+    transform: translateY(-150%);
+    padding: 0.5rem 0.75rem;
+    background: var(--background0);
+    color: var(--foreground0);
+    border: 1px solid var(--foreground0);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+</style>

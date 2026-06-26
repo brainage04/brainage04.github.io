@@ -1,0 +1,55 @@
+---
+import PageHeader from '../components/PageHeader.astro';
+import ProfileCard from '../components/ProfileCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import TerminalPanel from '../components/TerminalPanel.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getFeaturedProjects } from '../data/projects';
+
+const page = {
+  title: 'Home',
+  description: "I'm a software developer based in Brisbane, Queensland, Australia that makes browser extensions, websites, various tools, and a lot of Minecraft mods."
+};
+const featuredProjects = getFeaturedProjects();
+---
+
+<SiteLayout title={page.title}>
+  <div class="site-stack">
+    <PageHeader title={page.title} description={page.description} />
+
+    <ProfileCard />
+
+    <TerminalPanel title="About">
+      <div class="about-copy">
+        <p>Hello! My name is Thomas and I'm a software developer based in Brisbane, Queensland, Australia. I graduated from QUT Gardens Point in December 2025 with a Bachelor of Information Technology (Computer Science major).</p>
+        <p>I've been employed as a Graduate Associate Consultant since February 2026, where I've done a lot of work with Microsoft Power Platform and a little bit of work with XGBoost!</p>
+        <p>In my free time, I make browser extensions, websites, various tools, and a lot of Minecraft mods. I do Minecraft mod commissions - <a href="mailto:thomasmcmah21@gmail.com" title="Email" aria-label="Email">email me</a> if you're interested!</p>
+      </div>
+    </TerminalPanel>
+
+    <section class="site-stack" aria-labelledby="featured-projects-heading">
+      <div class="panel-header">
+        <h2 id="featured-projects-heading">Featured projects</h2>
+        <a href="/projects/">View all projects</a>
+      </div>
+      <div class="grid">
+        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  .about-copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about-copy > * {
+    margin-block: 0;
+  }
+
+  p {
+    color: var(--foreground1);
+  }
+</style>

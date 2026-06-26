@@ -1,0 +1,73 @@
+---
+import SiteLayout from './SiteLayout.astro';
+import { formatBlogDate } from '../lib/formatDate';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+}
+
+const { title, description, pubDate, author } = Astro.props;
+const date = formatBlogDate(pubDate);
+---
+
+<SiteLayout title={title}>
+  <article class="blog-post terminal-panel" box-="square" shear-="top">
+    <header>
+      <h1>{title}</h1>
+      <p class="post-meta">Published {date} by {author}</p>
+      <p class="description">{description}</p>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</SiteLayout>
+
+<style>
+  .blog-post {
+    width: min(100%, 82ch);
+    margin-inline: auto;
+    padding: clamp(1.2rem, 3vw, 2.25rem);
+  }
+
+  header {
+    display: grid;
+    gap: clamp(0.75rem, 1.6vw, 1.1rem);
+    margin-block-end: 2.25rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.05rem, 6vw, 3.55rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .post-meta,
+  .description {
+    margin: 0;
+    color: var(--foreground1);
+  }
+
+  .prose {
+    line-height: 1.65;
+  }
+
+  .prose :global(p),
+  .prose :global(ol),
+  .prose :global(ul) {
+    margin-block: 1rem;
+  }
+
+  .prose :global(li + li) {
+    margin-block-start: 0.25rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    max-width: 72ch;
+  }
+</style>
