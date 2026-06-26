@@ -1,5 +1,4 @@
 ---
-import PageHeader from '../components/PageHeader.astro';
 import ProfileCard from '../components/ProfileCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TerminalPanel from '../components/TerminalPanel.astro';
@@ -11,14 +10,13 @@ const featuredProjects = getFeaturedProjects();
 
 <SiteLayout title="Home" description="Portfolio, projects, and blog for brainage04.">
   <div class="site-stack">
-    <PageHeader title="Portfolio" eyebrow="brainage04" description="Software developer based in Brisbane, Queensland, Australia. I mostly build Minecraft mods, tools, data visualisations, and web experiments." />
     <ProfileCard />
 
-    <div class="two-column">
-      <TerminalPanel title="About">
+    <TerminalPanel title="About">
+      <div class="about-copy">
         <p>
-          Hello! My name is Thomas. I'm a software developer who recently graduated from QUT Gardens Point with a
-          Bachelor of Information Technology in Computer Science, and I'm based in Brisbane, Queensland, Australia.
+          Hello! My name is Thomas. I graduated from QUT Gardens Point in December 2025 with a Bachelor
+          of Information Technology in Computer Science.
         </p>
         <p>I specialise in:</p>
         <ul marker-="tree">
@@ -26,20 +24,9 @@ const featuredProjects = getFeaturedProjects();
           <li>C# (Unity games)</li>
           <li>Python (game macros, web scrapers, data visualisation)</li>
         </ul>
-        <p>
-          I'm looking for a full-time software developer role — <a href="mailto:thomasmcmah21@gmail.com" title="Email">email me</a> if you think I'm what you're looking for!
-        </p>
-      </TerminalPanel>
-
-      <TerminalPanel title="Quick links">
-        <ul marker-="tree">
-          <li><a href="/skills/">Skills</a></li>
-          <li><a href="/coding-projects/">Coding Projects</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="https://github.com/brainage04" target="_blank" rel="noreferrer">GitHub</a></li>
-        </ul>
-      </TerminalPanel>
-    </div>
+        <p>I've been employed as a Graduate Associate Consultant since February 2026.</p>
+      </div>
+    </TerminalPanel>
 
     <section class="site-stack" aria-labelledby="featured-projects-heading">
       <div class="panel-header">
@@ -54,6 +41,15 @@ const featuredProjects = getFeaturedProjects();
 </SiteLayout>
 
 <style>
+  .about-copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about-copy > * {
+    margin-block: 0;
+  }
+
   p {
     color: var(--foreground1);
   }

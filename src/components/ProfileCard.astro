@@ -6,20 +6,21 @@ import { socials } from '../data/socials';
   <img class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage19.jpg" alt="brainage19 X profile picture" width="400" height="400" loading="eager" />
   <div class="profile-copy">
     <div class="name-row">
-      <h2>Thomas</h2>
+      <h2>Thomas <span class="handle">(brainage04)</span></h2>
       <div class="socials" aria-label="Social links">
         <a href="mailto:thomasmcmah21@gmail.com" title="Email" aria-label="Email">
-          <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" width="22" height="22">
+          <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" height="22">
             <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z" />
           </svg>
         </a>
         {socials.map((social) => (
           <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
-            <img src={social.icon} alt="" width="22" height="22" loading="lazy" />
+            <img src={social.icon} alt="" loading="lazy" />
           </a>
         ))}
       </div>
     </div>
+    <p class="profile-intro">Software developer based in Brisbane, Queensland, Australia. I mostly build Minecraft mods, tools, data visualisations, and web experiments.</p>
     <p>Bachelor of Information Technology (Computer Science) - with Distinction</p>
     <p>Minors: Intelligent Systems, Computational and Simulation Science</p>
   </div>
@@ -56,6 +57,11 @@ import { socials } from '../data/socials';
     margin: 0;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
   }
+  .handle {
+    color: var(--foreground2);
+    font-size: 0.62em;
+  }
+
 
   p {
     margin: 0;
@@ -78,14 +84,17 @@ import { socials } from '../data/socials';
 
   .socials :is(img, .social-icon) {
     display: block;
-    width: 22px;
+    width: auto;
     height: 22px;
+    max-width: none;
     filter: grayscale(1) brightness(1.8);
   }
 
   .social-icon {
+    width: 27.5px;
     color: var(--foreground0);
   }
+
 
   .socials a:hover :is(img, .social-icon) {
     filter: none;
