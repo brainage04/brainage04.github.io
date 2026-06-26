@@ -19,17 +19,20 @@ const pathname = Astro.url.pathname;
   .project-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-block-end: 1rem;
+    gap: 0.65rem;
+    margin-block-end: 1.15rem;
   }
 
   a {
+    background: color-mix(in srgb, var(--background3) 82%, var(--accent-cyan) 8%);
+    color: var(--foreground0);
     text-decoration: none;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground0) 20%, transparent);
   }
 
   a[data-active='true'] {
-    background: var(--foreground0);
+    background: var(--accent-cyan);
     color: var(--background0);
-    text-decoration: none;
+    box-shadow: none;
   }
 </style>

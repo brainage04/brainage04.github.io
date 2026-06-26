@@ -40,7 +40,7 @@ const pathname = Astro.url.pathname;
   .nav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem 1rem;
+    gap: 0.5rem clamp(1.35rem, 3vw, 2.25rem);
     align-items: center;
   }
 

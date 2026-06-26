@@ -102,11 +102,12 @@ hr,
 
 .page-header {
   display: grid;
-  gap: 0.35rem;
-  margin-block-end: clamp(1rem, 3vw, 2rem);
+  gap: clamp(0.6rem, 1.5vw, 0.9rem);
+  margin-block-end: clamp(1.25rem, 3vw, 2.25rem);
 }
 
 .eyebrow {
+  margin: 0;
   color: var(--foreground2);
   text-transform: uppercase;
   letter-spacing: 0.08em;

@@ -39,10 +39,13 @@ const date = pubDate.toLocaleDateString('en-AU', {
   }
 
   header {
+    display: grid;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
     margin-block-end: 2rem;
   }
 
   h1 {
+    margin: 0;
     font-size: clamp(2rem, 6vw, 3.4rem);
     line-height: 1;
     letter-spacing: -0.05em;
@@ -50,6 +53,7 @@ const date = pubDate.toLocaleDateString('en-AU', {
 
   .post-meta,
   .description {
+    margin: 0;
     color: var(--foreground1);
   }
 
