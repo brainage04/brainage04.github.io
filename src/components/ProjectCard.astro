@@ -11,13 +11,13 @@ const status = project.status ?? 'project';
 
 <article class="project-card terminal-panel" box-="square" shear-="top">
   <div class="project-card__meta">
-    <span class="status-badge" is-="badge" variant-="background2" cap-="round" data-status={status}>{status}</span>
+    <span class="status-badge" is-="badge" variant-="background2" data-status={status}>{status}</span>
     <span class="category">{project.category}</span>
   </div>
   <h3><a href={project.url} target="_blank" rel="noreferrer">{project.name}</a></h3>
   <p>{project.description}</p>
   <ul class="tech-list" aria-label={`${project.name} technologies`}>
-    {project.technologies.map((technology) => <li class="tech-badge" is-="badge" variant-="background1" cap-="round">{technology}</li>)}
+    {project.technologies.map((technology) => <li class="tech-badge" is-="badge" variant-="background1">{technology}</li>)}
   </ul>
 </article>
 

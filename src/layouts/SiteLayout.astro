@@ -30,12 +30,19 @@ const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | braina
     <SiteFooter />
     <script is:inline>
       let cursorFrame = 0;
+      let cursorFadeTimer = 0;
       let cursorX = 0;
       let cursorY = 0;
 
+      const root = document.documentElement;
+
+      const fadeCursorGlow = () => {
+        root.dataset.cursorGlow = 'fading';
+      };
+
       const updateCursorGlow = () => {
-        document.documentElement.style.setProperty('--cursor-x', `${cursorX}px`);
-        document.documentElement.style.setProperty('--cursor-y', `${cursorY}px`);
+        root.style.setProperty('--cursor-x', `${cursorX}px`);
+        root.style.setProperty('--cursor-y', `${cursorY}px`);
         cursorFrame = 0;
       };
 
@@ -43,12 +50,15 @@ const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | braina
         if (event.pointerType === 'touch') return;
         cursorX = event.clientX;
         cursorY = event.clientY;
-        document.documentElement.dataset.cursorGlow = 'true';
+        root.dataset.cursorGlow = 'active';
+        clearTimeout(cursorFadeTimer);
+        cursorFadeTimer = window.setTimeout(fadeCursorGlow, 850);
         if (!cursorFrame) cursorFrame = requestAnimationFrame(updateCursorGlow);
       }, { passive: true });
 
       document.addEventListener('pointerleave', () => {
-        document.documentElement.dataset.cursorGlow = 'false';
+        clearTimeout(cursorFadeTimer);
+        fadeCursorGlow();
       });
     </script>
   </body>
