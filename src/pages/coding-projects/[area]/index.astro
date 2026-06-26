@@ -25,7 +25,7 @@ const headingId = (category: string) => `heading-${category.replaceAll(' ', '-')
 
 <SiteLayout title={page.title} description={page.metaDescription}>
   <div class="site-stack">
-    <PageHeader title={page.title} eyebrow={page.eyebrow} description={page.description} />
+    <PageHeader title={page.title} description={page.description} />
     <ProjectTabs />
 
     {Object.entries(groupedProjects).map(([category, items]) => (

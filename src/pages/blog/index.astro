@@ -9,7 +9,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 
 <SiteLayout title="Blog" description="Blog posts by brainage04.">
   <div class="site-stack blog-index">
-    <PageHeader title="Blog" eyebrow="notes" description="Project updates, development notes, and occasional long-form thoughts." />
+    <PageHeader title="Blog" description="Project updates, development notes, and occasional long-form thoughts." />
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>

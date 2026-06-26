@@ -4,7 +4,6 @@ export type ProjectAreaPage = {
   name: string;
   href: string;
   title: string;
-  eyebrow: string;
   description: string;
   metaDescription: string;
   summary: string;
@@ -313,7 +312,6 @@ export const projectAreas = {
     name: 'Java',
     href: '/coding-projects/java/',
     title: 'Java Projects',
-    eyebrow: 'minecraft + modding',
     description: 'Minecraft mods, datapacks, templates, and tools. Most are Fabric projects, with some Forge-era tooling.',
     metaDescription: 'Minecraft mods, datapacks, templates, and tools by brainage04.',
     summary: 'Minecraft/modding/datapack entries',
@@ -322,7 +320,6 @@ export const projectAreas = {
     name: 'Other',
     href: '/coding-projects/other/',
     title: 'Other Projects',
-    eyebrow: 'tools + experiments',
     description: 'C#, Python, data visualisation, browser extensions, Discord bots, and web projects.',
     metaDescription: 'C#, Python, browser extension, Discord bot, and web projects by brainage04.',
     summary: 'C#, Python, web, and tooling entries',
