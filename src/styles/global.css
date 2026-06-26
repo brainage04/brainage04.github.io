@@ -22,6 +22,8 @@
   --panel-bg: color-mix(in srgb, var(--background1) 92%, transparent);
   --panel-border: color-mix(in srgb, var(--foreground2) 68%, transparent);
   --panel-shadow: 0 1.25rem 3rem color-mix(in srgb, #000 28%, transparent);
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
   --font-family: 'Courier New', Courier, monospace;
   color-scheme: dark;
 }
@@ -40,11 +42,7 @@ body {
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   line-height: 1.55;
-  background:
-    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 24rem),
-    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--accent-cyan) 12%, transparent), transparent 24rem),
-    linear-gradient(180deg, color-mix(in srgb, var(--background2) 36%, transparent), transparent 18rem),
-    var(--background0);
+  background: var(--background0);
 }
 
 body::before {
@@ -52,11 +50,23 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--foreground0) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--accent-cyan) 3%, transparent) 1px, transparent 1px);
-  background-size: 100% 1lh, 4rem 100%;
-  opacity: 0.11;
+  background-image: linear-gradient(color-mix(in srgb, var(--foreground0) 4%, transparent) 1px, transparent 1px);
+  background-size: 100% 1lh;
+  opacity: 0.08;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), color-mix(in srgb, var(--accent-cyan) 8%, transparent), transparent 18rem);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+html[data-cursor-glow='true'] body::after {
+  opacity: 1;
 }
 
 main {
