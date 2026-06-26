@@ -1,0 +1,55 @@
+---
+import PageHeader from '../../components/PageHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { groupProjects, projects } from '../../data/projects';
+
+const page = {
+  title: 'Projects',
+  description: 'Projects grouped by intent and scope: larger Minecraft work, smaller utility mods, templates, datapacks, browser tools, websites, and bots.',
+};
+const projectGroups = groupProjects(projects);
+const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
+const headingId = (id: string) => `heading-${id}`;
+---
+
+<SiteLayout title={page.title}>
+  <div class="site-stack">
+    <PageHeader title={page.title} description={page.description} />
+
+    <section class="site-stack" aria-label="Project categories">
+      {projectGroups.map((group) => (
+        <section class="site-stack" aria-labelledby={headingId(group.id)}>
+          <div class="panel-header project-group-header">
+            <div>
+              <h3 id={headingId(group.id)}>{group.label}</h3>
+              <p>{group.summary}</p>
+            </div>
+            <span>{projectCountLabel(group.projects.length)}</span>
+          </div>
+          <div class="grid">
+            {group.projects.map((project) => <ProjectCard project={project} />)}
+          </div>
+        </section>
+      ))}
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  .project-group-header {
+    align-items: start;
+  }
+
+  .project-group-header > div {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 54rem;
+  }
+
+  .project-group-header p {
+    margin: 0;
+    color: var(--foreground1);
+    line-height: 1.45;
+  }
+</style>

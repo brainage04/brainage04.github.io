@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatBlogDate } from '../lib/formatDate';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const date = formatBlogDate(post.data.pubDate);
+---
+
+<article class="blog-card terminal-panel" box-="square" shear-="top">
+  <p class="eyebrow">Published {date}</p>
+  <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
+  <p>{post.data.description}</p>
+</article>
+
+<style>
+  .blog-card {
+    display: grid;
+    gap: 0.65rem;
+    padding: clamp(1.2rem, 2vw, 1.55rem);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.3rem, 3vw, 1.85rem);
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+    color: var(--foreground1);
+  }
+</style>

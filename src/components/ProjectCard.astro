@@ -1,0 +1,101 @@
+---
+import { projectCategories, type Project } from '../data/projects';
+
+export interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const categoryBadge = projectCategories[project.category].badge;
+const statusLabel = project.status === 'coming-soon' ? 'COMING SOON' : project.status.toUpperCase();
+---
+
+<article class="project-card terminal-panel" box-="square" shear-="top">
+  <div class="project-card__meta">
+    <span class="site-badge status-badge" is-="badge" variant-="background2" data-status={project.status}><span class="site-badge__label">{statusLabel}</span></span>
+    <span class="site-badge category-badge" is-="badge" variant-="background3"><span class="site-badge__label">{categoryBadge.toUpperCase()}</span></span>
+  </div>
+  <h3>
+    {project.url ? <a href={project.url} target="_blank" rel="noreferrer">{project.name}</a> : project.name}
+  </h3>
+  <p>{project.description}</p>
+  <ul class="tech-list" aria-label={`${project.name} technologies`}>
+    {project.technologies.map((technology) => <li class="site-badge tech-badge" is-="badge" variant-="background1"><span class="site-badge__label">{technology}</span></li>)}
+  </ul>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    align-content: start;
+    gap: 1.05rem;
+    padding: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.35;
+  }
+
+  .project-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    align-items: center;
+    color: var(--foreground2);
+  }
+
+  .category-badge {
+    --badge-color: color-mix(in srgb, var(--background3) 74%, var(--foreground0) 12%);
+    --badge-text: var(--foreground1);
+    color: var(--badge-text);
+    font-weight: 700;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+    color: var(--foreground1);
+    line-height: 1.5;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .status-badge {
+    --badge-color: color-mix(in srgb, var(--background3) 82%, var(--foreground0) 10%);
+    --badge-text: var(--background0);
+    color: var(--badge-text);
+    font-weight: 700;
+  }
+
+  .status-badge[data-status='released'] {
+    --badge-color: color-mix(in srgb, #56d68a 84%, var(--foreground0));
+  }
+
+  .status-badge[data-status='template'] {
+    --badge-color: color-mix(in srgb, var(--accent-cyan) 82%, var(--foreground0));
+  }
+
+  .status-badge[data-status='wip'] {
+    --badge-color: color-mix(in srgb, var(--accent-yellow) 82%, var(--foreground0));
+  }
+
+  .status-badge[data-status='coming-soon'] {
+    --badge-color: color-mix(in srgb, var(--accent) 82%, var(--foreground0));
+  }
+
+  .tech-badge {
+    --badge-pad: 1.08ch;
+    --badge-color: color-mix(in srgb, var(--background3) 72%, var(--accent-cyan) 18%);
+    --badge-text: var(--foreground0);
+    color: var(--badge-text);
+  }
+</style>
