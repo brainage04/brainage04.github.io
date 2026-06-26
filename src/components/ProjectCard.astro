@@ -11,13 +11,13 @@ const status = project.status ?? 'project';
 
 <article class="project-card terminal-panel" box-="square" shear-="top">
   <div class="project-card__meta">
-    <span class="status-badge" is-="badge" variant-="background2" data-status={status}>{status}</span>
+    <span class="status-badge" is-="badge" variant-="background2" data-status={status}><span class="badge-label">{status.toUpperCase()}</span></span>
     <span class="category">{project.category}</span>
   </div>
   <h3><a href={project.url} target="_blank" rel="noreferrer">{project.name}</a></h3>
   <p>{project.description}</p>
   <ul class="tech-list" aria-label={`${project.name} technologies`}>
-    {project.technologies.map((technology) => <li class="tech-badge" is-="badge" variant-="background1">{technology}</li>)}
+    {project.technologies.map((technology) => <li class="tech-badge" is-="badge" variant-="background1"><span class="badge-label">{technology}</span></li>)}
   </ul>
 </article>
 
@@ -43,6 +43,7 @@ const status = project.status ?? 'project';
     color: var(--foreground2);
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    transform: translateY(1px);
   }
 
   h3 {
@@ -66,6 +67,36 @@ const status = project.status ?? 'project';
     list-style: none;
   }
 
+  .status-badge,
+  .tech-badge {
+    --badge-pad: 1.18ch;
+    align-items: center;
+    height: calc(1lh + 2px);
+    line-height: 1lh;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(var(--badge-pad) - 1px),
+      var(--badge-color) calc(var(--badge-pad) - 1px),
+      var(--badge-color) calc(100% - var(--badge-pad) + 1px),
+      transparent calc(100% - var(--badge-pad) + 1px),
+      transparent
+    );
+  }
+
+  .status-badge::before,
+  .status-badge::after,
+  .tech-badge::before,
+  .tech-badge::after {
+    width: var(--badge-pad);
+    height: 100%;
+  }
+
+  .badge-label {
+    display: block;
+    transform: translateY(0.75px);
+  }
+
   .status-badge {
     --badge-color: color-mix(in srgb, var(--background3) 82%, var(--foreground0) 10%);
     --badge-text: var(--background0);
@@ -87,6 +118,7 @@ const status = project.status ?? 'project';
   }
 
   .tech-badge {
+    --badge-pad: 1.08ch;
     --badge-color: color-mix(in srgb, var(--background3) 72%, var(--accent-cyan) 18%);
     --badge-text: var(--foreground0);
     color: var(--badge-text);
