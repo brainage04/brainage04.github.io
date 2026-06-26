@@ -35,26 +35,30 @@ const date = pubDate.toLocaleDateString('en-AU', {
   .blog-post {
     width: min(100%, 82ch);
     margin-inline: auto;
-    padding: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.2rem, 3vw, 2.25rem);
   }
 
   header {
     display: grid;
-    gap: clamp(0.6rem, 1.5vw, 0.9rem);
-    margin-block-end: 2rem;
+    gap: clamp(0.75rem, 1.6vw, 1.1rem);
+    margin-block-end: 2.25rem;
   }
 
   h1 {
     margin: 0;
-    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-size: clamp(2.05rem, 6vw, 3.55rem);
     line-height: 1;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
   }
 
   .post-meta,
   .description {
     margin: 0;
     color: var(--foreground1);
+  }
+
+  .prose {
+    line-height: 1.65;
   }
 
   .prose :global(p),

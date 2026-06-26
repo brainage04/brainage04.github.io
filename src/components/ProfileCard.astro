@@ -27,19 +27,22 @@ import { socials } from '../data/socials';
   .profile-card {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: clamp(1rem, 4vw, 2rem);
+    gap: clamp(1.15rem, 4vw, 2.25rem);
     align-items: center;
   }
 
   .avatar {
     width: clamp(6rem, 18vw, 10rem);
     border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--accent-cyan) 38%, transparent);
+    box-shadow: 0 0 2rem color-mix(in srgb, var(--accent-cyan) 18%, transparent);
     image-rendering: auto;
   }
 
   .profile-copy {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.55rem;
+    line-height: 1.35;
   }
 
   .name-row {
@@ -85,6 +88,19 @@ import { socials } from '../data/socials';
   @media (max-width: 620px) {
     .profile-card {
       grid-template-columns: 1fr;
+    }
+    .avatar {
+      justify-self: center;
+    }
+
+    .profile-card,
+    .name-row,
+    .socials {
+      justify-content: center;
+    }
+
+    .profile-copy {
+      text-align: center;
     }
   }
 </style>

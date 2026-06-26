@@ -25,66 +25,71 @@ const status = project.status ?? 'project';
   .project-card {
     display: grid;
     align-content: start;
-    gap: 0.8rem;
-    padding: clamp(1.15rem, 2vw, 1.45rem);
-    line-height: 1.25;
+    gap: 0.95rem;
+    padding: clamp(1.25rem, 2vw, 1.55rem);
+    line-height: 1.35;
   }
 
   .project-card__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem 0.65rem;
+    gap: 0.5rem 0.75rem;
     align-items: center;
     color: var(--foreground2);
   }
 
   .category {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     color: var(--foreground2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   h3 {
     margin: 0;
-    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-    line-height: 1.15;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.2;
   }
 
   p {
     margin: 0;
     color: var(--foreground1);
+    line-height: 1.5;
   }
 
   .tech-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem 0.65rem;
+    gap: 0.5rem 0.7rem;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   .status-badge {
-    background: color-mix(in srgb, var(--background3) 85%, var(--foreground0) 8%);
+    padding-inline: 0.45rem;
+    background: color-mix(in srgb, var(--background3) 82%, var(--foreground0) 10%);
     color: var(--foreground0);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground0) 22%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground0) 26%, transparent);
   }
 
   .status-badge[data-status='released'] {
-    background: color-mix(in srgb, #56d68a 32%, var(--background2));
+    background: color-mix(in srgb, #56d68a 40%, var(--background2));
   }
 
   .status-badge[data-status='template'] {
-    background: color-mix(in srgb, var(--accent-cyan) 34%, var(--background2));
+    background: color-mix(in srgb, var(--accent-cyan) 42%, var(--background2));
   }
 
   .status-badge[data-status='wip'],
   .status-badge[data-status='private'] {
-    background: color-mix(in srgb, var(--accent-yellow) 36%, var(--background2));
+    background: color-mix(in srgb, var(--accent-yellow) 44%, var(--background2));
   }
 
   .tech-badge {
-    background: color-mix(in srgb, var(--background3) 78%, var(--accent-cyan) 10%);
+    padding-inline: 0.45rem;
+    background: color-mix(in srgb, var(--background3) 68%, var(--accent-cyan) 20%);
     color: var(--foreground0);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground0) 18%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-cyan) 25%, transparent);
   }
 </style>
