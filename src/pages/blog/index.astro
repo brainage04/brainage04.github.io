@@ -7,9 +7,9 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<SiteLayout title="Blog" description="Blog posts by brainage04.">
+<SiteLayout title="Blog" description="Blog posts by brainage04. Dates are shown in AEST.">
   <div class="site-stack blog-index">
-    <PageHeader title="Blog" description="Project updates, development notes, and occasional long-form thoughts." />
+    <PageHeader title="Blog" description="Project updates, development notes, and occasional long-form thoughts. Dates are shown in AEST." />
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>

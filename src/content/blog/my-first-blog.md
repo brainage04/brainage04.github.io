@@ -10,7 +10,7 @@ I'll use this to talk about anything software related that's too long for Twitte
 
 I'm almost done with university for the year now - I have 1 assignment due this week, 2 due next week, and 1 exam the week after that. Then I'm all done!
 
-Once I'm finished with university form the year, I have a list of things I want to do:
+Once I'm finished with university for the year, I have a list of things I want to do:
 
 1. Continue work on personal projects (BrainageHUD, SkyBrain/SkyBrainDB, post on SkyBrain/SkyBrainDB coming soon?)
 2. Work more hours at my current part time job to save more money (~25 hours/week)

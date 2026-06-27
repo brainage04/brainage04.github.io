@@ -11,7 +11,7 @@ const date = formatBlogDate(post.data.pubDate);
 ---
 
 <article class="blog-card terminal-panel" box-="square" shear-="top">
-  <p class="eyebrow">{date}</p>
+  <p class="eyebrow">Published {date}</p>
   <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
   <p>{post.data.description}</p>
 </article>

@@ -20,7 +20,7 @@ I have another list of things I want to do:
 2. Learn about Android emulation (mostly cause I wanna use AstroDX on my PC lol)
 3. Continue working on a basic MaiMai chart viewer/editor (with C# and Avalonia - not yet sure if this is a good choice of tooling lol)
 
-Here are my previous blog's non-work related goals for references:
+Here are my previous blog's non-work related goals for reference:
 
 - Maimai: first 14 S rank (current best is ~96.5%, ~0.5% away)
 - SDVX: first 17 pass
@@ -30,7 +30,7 @@ Here's some updates for those:
 
 - Maimai: countless 14 and 14+ S ranks (best 14 is ~100.2%, best 14+ is ~99.25%)
 - SDVX: countless 17 passes (first 17 S!!!, at home), a 16 PUC!!! (at home), and several 18 AA+'s
-- DDR: 3 17 AAA's, countless 18 AA+'s' (2 over 970k!!!), and 2 16 PFC's!!!
+- DDR: 3 17 AAA's, countless 18 AA+'s (2 over 970k!!!), and 2 16 PFC's!!!
 
 I also started taking Taiko more seriously, and have passed 2 Extreme 10* maps!!! I have also gotten 987k with 17 OK's on Supernova [Hard] 8*, which is one of my best accuracy scores (outside of my DFC on Rabbit Hole lol).
 
