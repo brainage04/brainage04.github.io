@@ -1,18 +1,19 @@
 ---
-import type { Project } from '../data/projects';
+import { projectCategories, type Project } from '../data/projects';
 
 export interface Props {
   project: Project;
 }
 
 const { project } = Astro.props;
+const categoryBadge = projectCategories[project.category].badge;
 const statusLabel = project.status === 'coming-soon' ? 'COMING SOON' : project.status.toUpperCase();
 ---
 
 <article class="project-card terminal-panel" box-="square" shear-="top">
   <div class="project-card__meta">
     <span class="site-badge status-badge" is-="badge" variant-="background2" data-status={project.status}><span class="site-badge__label">{statusLabel}</span></span>
-    <span class="site-badge category-badge" is-="badge" variant-="background3"><span class="site-badge__label">{project.category.toUpperCase()}</span></span>
+    <span class="site-badge category-badge" is-="badge" variant-="background3"><span class="site-badge__label">{categoryBadge.toUpperCase()}</span></span>
   </div>
   <h3>
     {project.url ? <a href={project.url} target="_blank" rel="noreferrer">{project.name}</a> : project.name}
