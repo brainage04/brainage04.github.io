@@ -4,12 +4,16 @@ import BlogCard from '../../components/BlogCard.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
+const page = {
+  title: 'Blog',
+  description: 'Project updates, dev notes, and occasional long-form thoughts!',
+};
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<SiteLayout title="Blog" description="Project updates, dev notes, and occasional long-form thoughts!">
+<SiteLayout title={page.title}>
   <div class="site-stack blog-index">
-    <PageHeader title="Blog" description="Project updates, dev notes, and occasional long-form thoughts!" />
+    <PageHeader title={page.title} description={page.description} />
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>

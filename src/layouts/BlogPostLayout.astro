@@ -13,7 +13,7 @@ const { title, description, pubDate, author } = Astro.props;
 const date = formatBlogDate(pubDate);
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout title={title}>
   <article class="blog-post terminal-panel" box-="square" shear-="top">
     <header>
       <h1>{title}</h1>

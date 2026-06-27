@@ -5,10 +5,9 @@ import '../styles/global.css';
 
 export interface Props {
   title: string;
-  description?: string;
 }
 
-const { title, description = 'Portfolio, projects, and blog for brainage04.' } = Astro.props;
+const { title } = Astro.props;
 const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | brainage04`;
 ---
 
@@ -17,7 +16,6 @@ const pageTitle = title === 'Home' ? "brainage04's Website" : `${title} | braina
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/jpeg" href="/assets/images/graphic-design/profile-pictures/brainage04.jpg" />
   </head>

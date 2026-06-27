@@ -6,12 +6,16 @@ import TerminalPanel from '../components/TerminalPanel.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { getFeaturedProjects } from '../data/projects';
 
+const page = {
+  title: 'Home',
+  description: "I'm a software developer based in Brisbane, Queensland, Australia that makes browser extensions, websites, various tools, and a lot of Minecraft mods."
+};
 const featuredProjects = getFeaturedProjects();
 ---
 
-<SiteLayout title="Home" description="Portfolio, projects, and blog for Thomas (brainage04).">
+<SiteLayout title={page.title}>
   <div class="site-stack">
-    <PageHeader title="Home" description="I'm a software developer based in Brisbane, Queensland, Australia that makes browser extensions, websites, various tools, and a lot of Minecraft mods." />
+    <PageHeader title={page.title} description={page.description} />
 
     <ProfileCard />
 

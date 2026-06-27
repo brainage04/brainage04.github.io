@@ -1,45 +1,34 @@
 ---
 import PageHeader from '../../components/PageHeader.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import ProjectTabs from '../../components/ProjectTabs.astro';
-import TerminalPanel from '../../components/TerminalPanel.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getFeaturedProjects, getProjectsByArea, projectAreaEntries } from '../../data/projects';
+import { getFeaturedProjects, groupProjects, projects } from '../../data/projects';
 
-const projectAreaSummaries = projectAreaEntries.map(([area, page]) => ({
-  ...page,
-  count: getProjectsByArea(area).length,
-}));
-const featuredProjects = getFeaturedProjects();
+const page = {
+  title: 'Projects',
+  description: 'Minecraft mods, datapacks, browser extensions, websites, Discord bots, and other software projects.',
+};
+const groupedProjects = groupProjects(projects);
+const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
+const headingId = (category: string) => `heading-${category.replaceAll(' ', '-').toLowerCase()}`;
 ---
 
-<SiteLayout title="Projects" description="Browser extensions, websites, various tools, and a lot of Minecraft mods.">
+<SiteLayout title={page.title}>
   <div class="site-stack">
-    <PageHeader title="Projects" description="Browser extensions, websites, various tools, and a lot of Minecraft mods." />
-    <ProjectTabs />
+    <PageHeader title={page.title} description={page.description} />
 
-    <div class="two-column">
-      <TerminalPanel title="Project areas">
-        <ul marker-="tree">
-          {projectAreaSummaries.map((area) => (
-            <li><a href={area.href}>{area.title}</a> - {area.count} {area.summary}</li>
-          ))}
-        </ul>
-      </TerminalPanel>
-      <TerminalPanel title="Notes">
-        <p>
-          Java projects are separated because most of my work is Minecraft related. Other projects cover Python, browser extensions, bots, and this website.
-        </p>
-      </TerminalPanel>
-    </div>
-
-    <section class="site-stack" aria-labelledby="featured-heading">
-      <div class="panel-header">
-        <h2 id="featured-heading">Featured</h2>
-      </div>
-      <div class="grid">
-        {featuredProjects.map((project) => <ProjectCard project={project} />)}
-      </div>
+    <section class="site-stack" aria-labelledby="all-projects-heading">
+      {Object.entries(groupedProjects).map(([category, items]) => (
+        <section class="site-stack" aria-labelledby={headingId(category)}>
+          <div class="panel-header">
+            <h3 id={headingId(category)}>{category}</h3>
+            <span>{projectCountLabel(items.length)}</span>
+          </div>
+          <div class="grid">
+            {items.map((project) => <ProjectCard project={project} />)}
+          </div>
+        </section>
+      ))}
     </section>
   </div>
 </SiteLayout>

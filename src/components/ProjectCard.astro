@@ -6,14 +6,17 @@ export interface Props {
 }
 
 const { project } = Astro.props;
+const statusLabel = project.status === 'coming-soon' ? 'COMING SOON' : project.status.toUpperCase();
 ---
 
 <article class="project-card terminal-panel" box-="square" shear-="top">
   <div class="project-card__meta">
-    <span class="site-badge status-badge" is-="badge" variant-="background2" data-status={project.status}><span class="site-badge__label">{project.status.toUpperCase()}</span></span>
+    <span class="site-badge status-badge" is-="badge" variant-="background2" data-status={project.status}><span class="site-badge__label">{statusLabel}</span></span>
     <span class="site-badge category-badge" is-="badge" variant-="background3"><span class="site-badge__label">{project.category.toUpperCase()}</span></span>
   </div>
-  <h3><a href={project.url} target="_blank" rel="noreferrer">{project.name}</a></h3>
+  <h3>
+    {project.url ? <a href={project.url} target="_blank" rel="noreferrer">{project.name}</a> : project.name}
+  </h3>
   <p>{project.description}</p>
   <ul class="tech-list" aria-label={`${project.name} technologies`}>
     {project.technologies.map((technology) => <li class="site-badge tech-badge" is-="badge" variant-="background1"><span class="site-badge__label">{technology}</span></li>)}
@@ -65,7 +68,6 @@ const { project } = Astro.props;
     list-style: none;
   }
 
-
   .status-badge {
     --badge-color: color-mix(in srgb, var(--background3) 82%, var(--foreground0) 10%);
     --badge-text: var(--background0);
@@ -83,6 +85,10 @@ const { project } = Astro.props;
 
   .status-badge[data-status='wip'] {
     --badge-color: color-mix(in srgb, var(--accent-yellow) 82%, var(--foreground0));
+  }
+
+  .status-badge[data-status='coming-soon'] {
+    --badge-color: color-mix(in srgb, var(--accent) 82%, var(--foreground0));
   }
 
   .tech-badge {
