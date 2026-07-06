@@ -16,7 +16,7 @@ export const socials: SocialLink[] = [
   },
   {
     name: 'Twitter / X',
-    href: 'https://x.com/brainage04',
+    href: 'https://x.com/brainage19',
     icon: '/assets/images/socials/x.png',
     iconWidth: 2400,
     iconHeight: 2453,
