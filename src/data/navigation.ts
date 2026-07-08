@@ -1,16 +1,18 @@
 export type NavItem = {
   name: string;
   href: string;
-  match?: (pathname: string) => boolean;
+  match?: string;
+  activeMode?: 'exact' | 'prefix';
 };
 
 export const navigation: NavItem[] = [
-  { name: 'Home', href: '/', match: (pathname) => pathname === '/' },
+  { name: 'Home', href: '/', match: '/', activeMode: 'exact' },
   {
     name: 'Projects',
     href: '/projects/',
-    match: (pathname) => pathname.startsWith('/projects'),
+    match: '/projects/',
+    activeMode: 'prefix',
   },
-  { name: 'Blog', href: '/blog/', match: (pathname) => pathname.startsWith('/blog') },
+  { name: 'Blog', href: '/blog/', match: '/blog/', activeMode: 'prefix' },
   { name: 'Recipes', href: '/BakingCookingRecipes/' },
 ];
