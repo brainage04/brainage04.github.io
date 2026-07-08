@@ -14,7 +14,7 @@
     "@astrojs/markdown-satteri": "0.3.2",
     "@brainage04/astro-shell": "^0.2.1",
     "@webtui/css": "0.1.9",
-    "astro": "7.0.3",
+    "astro": "7.0.6",
     "typescript": "6.0.3"
   }
 }
