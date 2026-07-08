@@ -12,4 +12,5 @@ export const navigation: NavItem[] = [
     match: (pathname) => pathname.startsWith('/projects'),
   },
   { name: 'Blog', href: '/blog/', match: (pathname) => pathname.startsWith('/blog') },
+  { name: 'Recipes', href: '/BakingCookingRecipes/' },
 ];
