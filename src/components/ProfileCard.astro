@@ -56,6 +56,7 @@ import { socials } from '../data/socials';
   h2 {
     margin: 0;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1;
   }
 
 
@@ -65,24 +66,28 @@ import { socials } from '../data/socials';
   }
 
   .socials {
+    --social-icon-height: 22px;
     display: flex;
     flex-wrap: wrap;
     gap: 0.65rem;
     align-items: center;
+    line-height: 0;
   }
 
   .socials a {
-    display: inline-grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 1.5rem;
-    min-height: 1.5rem;
+    min-height: var(--social-icon-height);
   }
 
   .socials :is(img, .social-icon) {
     display: block;
     width: auto;
-    height: 22px;
+    height: var(--social-icon-height);
     max-width: none;
+    object-fit: contain;
     filter: grayscale(1) brightness(1.8);
   }
 

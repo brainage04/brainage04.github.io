@@ -1,28 +1,30 @@
 ---
-import PageHeader from '@brainage04/astro-shell/components/PageHeader.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { groupProjects, projects } from '../../data/projects';
 
-const page = {
-  title: 'Projects',
-  description: 'Projects grouped by intent and scope: larger Minecraft work, smaller utility mods, templates, datapacks, browser tools, websites, and bots.',
-};
 const projectGroups = groupProjects(projects);
 const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 const headingId = (id: string) => `heading-${id}`;
 ---
 
-<SiteLayout title={page.title}>
+<SiteLayout title="Projects">
   <div class="site-stack">
-    <PageHeader title={page.title} description={page.description} />
+    <nav class="project-toc terminal-panel" box-="square" shear-="top" aria-labelledby="project-toc-title">
+      <h1 id="project-toc-title">Table of Contents</h1>
+      <ol>
+        {projectGroups.map((group) => (
+          <li><a href={`#${group.id}`}>{group.label}</a></li>
+        ))}
+      </ol>
+    </nav>
 
     <section class="site-stack" aria-label="Project categories">
       {projectGroups.map((group) => (
-        <section class="site-stack" aria-labelledby={headingId(group.id)}>
+        <section id={group.id} class="site-stack" aria-labelledby={headingId(group.id)}>
           <div class="panel-header project-group-header">
             <div>
-              <h3 id={headingId(group.id)}>{group.label}</h3>
+              <h2 id={headingId(group.id)}>{group.label}</h2>
               <p>{group.summary}</p>
             </div>
             <span>{projectCountLabel(group.projects.length)}</span>
@@ -37,6 +39,22 @@ const headingId = (id: string) => `heading-${id}`;
 </SiteLayout>
 
 <style>
+  .project-toc h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  .project-toc ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 0.55rem 2rem;
+    margin: 0;
+  }
+
+  .project-toc a {
+    font-weight: 700;
+  }
+
   .project-group-header {
     align-items: start;
   }

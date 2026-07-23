@@ -1,19 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../../components/BlogCard.astro';
-import PageHeader from '@brainage04/astro-shell/components/PageHeader.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
-const page = {
-  title: 'Blog',
-  description: 'Project updates, dev notes, and occasional long-form thoughts!',
-};
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<SiteLayout title={page.title}>
+<SiteLayout title="Blog">
   <div class="site-stack blog-index">
-    <PageHeader title={page.title} description={page.description} />
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>

@@ -1,21 +1,15 @@
 ---
-import PageHeader from '@brainage04/astro-shell/components/PageHeader.astro';
 import ProfileCard from '../components/ProfileCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TerminalPanel from '@brainage04/astro-shell/components/TerminalPanel.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { getFeaturedProjects } from '../data/projects';
 
-const page = {
-  title: 'Home',
-  description: "I'm a software developer based in Brisbane, Queensland, Australia that makes browser extensions, websites, various tools, and a lot of Minecraft mods."
-};
 const featuredProjects = getFeaturedProjects();
 ---
 
-<SiteLayout title={page.title}>
+<SiteLayout title="Home">
   <div class="site-stack">
-    <PageHeader title={page.title} description={page.description} />
 
     <ProfileCard />
 
