@@ -70,4 +70,19 @@ const date = formatBlogDate(pubDate);
   .prose :global(ol) {
     max-width: 72ch;
   }
+  @media (max-width: 520px) {
+    .blog-post {
+      padding: 1rem;
+    }
+
+    header {
+      margin-block-end: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 10vw, 2.25rem);
+      line-height: 1.05;
+    }
+  }
+
 </style>

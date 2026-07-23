@@ -108,7 +108,10 @@ import { socials } from '../data/socials';
   @media (max-width: 620px) {
     .profile-card {
       grid-template-columns: 1fr;
+      gap: 1.1rem;
+      padding: 1.15rem;
     }
+
     .avatar {
       justify-self: center;
     }
@@ -120,7 +123,13 @@ import { socials } from '../data/socials';
     }
 
     .profile-copy {
+      max-width: 34ch;
+      margin-inline: auto;
       text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 8vw, 2rem);
     }
   }
 </style>

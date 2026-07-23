@@ -70,4 +70,15 @@ const headingId = (id: string) => `heading-${id}`;
     color: var(--foreground1);
     line-height: 1.45;
   }
+  @media (max-width: 520px) {
+    .project-toc ol {
+      gap: 0.65rem;
+    }
+
+    .project-group-header {
+      display: grid;
+      justify-items: start;
+    }
+  }
+
 </style>
