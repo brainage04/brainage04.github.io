@@ -1,12 +1,10 @@
 ---
 import ProjectCard from '../../components/ProjectCard.astro';
-import ProjectShowcase from '../../components/ProjectShowcase.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getFeaturedProjects, groupProjects, projects } from '../../data/projects';
+import { groupProjects, projects } from '../../data/projects';
+import { githubStarLists } from '../../data/starLists';
 
-const showcaseProjects = getFeaturedProjects().slice(0, 3);
-const showcaseNames = new Set(showcaseProjects.map((project) => project.name));
-const projectGroups = groupProjects(projects.filter((project) => !showcaseNames.has(project.name)));
+const projectGroups = groupProjects(projects);
 const releasedCount = projects.filter((project) => project.status === 'released' || project.status === 'template').length;
 const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 const headingId = (id: string) => `heading-${id}`;
@@ -15,28 +13,19 @@ const headingId = (id: string) => `heading-${id}`;
 <SiteLayout title="Projects">
   <div class="projects-page">
     <header class="projects-hero">
-      <p class="eyebrow">Selected engineering and experiments</p>
-      <h1>Projects worth opening.</h1>
-      <p>Minecraft systems, browser extensions, websites and reusable developer tooling. The strongest work is surfaced first; everything else remains available in the catalogue.</p>
+      <p class="eyebrow">What I make</p>
+      <h1>Projects</h1>
+      <ul class="project-types" aria-label="GitHub star list categories">
+        {githubStarLists.map((list) => (
+          <li><strong>{list.name}</strong><span>{list.description}</span></li>
+        ))}
+      </ul>
       <dl>
         <div><dt>{projects.length}</dt><dd>Total projects</dd></div>
         <div><dt>{releasedCount}</dt><dd>Released or reusable</dd></div>
         <div><dt>{projectGroups.length}</dt><dd>Project categories</dd></div>
       </dl>
     </header>
-
-    <section aria-labelledby="showcase-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Featured work</p>
-          <h2 id="showcase-title">Start here</h2>
-        </div>
-        <p>Three representative projects</p>
-      </div>
-      <div class="showcase-grid">
-        {showcaseProjects.map((project, index) => <ProjectShowcase project={project} index={index} />)}
-      </div>
-    </section>
 
     <section class="catalogue" aria-labelledby="catalogue-title">
       <div class="catalogue-heading">
@@ -98,18 +87,42 @@ const headingId = (id: string) => `heading-${id}`;
   }
 
   .projects-hero h1 {
-    max-width: 14ch;
     margin: 0;
     font-size: clamp(3rem, 10vw, 6.8rem);
     line-height: 0.86;
     letter-spacing: -0.075em;
   }
 
-  .projects-hero > p:nth-child(3) {
-    max-width: 66ch;
-    margin: 0;
+  .project-types {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0.5rem 0 0;
+    padding: 1px;
+    background: var(--border-subtle);
+    list-style: none;
+  }
+
+  .project-types li {
+    min-width: 0;
+    display: grid;
+    gap: 0.4rem;
+    padding: 0.9rem;
+    background: var(--surface);
+  }
+
+  .project-types li::before {
+    content: none;
+  }
+
+  .project-types strong {
+    color: var(--accent-cyan);
+    font-size: 0.86rem;
+  }
+
+  .project-types span {
     color: var(--foreground1);
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-size: 0.86rem;
   }
 
   .projects-hero dl {
@@ -138,7 +151,6 @@ const headingId = (id: string) => `heading-${id}`;
     font-size: 0.8rem;
   }
 
-  .section-heading,
   .catalogue-heading,
   .project-group-header {
     display: flex;
@@ -148,36 +160,16 @@ const headingId = (id: string) => `heading-${id}`;
     gap: 0.8rem 1.5rem;
   }
 
-  .section-heading {
-    margin-block-end: 1.4rem;
-    padding-block-end: 0.8rem;
-    border-block-end: 1px solid var(--border-subtle);
-  }
-
-  .section-heading > div,
   .catalogue-heading > div {
     display: grid;
     gap: 0.5rem;
   }
 
-  .section-heading h2,
   .catalogue-heading h2 {
     margin: 0;
     font-size: clamp(1.9rem, 5vw, 3rem);
     line-height: 1;
     letter-spacing: -0.045em;
-  }
-
-  .section-heading > p {
-    margin: 0;
-    color: var(--foreground2);
-    font: 0.78rem/1.2 var(--font-mono);
-  }
-
-  .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(0.9rem, 2vw, 1.3rem);
   }
 
   .catalogue {
@@ -262,7 +254,6 @@ const headingId = (id: string) => `heading-${id}`;
   }
 
   @media (max-width: 900px) {
-    .showcase-grid,
     .catalogue-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -272,28 +263,27 @@ const headingId = (id: string) => `heading-${id}`;
     }
 
     .category-nav--mobile {
-      width: 100%;
       display: block;
+      width: 100%;
       border-block: 1px solid var(--border-subtle);
-      padding-block: 0.75rem;
     }
 
     .category-nav--mobile summary {
       cursor: pointer;
+      padding-block: 0.8rem;
       color: var(--accent-cyan);
-      font: 700 0.85rem/1.2 var(--font-mono);
+      font: 700 0.78rem/1.2 var(--font-mono);
     }
 
     .category-nav--mobile nav {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 0.45rem;
-      padding-block-start: 0.8rem;
+      padding-block: 0 0.8rem;
     }
   }
 
-  @media (max-width: 620px) {
-    .showcase-grid,
+  @media (max-width: 600px) {
+    .project-types,
     .catalogue-grid {
       grid-template-columns: 1fr;
     }
