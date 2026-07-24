@@ -5,7 +5,6 @@ import { groupProjects, projects } from '../../data/projects';
 import { githubStarLists } from '../../data/starLists';
 
 const projectGroups = groupProjects(projects);
-const releasedCount = projects.filter((project) => project.status === 'released' || project.status === 'template').length;
 const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 const headingId = (id: string) => `heading-${id}`;
 ---
@@ -20,11 +19,6 @@ const headingId = (id: string) => `heading-${id}`;
           <li><strong>{list.name}</strong><span>{list.description}</span></li>
         ))}
       </ul>
-      <dl>
-        <div><dt>{projects.length}</dt><dd>Total projects</dd></div>
-        <div><dt>{releasedCount}</dt><dd>Released or reusable</dd></div>
-        <div><dt>{projectGroups.length}</dt><dd>Project categories</dd></div>
-      </dl>
     </header>
 
     <section class="catalogue" aria-labelledby="catalogue-title">
@@ -34,21 +28,25 @@ const headingId = (id: string) => `heading-${id}`;
           <h2 id="catalogue-title">Browse by category</h2>
         </div>
 
-        <nav class="category-nav category-nav--desktop" aria-label="Project categories">
-          {projectGroups.map((group) => <a href={`#${group.id}`}>{group.label}</a>)}
-        </nav>
-
-        <details class="category-nav category-nav--mobile">
-          <summary>Browse categories</summary>
-          <nav aria-label="Project categories">
-            {projectGroups.map((group) => <a href={`#${group.id}`}>{group.label}</a>)}
-          </nav>
-        </details>
+        <fieldset class="category-filters">
+          <legend class="sr-only">Filter projects by category</legend>
+          <ul>
+            {projectGroups.map((group) => (
+              <li>
+                <label>
+                  <input type="checkbox" value={group.id} data-category-filter checked />
+                  <span>{group.label}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+        <p class="filter-summary" id="filter-summary" aria-live="polite">{projectCountLabel(projects.length)} shown</p>
       </div>
 
       <div class="project-groups">
         {projectGroups.map((group) => (
-          <section id={group.id} class="project-group" aria-labelledby={headingId(group.id)}>
+          <section id={group.id} class="project-group" data-project-group={group.id} data-project-count={group.projects.length} aria-labelledby={headingId(group.id)}>
             <header class="project-group-header">
               <div>
                 <h3 id={headingId(group.id)}>{group.label}</h3>
@@ -66,6 +64,29 @@ const headingId = (id: string) => `heading-${id}`;
   </div>
 </SiteLayout>
 
+<script>
+  const filters = Array.from(document.querySelectorAll<HTMLInputElement>('[data-category-filter]'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-project-group]'));
+  const summary = document.querySelector<HTMLElement>('#filter-summary');
+
+  const applyFilters = () => {
+    const selectedCategories = new Set(filters.filter((filter) => filter.checked).map((filter) => filter.value));
+    let visibleProjectCount = 0;
+
+    for (const group of groups) {
+      const isVisible = selectedCategories.has(group.dataset.projectGroup ?? '');
+      group.hidden = !isVisible;
+      if (isVisible) visibleProjectCount += Number(group.dataset.projectCount ?? 0);
+    }
+
+    if (summary) {
+      summary.textContent = `${visibleProjectCount} ${visibleProjectCount === 1 ? 'project' : 'projects'} shown`;
+    }
+  };
+
+  for (const filter of filters) filter.addEventListener('change', applyFilters);
+  applyFilters();
+</script>
 <style>
   .projects-page {
     display: grid;
@@ -125,31 +146,6 @@ const headingId = (id: string) => `heading-${id}`;
     font-size: 0.86rem;
   }
 
-  .projects-hero dl {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1px;
-    margin: 1.5rem 0 0;
-    background: var(--border-subtle);
-  }
-
-  .projects-hero dl > div {
-    min-width: 10rem;
-    flex: 1 1 10rem;
-    padding: 1rem;
-    background: var(--surface);
-  }
-
-  .projects-hero dt {
-    color: var(--accent);
-    font: 700 clamp(1.5rem, 4vw, 2.2rem)/1 var(--font-mono);
-  }
-
-  .projects-hero dd {
-    margin: 0.45rem 0 0;
-    color: var(--foreground2);
-    font-size: 0.8rem;
-  }
 
   .catalogue-heading,
   .project-group-header {
@@ -178,32 +174,53 @@ const headingId = (id: string) => `heading-${id}`;
   }
 
   .catalogue-heading {
+    display: grid;
     align-items: start;
+    justify-content: start;
   }
 
-  .category-nav--desktop {
-    max-width: 42rem;
+  .category-filters {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .category-filters ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .category-filters li::before {
+    content: none;
+  }
+
+  .category-filters label {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.45rem;
-  }
-
-  .category-nav a {
-    padding: 0.4rem 0.55rem;
-    border: 1px solid var(--border-subtle);
+    align-items: start;
+    justify-content: flex-start;
+    gap: 0.65rem;
     color: var(--foreground1);
-    font: 700 0.7rem/1.2 var(--font-mono);
-    text-decoration: none;
+    cursor: pointer;
   }
 
-  .category-nav a:hover {
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
+  .category-filters input {
+    flex: none;
+    inline-size: 1rem;
+    block-size: 1rem;
+    margin: 0.2em 0 0;
+    accent-color: var(--accent);
   }
 
-  .category-nav--mobile {
-    display: none;
+  .filter-summary {
+    margin: -0.75rem 0 0;
+    color: var(--foreground2);
+    font: 0.72rem/1.2 var(--font-mono);
+    text-align: left;
   }
 
   .project-groups {
@@ -258,28 +275,6 @@ const headingId = (id: string) => `heading-${id}`;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .category-nav--desktop {
-      display: none;
-    }
-
-    .category-nav--mobile {
-      display: block;
-      width: 100%;
-      border-block: 1px solid var(--border-subtle);
-    }
-
-    .category-nav--mobile summary {
-      cursor: pointer;
-      padding-block: 0.8rem;
-      color: var(--accent-cyan);
-      font: 700 0.78rem/1.2 var(--font-mono);
-    }
-
-    .category-nav--mobile nav {
-      display: grid;
-      gap: 0.45rem;
-      padding-block: 0 0.8rem;
-    }
   }
 
   @media (max-width: 600px) {
@@ -288,9 +283,9 @@ const headingId = (id: string) => `heading-${id}`;
       grid-template-columns: 1fr;
     }
 
-    .projects-hero dl > div {
-      min-width: 0;
-      flex-basis: calc(50% - 1px);
+    .category-filters ul {
+      grid-template-columns: 1fr;
     }
+
   }
 </style>
