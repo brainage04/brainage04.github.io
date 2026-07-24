@@ -2,87 +2,257 @@
 import SiteLayout from './SiteLayout.astro';
 import { formatBlogDate } from '../lib/formatDate';
 
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface PostLink {
+  title: string;
+  href: string;
+}
+
 export interface Props {
   title: string;
   description: string;
   pubDate: Date;
   author: string;
+  topic: string;
+  readingMinutes: number;
+  headings?: Heading[];
+  previous?: PostLink;
+  next?: PostLink;
 }
 
-const { title, description, pubDate, author } = Astro.props;
+const { title, description, pubDate, author, topic, readingMinutes, headings = [], previous, next } = Astro.props;
 const date = formatBlogDate(pubDate);
+const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 ---
 
 <SiteLayout title={title}>
-  <article class="blog-post terminal-panel" box-="square" shear-="top">
-    <header>
+  <article class="blog-article">
+    <header class="post-header">
+      <a class="back-link" href="/blog/"><span aria-hidden="true">←</span> All posts</a>
+      <div class="post-meta">
+        <span>{topic}</span>
+        <span>{date}</span>
+        <span>{readingMinutes} min read</span>
+      </div>
       <h1>{title}</h1>
-      <p class="post-meta">Published {date} by {author}</p>
       <p class="description">{description}</p>
+      <p class="author">Written by {author}</p>
     </header>
+
+    {tocHeadings.length >= 4 && (
+      <details class="post-toc">
+        <summary>On this page</summary>
+        <ol>
+          {tocHeadings.map((heading) => (
+            <li data-depth={heading.depth}><a href={`#${heading.slug}`}>{heading.text}</a></li>
+          ))}
+        </ol>
+      </details>
+    )}
+
     <div class="prose">
       <slot />
     </div>
+
+    <nav class="post-navigation" aria-label="Blog post navigation">
+      <div>
+        {previous && <a href={previous.href}><span>Previous post</span><strong>{previous.title}</strong></a>}
+      </div>
+      <div>
+        {next && <a href={next.href}><span>Next post</span><strong>{next.title}</strong></a>}
+      </div>
+    </nav>
   </article>
 </SiteLayout>
 
 <style>
-  .blog-post {
-    width: min(100%, 82ch);
+  .blog-article {
+    width: min(100%, 70rem);
     margin-inline: auto;
-    padding: clamp(1.2rem, 3vw, 2.25rem);
   }
 
-  header {
+  .post-header {
     display: grid;
-    gap: clamp(0.75rem, 1.6vw, 1.1rem);
-    margin-block-end: 2.25rem;
+    gap: 1rem;
+    padding: clamp(1.2rem, 4vw, 2.4rem);
+    border-inline-start: 3px solid var(--accent-cyan);
+    background:
+      linear-gradient(105deg, color-mix(in srgb, var(--accent-cyan) 8%, transparent), transparent 58%),
+      var(--surface-raised);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .back-link {
+    justify-self: start;
+    color: var(--foreground1);
+    font: 700 0.8rem/1.2 var(--font-mono);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1rem;
+    color: var(--foreground2);
+    font: 700 0.72rem/1.25 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .post-meta span:first-child {
+    color: var(--accent-cyan);
   }
 
   h1 {
+    max-width: 20ch;
     margin: 0;
-    font-size: clamp(2.05rem, 6vw, 3.55rem);
-    line-height: 1;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.2rem, 7vw, 4.8rem);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
   }
 
-  .post-meta,
   .description {
+    max-width: 58ch;
     margin: 0;
+    color: var(--foreground1);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+  }
+
+  .author {
+    margin: 0;
+    color: var(--foreground2);
+    font: 0.78rem/1.3 var(--font-mono);
+  }
+
+  .post-toc {
+    width: min(100%, 68ch);
+    margin: clamp(2rem, 6vw, 4rem) auto 0;
+    border-block: 1px solid var(--border-subtle);
+    padding-block: 0.85rem;
+  }
+
+  .post-toc summary {
+    cursor: pointer;
+    color: var(--accent-cyan);
+    font: 700 0.9rem/1.3 var(--font-mono);
+  }
+
+  .post-toc ol {
+    display: grid;
+    gap: 0.45rem;
+    margin-block: 0.9rem 0.2rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  .post-toc li[data-depth='3'] {
+    margin-inline-start: 1rem;
     color: var(--foreground1);
   }
 
   .prose {
-    line-height: 1.65;
+    width: min(100%, 68ch);
+    margin: clamp(2.5rem, 7vw, 5rem) auto 0;
+    color: var(--foreground1);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.3vw, 1.08rem);
+    line-height: 1.72;
+  }
+
+  .prose :global(h2),
+  .prose :global(h3) {
+    color: var(--foreground0);
+    font-family: var(--font-mono);
+    letter-spacing: -0.035em;
+    scroll-margin-block-start: 5rem;
+  }
+
+  .prose :global(h2) {
+    margin-block: 3.5rem 1rem;
+    padding-block-end: 0.6rem;
+    border-block-end: 1px solid var(--border-subtle);
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  .prose :global(h3) {
+    margin-block: 2.4rem 0.8rem;
+    color: var(--accent-cyan);
+    font-size: clamp(1.2rem, 2.8vw, 1.5rem);
   }
 
   .prose :global(p),
   .prose :global(ol),
   .prose :global(ul) {
-    margin-block: 1rem;
+    margin-block: 1.15rem;
+  }
+
+  .prose :global(ol),
+  .prose :global(ul) {
+    padding-inline-start: clamp(1.25rem, 4vw, 2rem);
   }
 
   .prose :global(li + li) {
-    margin-block-start: 0.25rem;
+    margin-block-start: 0.6rem;
   }
 
-  .prose :global(ul),
-  .prose :global(ol) {
-    max-width: 72ch;
-  }
-  @media (max-width: 520px) {
-    .blog-post {
-      padding: 1rem;
-    }
-
-    header {
-      margin-block-end: 1.5rem;
-    }
-
-    h1 {
-      font-size: clamp(1.75rem, 10vw, 2.25rem);
-      line-height: 1.05;
-    }
+  .prose :global(a) {
+    color: var(--accent-cyan);
+    overflow-wrap: anywhere;
   }
 
+  .prose :global(code) {
+    padding: 0.12rem 0.3rem;
+    background: var(--surface-raised);
+    color: var(--foreground0);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  .post-navigation {
+    width: min(100%, 68ch);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: clamp(3rem, 8vw, 6rem) auto 0;
+    background: var(--border-subtle);
+  }
+
+  .post-navigation > div {
+    min-width: 0;
+    background: var(--surface);
+  }
+
+  .post-navigation a {
+    min-height: 6rem;
+    display: grid;
+    align-content: center;
+    gap: 0.45rem;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  .post-navigation span {
+    color: var(--foreground2);
+    font: 0.72rem/1.2 var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .post-navigation strong {
+    color: var(--foreground0);
+    font-family: var(--font-mono);
+  }
+
+  .post-navigation a:hover strong {
+    color: var(--accent-cyan);
+  }
+
+  @media (max-width: 620px) {
+    .post-navigation {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

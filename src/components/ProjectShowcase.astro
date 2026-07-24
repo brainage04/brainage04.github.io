@@ -1,0 +1,220 @@
+---
+import { projectCategories, type Project, type ProjectCategoryId } from '../data/projects';
+
+export interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const category = projectCategories[project.category];
+const statusLabel = project.status === 'wip' ? 'IN PROGRESS' : project.status.toUpperCase();
+const categoryMarks: Record<ProjectCategoryId, string> = {
+  'large-minecraft-mods': '▦',
+  'small-minecraft-mods': '✦',
+  'templates-starters': '</>',
+  'minecraft-dev-tools': '⌘',
+  'minecraft-datapacks': '{}',
+  'browser-extensions': '◫',
+  websites: '>_',
+  'discord-bots': '◉',
+};
+---
+
+<article class="project-showcase">
+  <div class="project-visual" data-category={project.category} aria-hidden="true">
+    <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
+    <span class="project-mark">{categoryMarks[project.category]}</span>
+    <span class="project-category">{category.badge}</span>
+  </div>
+  <div class="project-content">
+    <div class="project-meta">
+      <span class="status" data-status={project.status}>{statusLabel}</span>
+      <span>{category.label}</span>
+    </div>
+    <h3>
+      {project.url ? <a href={project.url} target="_blank" rel="noreferrer">{project.name}</a> : project.name}
+    </h3>
+    <p>{project.description}</p>
+    <ul aria-label={`${project.name} technologies`}>
+      {project.technologies.slice(0, 3).map((technology) => <li>{technology}</li>)}
+    </ul>
+    {project.url && <a class="project-link" href={project.url} target="_blank" rel="noreferrer">Open project <span aria-hidden="true">↗</span></a>}
+  </div>
+</article>
+
+<style>
+  .project-showcase {
+    min-width: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-soft);
+    transition: translate 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .project-showcase:hover,
+  .project-showcase:focus-within {
+    translate: 0 -0.2rem;
+    border-color: color-mix(in srgb, var(--accent-cyan) 70%, var(--foreground2));
+    box-shadow: 0 1.4rem 3.2rem rgb(0 0 0 / 28%);
+  }
+
+  .project-visual {
+    position: relative;
+    min-height: 10rem;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-block-end: 1px solid var(--border-subtle);
+    background:
+      radial-gradient(circle at 68% 28%, color-mix(in srgb, var(--visual-accent) 34%, transparent), transparent 34%),
+      linear-gradient(145deg, color-mix(in srgb, var(--visual-accent) 13%, var(--background1)), var(--background0));
+    color: var(--visual-accent);
+  }
+
+  .project-visual::before,
+  .project-visual::after {
+    content: '';
+    position: absolute;
+    width: 8rem;
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--visual-accent) 32%, transparent);
+    rotate: 45deg;
+  }
+
+  .project-visual::after {
+    width: 5rem;
+    rotate: 15deg;
+  }
+
+  .project-visual[data-category='small-minecraft-mods'] {
+    --visual-accent: #c6ee77;
+  }
+
+  .project-visual[data-category='large-minecraft-mods'] {
+    --visual-accent: var(--accent-yellow);
+  }
+
+  .project-visual[data-category='templates-starters'] {
+    --visual-accent: var(--accent-cyan);
+  }
+
+  .project-visual[data-category='minecraft-dev-tools'],
+  .project-visual[data-category='minecraft-datapacks'] {
+    --visual-accent: #9edbb7;
+  }
+
+  .project-visual[data-category='browser-extensions'],
+  .project-visual[data-category='websites'],
+  .project-visual[data-category='discord-bots'] {
+    --visual-accent: #d9a8ff;
+  }
+
+  .project-number,
+  .project-category {
+    position: absolute;
+    z-index: 1;
+    color: var(--foreground1);
+    font: 700 0.72rem/1 var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .project-number {
+    inset: 0.85rem auto auto 0.9rem;
+  }
+
+  .project-category {
+    inset: auto 0.9rem 0.85rem auto;
+  }
+
+  .project-mark {
+    position: relative;
+    z-index: 1;
+    font: 700 clamp(3.3rem, 9vw, 5.4rem)/1 var(--font-mono);
+    text-shadow: 0 0 2rem color-mix(in srgb, var(--visual-accent) 34%, transparent);
+  }
+
+  .project-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(1rem, 2vw, 1.35rem);
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.75rem;
+    color: var(--foreground2);
+    font: 700 0.72rem/1.2 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .status {
+    color: var(--accent-cyan);
+  }
+
+  .status[data-status='released'] {
+    color: #7ee4a7;
+  }
+
+  .status[data-status='wip'] {
+    color: var(--accent-yellow);
+  }
+
+  h3 {
+    margin-block: 0.9rem 0;
+    font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+    line-height: 1.1;
+  }
+
+  h3 a {
+    color: var(--foreground0);
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    color: var(--accent-cyan);
+  }
+
+  p {
+    margin-block: 0.75rem 0;
+    color: var(--foreground1);
+    line-height: 1.55;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-block: 1rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: 0.25rem 0.45rem;
+    background: color-mix(in srgb, var(--accent-cyan) 10%, var(--background2));
+    color: var(--foreground1);
+    font: 0.72rem/1 var(--font-mono);
+  }
+
+  .project-link {
+    margin-block-start: auto;
+    padding-block-start: 1.15rem;
+    color: var(--accent-cyan);
+    font: 700 0.88rem/1.2 var(--font-mono);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-showcase {
+      transition: none;
+    }
+  }
+</style>

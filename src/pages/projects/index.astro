@@ -1,84 +1,306 @@
 ---
 import ProjectCard from '../../components/ProjectCard.astro';
+import ProjectShowcase from '../../components/ProjectShowcase.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { groupProjects, projects } from '../../data/projects';
+import { getFeaturedProjects, groupProjects, projects } from '../../data/projects';
 
-const projectGroups = groupProjects(projects);
+const showcaseProjects = getFeaturedProjects().slice(0, 3);
+const showcaseNames = new Set(showcaseProjects.map((project) => project.name));
+const projectGroups = groupProjects(projects.filter((project) => !showcaseNames.has(project.name)));
+const releasedCount = projects.filter((project) => project.status === 'released' || project.status === 'template').length;
 const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 const headingId = (id: string) => `heading-${id}`;
 ---
 
 <SiteLayout title="Projects">
-  <div class="site-stack">
-    <nav class="project-toc terminal-panel" box-="square" shear-="top" aria-labelledby="project-toc-title">
-      <h1 id="project-toc-title">Table of Contents</h1>
-      <ol>
-        {projectGroups.map((group) => (
-          <li><a href={`#${group.id}`}>{group.label}</a></li>
-        ))}
-      </ol>
-    </nav>
+  <div class="projects-page">
+    <header class="projects-hero">
+      <p class="eyebrow">Selected engineering and experiments</p>
+      <h1>Projects worth opening.</h1>
+      <p>Minecraft systems, browser extensions, websites and reusable developer tooling. The strongest work is surfaced first; everything else remains available in the catalogue.</p>
+      <dl>
+        <div><dt>{projects.length}</dt><dd>Total projects</dd></div>
+        <div><dt>{releasedCount}</dt><dd>Released or reusable</dd></div>
+        <div><dt>{projectGroups.length}</dt><dd>Project categories</dd></div>
+      </dl>
+    </header>
 
-    <section class="site-stack" aria-label="Project categories">
-      {projectGroups.map((group) => (
-        <section id={group.id} class="site-stack" aria-labelledby={headingId(group.id)}>
-          <div class="panel-header project-group-header">
-            <div>
-              <h2 id={headingId(group.id)}>{group.label}</h2>
-              <p>{group.summary}</p>
+    <section aria-labelledby="showcase-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Featured work</p>
+          <h2 id="showcase-title">Start here</h2>
+        </div>
+        <p>Three representative projects</p>
+      </div>
+      <div class="showcase-grid">
+        {showcaseProjects.map((project, index) => <ProjectShowcase project={project} index={index} />)}
+      </div>
+    </section>
+
+    <section class="catalogue" aria-labelledby="catalogue-title">
+      <div class="catalogue-heading">
+        <div>
+          <p class="eyebrow">Full catalogue</p>
+          <h2 id="catalogue-title">Browse by category</h2>
+        </div>
+
+        <nav class="category-nav category-nav--desktop" aria-label="Project categories">
+          {projectGroups.map((group) => <a href={`#${group.id}`}>{group.label}</a>)}
+        </nav>
+
+        <details class="category-nav category-nav--mobile">
+          <summary>Browse categories</summary>
+          <nav aria-label="Project categories">
+            {projectGroups.map((group) => <a href={`#${group.id}`}>{group.label}</a>)}
+          </nav>
+        </details>
+      </div>
+
+      <div class="project-groups">
+        {projectGroups.map((group) => (
+          <section id={group.id} class="project-group" aria-labelledby={headingId(group.id)}>
+            <header class="project-group-header">
+              <div>
+                <h3 id={headingId(group.id)}>{group.label}</h3>
+                <p>{group.summary}</p>
+              </div>
+              <span>{projectCountLabel(group.projects.length)}</span>
+            </header>
+            <div class="catalogue-grid">
+              {group.projects.map((project) => <ProjectCard project={project} />)}
             </div>
-            <span>{projectCountLabel(group.projects.length)}</span>
-          </div>
-          <div class="grid">
-            {group.projects.map((project) => <ProjectCard project={project} />)}
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
     </section>
   </div>
 </SiteLayout>
 
 <style>
-  .project-toc h1 {
-    margin: 0 0 1rem;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-  }
-
-  .project-toc ol {
+  .projects-page {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: 0.55rem 2rem;
-    margin: 0;
+    gap: clamp(4rem, 10vw, 8rem);
   }
 
-  .project-toc a {
-    font-weight: 700;
+  .projects-hero {
+    display: grid;
+    gap: 1rem;
+    padding-block: clamp(1rem, 5vw, 3rem);
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--accent-cyan);
+    font: 700 0.78rem/1.2 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .projects-hero h1 {
+    max-width: 14ch;
+    margin: 0;
+    font-size: clamp(3rem, 10vw, 6.8rem);
+    line-height: 0.86;
+    letter-spacing: -0.075em;
+  }
+
+  .projects-hero > p:nth-child(3) {
+    max-width: 66ch;
+    margin: 0;
+    color: var(--foreground1);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+  }
+
+  .projects-hero dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin: 1.5rem 0 0;
+    background: var(--border-subtle);
+  }
+
+  .projects-hero dl > div {
+    min-width: 10rem;
+    flex: 1 1 10rem;
+    padding: 1rem;
+    background: var(--surface);
+  }
+
+  .projects-hero dt {
+    color: var(--accent);
+    font: 700 clamp(1.5rem, 4vw, 2.2rem)/1 var(--font-mono);
+  }
+
+  .projects-hero dd {
+    margin: 0.45rem 0 0;
+    color: var(--foreground2);
+    font-size: 0.8rem;
+  }
+
+  .section-heading,
+  .catalogue-heading,
+  .project-group-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.8rem 1.5rem;
+  }
+
+  .section-heading {
+    margin-block-end: 1.4rem;
+    padding-block-end: 0.8rem;
+    border-block-end: 1px solid var(--border-subtle);
+  }
+
+  .section-heading > div,
+  .catalogue-heading > div {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .section-heading h2,
+  .catalogue-heading h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--foreground2);
+    font: 0.78rem/1.2 var(--font-mono);
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.9rem, 2vw, 1.3rem);
+  }
+
+  .catalogue {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .catalogue-heading {
+    align-items: start;
+  }
+
+  .category-nav--desktop {
+    max-width: 42rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.45rem;
+  }
+
+  .category-nav a {
+    padding: 0.4rem 0.55rem;
+    border: 1px solid var(--border-subtle);
+    color: var(--foreground1);
+    font: 700 0.7rem/1.2 var(--font-mono);
+    text-decoration: none;
+  }
+
+  .category-nav a:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+
+  .category-nav--mobile {
+    display: none;
+  }
+
+  .project-groups {
+    display: grid;
+    gap: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .project-group {
+    scroll-margin-block-start: 5rem;
   }
 
   .project-group-header {
     align-items: start;
+    margin-block-end: 1rem;
+    padding-block-end: 0.8rem;
+    border-block-end: 1px solid var(--border-subtle);
   }
 
   .project-group-header > div {
     display: grid;
-    gap: 0.35rem;
+    gap: 0.4rem;
     max-width: 54rem;
   }
 
+  .project-group-header h3,
   .project-group-header p {
     margin: 0;
+  }
+
+  .project-group-header h3 {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+  }
+
+  .project-group-header p {
     color: var(--foreground1);
-    line-height: 1.45;
-  }
-  @media (max-width: 520px) {
-    .project-toc ol {
-      gap: 0.65rem;
-    }
-
-    .project-group-header {
-      display: grid;
-      justify-items: start;
-    }
   }
 
+  .project-group-header > span {
+    color: var(--foreground2);
+    font: 0.72rem/1.2 var(--font-mono);
+    white-space: nowrap;
+  }
+
+  .catalogue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  @media (max-width: 900px) {
+    .showcase-grid,
+    .catalogue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .category-nav--desktop {
+      display: none;
+    }
+
+    .category-nav--mobile {
+      width: 100%;
+      display: block;
+      border-block: 1px solid var(--border-subtle);
+      padding-block: 0.75rem;
+    }
+
+    .category-nav--mobile summary {
+      cursor: pointer;
+      color: var(--accent-cyan);
+      font: 700 0.85rem/1.2 var(--font-mono);
+    }
+
+    .category-nav--mobile nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding-block-start: 0.8rem;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .showcase-grid,
+    .catalogue-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .projects-hero dl > div {
+      min-width: 0;
+      flex-basis: calc(50% - 1px);
+    }
+  }
 </style>

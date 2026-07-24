@@ -72,20 +72,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: '???',
-    description: 'Coming soon...',
-    technologies: ['Java 25', 'Fabric', 'Twitch'],
-    category: 'large-minecraft-mods',
-    status: 'coming-soon',
-    featured: 1,
-  },
-  {
     name: 'MagicCarpet',
     url: 'https://github.com/brainage04/MagicCarpet',
     description: 'A Minecraft Fabric mod that adds three tiers of Magic Carpets, including recipes, advancements, flying animations, and two-rider support.',
     technologies: ['Java 25', 'Fabric'],
     category: 'small-minecraft-mods',
     status: 'released',
+    featured: 1,
   },
   {
     name: 'FabricModdingTemplate',

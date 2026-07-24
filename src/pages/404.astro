@@ -1,18 +1,118 @@
 ---
-import PageHeader from '@brainage04/astro-shell/components/PageHeader.astro';
-import TerminalPanel from '@brainage04/astro-shell/components/TerminalPanel.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
 <SiteLayout title="404">
-  <div class="site-stack">
-    <PageHeader title="404" description="That path does not exist." />
-    <TerminalPanel title="Try these">
-      <ul marker-="tree">
-        <li><a href="/">Home</a></li>
-        <li><a href="/projects/">Projects</a></li>
-        <li><a href="/blog/">Blog</a></li>
-      </ul>
-    </TerminalPanel>
-  </div>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <div class="error-visual" aria-hidden="true">
+      <span>ERR / 404</span>
+      <strong>&gt;_</strong>
+      <code>route.resolve() → null</code>
+    </div>
+    <div class="error-copy">
+      <p class="eyebrow">Chunk not loaded</p>
+      <h1 id="not-found-title">This route does not exist.</h1>
+      <p>The page may have moved, the link may be stale, or this project has not been deployed here.</p>
+      <div class="hero-actions">
+        <a class="action-button" href="/">Return home</a>
+        <a class="action-button action-button--ghost" href="/projects/">Browse projects</a>
+        <a class="action-button action-button--ghost" href="/blog/">Read the blog</a>
+      </div>
+    </div>
+  </section>
 </SiteLayout>
+
+<style>
+  .not-found {
+    width: min(100%, 64rem);
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(1.5rem, 6vw, 4rem);
+    align-items: center;
+    margin-inline: auto;
+    padding-block: clamp(2rem, 10vw, 7rem);
+  }
+
+  .error-visual {
+    min-height: 18rem;
+    display: grid;
+    place-items: center;
+    align-content: space-between;
+    padding: 1.2rem;
+    border: 1px solid var(--border-subtle);
+    background:
+      radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 58%),
+      var(--surface-raised);
+    color: var(--accent-cyan);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .error-visual span,
+  .error-visual code {
+    justify-self: stretch;
+    color: var(--foreground2);
+    font: 700 0.7rem/1.2 var(--font-mono);
+    letter-spacing: 0.08em;
+  }
+
+  .error-visual code {
+    text-align: end;
+  }
+
+  .error-visual strong {
+    font: 700 clamp(4rem, 13vw, 8rem)/1 var(--font-mono);
+    text-shadow: 0 0 2rem color-mix(in srgb, var(--accent-cyan) 35%, transparent);
+  }
+
+  .error-copy {
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--accent-cyan);
+    font: 700 0.78rem/1.2 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(2.6rem, 8vw, 5.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+  }
+
+  .error-copy > p:nth-child(3) {
+    max-width: 52ch;
+    margin: 0;
+    color: var(--foreground1);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding-block-start: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .not-found {
+      grid-template-columns: 1fr;
+      padding-block: 1rem 3rem;
+    }
+
+    .error-visual {
+      min-height: 11rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-actions > a {
+      flex: 1 1 100%;
+    }
+  }
+</style>

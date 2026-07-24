@@ -4,34 +4,44 @@ description: "An update to my first blog after several months."
 pubDate: 2025-05-06T14:08:20+10:00
 author: "brainage04"
 slug: "2025/05/06/my-second-blog.html"
+topic: "Project update"
+readingMinutes: 3
 ---
 
-A lot has happened since my last blog (which was over 6 months ago now):
+## What changed
 
-1. Started freelance Minecraft mod development (2 projects, first one confidential, second one almost done)
-2. Continued work on my Minecraft mods (existing ones such as BrainageHUD and new ones too)
-3. Finally (FINALLY) ported my rendering code from BrainageHUD into a library for use in other mods (HudRendererLib)
+A lot has happened since my last blog, which was over six months ago:
 
-University is quite boring but I'm doing well - I got a perfect score on my first assignment in my DSA unit!!! (30/30, 15 from the autograder and 15 from the report). I'm pretty sure I haven't gotten a perfect score on any assignments since my first semester. Was a welcome surprise.
+1. I started freelance Minecraft mod development. The first project is confidential and the second is almost done.
+2. I continued working on existing Minecraft mods such as BrainageHUD and started new ones.
+3. I finally ported my rendering code from BrainageHUD into HudRendererLib so other mods can use it.
 
-I have another list of things I want to do:
+## University
 
-1. Continue work on BrainageHUD and HudRendererLib (config and rendering code stores/does things in weird ways)
-2. Learn about Android emulation (mostly cause I wanna use AstroDX on my PC lol)
-3. Continue working on a basic MaiMai chart viewer/editor (with C# and Avalonia - not yet sure if this is a good choice of tooling lol)
+University is quite boring, but I'm doing well. I got a perfect score on my first assignment in my DSA unit: 30/30, with 15 marks from the autograder and 15 from the report.
 
-Here are my previous blog's non-work related goals for reference:
+I'm pretty sure I haven't received a perfect assignment score since my first semester, so it was a welcome surprise.
 
-- Maimai: first 14 S rank (current best is ~96.5%, ~0.5% away)
-- SDVX: first 17 pass
-- DDR: first 17 AAA, first 18 AA+ (950k+)
+## What I want to do next
 
-Here's some updates for those:
+1. Continue work on BrainageHUD and HudRendererLib. Some configuration and rendering code still stores and handles things in strange ways.
+2. Learn about Android emulation, mostly because I want to use AstroDX on my PC.
+3. Continue working on a basic MaiMai chart viewer and editor with C# and Avalonia, although I'm not yet sure that is the right tooling.
 
-- Maimai: countless 14 and 14+ S ranks (best 14 is ~100.2%, best 14+ is ~99.25%)
-- SDVX: countless 17 passes (first 17 S!!!, at home), a 16 PUC!!! (at home), and several 18 AA+'s
-- DDR: 3 17 AAA's, countless 18 AA+'s (2 over 970k!!!), and 2 16 PFC's!!!
+## Rhythm-game progress
 
-I also started taking Taiko more seriously, and have passed 2 Extreme 10* maps!!! I have also gotten 987k with 17 OK's on Supernova [Hard] 8*, which is one of my best accuracy scores (outside of my DFC on Rabbit Hole lol).
+These were the goals in my previous post:
+
+- **Maimai:** first level 14 S rank.
+- **SDVX:** first level 17 pass.
+- **DDR:** first level 17 AAA and first level 18 AA+.
+
+Since then:
+
+- **Maimai:** countless level 14 and 14+ S ranks. My best 14 is about 100.2%, and my best 14+ is about 99.25%.
+- **SDVX:** countless level 17 passes, my first level 17 S, a level 16 PUC, and several level 18 AA+ scores.
+- **DDR:** three level 17 AAAs, countless level 18 AA+ scores—including two over 970k—and two level 16 PFCs.
+
+I also started taking Taiko more seriously. I passed two Extreme 10-star maps and scored 987k with 17 OKs on Supernova [Hard] 8-star, one of my best accuracy scores outside my DFC on Rabbit Hole.
 
 Thanks for taking the time to read my second blog!

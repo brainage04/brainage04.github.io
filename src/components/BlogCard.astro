@@ -10,33 +10,94 @@ const { post } = Astro.props;
 const date = formatBlogDate(post.data.pubDate);
 ---
 
-<article class="blog-card terminal-panel" box-="square" shear-="top">
-  <p class="eyebrow">Published {date}</p>
+<article class="blog-card">
+  <div class="post-meta">
+    <span>{post.data.topic}</span>
+    <span>{date}</span>
+    <span>{post.data.readingMinutes} min read</span>
+  </div>
   <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
   <p>{post.data.description}</p>
+  <a class="read-link" href={`/blog/${post.data.slug}`} aria-label={`Read ${post.data.title}`}>Read post <span aria-hidden="true">→</span></a>
 </article>
 
 <style>
   .blog-card {
+    position: relative;
     display: grid;
-    gap: 0.65rem;
-    padding: clamp(1.2rem, 2vw, 1.55rem);
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem 1.5rem;
+    padding: clamp(1.1rem, 2.5vw, 1.5rem);
+    border-block-start: 1px solid var(--border-subtle);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--accent-cyan) 4%, transparent), transparent 55%);
+    transition: background-color 180ms ease, border-color 180ms ease;
+  }
+
+  .blog-card:hover,
+  .blog-card:focus-within {
+    border-block-start-color: var(--accent-cyan);
+    background-color: color-mix(in srgb, var(--accent-cyan) 4%, transparent);
+  }
+
+  .post-meta {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    color: var(--foreground2);
+    font: 700 0.72rem/1.3 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .post-meta span:first-child {
+    color: var(--accent-cyan);
   }
 
   h2 {
     margin: 0;
-    font-size: clamp(1.3rem, 3vw, 1.85rem);
-    line-height: 1.2;
+    font-size: clamp(1.45rem, 3.5vw, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
   }
 
+  h2 a {
+    color: var(--foreground0);
+    text-decoration: none;
+  }
+
+
   p {
+    grid-column: 1;
     margin: 0;
     color: var(--foreground1);
   }
-  @media (max-width: 520px) {
+
+  .read-link {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: end;
+    color: var(--accent-cyan);
+    font: 700 0.82rem/1.2 var(--font-mono);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 620px) {
     .blog-card {
-      padding: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .read-link {
+      grid-column: 1;
+      grid-row: auto;
+      justify-self: start;
+      padding-block-start: 0.35rem;
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .blog-card {
+      transition: none;
+    }
+  }
 </style>
