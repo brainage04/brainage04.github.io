@@ -15,6 +15,6 @@
     "@brainage04/astro-shell": "github:brainage04/brainage04-astro-shell#v0.3.1",
     "@webtui/css": "0.1.9",
     "astro": "7.1.2",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   }
 }
