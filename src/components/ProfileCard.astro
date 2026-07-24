@@ -6,12 +6,11 @@ import { socials } from '../data/socials';
 <section class="profile-card" aria-labelledby="profile-name">
   <div class="avatar-frame" aria-hidden="true">
     <Image class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" alt="" width={400} height={400} loading="eager" />
-    <span>DEV / BNE</span>
   </div>
   <div class="profile-copy">
-    <p class="eyebrow">Software developer · Minecraft mod creator</p>
+    <p class="eyebrow">Software developer</p>
     <div class="name-row">
-      <h1 id="profile-name">Thomas <span>/ brainage04</span></h1>
+      <h1 id="profile-name">Thomas / brainage04</h1>
       <div class="socials" aria-label="Social links">
         <a href="mailto:thomasmcmah21@gmail.com" title="Email Thomas" aria-label="Email Thomas">
           <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" height="22">
@@ -25,7 +24,7 @@ import { socials } from '../data/socials';
         ))}
       </div>
     </div>
-    <p class="lead">I build practical software, Minecraft mods, browser extensions and developer tooling from Brisbane, Australia.</p>
+    <p class="lead">I build software, Minecraft mods, browser extensions and various tools from Brisbane, Queensland, Australia.</p>
     <dl class="credentials">
       <div>
         <dt>Current</dt>
@@ -36,10 +35,6 @@ import { socials } from '../data/socials';
         <dd>Bachelor of Information Technology (Computer Science), with Distinction.</dd>
       </div>
     </dl>
-    <div class="hero-actions">
-      <a class="action-button" href="/projects/">View projects <span aria-hidden="true">→</span></a>
-      <a class="action-button action-button--ghost" href="mailto:thomasmcmah21@gmail.com">Email me</a>
-    </div>
   </div>
 </section>
 
@@ -92,14 +87,6 @@ import { socials } from '../data/socials';
     object-fit: cover;
   }
 
-  .avatar-frame > span {
-    display: block;
-    padding-block-start: 0.5rem;
-    color: var(--foreground2);
-    font: 700 0.68rem/1 var(--font-mono);
-    letter-spacing: 0.12em;
-    text-align: center;
-  }
 
   .profile-copy {
     min-width: 0;
@@ -129,10 +116,6 @@ import { socials } from '../data/socials';
     letter-spacing: -0.055em;
   }
 
-  h1 span {
-    color: var(--foreground1);
-    font-size: 0.65em;
-  }
 
   .lead {
     max-width: 58ch;
@@ -204,12 +187,6 @@ import { socials } from '../data/socials';
     scale: 1.06;
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    padding-block-start: 0.25rem;
-  }
 
   @media (max-width: 700px) {
     .profile-card {
@@ -224,7 +201,6 @@ import { socials } from '../data/socials';
 
     .profile-copy,
     .name-row,
-    .hero-actions,
     .socials {
       justify-content: center;
     }
@@ -243,16 +219,6 @@ import { socials } from '../data/socials';
     }
   }
 
-  @media (max-width: 420px) {
-    h1 span {
-      display: block;
-      margin-block-start: 0.25rem;
-    }
-
-    .hero-actions > a {
-      flex: 1 1 100%;
-    }
-  }
 
   @media (prefers-reduced-motion: reduce) {
     .socials :is(img, .social-icon) {
