@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/markdown-satteri": "0.3.4",
-    "@brainage04/astro-shell": "github:brainage04/brainage04-astro-shell#v0.3.1",
+    "@brainage04/astro-shell": "github:brainage04/brainage04-astro-shell#v0.3.3",
     "@webtui/css": "0.1.9",
     "astro": "7.1.3",
     "typescript": "6.0.3"
