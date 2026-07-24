@@ -3,13 +3,17 @@ import { Image } from 'astro:assets';
 import { socials } from '../data/socials';
 ---
 
-<section class="profile-card terminal-panel" box-="square" shear-="top">
-  <Image class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" alt="brainage04" width={400} height={400} loading="eager" />
+<section class="profile-card" aria-labelledby="profile-name">
+  <div class="avatar-frame" aria-hidden="true">
+    <Image class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" alt="" width={400} height={400} loading="eager" />
+    <span>DEV / BNE</span>
+  </div>
   <div class="profile-copy">
+    <p class="eyebrow">Software developer · Minecraft mod creator</p>
     <div class="name-row">
-      <h2>Thomas (brainage04)</h2>
+      <h1 id="profile-name">Thomas <span>/ brainage04</span></h1>
       <div class="socials" aria-label="Social links">
-        <a href="mailto:thomasmcmah21@gmail.com" title="Email" aria-label="Email">
+        <a href="mailto:thomasmcmah21@gmail.com" title="Email Thomas" aria-label="Email Thomas">
           <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" height="22">
             <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z" />
           </svg>
@@ -21,52 +25,150 @@ import { socials } from '../data/socials';
         ))}
       </div>
     </div>
-    <p>Bachelor of Information Technology (Computer Science) - with Distinction</p>
-    <p>Minors: Intelligent Systems, Computational and Simulation Science</p>
+    <p class="lead">I build practical software, Minecraft mods, browser extensions and developer tooling from Brisbane, Australia.</p>
+    <dl class="credentials">
+      <div>
+        <dt>Current</dt>
+        <dd>Graduate Associate Consultant working with Microsoft Power Platform.</dd>
+      </div>
+      <div>
+        <dt>Education</dt>
+        <dd>Bachelor of Information Technology (Computer Science), with Distinction.</dd>
+      </div>
+    </dl>
+    <div class="hero-actions">
+      <a class="action-button" href="/projects/">View projects <span aria-hidden="true">→</span></a>
+      <a class="action-button action-button--ghost" href="mailto:thomasmcmah21@gmail.com">Email me</a>
+    </div>
   </div>
 </section>
 
 <style>
   .profile-card {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: clamp(1.25rem, 4vw, 2.25rem);
+    grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 3.5rem);
     align-items: center;
-    padding: clamp(1.65rem, 2.5vw, 2rem);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--border-subtle);
+    background:
+      linear-gradient(110deg, color-mix(in srgb, var(--accent-cyan) 7%, transparent), transparent 48%),
+      var(--surface-raised);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .avatar-frame {
+    position: relative;
+    padding: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 48%, var(--border-subtle));
+    background: color-mix(in srgb, var(--accent) 8%, var(--background0));
+  }
+
+  .avatar-frame::before,
+  .avatar-frame::after {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-color: var(--accent-cyan);
+  }
+
+  .avatar-frame::before {
+    inset: -1px auto auto -1px;
+    border-block-start: 2px solid;
+    border-inline-start: 2px solid;
+  }
+
+  .avatar-frame::after {
+    inset: auto -1px -1px auto;
+    border-block-end: 2px solid;
+    border-inline-end: 2px solid;
   }
 
   .avatar {
-    width: clamp(6rem, 18vw, 10rem);
-    image-rendering: auto;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .avatar-frame > span {
+    display: block;
+    padding-block-start: 0.5rem;
+    color: var(--foreground2);
+    font: 700 0.68rem/1 var(--font-mono);
+    letter-spacing: 0.12em;
+    text-align: center;
   }
 
   .profile-copy {
+    min-width: 0;
     display: grid;
-    gap: 0.55rem;
-    line-height: 1.35;
+    gap: 0.9rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--accent-cyan);
+    font: 700 0.78rem/1.2 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .name-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1.45rem;
+    gap: 0.7rem 1.25rem;
     align-items: center;
   }
 
-  h2 {
+  h1 {
     margin: 0;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    line-height: 1;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
   }
 
+  h1 span {
+    color: var(--foreground1);
+    font-size: 0.65em;
+  }
 
-  p {
+  .lead {
+    max-width: 58ch;
     margin: 0;
     color: var(--foreground1);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+  }
+
+  .credentials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  .credentials > div {
+    padding-block-start: 0.65rem;
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  dt {
+    color: var(--foreground2);
+    font: 700 0.7rem/1.2 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0.35rem 0 0;
+    color: var(--foreground1);
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .socials {
-    --social-icon-height: 22px;
+    --social-icon-height: 21px;
     display: flex;
     flex-wrap: wrap;
     gap: 0.65rem;
@@ -76,10 +178,11 @@ import { socials } from '../data/socials';
 
   .socials a {
     display: inline-flex;
+    min-width: 1.7rem;
+    min-height: 1.7rem;
     align-items: center;
     justify-content: center;
-    min-width: 1.5rem;
-    min-height: var(--social-icon-height);
+    color: var(--foreground1);
   }
 
   .socials :is(img, .social-icon) {
@@ -88,48 +191,72 @@ import { socials } from '../data/socials';
     height: var(--social-icon-height);
     max-width: none;
     object-fit: contain;
-    filter: grayscale(1) brightness(1.8);
+    filter: grayscale(1) brightness(1.7);
+    transition: filter 160ms ease, scale 160ms ease;
   }
 
   .social-icon {
-    width: 27.5px;
-    color: var(--foreground0);
+    width: 26px;
   }
-
 
   .socials a:hover :is(img, .social-icon) {
     filter: none;
+    scale: 1.06;
   }
 
-  .socials a:hover .social-icon {
-    color: var(--accent-cyan);
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding-block-start: 0.25rem;
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 700px) {
     .profile-card {
       grid-template-columns: 1fr;
-      gap: 1.1rem;
-      padding: 1.15rem;
+      gap: 1.35rem;
     }
 
-    .avatar {
+    .avatar-frame {
+      width: min(11rem, 52vw);
       justify-self: center;
     }
 
-    .profile-card,
+    .profile-copy,
     .name-row,
+    .hero-actions,
     .socials {
       justify-content: center;
     }
 
     .profile-copy {
-      max-width: 34ch;
-      margin-inline: auto;
       text-align: center;
     }
 
-    h2 {
-      font-size: clamp(1.5rem, 8vw, 2rem);
+    .lead {
+      margin-inline: auto;
+    }
+
+    .credentials {
+      grid-template-columns: 1fr;
+      text-align: start;
+    }
+  }
+
+  @media (max-width: 420px) {
+    h1 span {
+      display: block;
+      margin-block-start: 0.25rem;
+    }
+
+    .hero-actions > a {
+      flex: 1 1 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .socials :is(img, .social-icon) {
+      transition: none;
     }
   }
 </style>

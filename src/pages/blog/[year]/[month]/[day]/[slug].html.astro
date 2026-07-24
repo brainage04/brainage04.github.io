@@ -2,9 +2,26 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BlogPostLayout from '../../../../../layouts/BlogPostLayout.astro';
 
+interface PostLink {
+  title: string;
+  href: string;
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  previous?: PostLink;
+  next?: PostLink;
+}
+
+
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => {
+  const posts = (await getCollection('blog')).sort((left, right) => right.data.pubDate.valueOf() - left.data.pubDate.valueOf());
+  const postLink = (post: CollectionEntry<'blog'>): PostLink => ({
+    title: post.data.title,
+    href: `/blog/${post.data.slug}`,
+  });
+
+  return posts.map((post, index) => {
     const match = post.data.slug.match(/^(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/(?<slug>.+)\.html$/);
     if (!match?.groups) {
       throw new Error(`Invalid blog slug: ${post.data.slug}`);
@@ -12,19 +29,29 @@ export async function getStaticPaths() {
 
     return {
       params: match.groups,
-      props: { post },
+      props: {
+        post,
+        previous: posts[index + 1] ? postLink(posts[index + 1]) : undefined,
+        next: posts[index - 1] ? postLink(posts[index - 1]) : undefined,
+      },
     };
   });
 }
 
-interface Props {
-  post: CollectionEntry<'blog'>;
-}
-
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { post, previous, next } = Astro.props;
+const { Content, headings } = await render(post);
 ---
 
-<BlogPostLayout title={post.data.title} description={post.data.description} pubDate={post.data.pubDate} author={post.data.author}>
+<BlogPostLayout
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  author={post.data.author}
+  topic={post.data.topic}
+  readingMinutes={post.data.readingMinutes}
+  headings={headings}
+  previous={previous}
+  next={next}
+>
   <Content />
 </BlogPostLayout>
