@@ -1,291 +1,104 @@
 ---
 import ProjectCard from '../../components/ProjectCard.astro';
-import SiteLayout from '../../layouts/SiteLayout.astro';
 import { groupProjects, projects } from '../../data/projects';
-import { githubStarLists } from '../../data/starLists';
+import SiteLayout from '../../layouts/SiteLayout.astro';
 
 const projectGroups = groupProjects(projects);
 const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
-const headingId = (id: string) => `heading-${id}`;
 ---
 
 <SiteLayout title="Projects">
-  <div class="projects-page">
-    <header class="projects-hero">
-      <p class="eyebrow">What I make</p>
-      <h1>Projects</h1>
-      <ul class="project-types" aria-label="GitHub star list categories">
-        {githubStarLists.map((list) => (
-          <li><strong>{list.name}</strong><span>{list.description}</span></li>
-        ))}
-      </ul>
-    </header>
+  <section class="projects-page" aria-labelledby="projects-title">
+    <h1 id="projects-title">Projects</h1>
 
-    <section class="catalogue" aria-labelledby="catalogue-title">
-      <div class="catalogue-heading">
-        <div>
-          <p class="eyebrow">Full catalogue</p>
-          <h2 id="catalogue-title">Browse by category</h2>
-        </div>
-
-        <fieldset class="category-filters">
-          <legend class="sr-only">Filter projects by category</legend>
-          <ul>
-            {projectGroups.map((group) => (
-              <li>
-                <label>
-                  <input type="checkbox" value={group.id} data-category-filter checked />
-                  <span>{group.label}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </fieldset>
-        <p class="filter-summary" id="filter-summary" aria-live="polite">{projectCountLabel(projects.length)} shown</p>
-      </div>
-
-      <div class="project-groups">
-        {projectGroups.map((group) => (
-          <section id={group.id} class="project-group" data-project-group={group.id} data-project-count={group.projects.length} aria-labelledby={headingId(group.id)}>
-            <header class="project-group-header">
-              <div>
-                <h3 id={headingId(group.id)}>{group.label}</h3>
-                <p>{group.summary}</p>
-              </div>
-              <span>{projectCountLabel(group.projects.length)}</span>
-            </header>
-            <div class="catalogue-grid">
-              {group.projects.map((project) => <ProjectCard project={project} />)}
-            </div>
-          </section>
-        ))}
-      </div>
-    </section>
-  </div>
+    <div class="category-list">
+      {projectGroups.map((group) => (
+        <details class="project-group" id={group.id}>
+          <summary>
+            <span>{group.label}</span>
+            <small>{projectCountLabel(group.projects.length)}</small>
+          </summary>
+          <div class="catalogue-grid">
+            {group.projects.map((project) => <ProjectCard project={project} />)}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
 </SiteLayout>
 
-<script>
-  const filters = Array.from(document.querySelectorAll<HTMLInputElement>('[data-category-filter]'));
-  const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-project-group]'));
-  const summary = document.querySelector<HTMLElement>('#filter-summary');
-
-  const applyFilters = () => {
-    const selectedCategories = new Set(filters.filter((filter) => filter.checked).map((filter) => filter.value));
-    let visibleProjectCount = 0;
-
-    for (const group of groups) {
-      const isVisible = selectedCategories.has(group.dataset.projectGroup ?? '');
-      group.hidden = !isVisible;
-      if (isVisible) visibleProjectCount += Number(group.dataset.projectCount ?? 0);
-    }
-
-    if (summary) {
-      summary.textContent = `${visibleProjectCount} ${visibleProjectCount === 1 ? 'project' : 'projects'} shown`;
-    }
-  };
-
-  for (const filter of filters) filter.addEventListener('change', applyFilters);
-  applyFilters();
-</script>
 <style>
   .projects-page {
     display: grid;
-    gap: clamp(4rem, 10vw, 8rem);
+    gap: clamp(2rem, 6vw, 4rem);
   }
 
-  .projects-hero {
-    display: grid;
-    gap: 1rem;
-    padding-block: clamp(1rem, 5vw, 3rem);
-  }
-
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-cyan);
-    font: 700 0.78rem/1.2 var(--font-mono);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .projects-hero h1 {
+  h1 {
+    max-width: 14ch;
     margin: 0;
     font-size: clamp(3rem, 10vw, 6.8rem);
     line-height: 0.86;
     letter-spacing: -0.075em;
   }
 
-  .project-types {
+  .category-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px;
-    margin: 0.5rem 0 0;
-    padding: 1px;
-    background: var(--border-subtle);
-    list-style: none;
-  }
-
-  .project-types li {
-    min-width: 0;
-    display: grid;
-    gap: 0.4rem;
-    padding: 0.9rem;
-    background: var(--surface);
-  }
-
-  .project-types li::before {
-    content: none;
-  }
-
-  .project-types strong {
-    color: var(--accent-cyan);
-    font-size: 0.86rem;
-  }
-
-  .project-types span {
-    color: var(--foreground1);
-    font-size: 0.86rem;
-  }
-
-
-  .catalogue-heading,
-  .project-group-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    justify-content: space-between;
-    gap: 0.8rem 1.5rem;
-  }
-
-  .catalogue-heading > div {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .catalogue-heading h2 {
-    margin: 0;
-    font-size: clamp(1.9rem, 5vw, 3rem);
-    line-height: 1;
-    letter-spacing: -0.045em;
-  }
-
-  .catalogue {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .catalogue-heading {
-    display: grid;
-    align-items: start;
-    justify-content: start;
-  }
-
-  .category-filters {
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
-  .category-filters ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.65rem 1.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .category-filters li::before {
-    content: none;
-  }
-  .category-filters label {
-    min-height: 2.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.65rem;
-    color: var(--foreground1);
-    cursor: pointer;
-  }
-
-  .category-filters input {
-    flex: none;
-    inline-size: 1rem;
-    block-size: 1rem;
-    margin: 0;
-    accent-color: var(--accent);
-  }
-
-  .filter-summary {
-    margin: -0.75rem 0 0;
-    color: var(--foreground2);
-    font: 0.72rem/1.2 var(--font-mono);
-    text-align: left;
-  }
-
-  .project-groups {
-    display: grid;
-    gap: clamp(3.5rem, 8vw, 6rem);
+    gap: 0.75rem;
   }
 
   .project-group {
+    min-width: 0;
     scroll-margin-block-start: 5rem;
+    border-block-start: 1px solid var(--border-strong);
+    background: var(--surface);
   }
 
-  .project-group-header {
-    align-items: start;
-    margin-block-end: 1rem;
-    padding-block-end: 0.8rem;
-    border-block-end: 1px solid var(--border-subtle);
+  .project-group summary {
+    min-height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    color: var(--foreground0);
+    font: 700 clamp(1rem, 2.4vw, 1.25rem)/1.2 var(--font-mono);
+    text-align: start;
   }
 
-  .project-group-header > div {
-    display: grid;
-    gap: 0.4rem;
-    max-width: 54rem;
+  .project-group summary:hover,
+  .project-group[open] summary {
+    color: var(--accent-cyan);
   }
 
-  .project-group-header h3,
-  .project-group-header p {
-    margin: 0;
-  }
-
-  .project-group-header h3 {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-  }
-
-  .project-group-header p {
-    color: var(--foreground1);
-  }
-
-  .project-group-header > span {
+  .project-group summary small {
     color: var(--foreground2);
-    font: 0.72rem/1.2 var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     white-space: nowrap;
   }
 
   .catalogue-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+    background: var(--border-subtle);
   }
 
-  @media (max-width: 900px) {
-    .catalogue-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-  }
-
-  @media (max-width: 600px) {
-    .project-types,
+  @media (max-width: 760px) {
     .catalogue-grid {
       grid-template-columns: 1fr;
     }
+  }
 
-    .category-filters ul {
-      grid-template-columns: 1fr;
+  @media (max-width: 420px) {
+    .project-group summary {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
     }
-
   }
 </style>

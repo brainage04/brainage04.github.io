@@ -8,11 +8,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 
 <SiteLayout title="Blog">
   <div class="blog-index">
-    <header class="blog-header">
-      <p class="eyebrow">Build notes and personal updates</p>
-      <h1>Blog</h1>
-      <p>Longer notes about software projects, Minecraft mod development and what I learn while building them.</p>
-    </header>
+    <h1 class="sr-only">Blog</h1>
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>
@@ -27,33 +23,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
     margin-inline: auto;
   }
 
-  .blog-header {
-    display: grid;
-    gap: 0.8rem;
-    padding-block: clamp(1rem, 4vw, 2rem);
-  }
-
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-cyan);
-    font: 700 0.78rem/1.2 var(--font-mono);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: clamp(3rem, 12vw, 6.5rem);
-    line-height: 0.85;
-    letter-spacing: -0.07em;
-  }
-
-  .blog-header > p:last-child {
-    max-width: 58ch;
-    margin: 0;
-    color: var(--foreground1);
-    font-size: clamp(1rem, 2vw, 1.15rem);
-  }
 
   .post-list {
     display: grid;

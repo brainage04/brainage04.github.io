@@ -18,6 +18,8 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
   'browser-extensions': '◫',
   websites: '>_',
   'discord-bots': '◉',
+  'scripts-developer-tools': '$_',
+  personal: '@',
 };
 ---
 
@@ -69,9 +71,7 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     place-items: center;
     overflow: hidden;
     border-block-end: 1px solid var(--border-subtle);
-    background:
-      radial-gradient(circle at 68% 28%, color-mix(in srgb, var(--visual-accent) 34%, transparent), transparent 34%),
-      linear-gradient(145deg, color-mix(in srgb, var(--visual-accent) 13%, var(--background1)), var(--background0));
+    background: linear-gradient(145deg, color-mix(in srgb, var(--visual-accent) 13%, var(--background1)), var(--background0));
     color: var(--visual-accent);
   }
 
@@ -109,7 +109,9 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
 
   .project-visual[data-category='browser-extensions'],
   .project-visual[data-category='websites'],
-  .project-visual[data-category='discord-bots'] {
+  .project-visual[data-category='discord-bots'],
+  .project-visual[data-category='scripts-developer-tools'],
+  .project-visual[data-category='personal'] {
     --visual-accent: #b78ac2;
   }
 
