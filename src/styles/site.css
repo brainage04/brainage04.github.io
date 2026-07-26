@@ -27,13 +27,10 @@ html:root {
 
 html body {
   font-family: var(--font-mono);
-  background:
-    radial-gradient(circle at 12% 8%, rgb(217 180 237 / 8%), transparent 28rem),
-    radial-gradient(circle at 88% 20%, rgb(239 179 195 / 7%), transparent 30rem),
-    var(--background0);
+  background: var(--background0);
 }
 
-:where(h1, h2, h3, h4, nav, button, p, li, a, input, textarea, select, .eyebrow, .site-badge, .panel-header, .project-toc, .site-footer) {
+:where(h1, h2, h3, h4, nav, button, p, li, a, input, textarea, select, .site-badge, .panel-header, .project-toc, .site-footer) {
   font-family: var(--font-mono);
 }
 
@@ -82,6 +79,18 @@ html body {
 .action-button--ghost:hover {
   background: color-mix(in srgb, var(--accent-cyan) 12%, var(--surface-raised));
   color: var(--foreground0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

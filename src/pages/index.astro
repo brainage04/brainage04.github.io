@@ -14,9 +14,7 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
 
     <section class="build-summary" aria-labelledby="build-summary-title">
       <div class="section-intro">
-        <p class="eyebrow">What I make</p>
         <h2 id="build-summary-title">Projects</h2>
-        <p>These are the same categories I use for my <a href="https://github.com/brainage04?tab=stars" target="_blank" rel="noreferrer">GitHub star lists</a>.</p>
       </div>
       <div class="capability-list">
         {githubStarLists.map((list) => (
@@ -31,7 +29,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
     <section aria-labelledby="featured-projects-heading">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Selected work</p>
           <h2 id="featured-projects-heading">Featured projects</h2>
         </div>
         <a href="/projects/">View the full catalogue <span aria-hidden="true">→</span></a>
@@ -55,13 +52,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
     max-width: 52rem;
   }
 
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-cyan);
-    font: 700 0.78rem/1.2 var(--font-mono);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
 
   .section-intro h2,
   .section-heading h2 {
@@ -71,12 +61,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
     letter-spacing: -0.04em;
   }
 
-  .section-intro > p:last-child {
-    max-width: 62ch;
-    margin: 0;
-    color: var(--foreground1);
-    font-size: 1.05rem;
-  }
 
   .capability-list {
     display: grid;
@@ -113,10 +97,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
     border-block-end: 1px solid var(--border-subtle);
   }
 
-  .section-heading > div {
-    display: grid;
-    gap: 0.5rem;
-  }
 
   .section-heading > a {
     color: var(--foreground1);

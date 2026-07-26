@@ -44,9 +44,7 @@ const { Content, headings } = await render(post);
 
 <BlogPostLayout
   title={post.data.title}
-  description={post.data.description}
   pubDate={post.data.pubDate}
-  author={post.data.author}
   topic={post.data.topic}
   readingMinutes={post.data.readingMinutes}
   headings={headings}
