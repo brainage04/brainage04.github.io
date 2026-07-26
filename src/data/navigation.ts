@@ -15,4 +15,5 @@ export const navigation: NavItem[] = [
   },
   { name: 'Blog', href: '/blog/', match: '/blog/', activeMode: 'prefix' },
   { name: 'Recipes', href: '/BakingCookingRecipes/' },
+  { name: 'GifStudio', href: '/GifStudio/' },
 ];
