@@ -8,7 +8,6 @@ export interface Props {
 
 const { project, index } = Astro.props;
 const category = projectCategories[project.category];
-const statusLabel = project.status === 'wip' ? 'IN PROGRESS' : project.status.toUpperCase();
 const categoryMarks: Record<ProjectCategoryId, string> = {
   'large-minecraft-mods': '▦',
   'small-minecraft-mods': '✦',
@@ -31,7 +30,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
   </div>
   <div class="project-content">
     <div class="project-meta">
-      <span class="status" data-status={project.status}>{statusLabel}</span>
       <span>{category.label}</span>
     </div>
     <h3>
@@ -158,17 +156,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     text-transform: uppercase;
   }
 
-  .status {
-    color: var(--accent-cyan);
-  }
-
-  .status[data-status='released'] {
-    color: var(--accent-green);
-  }
-
-  .status[data-status='wip'] {
-    color: var(--accent-yellow);
-  }
 
   h3 {
     margin-block: 0.9rem 0;

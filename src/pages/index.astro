@@ -20,6 +20,7 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
         {githubStarLists.map((list) => (
           <article>
             <h3>{list.name}</h3>
+            <span class="category-count">{list.projectCount} {list.projectCount === 1 ? 'project' : 'projects'}</span>
             <p>{list.description}</p>
           </article>
         ))}
@@ -78,6 +79,15 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
   .capability-list h3 {
     margin: 0;
     font-size: 1rem;
+  }
+
+  .category-count {
+    display: block;
+    margin-block-start: 0.35rem;
+    color: var(--accent-cyan);
+    font: 700 0.75rem/1.2 var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .capability-list p {
