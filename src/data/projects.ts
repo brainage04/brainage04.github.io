@@ -83,7 +83,7 @@ export const projects: Project[] = [
   project('BakingCookingRecipes', null, 'TypeScript', 'websites'),
   project('brainage04.github.io', 'My GitHub Pages website.', 'Astro', 'websites', 6),
   project('WebTuiAstroTemplate', null, 'Astro', 'websites'),
-  project('brainage04-astro-shell', null, 'Astro', 'websites'),
+  project('AstroShell', null, 'Astro', 'websites'),
   project('kashii-music.github.io', 'Music producer portfolio and commission site for kashii', 'Astro', 'websites'),
   project('ConversationExporter', null, 'TypeScript', 'discord-bots'),
   project('DiscordPluginInstaller', null, 'JavaScript', 'discord-bots'),
