@@ -9,7 +9,7 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
 
 <SiteLayout title="Projects">
   <section class="projects-page" aria-labelledby="projects-title">
-    <h1 id="projects-title">Projects</h1>
+    <h1 id="projects-title" class="sr-only">Projects</h1>
 
     <div class="category-list">
       {projectGroups.map((group) => (
@@ -18,9 +18,25 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
             <span>{group.label}</span>
             <small>{projectCountLabel(group.projects.length)}</small>
           </summary>
-          <div class="catalogue-grid">
-            {group.projects.map((project) => <ProjectCard project={project} />)}
-          </div>
+          {group.subgroups ? (
+            <div class="subcategory-list">
+              {group.subgroups.map((subgroup) => (
+                <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
+                  <div class="subcategory-heading">
+                    <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
+                    <small>{projectCountLabel(subgroup.projects.length)}</small>
+                  </div>
+                  <div class="catalogue-grid">
+                    {subgroup.projects.map((project) => <ProjectCard project={project} />)}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div class="catalogue-grid">
+              {group.projects.map((project) => <ProjectCard project={project} />)}
+            </div>
+          )}
         </details>
       ))}
     </div>
@@ -33,13 +49,6 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
     gap: clamp(2rem, 6vw, 4rem);
   }
 
-  h1 {
-    max-width: 14ch;
-    margin: 0;
-    font-size: clamp(3rem, 10vw, 6.8rem);
-    line-height: 0.86;
-    letter-spacing: -0.075em;
-  }
 
   .category-list {
     display: grid;
@@ -72,6 +81,38 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
   }
 
   .project-group summary small {
+    color: var(--foreground2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .subcategory-list {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .subcategory-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 0.5rem;
+  }
+
+  .subcategory-heading h2,
+  .subcategory-heading small {
+    margin: 0;
+  }
+
+  .subcategory-heading h2 {
+    font-size: 0.9rem;
+  }
+
+  .subcategory-heading small {
     color: var(--foreground2);
     font-size: 0.72rem;
     font-weight: 700;

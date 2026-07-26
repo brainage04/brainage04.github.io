@@ -7,7 +7,6 @@ export interface Props {
 
 const { project } = Astro.props;
 const category = projectCategories[project.category];
-const statusLabel = project.status === 'wip' ? 'IN PROGRESS' : project.status.toUpperCase();
 const categoryMarks: Record<ProjectCategoryId, string> = {
   'large-minecraft-mods': '▦',
   'small-minecraft-mods': '✦',
@@ -22,11 +21,10 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
 };
 ---
 
-<article class="project-card" data-status={project.status}>
+<article class="project-card">
   <div class="project-icon" aria-hidden="true">{categoryMarks[project.category]}</div>
   <div class="project-copy">
     <div class="project-meta">
-      <span class="status">{statusLabel}</span>
       <span>{category.badge}</span>
     </div>
     <h3>
@@ -72,13 +70,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     font: 700 0.88rem/1 var(--font-mono);
   }
 
-  .project-card[data-status='released'] .project-icon {
-    color: var(--accent-green);
-  }
-
-  .project-card[data-status='wip'] .project-icon {
-    color: var(--accent-yellow);
-  }
 
   .project-copy {
     min-width: 0;
@@ -94,17 +85,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     text-transform: uppercase;
   }
 
-  .status {
-    color: var(--accent-cyan);
-  }
-
-  .project-card[data-status='released'] .status {
-    color: var(--accent-green);
-  }
-
-  .project-card[data-status='wip'] .status {
-    color: var(--accent-yellow);
-  }
 
   h3 {
     margin-block: 0.55rem 0;
