@@ -10,7 +10,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.9",
+    "@astrojs/check": "0.9.10",
     "@astrojs/markdown-satteri": "0.3.4",
     "@brainage04/astro-shell": "github:brainage04/AstroShell#v0.3.4",
     "@webtui/css": "0.1.9",
