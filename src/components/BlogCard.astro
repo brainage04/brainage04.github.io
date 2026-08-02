@@ -18,7 +18,9 @@ const date = formatBlogDate(post.data.pubDate);
   </div>
   <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
   <p>{post.data.description}</p>
-  <a class="read-link" href={`/blog/${post.data.slug}`} aria-label={`Read ${post.data.title}`}>Read post <span aria-hidden="true">→</span></a>
+  <a class="read-link" href={`/blog/${post.data.slug}`} aria-label={`Read ${post.data.title}`}
+    >Read post <span aria-hidden="true">→</span></a
+  >
 </article>
 
 <style>
@@ -30,7 +32,9 @@ const date = formatBlogDate(post.data.pubDate);
     padding: clamp(1.1rem, 2.5vw, 1.5rem);
     border-block-start: 1px solid var(--border-subtle);
     background: linear-gradient(90deg, color-mix(in srgb, var(--accent-cyan) 4%, transparent), transparent 55%);
-    transition: background-color 180ms ease, border-color 180ms ease;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease;
   }
 
   .blog-card:hover,
@@ -65,7 +69,6 @@ const date = formatBlogDate(post.data.pubDate);
     color: var(--foreground0);
     text-decoration: none;
   }
-
 
   p {
     grid-column: 1;

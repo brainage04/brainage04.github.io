@@ -1,5 +1,5 @@
 ---
-import { projectCategories, type Project, type ProjectCategoryId } from '../data/projects';
+import { projectCategories, type Project } from '../data/projects';
 
 export interface Props {
   project: Project;
@@ -7,28 +7,24 @@ export interface Props {
 
 const { project } = Astro.props;
 const category = projectCategories[project.category];
-const categoryMarks: Record<ProjectCategoryId, string> = {
-  'large-minecraft-mods': '▦',
-  'small-minecraft-mods': '✦',
-  'templates-starters': '</>',
-  'minecraft-dev-tools': '⌘',
-  'minecraft-datapacks': '{}',
-  'browser-extensions': '◫',
-  websites: '>_',
-  'discord-bots': '◉',
-  'scripts-developer-tools': '$_',
-  personal: '@',
-};
 ---
 
 <article class="project-card">
-  <div class="project-icon" aria-hidden="true">{categoryMarks[project.category]}</div>
+  <div class="project-icon" aria-hidden="true">{category.mark}</div>
   <div class="project-copy">
     <div class="project-meta">
       <span>{category.badge}</span>
     </div>
     <h3>
-      {project.url ? <a href={project.url} target="_blank" rel="noreferrer">{project.name}</a> : project.name}
+      {
+        project.url ? (
+          <a href={project.url} target="_blank" rel="noreferrer">
+            {project.name}
+          </a>
+        ) : (
+          project.name
+        )
+      }
     </h3>
     <p>{project.description}</p>
     <ul aria-label={`${project.name} technologies`}>
@@ -36,7 +32,13 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
       {project.technologies.length > 3 && <li>+{project.technologies.length - 3}</li>}
     </ul>
   </div>
-  {project.url && <a class="open-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}><span aria-hidden="true">↗</span></a>}
+  {
+    project.url && (
+      <a class="open-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}>
+        <span aria-hidden="true">↗</span>
+      </a>
+    )
+  }
 </article>
 
 <style>
@@ -49,7 +51,10 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     padding: 1rem;
     border-block-start: 1px solid var(--border-subtle);
     background: color-mix(in srgb, var(--surface) 88%, transparent);
-    transition: border-color 170ms ease, background-color 170ms ease, translate 170ms ease;
+    transition:
+      border-color 170ms ease,
+      background-color 170ms ease,
+      translate 170ms ease;
   }
 
   .project-card:hover,
@@ -70,7 +75,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     font: 700 0.88rem/1 var(--font-mono);
   }
 
-
   .project-copy {
     min-width: 0;
   }
@@ -84,7 +88,6 @@ const categoryMarks: Record<ProjectCategoryId, string> = {
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
-
 
   h3 {
     margin-block: 0.55rem 0;
