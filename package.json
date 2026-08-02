@@ -7,14 +7,25 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.10",
     "@astrojs/markdown-satteri": "0.3.5",
-    "@brainage04/astro-shell": "github:brainage04/AstroShell#v0.3.4",
-    "@webtui/css": "0.1.9",
+    "@brainage04/astro-shell": "0.4.0",
+    "@webtui/css": "0.1.9"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
     "astro": "7.1.5",
-    "typescript": "6.0.3"
+    "eslint": "10.8.0",
+    "eslint-plugin-astro": "3.0.1",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0"
   }
 }

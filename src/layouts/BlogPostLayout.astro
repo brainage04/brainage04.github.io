@@ -40,16 +40,20 @@ const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.
       <h1>{title}</h1>
     </header>
 
-    {tocHeadings.length >= 4 && (
-      <details class="post-toc">
-        <summary>On this page</summary>
-        <ol>
-          {tocHeadings.map((heading) => (
-            <li data-depth={heading.depth}><a href={`#${heading.slug}`}>{heading.text}</a></li>
-          ))}
-        </ol>
-      </details>
-    )}
+    {
+      tocHeadings.length >= 4 && (
+        <details class="post-toc">
+          <summary>On this page</summary>
+          <ol>
+            {tocHeadings.map((heading) => (
+              <li data-depth={heading.depth}>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+          </ol>
+        </details>
+      )
+    }
 
     <div class="prose">
       <slot />
@@ -57,10 +61,28 @@ const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.
 
     <nav class="post-navigation" aria-label="Blog post navigation">
       <div>
-        {previous && <a href={previous.href}><span>Previous post</span><strong>{previous.title}</strong></a>}
+        {
+          previous && (
+            <a href={previous.href}>
+              <>
+                <span>Previous post</span>
+                <strong>{previous.title}</strong>
+              </>
+            </a>
+          )
+        }
       </div>
       <div>
-        {next && <a href={next.href}><span>Next post</span><strong>{next.title}</strong></a>}
+        {
+          next && (
+            <a href={next.href}>
+              <>
+                <span>Next post</span>
+                <strong>{next.title}</strong>
+              </>
+            </a>
+          )
+        }
       </div>
     </nav>
   </article>
@@ -110,7 +132,6 @@ const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.
     line-height: 0.96;
     letter-spacing: -0.06em;
   }
-
 
   .post-toc {
     width: min(100%, 68ch);

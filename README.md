@@ -1,36 +1,30 @@
 # brainage04.github.io
 
-Astro static site using WebTUI CSS.
+Personal Astro site for brainage04: projects, skills, social links, and blog posts, presented with AstroShell and WebTUI.
 
-## Local development
+## Requirements
 
-Install dependencies:
+- Node.js 24
+- npm
 
-```sh
-npm install
-```
+## Development
 
-Run the dev server:
-
-```sh
+```bash
+npm ci
 npm run dev
 ```
 
-Validate and build:
+Project, skill, social, and navigation data live in `src/data`. Blog posts live in `src/content/blog`.
 
-```sh
+## Validation
+
+```bash
 npm run check
+npm run lint
+npm run format:check
 npm run build
 ```
 
-Preview the production build:
+## Deployment
 
-```sh
-npm run preview
-```
-
-## Notes
-
-- Blog posts live in `src/content/blog`.
-- Shared project, skill, social, and navigation data live in `src/data`.
-- Static images live under `public/assets/images`.
+Pushes to `main` are validated and deployed to [brainage04.github.io](https://brainage04.github.io/) through GitHub Actions and GitHub Pages.

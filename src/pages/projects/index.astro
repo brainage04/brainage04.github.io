@@ -12,33 +12,39 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
     <h1 id="projects-title" class="sr-only">Projects</h1>
 
     <div class="category-list">
-      {projectGroups.map((group) => (
-        <details class="project-group" id={group.id}>
-          <summary>
-            <span>{group.label}</span>
-            <small>{projectCountLabel(group.projects.length)}</small>
-          </summary>
-          {group.subgroups ? (
-            <div class="subcategory-list">
-              {group.subgroups.map((subgroup) => (
-                <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
-                  <div class="subcategory-heading">
-                    <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
-                    <small>{projectCountLabel(subgroup.projects.length)}</small>
-                  </div>
-                  <div class="catalogue-grid">
-                    {subgroup.projects.map((project) => <ProjectCard project={project} />)}
-                  </div>
-                </section>
-              ))}
-            </div>
-          ) : (
-            <div class="catalogue-grid">
-              {group.projects.map((project) => <ProjectCard project={project} />)}
-            </div>
-          )}
-        </details>
-      ))}
+      {
+        projectGroups.map((group) => (
+          <details class="project-group" id={group.id}>
+            <summary>
+              <span>{group.label}</span>
+              <small>{projectCountLabel(group.projects.length)}</small>
+            </summary>
+            {group.subgroups ? (
+              <div class="subcategory-list">
+                {group.subgroups.map((subgroup) => (
+                  <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
+                    <div class="subcategory-heading">
+                      <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
+                      <small>{projectCountLabel(subgroup.projects.length)}</small>
+                    </div>
+                    <div class="catalogue-grid">
+                      {subgroup.projects.map((project) => (
+                        <ProjectCard project={project} />
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            ) : (
+              <div class="catalogue-grid">
+                {group.projects.map((project) => (
+                  <ProjectCard project={project} />
+                ))}
+              </div>
+            )}
+          </details>
+        ))
+      }
     </div>
   </section>
 </SiteLayout>
@@ -48,7 +54,6 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
     display: grid;
     gap: clamp(2rem, 6vw, 4rem);
   }
-
 
   .category-list {
     display: grid;

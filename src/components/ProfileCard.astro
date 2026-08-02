@@ -5,7 +5,14 @@ import { socials } from '../data/socials';
 
 <section class="profile-card" aria-labelledby="profile-name">
   <div class="avatar-frame" aria-hidden="true">
-    <Image class="avatar" src="/assets/images/graphic-design/profile-pictures/brainage04.jpg" alt="" width={400} height={400} loading="eager" />
+    <Image
+      class="avatar"
+      src="/assets/images/graphic-design/profile-pictures/brainage04.jpg"
+      alt=""
+      width={400}
+      height={400}
+      loading="eager"
+    />
   </div>
   <div class="profile-copy">
     <div class="name-row">
@@ -13,17 +20,22 @@ import { socials } from '../data/socials';
       <div class="socials" aria-label="Social links">
         <a href="mailto:thomasmcmah21@gmail.com" title="Email Thomas" aria-label="Email Thomas">
           <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" height="22">
-            <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z" />
+            <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z"
+            ></path>
           </svg>
         </a>
-        {socials.map((social) => (
-          <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
-            <Image src={social.icon} alt="" width={social.iconWidth} height={social.iconHeight} loading="eager" />
-          </a>
-        ))}
+        {
+          socials.map((social) => (
+            <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
+              <Image src={social.icon} alt="" width={social.iconWidth} height={social.iconHeight} loading="eager" />
+            </a>
+          ))
+        }
       </div>
     </div>
-    <p class="lead">I make software, Minecraft mods, browser extensions and various tools from Brisbane, Queensland, Australia.</p>
+    <p class="lead">
+      I make software, Minecraft mods, browser extensions and various tools from Brisbane, Queensland, Australia.
+    </p>
     <dl class="credentials">
       <div>
         <dt>Current role</dt>
@@ -86,13 +98,11 @@ import { socials } from '../data/socials';
     object-fit: cover;
   }
 
-
   .profile-copy {
     min-width: 0;
     display: grid;
     gap: 0.9rem;
   }
-
 
   .name-row {
     display: flex;
@@ -107,7 +117,6 @@ import { socials } from '../data/socials';
     line-height: 0.98;
     letter-spacing: -0.055em;
   }
-
 
   .lead {
     max-width: 58ch;
@@ -167,7 +176,9 @@ import { socials } from '../data/socials';
     max-width: none;
     object-fit: contain;
     filter: grayscale(1) brightness(1.7);
-    transition: filter 160ms ease, scale 160ms ease;
+    transition:
+      filter 160ms ease,
+      scale 160ms ease;
   }
 
   .social-icon {
@@ -178,7 +189,6 @@ import { socials } from '../data/socials';
     filter: none;
     scale: 1.06;
   }
-
 
   @media (max-width: 700px) {
     .profile-card {
@@ -210,7 +220,6 @@ import { socials } from '../data/socials';
       text-align: start;
     }
   }
-
 
   @media (prefers-reduced-motion: reduce) {
     .socials :is(img, .social-icon) {

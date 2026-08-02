@@ -1,5 +1,5 @@
 html:root {
-  --font-mono: "Courier New", Courier, monospace;
+  --font-mono: 'Courier New', Courier, monospace;
   --font-body: var(--font-mono);
   --font-family: var(--font-mono);
   --background0: #171218;
@@ -30,7 +30,24 @@ html body {
   background: var(--background0);
 }
 
-:where(h1, h2, h3, h4, nav, button, p, li, a, input, textarea, select, .site-badge, .panel-header, .project-toc, .site-footer) {
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  nav,
+  button,
+  p,
+  li,
+  a,
+  input,
+  textarea,
+  select,
+  .site-badge,
+  .panel-header,
+  .project-toc,
+  .site-footer
+) {
   font-family: var(--font-mono);
 }
 
@@ -60,7 +77,11 @@ html body {
   padding: 0.65rem 0.9rem;
   font: 700 0.9rem/1 var(--font-mono);
   text-decoration: none;
-  transition: translate 160ms ease, border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  transition:
+    translate 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
 }
 
 .action-button--ghost {
