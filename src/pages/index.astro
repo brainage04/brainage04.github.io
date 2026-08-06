@@ -36,7 +36,7 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
         <div>
           <h2 id="featured-projects-heading">Featured projects</h2>
         </div>
-        <a href="/projects/">View the full catalogue <span aria-hidden="true">→</span></a>
+        <a href="/projects/">View the full catalogue</a>
       </div>
       <div class="showcase-grid">
         {featuredProjects.map((project, index) => <ProjectShowcase project={project} index={index} />)}
@@ -110,8 +110,12 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
   }
 
   .section-heading > a {
-    color: var(--foreground1);
+    color: var(--accent-cyan);
     font: 700 0.88rem/1.2 var(--font-mono);
+  }
+
+  .section-heading > a:hover {
+    color: var(--foreground0);
   }
 
   .showcase-grid {

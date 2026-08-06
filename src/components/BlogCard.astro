@@ -18,17 +18,14 @@ const date = formatBlogDate(post.data.pubDate);
   </div>
   <h2><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h2>
   <p>{post.data.description}</p>
-  <a class="read-link" href={`/blog/${post.data.slug}`} aria-label={`Read ${post.data.title}`}
-    >Read post <span aria-hidden="true">→</span></a
-  >
 </article>
 
 <style>
   .blog-card {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.75rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
     padding: clamp(1.1rem, 2.5vw, 1.5rem);
     border-block-start: 1px solid var(--border-subtle);
     background: linear-gradient(90deg, color-mix(in srgb, var(--accent-cyan) 4%, transparent), transparent 55%);
@@ -66,36 +63,18 @@ const date = formatBlogDate(post.data.pubDate);
   }
 
   h2 a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+  }
+
+  h2 a:hover {
     color: var(--foreground0);
-    text-decoration: none;
   }
 
   p {
     grid-column: 1;
     margin: 0;
     color: var(--foreground1);
-  }
-
-  .read-link {
-    grid-column: 2;
-    grid-row: 2 / span 2;
-    align-self: end;
-    color: var(--accent-cyan);
-    font: 700 0.82rem/1.2 var(--font-mono);
-    white-space: nowrap;
-  }
-
-  @media (max-width: 620px) {
-    .blog-card {
-      grid-template-columns: 1fr;
-    }
-
-    .read-link {
-      grid-column: 1;
-      grid-row: auto;
-      justify-self: start;
-      padding-block-start: 0.35rem;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

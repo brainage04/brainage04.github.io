@@ -9,8 +9,10 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
 
 <SiteLayout title="Projects">
   <section class="projects-page" aria-labelledby="projects-title">
-    <h1 id="projects-title" class="sr-only">Projects</h1>
-
+    <header class="page-header">
+      <h1 id="projects-title">Projects</h1>
+      <p>A catalogue of Minecraft mods, browser tools, websites, and experiments.</p>
+    </header>
     <div class="category-list">
       {
         projectGroups.map((group) => (
