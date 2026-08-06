@@ -18,7 +18,7 @@ Project, skill, social, and navigation data live in `src/data`. Blog posts live 
 
 ## Project catalogue
 
-`src/data/projects.generated.ts` is generated from the configured GitHub star lists. Run `npm run update-projects` to refresh repository descriptions, language percentages, categories, featured ordering, and removed repositories. The scheduled `Sync project catalogue` workflow runs the same command with the repository's GitHub token and commits changes.
+`src/data/projects.generated.ts` is generated from the configured GitHub star lists. Run `npm run update-projects` to refresh repository descriptions, language percentages, categories, featured ordering, and removed repositories. The daily `Sync project catalogue` workflow runs the same command with the repository's GitHub token and commits changes.
 
 ## Validation
 
