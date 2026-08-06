@@ -16,6 +16,10 @@ npm run dev
 
 Project, skill, social, and navigation data live in `src/data`. Blog posts live in `src/content/blog`.
 
+## Project catalogue
+
+`src/data/projects.generated.ts` is generated from the configured GitHub star lists. Run `npm run update-projects` to refresh repository descriptions, language percentages, categories, featured ordering, and removed repositories. The scheduled `Sync project catalogue` workflow runs the same command with the repository's GitHub token and commits changes.
+
 ## Validation
 
 ```bash
