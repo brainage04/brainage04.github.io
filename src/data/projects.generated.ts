@@ -71,11 +71,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 61.4,
+        percentage: 61.3,
       },
       {
         name: 'CSS',
-        percentage: 32.3,
+        percentage: 32.4,
       },
       {
         name: 'JavaScript',
@@ -96,15 +96,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 71.6,
+        percentage: 70.7,
       },
       {
         name: 'Astro',
-        percentage: 17.1,
+        percentage: 16.8,
       },
       {
         name: 'CSS',
-        percentage: 10.2,
+        percentage: 11.3,
       },
       {
         name: 'JavaScript',
@@ -155,19 +155,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 66.8,
+        percentage: 47.9,
       },
       {
         name: 'TypeScript',
-        percentage: 26.6,
-      },
-      {
-        name: 'CSS',
-        percentage: 4.9,
+        percentage: 34,
       },
       {
         name: 'JavaScript',
-        percentage: 1.7,
+        percentage: 14.5,
+      },
+      {
+        name: 'CSS',
+        percentage: 3.6,
       },
     ],
     category: 'websites',
@@ -394,11 +394,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 66.7,
+        percentage: 66.6,
       },
       {
         name: 'CSS',
-        percentage: 15.9,
+        percentage: 16,
       },
       {
         name: 'Astro',
@@ -444,19 +444,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 73.8,
+        percentage: 73,
       },
       {
         name: 'TypeScript',
-        percentage: 13.5,
+        percentage: 13.7,
       },
       {
         name: 'CSS',
-        percentage: 11.1,
+        percentage: 11.6,
       },
       {
         name: 'JavaScript',
-        percentage: 1.6,
+        percentage: 1.7,
       },
     ],
     category: 'websites',
