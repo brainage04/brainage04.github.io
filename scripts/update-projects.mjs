@@ -3,15 +3,7 @@ import { URL } from 'node:url';
 import process from 'node:process';
 import prettier from 'prettier';
 import { writeFile } from 'node:fs/promises';
-import {
-  categoryOverrides,
-  descriptionOverrides,
-  excludedRepositories,
-  featuredOrder,
-  githubOwner,
-  modernMinecraftProjects,
-  starLists,
-} from './project-config.mjs';
+import { categoryOverrides, excludedRepositories, featuredOrder, githubOwner, starLists } from './project-config.mjs';
 
 const outputPath = new URL('../src/data/projects.generated.ts', import.meta.url);
 const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
@@ -57,50 +49,38 @@ function repositoryLinks(html) {
   return [...repositories];
 }
 
-function markdownSummary(markdown) {
-  const withoutFrontMatter = markdown.replace(/^---[\s\S]*?---\s*/u, '');
-  const paragraphs = withoutFrontMatter
-    .split(/\n\s*\n/u)
-    .map((paragraph) => paragraph.trim())
-    .filter((paragraph) => paragraph && !paragraph.startsWith('#') && !paragraph.startsWith('```'));
+const projectIconPatterns = [
+  /(?:^|\/)src\/main\/resources\/assets\/[^/]+\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
+  /(?:^|\/)src\/main\/resources\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
+  /^(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
+];
 
-  const summary = paragraphs[0]
-    ?.replace(/!\[[^\]]*\]\([^)]*\)/gu, '')
-    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
-    .replace(/[`*_]/gu, '')
-    .replace(/\s+/gu, ' ')
-    .trim();
+async function repositoryIcon(repository, listSlug) {
+  if (listSlug !== 'minecraft-mods') return undefined;
 
-  return summary && summary.length <= 240 ? summary : undefined;
-}
-
-async function readmeDescription(repository) {
   try {
     const branch = encodeURIComponent(repository.default_branch);
-    const readme = await request(
-      `https://raw.githubusercontent.com/${repository.full_name}/${branch}/README.md`,
-      'text',
-    );
-    return markdownSummary(readme);
-  } catch {
+    const tree = await request(`https://api.github.com/repos/${repository.full_name}/git/trees/${branch}?recursive=1`);
+    const paths = tree.tree.filter((entry) => entry.type === 'blob').map((entry) => entry.path);
+    const iconPath = projectIconPatterns.map((pattern) => paths.find((path) => pattern.test(path))).find(Boolean);
+
+    if (!iconPath) return undefined;
+
+    const encodedPath = iconPath.split('/').map(encodeURIComponent).join('/');
+    const iconUrl = `https://raw.githubusercontent.com/${repository.full_name}/${branch}/${encodedPath}`;
+    const response = await fetch(iconUrl, { headers });
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText} for ${iconUrl}`);
+    }
+    await response.arrayBuffer();
+    if (!response.headers.get('content-type')?.startsWith('image/')) {
+      throw new Error(`invalid image response for ${iconUrl}`);
+    }
+    return iconUrl;
+  } catch (error) {
+    console.warn(`No icon loaded for ${repository.full_name}: ${error.message}`);
     return undefined;
   }
-}
-
-function normalizeDescription(name, listSlug, description) {
-  const override = descriptionOverrides[name];
-  const value = override ?? description ?? `GitHub repository for ${name}.`;
-
-  if (
-    listSlug === 'minecraft-mods' &&
-    modernMinecraftProjects.has(name) &&
-    /\bFabric\b/u.test(value) &&
-    !/\bNeoForge\b/u.test(value)
-  ) {
-    return value.replace(/\bFabric\b/gu, 'Fabric and NeoForge');
-  }
-
-  return value;
 }
 
 function languageBreakdown(languageBytes, fallbackLanguage) {
@@ -150,16 +130,16 @@ async function buildProjects() {
     }
 
     const name = repository.name;
-    const repositoryDescription = (await readmeDescription(repository)) ?? repository.description;
-    if (!repositoryDescription && !descriptionOverrides[name]) {
-      console.warn(`Skipping ${entry.fullName}: no description or README summary`);
-      continue;
+    if (!repository.description) {
+      console.warn(`Using an empty description for ${entry.fullName}: no GitHub repository description`);
     }
+    const icon = await repositoryIcon(repository, entry.slug);
 
     generated.push({
       name,
       url: repository.html_url,
-      description: normalizeDescription(name, entry.slug, repositoryDescription),
+      description: repository.description ?? '',
+      ...(icon ? { icon } : {}),
       languages: languageBreakdown(languages, repository.language),
       category: categoryOverrides[name] ?? entry.category,
       ...(featured.has(name) ? { featured: featured.get(name) } : {}),
