@@ -13,7 +13,13 @@ const category = projectCategories[project.category];
 <article class="project-showcase">
   <div class="project-visual" data-category={project.category} aria-hidden="true">
     <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
-    <span class="project-mark">{category.mark}</span>
+    {
+      project.icon ? (
+        <img class="project-icon" src={project.icon} alt="" decoding="async" />
+      ) : (
+        <span class="project-mark">{category.mark}</span>
+      )
+    }
     <span class="project-category">{category.badge}</span>
   </div>
   <div class="project-content">
@@ -25,7 +31,7 @@ const category = projectCategories[project.category];
         {project.name}
       </a>
     </h3>
-    <p>{project.description}</p>
+    {project.description && <p>{project.description}</p>}
     <ul aria-label={`${project.name} language breakdown`}>
       {
         project.languages.slice(0, 3).map(({ name, percentage }) => (
@@ -131,11 +137,29 @@ const category = projectCategories[project.category];
     inset: auto 0.9rem 0.85rem auto;
   }
 
-  .project-mark {
-    position: relative;
+  .project-mark,
+  .project-icon {
+    position: absolute;
+    inset: 50% auto auto 50%;
     z-index: 1;
+    translate: -50% -50%;
+  }
+
+  .project-mark {
+    width: clamp(4.5rem, 9vw, 5.4rem);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    text-align: center;
     font: 700 clamp(3.3rem, 9vw, 5.4rem)/1 var(--font-mono);
     text-shadow: 0 0 2rem color-mix(in srgb, var(--visual-accent) 34%, transparent);
+  }
+
+  .project-icon {
+    width: clamp(4.5rem, 9vw, 6rem);
+    height: clamp(4.5rem, 9vw, 6rem);
+    object-fit: contain;
+    filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--visual-accent) 34%, transparent));
   }
 
   .project-content {

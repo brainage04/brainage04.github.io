@@ -3,7 +3,7 @@ import { groupProjects, projects } from './projects';
 const listDescriptions: Record<string, string> = {
   'Minecraft Mods': 'Fabric and NeoForge mods, mod libraries, and modding templates.',
   'Discord Bots & Plugins': 'Discord bots and client plugins.',
-  'Websites & Web Apps': 'Websites, browser-based apps, and web templates.',
+  'Websites & Website Templates': 'Websites, browser-based apps, and web templates.',
   'Browser Extensions': 'Browser extensions and extension templates.',
   'Minecraft Datapacks': 'Minecraft datapacks and datapack templates.',
 };

@@ -4,8 +4,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'MagicCarpet',
     url: 'https://github.com/brainage04/MagicCarpet',
-    description:
-      'MagicCarpet is a Minecraft 26.2 mod for Fabric and NeoForge that adds three craftable, rideable flying carpets. Install it on both the client and server.',
+    description: 'A Fabric Minecraft mod that adds three tiers of craftable, rideable flying carpets.',
+    icon: 'https://raw.githubusercontent.com/brainage04/MagicCarpet/master/common/src/main/resources/assets/magic_carpet/icon.png',
     languages: [
       {
         name: 'Java',
@@ -19,7 +19,8 @@ export const generatedProjects: Project[] = [
     name: 'ProceduralDungeon',
     url: 'https://github.com/brainage04/ProceduralDungeon',
     description:
-      'Fabric and NeoForge Minecraft mod that adds procedurally generated dungeons with varied rooms, traps, and loot.',
+      'A Fabric Minecraft mod that adds procedurally generated, tiered dungeons with varied rooms, traps, and loot.',
+    icon: 'https://raw.githubusercontent.com/brainage04/ProceduralDungeon/master/common/src/main/resources/assets/procedural_dungeon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -41,7 +42,8 @@ export const generatedProjects: Project[] = [
     name: 'FortniteInMinecraft',
     url: 'https://github.com/brainage04/FortniteInMinecraft',
     description:
-      'Server-authoritative Minecraft mechanics prototype generated from brainage04/ModernMinecraftModTemplate, now targeting both Fabric and NeoForge from one shared implementation.',
+      'A Fabric and NeoForge Minecraft mod that adds Fortnite-inspired building, weapons, resources, and combat mechanics.',
+    icon: 'https://raw.githubusercontent.com/brainage04/FortniteInMinecraft/master/common/src/main/resources/assets/fortniteinminecraft/icon.png',
     languages: [
       {
         name: 'Java',
@@ -55,7 +57,8 @@ export const generatedProjects: Project[] = [
     name: 'AcceleratedDamage',
     url: 'https://github.com/brainage04/AcceleratedDamage',
     description:
-      'A server-side Minecraft 26.2 mod for Fabric and NeoForge that exposes configurable accelerated combat and damage mechanics as gamerules. Clients do not need to install the mod.',
+      'A server-side Fabric Minecraft mod that exposes configurable accelerated combat and damage mechanics as gamerules.',
+    icon: 'https://raw.githubusercontent.com/brainage04/AcceleratedDamage/master/common/src/main/resources/assets/accelerateddamage/icon.png',
     languages: [
       {
         name: 'Java',
@@ -67,7 +70,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'AstroShell',
     url: 'https://github.com/brainage04/AstroShell',
-    description: 'Shared Astro shell components and base styles for my websites.',
+    description: '',
     languages: [
       {
         name: 'Astro',
@@ -91,8 +94,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'BakingCookingRecipes',
     url: 'https://github.com/brainage04/BakingCookingRecipes',
-    description:
-      'Cookie and brownie calculators with Woolworths cost estimates, substitutions, nutrition, and combined shopping lists.',
+    description: '',
     languages: [
       {
         name: 'TypeScript',
@@ -116,8 +118,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'BetterRhythiaDownloader',
     url: 'https://github.com/brainage04/BetterRhythiaDownloader',
-    description:
-      'Chrome Manifest V3 extension that adds direct download buttons to Rhythia map cards on https://www.rhythia.com/maps.',
+    description: 'Chrome Manifest V3 extension that adds direct download buttons to Rhythia map cards.',
     languages: [
       {
         name: 'JavaScript',
@@ -137,8 +138,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'BetterVillagerTrades',
     url: 'https://github.com/brainage04/BetterVillagerTrades',
-    description:
-      'Fabric and NeoForge client-side trading helper that rerolls villager offers and adds per-player filters for desired items and enchantments.',
+    description: 'Multi-loader villager trade rerolls, per-player filters, and max-level enchantment outputs',
     languages: [
       {
         name: 'Java',
@@ -150,8 +150,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'brainage04.github.io',
     url: 'https://github.com/brainage04/brainage04.github.io',
-    description:
-      'Personal Astro site for brainage04: projects, skills, social links, and blog posts, presented with AstroShell and WebTUI.',
+    description: 'My GitHub Pages website.',
     languages: [
       {
         name: 'Astro',
@@ -188,7 +187,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'BrainageHUD',
     url: 'https://github.com/brainage04/BrainageHUD',
-    description: 'A client-side Fabric and NeoForge Minecraft mod that adds useful HUD elements.',
+    description: 'A client-side Fabric Minecraft mod that adds useful HUD elements.',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageHUD/master/common/src/main/resources/assets/brainagehud/icon.png',
     languages: [
       {
         name: 'Java',
@@ -207,8 +207,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'BrainageLib',
     url: 'https://github.com/brainage04/BrainageLib',
-    description:
-      "BrainageLib is a server-side Fabric and NeoForge library for Minecraft 26.2. It provides consistent command feedback and one combined first-join help surface for brainage04's server mods. Vanilla clients do not install it.",
+    description: "Shared server-side Fabric utilities for brainage04's Minecraft mods",
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageLib/master/fabric/src/main/resources/assets/brainagelib/icon.png',
     languages: [
       {
         name: 'Java',
@@ -221,7 +221,8 @@ export const generatedProjects: Project[] = [
     name: 'BrainageMinigames',
     url: 'https://github.com/brainage04/BrainageMinigames',
     description:
-      'A server-side mod for Minecraft 26.2 that provides configurable custom events and an Ultra Hardcore (UHC) minigame. Clients do not need to install the mod.',
+      'A server-side Fabric Minecraft mod that provides configurable custom events and an Ultra Hardcore minigame.',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageMinigames/master/common/src/main/resources/assets/brainage_minigames/icon.png',
     languages: [
       {
         name: 'Java',
@@ -234,7 +235,8 @@ export const generatedProjects: Project[] = [
     name: 'BrainageServerUtils',
     url: 'https://github.com/brainage04/BrainageServerUtils',
     description:
-      'A server-side utility mod for Fabric and NeoForge on Minecraft 26.2. Clients do not need to install the mod.',
+      'A server-side Fabric Minecraft mod that adds configurable utility gamerules and administrative commands.',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageServerUtils/master/common/src/main/resources/assets/brainageserverutils/icon.png',
     languages: [
       {
         name: 'Java',
@@ -259,7 +261,7 @@ export const generatedProjects: Project[] = [
     name: 'BrowserExtensionTemplate',
     url: 'https://github.com/brainage04/BrowserExtensionTemplate',
     description:
-      'Reusable Chrome Manifest V3 extension structure based on Better Rhythia Downloader, Copy Selected Tab Links, and X Age Restriction Fixer.',
+      'Reusable Chrome Manifest V3 extension template with linting, formatting, store assets, and release tooling.',
     languages: [
       {
         name: 'JavaScript',
@@ -279,7 +281,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'ConversationExporter',
     url: 'https://github.com/brainage04/ConversationExporter',
-    description: 'Vencord and Revenge client plugin for exporting selected Discord message ranges as JSON.',
+    description: '',
     languages: [
       {
         name: 'TypeScript',
@@ -295,7 +297,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'CopyTabLinks',
     url: 'https://github.com/brainage04/CopyTabLinks',
-    description: 'Chrome Manifest V3 extension that copies URLs from highlighted tabs in the current Chrome window.',
+    description: 'Chrome Manifest V3 extension that copies selected tab URLs with a configurable separator.',
     languages: [
       {
         name: 'JavaScript',
@@ -315,7 +317,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'DatapackTemplate',
     url: 'https://github.com/brainage04/DatapackTemplate',
-    description: 'Starter Minecraft datapack template with an init script and reusable project scaffolding.',
+    description: 'My Minecraft datapack template.',
     languages: [
       {
         name: 'mcfunction',
@@ -344,7 +346,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'DiscordPluginInstaller',
     url: 'https://github.com/brainage04/DiscordPluginInstaller',
-    description: 'CLI and Android tooling for installing Vencord and Revenge Discord plugins.',
+    description: '',
     languages: [
       {
         name: 'JavaScript',
@@ -360,7 +362,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'FabricModdingConventions',
     url: 'https://github.com/brainage04/FabricModdingConventions',
-    description: 'Reusable Fabric modding conventions for Minecraft mods.',
+    description: 'Reusable Fabric client GameTest recording helpers for Minecraft mods.',
     languages: [
       {
         name: 'Java',
@@ -377,7 +379,8 @@ export const generatedProjects: Project[] = [
     name: 'GetEnchantInfo',
     url: 'https://github.com/brainage04/GetEnchantInfo',
     description:
-      'Fabric and NeoForge client-only Minecraft mod that reports an enchantment maximum level and incompatibilities in game.',
+      'A client-side Fabric Minecraft mod that adds commands for inspecting enchantments and their maximum levels.',
+    icon: 'https://raw.githubusercontent.com/brainage04/GetEnchantInfo/master/fabric/src/main/resources/assets/getenchantinfo/icon.png',
     languages: [
       {
         name: 'Java',
@@ -389,8 +392,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'GifStudio',
     url: 'https://github.com/brainage04/GifStudio',
-    description:
-      'Browser-based GIF compositor for selecting a base animation, positioning an image overlay, rendering with FFmpeg WebAssembly, and downloading the result without uploading source files.',
+    description: '',
     languages: [
       {
         name: 'TypeScript',
@@ -414,8 +416,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'HiBackBot',
     url: 'https://github.com/brainage04/HiBackBot',
-    description:
-      'Discord bot I made as part of a running joke between me and my friends (people would go afk -> come back and say "I\'m back" -> people would say "hi back" as a funny dad joke)',
+    description: 'Discord bot that renames everyone to "back"',
     languages: [
       {
         name: 'JavaScript',
@@ -427,7 +428,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'HudRendererLib',
     url: 'https://github.com/brainage04/HudRendererLib',
-    description: 'Fabric and NeoForge library for rendering configurable HUD elements in Minecraft.',
+    description: 'A Minecraft Fabric client-side library for rendering HUD elements. ',
+    icon: 'https://raw.githubusercontent.com/brainage04/HudRendererLib/master/common/src/main/resources/assets/hudrendererlib/icon.png',
     languages: [
       {
         name: 'Java',
@@ -439,8 +441,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'kashiilol.github.io',
     url: 'https://github.com/kashiilol/kashiilol.github.io',
-    description:
-      'Astro portfolio for Brisbane producer kashii, featuring original music, reinterpretations, embedded SoundCloud players, and commission information.',
+    description: 'Music producer portfolio and commission site for kashii',
     languages: [
       {
         name: 'Astro',
@@ -464,8 +465,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'LegacyMinecraftModTemplate',
     url: 'https://github.com/brainage04/LegacyMinecraftModTemplate',
-    description:
-      "A maintained Forge 1.8.9 mod template based on hannibal002's template, with Kotlin, Mixin, MoulConfig, and reusable configuration utilities.",
+    description: 'My legacy Minecraft 1.8.9 modding template. ',
     languages: [
       {
         name: 'Kotlin',
@@ -485,7 +485,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'MilkablePlayers',
     url: 'https://github.com/brainage04/MilkablePlayers',
-    description: 'Milkable Players lets players use an empty bucket on another player to receive a named milk bucket.',
+    description: 'A server-side Fabric Minecraft mod that lets players milk other players with buckets.',
+    icon: 'https://raw.githubusercontent.com/brainage04/MilkablePlayers/master/common/src/main/resources/assets/milkable_players/icon.png',
     languages: [
       {
         name: 'Java',
@@ -497,7 +498,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'ModernMinecraftModTemplate',
     url: 'https://github.com/brainage04/ModernMinecraftModTemplate',
-    description: 'Fabric mod template with shared, client, and GameTest source sets for modern Minecraft projects.',
+    description: 'My modern Minecraft modding template.',
+    icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/src/main/resources/assets/modernminecraftmodtemplate/icon.png',
     languages: [
       {
         name: 'Shell',
@@ -513,7 +515,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'RevengeVencordPluginTemplate',
     url: 'https://github.com/brainage04/RevengeVencordPluginTemplate',
-    description: 'Template for building Vencord and Revenge Discord client plugins.',
+    description: '',
     languages: [
       {
         name: 'TypeScript',
@@ -529,8 +531,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'SimpleTPA',
     url: 'https://github.com/brainage04/SimpleTPA',
-    description:
-      'SimpleTPA is a server-side Fabric and NeoForge mod for Minecraft 26.2 that adds player-to-player teleport requests. Vanilla clients can join without installing the mod.',
+    description: 'A server-side Fabric Minecraft mod that adds player-to-player teleport requests.',
+    icon: 'https://raw.githubusercontent.com/brainage04/SimpleTPA/master/common/src/main/resources/assets/simpletpa/icon.png',
     languages: [
       {
         name: 'Java',
@@ -542,7 +544,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'SimpleTwitchChat',
     url: 'https://github.com/brainage04/SimpleTwitchChat',
-    description: 'A client-side Fabric and NeoForge Minecraft mod that connects Minecraft chat with Twitch chat.',
+    description: 'A client-side Fabric Minecraft mod that connects Minecraft chat with Twitch chat.',
     languages: [
       {
         name: 'Java',
@@ -555,7 +557,8 @@ export const generatedProjects: Project[] = [
     name: 'Telekinesis',
     url: 'https://github.com/brainage04/Telekinesis',
     description:
-      'A server-side Fabric and NeoForge Minecraft mod that sends mined block drops and experience directly to the player.',
+      'A server-side Fabric Minecraft mod that sends mined block drops and experience directly to the player.',
+    icon: 'https://raw.githubusercontent.com/brainage04/Telekinesis/master/common/src/main/resources/assets/telekinesis/icon.png',
     languages: [
       {
         name: 'Java',
@@ -583,8 +586,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'VeinMiner',
     url: 'https://github.com/brainage04/VeinMiner',
-    description:
-      'Vein Miner is a server-side Fabric and NeoForge mod that mines connected ore and tree blocks when a player breaks one eligible block. Vanilla clients can join without installing the mod.',
+    description: 'A server-side Fabric Minecraft mod that mines connected ore and tree blocks together.',
+    icon: 'https://raw.githubusercontent.com/brainage04/VeinMiner/master/common/src/main/resources/assets/vein_miner/icon.png',
     languages: [
       {
         name: 'Java',
@@ -596,7 +599,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'WebTuiAstroTemplate',
     url: 'https://github.com/brainage04/WebTuiAstroTemplate',
-    description: 'Astro starter template for terminal-inspired websites.',
+    description: '',
     languages: [
       {
         name: 'Astro',
@@ -641,7 +644,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'XEmbedFixer',
     url: 'https://github.com/brainage04/XEmbedFixer',
-    description: 'Vencord and Revenge client plugin that rewrites X/Twitter links to supported embed services.',
+    description: '',
     languages: [
       {
         name: 'TypeScript',
