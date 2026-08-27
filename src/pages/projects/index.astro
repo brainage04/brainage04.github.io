@@ -8,11 +8,7 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
 ---
 
 <SiteLayout title="Projects">
-  <section class="projects-page" aria-labelledby="projects-title">
-    <header class="page-header">
-      <h1 id="projects-title">Projects</h1>
-      <p>A catalogue of Minecraft mods, browser tools, websites, and experiments.</p>
-    </header>
+  <section aria-label="Projects">
     <div class="category-list">
       {
         projectGroups.map((group) => (
@@ -52,11 +48,6 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
 </SiteLayout>
 
 <style>
-  .projects-page {
-    display: grid;
-    gap: clamp(2rem, 6vw, 4rem);
-  }
-
   .category-list {
     display: grid;
     gap: 0.75rem;

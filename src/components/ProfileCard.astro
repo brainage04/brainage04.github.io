@@ -26,7 +26,7 @@ import { socials } from '../data/socials';
         </a>
         {
           socials.map((social) => (
-            <a href={social.href} title={social.name} aria-label={social.name} target="_blank" rel="noreferrer">
+            <a href={social.href} title={social.name} aria-label={social.name}>
               <Image src={social.icon} alt="" width={social.iconWidth} height={social.iconHeight} loading="eager" />
             </a>
           ))
@@ -34,7 +34,8 @@ import { socials } from '../data/socials';
       </div>
     </div>
     <p class="lead">
-      I make software, Minecraft mods, browser extensions and various tools from Brisbane, Queensland, Australia.
+      I make Minecraft mods/datapacks, Discord bots/plugins, websites, browser extensions and various other stuff. Based
+      in Brisbane, Queensland, Australia.
     </p>
     <dl class="credentials">
       <div>
