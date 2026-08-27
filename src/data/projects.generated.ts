@@ -70,7 +70,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'AstroShell',
     url: 'https://github.com/brainage04/AstroShell',
-    description: '',
+    description: 'Shared Astro shell and WebTUI foundation for the sites in this workspace.',
     languages: [
       {
         name: 'Astro',
@@ -94,7 +94,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'BakingCookingRecipes',
     url: 'https://github.com/brainage04/BakingCookingRecipes',
-    description: '',
+    description:
+      'Astro recipe calculators for scaling batches, comparing substitutions, estimating costs, and combining shopping lists.',
     languages: [
       {
         name: 'TypeScript',
@@ -281,7 +282,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'ConversationExporter',
     url: 'https://github.com/brainage04/ConversationExporter',
-    description: '',
+    description: 'Discord client plugin for selecting a message range and exporting it as raw JSON.',
     languages: [
       {
         name: 'TypeScript',
@@ -346,7 +347,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'DiscordPluginInstaller',
     url: 'https://github.com/brainage04/DiscordPluginInstaller',
-    description: '',
+    description: 'CLI for installing, reinstalling, and uninstalling Vencord and Revenge plugins.',
     languages: [
       {
         name: 'JavaScript',
@@ -392,7 +393,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'GifStudio',
     url: 'https://github.com/brainage04/GifStudio',
-    description: '',
+    description: 'Browser-based GIF compositor with image overlays and client-side FFmpeg rendering.',
     languages: [
       {
         name: 'TypeScript',
@@ -515,7 +516,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'RevengeVencordPluginTemplate',
     url: 'https://github.com/brainage04/RevengeVencordPluginTemplate',
-    description: '',
+    description: 'Working Revenge and Vencord plugin template with a shared core.',
     languages: [
       {
         name: 'TypeScript',
@@ -599,7 +600,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'WebTuiAstroTemplate',
     url: 'https://github.com/brainage04/WebTuiAstroTemplate',
-    description: '',
+    description: 'Minimal Astro starter with AstroShell and WebTUI for terminal-style GitHub Pages sites.',
     languages: [
       {
         name: 'Astro',
@@ -644,7 +645,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'XEmbedFixer',
     url: 'https://github.com/brainage04/XEmbedFixer',
-    description: '',
+    description: 'Vencord and Revenge plugin that rewrites X/Twitter links for reliable Discord embeds.',
     languages: [
       {
         name: 'TypeScript',
