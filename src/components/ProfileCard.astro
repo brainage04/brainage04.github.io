@@ -5,18 +5,12 @@ import { socials } from '../data/socials';
 
 <section class="profile-card" aria-labelledby="profile-name">
   <div class="avatar-frame" aria-hidden="true">
-    <Image class="avatar" src="/pfp.jpg" alt="" width={400} height={400} loading="eager" />
+    <Image class="avatar" src="/pfp.webp" alt="" width={400} height={400} loading="eager" />
   </div>
   <div class="profile-copy">
     <div class="name-row">
       <h1 id="profile-name">Thomas / brainage04</h1>
       <div class="socials" aria-label="Social links">
-        <a href="mailto:thomasmcmah21@gmail.com" title="Email Thomas" aria-label="Email Thomas">
-          <svg class="social-icon" aria-hidden="true" viewBox="2 4 20 16" height="22">
-            <path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v.35l7 4.38 7-4.38V7H5Zm0 2.7V17h14V9.7l-7 4.38L5 9.7Z"
-            ></path>
-          </svg>
-        </a>
         {
           socials.map((social) => (
             <a href={social.href} title={social.name} aria-label={social.name}>
@@ -163,24 +157,16 @@ import { socials } from '../data/socials';
     color: var(--foreground1);
   }
 
-  .socials :is(img, .social-icon) {
+  .socials img {
     display: block;
     width: auto;
     height: var(--social-icon-height);
     max-width: none;
     object-fit: contain;
-    filter: grayscale(1) brightness(1.7);
-    transition:
-      filter 160ms ease,
-      scale 160ms ease;
+    transition: scale 160ms ease;
   }
 
-  .social-icon {
-    width: 26px;
-  }
-
-  .socials a:hover :is(img, .social-icon) {
-    filter: none;
+  .socials a:hover img {
     scale: 1.06;
   }
 
@@ -216,7 +202,7 @@ import { socials } from '../data/socials';
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .socials :is(img, .social-icon) {
+    .socials img {
       transition: none;
     }
   }
