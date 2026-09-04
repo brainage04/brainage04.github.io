@@ -17,29 +17,21 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
               <span>{group.label}</span>
               <small>{projectCountLabel(group.projects.length)}</small>
             </summary>
-            {group.subgroups ? (
-              <div class="subcategory-list">
-                {group.subgroups.map((subgroup) => (
-                  <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
-                    <div class="subcategory-heading">
-                      <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
-                      <small>{projectCountLabel(subgroup.projects.length)}</small>
-                    </div>
-                    <div class="catalogue-grid">
-                      {subgroup.projects.map((project) => (
-                        <ProjectCard project={project} />
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
-            ) : (
-              <div class="catalogue-grid">
-                {group.projects.map((project) => (
-                  <ProjectCard project={project} />
-                ))}
-              </div>
-            )}
+            <div class="subcategory-list">
+              {group.subgroups.map((subgroup) => (
+                <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
+                  <div class="subcategory-heading">
+                    <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
+                    <small>{projectCountLabel(subgroup.projects.length)}</small>
+                  </div>
+                  <div class="catalogue-grid">
+                    {subgroup.projects.map((project) => (
+                      <ProjectCard project={project} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
           </details>
         ))
       }
@@ -125,6 +117,10 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
     gap: 1px;
     padding: 1px;
     background: var(--border-subtle);
+  }
+
+  .catalogue-grid > :global(.project-card:last-child:nth-child(odd)) {
+    grid-column: 1 / -1;
   }
 
   @media (max-width: 760px) {

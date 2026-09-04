@@ -67,7 +67,7 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
 
   .capability-list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-auto-rows: 1fr;
     gap: 1px;
     margin-block-start: 1.5rem;
@@ -77,6 +77,11 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
   .capability-list article {
     padding: clamp(1rem, 2.5vw, 1.5rem);
     background: var(--surface);
+    grid-column: span 2;
+  }
+
+  .capability-list article:nth-last-child(-n + 2) {
+    grid-column: span 3;
   }
 
   .capability-list h3 {
@@ -130,6 +135,15 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .capability-list article,
+    .capability-list article:nth-last-child(-n + 2) {
+      grid-column: span 1;
+    }
+
+    .capability-list article:last-child {
+      grid-column: 1 / -1;
+    }
+
     .showcase-grid {
       grid-template-columns: 1fr;
     }
@@ -138,6 +152,10 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
   @media (max-width: 520px) {
     .capability-list {
       grid-template-columns: 1fr;
+    }
+
+    .capability-list article:last-child {
+      grid-column: auto;
     }
   }
 </style>
