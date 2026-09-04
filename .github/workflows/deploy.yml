@@ -23,6 +23,9 @@ jobs:
 
       - name: Install, build, and upload site
         uses: withastro/action@v6
+        env:
+          PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          PUBLIC_BASE_PATH: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}', github.event.repository.name) }}
         with:
           package-manager: npm
 
