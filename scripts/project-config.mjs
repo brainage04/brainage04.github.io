@@ -23,4 +23,4 @@ export const categoryOverrides = {
 
 export const featuredOrder = ['MagicCarpet', 'ProceduralDungeon', 'FortniteInMinecraft'];
 
-export const excludedRepositories = new Set(['brainage04/baritone']);
+export const excludedRepositories = { 'brainage04/baritone': true };

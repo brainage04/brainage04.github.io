@@ -10,6 +10,7 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "test": "vitest run",
     "update-projects": "node scripts/update-projects.mjs",
     "preview": "astro preview"
   },
@@ -27,6 +28,7 @@
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.69.0"
+    "typescript-eslint": "8.69.0",
+    "vitest": "5.0.0"
   }
 }
