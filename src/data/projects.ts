@@ -102,25 +102,81 @@ export const topLevelCategories = [
   { id: 'minecraft-datapacks', label: 'Minecraft Datapacks' },
 ] as const satisfies ReadonlyArray<{ id: TopLevelCategoryId; label: string }>;
 
+export type ProjectSubgroup = {
+  id: string;
+  label: string;
+  projects: Project[];
+};
+
 export type ProjectCategoryGroup = {
   id: TopLevelCategoryId;
   label: string;
   projects: Project[];
-  subgroups?: Array<{ id: ProjectCategoryId; label: string; projects: Project[] }>;
+  subgroups: ProjectSubgroup[];
+};
+
+type ProjectSubgroupRule = {
+  id: string;
+  label: string;
+  categories?: readonly ProjectCategoryId[];
+  projectNames?: readonly string[];
+};
+
+const projectSubgroupRules: Record<TopLevelCategoryId, readonly ProjectSubgroupRule[]> = {
+  'minecraft-mods': [
+    { id: 'large-minecraft-mods', label: 'Large Minecraft Mods', categories: ['large-minecraft-mods'] },
+    { id: 'small-minecraft-mods', label: 'Small Minecraft Mods', categories: ['small-minecraft-mods'] },
+    { id: 'templates-starters', label: 'Templates & Starters', categories: ['templates-starters'] },
+    {
+      id: 'minecraft-dev-tools',
+      label: 'Minecraft Dev Tools & Libraries',
+      categories: ['minecraft-dev-tools'],
+    },
+  ],
+  'discord-bots': [
+    { id: 'discord-templates', label: 'Templates', projectNames: ['RevengeVencordPluginTemplate'] },
+    { id: 'discord-bot-projects', label: 'Bots', projectNames: ['HiBackBot'] },
+    { id: 'discord-plugins', label: 'Plugins' },
+  ],
+  websites: [
+    { id: 'website-templates', label: 'Templates', projectNames: ['WebTuiAstroTemplate', 'AstroShell'] },
+    { id: 'website-projects', label: 'Websites' },
+  ],
+  'browser-extensions': [
+    { id: 'browser-extension-templates', label: 'Templates', projectNames: ['BrowserExtensionTemplate'] },
+    { id: 'browser-extension-projects', label: 'Browser Extensions' },
+  ],
+  'minecraft-datapacks': [
+    { id: 'minecraft-datapack-templates', label: 'Templates', projectNames: ['DatapackTemplate'] },
+    { id: 'minecraft-datapack-projects', label: 'Datapacks' },
+  ],
+};
+
+const partitionProjects = (items: Project[], rules: readonly ProjectSubgroupRule[]): ProjectSubgroup[] => {
+  const assignedProjects = new Set<Project>();
+
+  return rules.map(({ id, label, categories, projectNames }) => {
+    const subgroupProjects = items.filter((project) => {
+      if (assignedProjects.has(project)) return false;
+      const matches = categories
+        ? categories.includes(project.category)
+        : projectNames
+          ? projectNames.includes(project.name)
+          : true;
+      if (matches) assignedProjects.add(project);
+      return matches;
+    });
+
+    return { id, label, projects: subgroupProjects };
+  });
 };
 
 export const groupProjects = (items: Project[]): ProjectCategoryGroup[] =>
   topLevelCategories.map((category) => {
     const categoryProjects = items.filter((item) => projectCategories[item.category].topLevel === category.id);
-    return category.id === 'minecraft-mods'
-      ? {
-          ...category,
-          projects: categoryProjects,
-          subgroups: projectCategoryOrder.slice(0, 4).map((id) => ({
-            id,
-            label: projectCategories[id].label,
-            projects: categoryProjects.filter((item) => item.category === id),
-          })),
-        }
-      : { ...category, projects: categoryProjects };
+    return {
+      ...category,
+      projects: categoryProjects,
+      subgroups: partitionProjects(categoryProjects, projectSubgroupRules[category.id]),
+    };
   });
