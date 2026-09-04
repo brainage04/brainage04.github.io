@@ -1,5 +1,5 @@
 {
-  "name": "brainage04-website",
+  "name": "brainage04-github-io",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.0",
-    "@brainage04/astro-shell": "0.4.0",
+    "@brainage04/astro-shell": "0.4.1",
     "@webtui/css": "0.1.10"
   },
   "devDependencies": {

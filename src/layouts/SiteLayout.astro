@@ -1,26 +1,17 @@
 ---
 import ShellLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
-import { navigation } from '../data/navigation';
+import { siteConfig } from '../site.config';
 import '../styles/site.css';
 
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "brainage04's website for projects, blog posts, and other websites!" } = Astro.props;
+const { title, description = siteConfig.description, image = siteConfig.image } = Astro.props;
 ---
 
-<ShellLayout
-  title={title}
-  siteName="brainage04"
-  homeTitle="brainage04's website"
-  navItems={navigation}
-  sourceHref="https://github.com/brainage04/brainage04.github.io"
-  description={description}
-  image="/assets/images/graphic-design/profile-pictures/brainage04.jpg"
-  faviconHref="/assets/images/graphic-design/profile-pictures/brainage04.jpg"
-  faviconType="image/jpeg"
->
+<ShellLayout {...siteConfig} title={title} description={description} image={image}>
   <slot />
 </ShellLayout>
