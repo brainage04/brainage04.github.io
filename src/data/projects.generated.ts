@@ -367,11 +367,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 92.8,
+        percentage: 93.3,
       },
       {
         name: 'Python',
-        percentage: 7.2,
+        percentage: 6.7,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -649,11 +649,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 83.2,
+        percentage: 86,
       },
       {
         name: 'JavaScript',
-        percentage: 16.8,
+        percentage: 14,
       },
     ],
     category: 'discord-bots',
