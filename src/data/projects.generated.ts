@@ -628,16 +628,20 @@ export const generatedProjects: Project[] = [
       "Chrome Manifest V3 extension that fixes X's broken age-restricted media rendering for already age-verified accounts.",
     languages: [
       {
+        name: 'Java',
+        percentage: 58.7,
+      },
+      {
         name: 'JavaScript',
-        percentage: 81.7,
+        percentage: 33.7,
       },
       {
         name: 'HTML',
-        percentage: 10.4,
+        percentage: 4.3,
       },
       {
         name: 'CSS',
-        percentage: 7.9,
+        percentage: 3.2,
       },
     ],
     category: 'browser-extensions',
