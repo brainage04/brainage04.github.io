@@ -159,7 +159,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'TypeScript',
-        percentage: 40.5,
+        percentage: 40.6,
       },
       {
         name: 'JavaScript',
@@ -397,19 +397,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 70.1,
+        percentage: 76.2,
       },
       {
         name: 'Astro',
-        percentage: 14.7,
+        percentage: 12.1,
       },
       {
         name: 'CSS',
-        percentage: 13.4,
+        percentage: 10.2,
       },
       {
         name: 'JavaScript',
-        percentage: 1.9,
+        percentage: 1.4,
       },
     ],
     category: 'websites',
