@@ -5,7 +5,7 @@ export const generatedProjects: Project[] = [
     name: 'MagicCarpet',
     url: 'https://github.com/brainage04/MagicCarpet',
     description: 'A Fabric Minecraft mod that adds three tiers of craftable, rideable flying carpets.',
-    icon: 'https://raw.githubusercontent.com/brainage04/MagicCarpet/master/common/src/main/resources/assets/magic_carpet/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/MagicCarpet/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -20,7 +20,7 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/ProceduralDungeon',
     description:
       'A Fabric Minecraft mod that adds procedurally generated, tiered dungeons with varied rooms, traps, and loot.',
-    icon: 'https://raw.githubusercontent.com/brainage04/ProceduralDungeon/master/common/src/main/resources/assets/procedural_dungeon/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/ProceduralDungeon/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -43,7 +43,7 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/FortniteInMinecraft',
     description:
       'A Fabric and NeoForge Minecraft mod that adds Fortnite-inspired building, weapons, resources, and combat mechanics.',
-    icon: 'https://raw.githubusercontent.com/brainage04/FortniteInMinecraft/master/common/src/main/resources/assets/fortniteinminecraft/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/FortniteInMinecraft/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -58,7 +58,8 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/AcceleratedDamage',
     description:
       'A server-side Fabric Minecraft mod that exposes configurable accelerated combat and damage mechanics as gamerules.',
-    icon: 'https://raw.githubusercontent.com/brainage04/AcceleratedDamage/master/common/src/main/resources/assets/accelerateddamage/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/AcceleratedDamage/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -140,6 +141,8 @@ export const generatedProjects: Project[] = [
     name: 'BetterVillagerTrades',
     url: 'https://github.com/brainage04/BetterVillagerTrades',
     description: 'Multi-loader villager trade rerolls, per-player filters, and max-level enchantment outputs',
+    icon: 'https://raw.githubusercontent.com/brainage04/BetterVillagerTrades/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -189,7 +192,7 @@ export const generatedProjects: Project[] = [
     name: 'BrainageHUD',
     url: 'https://github.com/brainage04/BrainageHUD',
     description: 'A client-side Fabric Minecraft mod that adds useful HUD elements.',
-    icon: 'https://raw.githubusercontent.com/brainage04/BrainageHUD/master/common/src/main/resources/assets/brainagehud/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageHUD/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -209,7 +212,7 @@ export const generatedProjects: Project[] = [
     name: 'BrainageLib',
     url: 'https://github.com/brainage04/BrainageLib',
     description: "Shared server-side Fabric utilities for brainage04's Minecraft mods",
-    icon: 'https://raw.githubusercontent.com/brainage04/BrainageLib/master/fabric/src/main/resources/assets/brainagelib/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageLib/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -223,7 +226,8 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/BrainageMinigames',
     description:
       'A server-side Fabric Minecraft mod that provides configurable custom events and an Ultra Hardcore minigame.',
-    icon: 'https://raw.githubusercontent.com/brainage04/BrainageMinigames/master/common/src/main/resources/assets/brainage_minigames/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageMinigames/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -237,7 +241,8 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/BrainageServerUtils',
     description:
       'A server-side Fabric Minecraft mod that adds configurable utility gamerules and administrative commands.',
-    icon: 'https://raw.githubusercontent.com/brainage04/BrainageServerUtils/master/common/src/main/resources/assets/brainageserverutils/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/BrainageServerUtils/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -336,6 +341,7 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/DevUtils',
     description:
       'A client-side Forge Minecraft mod that generates pre-rendered vanilla and Hypixel SkyBlock texture atlases for 1.8.9.',
+    icon: 'https://raw.githubusercontent.com/brainage04/DevUtils/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -364,6 +370,7 @@ export const generatedProjects: Project[] = [
     name: 'FabricModdingConventions',
     url: 'https://github.com/brainage04/FabricModdingConventions',
     description: 'Reusable Fabric client GameTest recording helpers for Minecraft mods.',
+    icon: 'https://raw.githubusercontent.com/brainage04/FabricModdingConventions/main/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -416,7 +423,7 @@ export const generatedProjects: Project[] = [
     name: 'HudRendererLib',
     url: 'https://github.com/brainage04/HudRendererLib',
     description: 'A Minecraft Fabric client-side library for rendering HUD elements. ',
-    icon: 'https://raw.githubusercontent.com/brainage04/HudRendererLib/master/common/src/main/resources/assets/hudrendererlib/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/HudRendererLib/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -453,6 +460,7 @@ export const generatedProjects: Project[] = [
     name: 'LegacyMinecraftModTemplate',
     url: 'https://github.com/brainage04/LegacyMinecraftModTemplate',
     description: 'My legacy Minecraft 1.8.9 modding template. ',
+    icon: 'https://raw.githubusercontent.com/brainage04/LegacyMinecraftModTemplate/main/docs/icon/icon.png',
     languages: [
       {
         name: 'Kotlin',
@@ -473,7 +481,8 @@ export const generatedProjects: Project[] = [
     name: 'MilkablePlayers',
     url: 'https://github.com/brainage04/MilkablePlayers',
     description: 'A server-side Fabric Minecraft mod that lets players milk other players with buckets.',
-    icon: 'https://raw.githubusercontent.com/brainage04/MilkablePlayers/master/common/src/main/resources/assets/milkable_players/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/MilkablePlayers/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -486,7 +495,7 @@ export const generatedProjects: Project[] = [
     name: 'ModernMinecraftModTemplate',
     url: 'https://github.com/brainage04/ModernMinecraftModTemplate',
     description: 'My modern Minecraft modding template.',
-    icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/src/main/resources/assets/modernminecraftmodtemplate/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Shell',
@@ -519,7 +528,7 @@ export const generatedProjects: Project[] = [
     name: 'SimpleTPA',
     url: 'https://github.com/brainage04/SimpleTPA',
     description: 'A server-side Fabric Minecraft mod that adds player-to-player teleport requests.',
-    icon: 'https://raw.githubusercontent.com/brainage04/SimpleTPA/master/common/src/main/resources/assets/simpletpa/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/SimpleTPA/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -532,6 +541,8 @@ export const generatedProjects: Project[] = [
     name: 'SimpleTwitchChat',
     url: 'https://github.com/brainage04/SimpleTwitchChat',
     description: 'A client-side Fabric Minecraft mod that connects Minecraft chat with Twitch chat.',
+    icon: 'https://raw.githubusercontent.com/brainage04/SimpleTwitchChat/master/docs/icon/icon.png',
+    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -545,7 +556,7 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/Telekinesis',
     description:
       'A server-side Fabric Minecraft mod that sends mined block drops and experience directly to the player.',
-    icon: 'https://raw.githubusercontent.com/brainage04/Telekinesis/master/common/src/main/resources/assets/telekinesis/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/Telekinesis/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',
@@ -558,6 +569,7 @@ export const generatedProjects: Project[] = [
     name: 'ToggleSprint',
     url: 'https://github.com/brainage04/ToggleSprint',
     description: 'A client-side Forge Minecraft mod that adds configurable toggle sprint and sneak behavior for 1.8.9.',
+    icon: 'https://raw.githubusercontent.com/brainage04/ToggleSprint/main/docs/icon/icon.png',
     languages: [
       {
         name: 'Kotlin',
@@ -574,7 +586,7 @@ export const generatedProjects: Project[] = [
     name: 'VeinMiner',
     url: 'https://github.com/brainage04/VeinMiner',
     description: 'A server-side Fabric Minecraft mod that mines connected ore and tree blocks together.',
-    icon: 'https://raw.githubusercontent.com/brainage04/VeinMiner/master/common/src/main/resources/assets/vein_miner/icon.png',
+    icon: 'https://raw.githubusercontent.com/brainage04/VeinMiner/master/docs/icon/icon.png',
     languages: [
       {
         name: 'Java',

@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   collectRepositoryEntries,
   languageBreakdown,
+  pngWidth,
   projectFromRepository,
+  selectIconPath,
   sortProjects,
 } from './project-helpers.mjs';
 
@@ -55,7 +57,7 @@ describe('project catalogue helpers', () => {
         },
         entry: { category: 'small-minecraft-mods' },
         languages: {},
-        icon: 'https://example.com/icon.png',
+        icon: { url: 'https://example.com/icon.png', pixelated: true },
         categoryOverrides: { BrainageHUD: 'large-minecraft-mods' },
         featured: { BrainageHUD: 2 },
       }),
@@ -64,10 +66,28 @@ describe('project catalogue helpers', () => {
       url: 'https://github.com/brainage04/BrainageHUD',
       description: '',
       icon: 'https://example.com/icon.png',
+      iconPixelated: true,
       languages: [{ name: 'Java', percentage: 100 }],
       category: 'large-minecraft-mods',
       featured: 2,
     });
+  });
+
+  it('prefers the maintained docs icon over stale in-jar icons', () => {
+    const jarIcon = 'common/src/main/resources/assets/magic_carpet/icon.png';
+
+    expect(selectIconPath([jarIcon, 'icon.png', 'docs/icon/icon.png'])).toBe('docs/icon/icon.png');
+    expect(selectIconPath(['docs/icon/provenance/icon.png', 'icon.png', jarIcon])).toBe(jarIcon);
+    expect(selectIconPath(['README.md'])).toBeUndefined();
+  });
+
+  it('reads PNG widths regardless of the served content type', () => {
+    const png = new Uint8Array(24);
+    png.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+    png.set([0, 0, 0, 32], 16);
+
+    expect(pngWidth(png)).toBe(32);
+    expect(pngWidth(new Uint8Array(24))).toBeUndefined();
   });
 
   it('sorts featured projects first and other projects alphabetically', () => {

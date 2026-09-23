@@ -4,7 +4,14 @@ import process from 'node:process';
 import prettier from 'prettier';
 import { writeFile } from 'node:fs/promises';
 import { categoryOverrides, excludedRepositories, featuredOrder, githubOwner, starLists } from './project-config.mjs';
-import { collectRepositoryEntries, projectFromRepository, sortProjects } from './project-helpers.mjs';
+import {
+  collectRepositoryEntries,
+  pixelArtMaxWidth,
+  pngWidth,
+  projectFromRepository,
+  selectIconPath,
+  sortProjects,
+} from './project-helpers.mjs';
 
 const outputPath = new URL('../src/data/projects.generated.ts', import.meta.url);
 const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
@@ -22,12 +29,6 @@ async function request(url, responseType = 'json') {
   return responseType === 'text' ? response.text() : response.json();
 }
 
-const projectIconPatterns = [
-  /(?:^|\/)src\/main\/resources\/assets\/[^/]+\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
-  /(?:^|\/)src\/main\/resources\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
-  /^(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
-];
-
 async function repositoryIcon(repository, listSlug) {
   if (listSlug !== 'minecraft-mods') return undefined;
 
@@ -35,7 +36,7 @@ async function repositoryIcon(repository, listSlug) {
     const branch = encodeURIComponent(repository.default_branch);
     const tree = await request(`https://api.github.com/repos/${repository.full_name}/git/trees/${branch}?recursive=1`);
     const paths = tree.tree.filter((entry) => entry.type === 'blob').map((entry) => entry.path);
-    const iconPath = projectIconPatterns.map((pattern) => paths.find((path) => pattern.test(path))).find(Boolean);
+    const iconPath = selectIconPath(paths);
 
     if (!iconPath) return undefined;
 
@@ -45,11 +46,12 @@ async function repositoryIcon(repository, listSlug) {
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText} for ${iconUrl}`);
     }
-    await response.arrayBuffer();
-    if (!response.headers.get('content-type')?.startsWith('image/')) {
+    // raw.githubusercontent.com serves some PNGs as application/octet-stream, so trust the PNG signature too.
+    const width = pngWidth(new Uint8Array(await response.arrayBuffer()));
+    if (width === undefined && !response.headers.get('content-type')?.startsWith('image/')) {
       throw new Error(`invalid image response for ${iconUrl}`);
     }
-    return iconUrl;
+    return { url: iconUrl, pixelated: width !== undefined && width <= pixelArtMaxWidth };
   } catch (error) {
     console.warn(`No icon loaded for ${repository.full_name}: ${error.message}`);
     return undefined;

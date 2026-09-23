@@ -15,7 +15,12 @@ const category = projectCategories[project.category];
     <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
     {
       project.icon ? (
-        <img class="project-icon" src={project.icon} alt="" decoding="async" />
+        <img
+          class:list={['project-icon', { pixelated: project.iconPixelated }]}
+          src={project.icon}
+          alt=""
+          decoding="async"
+        />
       ) : (
         <span class="project-mark">{category.mark}</span>
       )
@@ -160,6 +165,10 @@ const category = projectCategories[project.category];
     height: clamp(4.5rem, 9vw, 6rem);
     object-fit: contain;
     filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--visual-accent) 34%, transparent));
+  }
+
+  .project-icon.pixelated {
+    image-rendering: pixelated;
   }
 
   .project-content {

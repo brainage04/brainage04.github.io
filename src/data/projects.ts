@@ -83,6 +83,7 @@ export type Project = {
   url: string;
   description: string;
   icon?: string;
+  iconPixelated?: boolean;
   languages: ProjectLanguage[];
   category: ProjectCategoryId;
   featured?: number;

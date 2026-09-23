@@ -13,7 +13,13 @@ const category = projectCategories[project.category];
   <div class="project-icon" aria-hidden="true">
     {
       project.icon ? (
-        <img src={project.icon} alt="" loading="lazy" decoding="async" />
+        <img
+          src={project.icon}
+          class:list={{ pixelated: project.iconPixelated }}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
       ) : (
         <span>{project.name.slice(0, 2).toUpperCase()}</span>
       )
@@ -83,6 +89,10 @@ const category = projectCategories[project.category];
   .project-icon img {
     display: block;
     object-fit: contain;
+  }
+
+  .project-icon img.pixelated {
+    image-rendering: pixelated;
   }
 
   .project-icon span {
