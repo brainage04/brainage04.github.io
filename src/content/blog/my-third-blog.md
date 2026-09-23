@@ -2,10 +2,8 @@
 title: 'My third blog - another update!'
 description: 'An update to my second blog after several more months.'
 pubDate: 2026-01-12T04:15:00+10:00
-author: 'brainage04'
 slug: '2026/01/12/my-third-blog.html'
 topic: 'Project update'
-readingMinutes: 8
 ---
 
 A lot has happened since my last blog (which was about 8 months ago now):

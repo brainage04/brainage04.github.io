@@ -1,11 +1,12 @@
 /* global fetch, console */
-import { URL } from 'node:url';
+import { URL, fileURLToPath } from 'node:url';
 import process from 'node:process';
 import prettier from 'prettier';
 import { writeFile } from 'node:fs/promises';
 import { categoryOverrides, excludedRepositories, featuredOrder, githubOwner, starLists } from './project-config.mjs';
 import {
   collectRepositoryEntries,
+  nextPagePath,
   pixelArtMaxWidth,
   pngWidth,
   projectFromRepository,
@@ -13,7 +14,7 @@ import {
   sortProjects,
 } from './project-helpers.mjs';
 
-const outputPath = new URL('../src/data/projects.generated.ts', import.meta.url);
+const outputPath = fileURLToPath(new URL('../src/data/projects.generated.ts', import.meta.url));
 const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
 const headers = {
   Accept: 'application/vnd.github+json',
@@ -62,8 +63,14 @@ async function buildProjects() {
   const listPages = [];
 
   for (const list of starLists) {
-    const html = await request(`https://github.com/stars/${githubOwner}/lists/${list.slug}`, 'text');
-    listPages.push({ ...list, html });
+    const pages = [];
+    let pagePath = `/stars/${githubOwner}/lists/${list.slug}`;
+    while (pagePath) {
+      const html = await request(new URL(pagePath, 'https://github.com'), 'text');
+      pages.push(html);
+      pagePath = nextPagePath(html);
+    }
+    listPages.push({ ...list, html: pages.join('\n') });
   }
 
   const projects = collectRepositoryEntries(listPages, excludedRepositories);
@@ -112,10 +119,10 @@ async function buildProjects() {
 }
 
 const projects = await buildProjects();
-const prettierOptions = (await prettier.resolveConfig(outputPath.pathname)) ?? {};
+const prettierOptions = (await prettier.resolveConfig(outputPath)) ?? {};
 const source = await prettier.format(
   `import type { Project } from './projects';\n\nexport const generatedProjects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
-  { ...prettierOptions, filepath: outputPath.pathname, parser: 'typescript' },
+  { ...prettierOptions, filepath: outputPath, parser: 'typescript' },
 );
 await writeFile(outputPath, source);
-console.log(`Generated ${projects.length} projects at ${outputPath.pathname}`);
+console.log(`Generated ${projects.length} projects at ${outputPath}`);

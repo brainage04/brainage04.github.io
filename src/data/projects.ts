@@ -96,12 +96,28 @@ export const getFeaturedProjects = () =>
   projects.filter(isFeaturedProject).sort((left, right) => left.featured - right.featured);
 
 export const topLevelCategories = [
-  { id: 'minecraft-mods', label: 'Minecraft Mods' },
-  { id: 'discord-bots', label: 'Discord Bots & Plugins' },
-  { id: 'websites', label: 'Websites & Website Templates' },
-  { id: 'browser-extensions', label: 'Browser Extensions' },
-  { id: 'minecraft-datapacks', label: 'Minecraft Datapacks' },
-] as const satisfies ReadonlyArray<{ id: TopLevelCategoryId; label: string }>;
+  {
+    id: 'minecraft-mods',
+    label: 'Minecraft Mods',
+    description: 'Fabric and NeoForge mods, mod libraries, and modding templates.',
+  },
+  { id: 'discord-bots', label: 'Discord Bots & Plugins', description: 'Discord bots and client plugins.' },
+  {
+    id: 'websites',
+    label: 'Websites & Website Templates',
+    description: 'Websites, browser-based apps, and web templates.',
+  },
+  {
+    id: 'browser-extensions',
+    label: 'Browser Extensions',
+    description: 'Browser extensions and extension templates.',
+  },
+  {
+    id: 'minecraft-datapacks',
+    label: 'Minecraft Datapacks',
+    description: 'Minecraft datapacks and datapack templates.',
+  },
+] as const satisfies ReadonlyArray<{ id: TopLevelCategoryId; label: string; description: string }>;
 
 export type ProjectSubgroup = {
   id: string;
@@ -112,6 +128,7 @@ export type ProjectSubgroup = {
 export type ProjectCategoryGroup = {
   id: TopLevelCategoryId;
   label: string;
+  description: string;
   projects: Project[];
   subgroups: ProjectSubgroup[];
 };

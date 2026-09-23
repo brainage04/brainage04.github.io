@@ -1,7 +1,1 @@
-export default {
-  plugins: ['prettier-plugin-astro'],
-  printWidth: 120,
-  singleQuote: true,
-  trailingComma: 'all',
-  overrides: [{ files: '*.astro', options: { parser: 'astro' } }],
-};
+export { default } from '@brainage04/astro-shell/prettier';

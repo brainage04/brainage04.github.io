@@ -1,6 +1,8 @@
 ---
+import { withBase } from '@brainage04/astro-shell/withBase';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BlogPostLayout from '../../../../../layouts/BlogPostLayout.astro';
+import { newestPostFirst, readingMinutes } from '../../../../../lib/blog';
 
 interface PostLink {
   title: string;
@@ -14,9 +16,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('blog')).sort(
-    (left, right) => right.data.pubDate.valueOf() - left.data.pubDate.valueOf(),
-  );
+  const posts = (await getCollection('blog')).sort(newestPostFirst);
 
   return posts.map((post, index) => {
     const match = post.data.slug.match(/^(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/(?<slug>.+)\.html$/);
@@ -32,9 +32,9 @@ export async function getStaticPaths() {
       props: {
         post,
         previous: previousPost
-          ? { title: previousPost.data.title, href: `/blog/${previousPost.data.slug}` }
+          ? { title: previousPost.data.title, href: withBase(`/blog/${previousPost.data.slug}`) }
           : undefined,
-        next: nextPost ? { title: nextPost.data.title, href: `/blog/${nextPost.data.slug}` } : undefined,
+        next: nextPost ? { title: nextPost.data.title, href: withBase(`/blog/${nextPost.data.slug}`) } : undefined,
       },
     };
   });
@@ -48,7 +48,7 @@ const { Content, headings } = await render(post);
   title={post.data.title}
   pubDate={post.data.pubDate}
   topic={post.data.topic}
-  readingMinutes={post.data.readingMinutes}
+  readingMinutes={readingMinutes(post.body)}
   headings={headings}
   previous={previous}
   next={next}

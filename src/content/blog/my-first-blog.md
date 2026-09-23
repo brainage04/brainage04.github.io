@@ -2,10 +2,8 @@
 title: 'My first blog'
 description: 'This is my very first blog!'
 pubDate: 2024-10-23T15:33:33+10:00
-author: 'brainage04'
 slug: '2024/10/23/my-first-blog.html'
 topic: 'Personal update'
-readingMinutes: 2
 ---
 
 I'll use this to talk about anything software related that's too long for Twitter to handle.

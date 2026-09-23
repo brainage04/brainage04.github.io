@@ -26,7 +26,7 @@ const category = projectCategories[project.category];
     }
   </div>
   <div class="project-copy">
-    <div class="project-meta">
+    <div class="meta-row project-meta">
       <span>{category.badge}</span>
     </div>
     <h3>
@@ -35,7 +35,7 @@ const category = projectCategories[project.category];
       </a>
     </h3>
     {project.description && <p>{project.description}</p>}
-    <ul aria-label={`${project.name} language breakdown`}>
+    <ul class="chip-list" aria-label={`${project.name} language breakdown`}>
       {
         project.languages.map(({ name, percentage }) => (
           <li>
@@ -65,7 +65,7 @@ const category = projectCategories[project.category];
   .project-card:hover,
   .project-card:focus-within {
     translate: 0 -0.12rem;
-    border-block-start-color: var(--accent-cyan);
+    border-block-start-color: var(--accent-primary);
     background: var(--surface-raised);
   }
 
@@ -76,7 +76,7 @@ const category = projectCategories[project.category];
     place-items: center;
     border: 1px solid var(--border-subtle);
     background: var(--background1);
-    color: var(--accent-cyan);
+    color: var(--accent-primary);
     font: 700 0.88rem/1 var(--font-mono);
   }
 
@@ -106,28 +106,15 @@ const category = projectCategories[project.category];
   }
 
   .project-meta {
-    display: flex;
-    flex-wrap: wrap;
     gap: 0.35rem 0.7rem;
-    color: var(--foreground2);
-    font: 700 0.65rem/1.2 var(--font-mono);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.65rem;
+    line-height: 1.2;
   }
 
   h3 {
     margin-block: 0.55rem 0;
     font-size: 1rem;
     line-height: 1.2;
-  }
-
-  h3 a {
-    color: var(--accent-cyan);
-    text-decoration: underline;
-  }
-
-  h3 a:hover {
-    color: var(--foreground0);
   }
 
   p {
@@ -137,20 +124,8 @@ const category = projectCategories[project.category];
     line-height: 1.5;
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
+  .chip-list {
     margin-block: 0.75rem 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    padding: 0.18rem 0.35rem;
-    background: color-mix(in srgb, var(--accent-cyan) 8%, var(--background2));
-    color: var(--foreground2);
-    font: 0.65rem/1 var(--font-mono);
   }
 
   @media (max-width: 420px) {
@@ -161,12 +136,6 @@ const category = projectCategories[project.category];
     .project-icon {
       width: 2rem;
       height: 2rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-card {
-      transition: none;
     }
   }
 </style>

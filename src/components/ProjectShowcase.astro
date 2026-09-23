@@ -28,7 +28,7 @@ const category = projectCategories[project.category];
     }
   </div>
   <div class="project-content">
-    <div class="project-meta">
+    <div class="meta-row project-meta">
       <span>{category.label}</span>
     </div>
     <h3>
@@ -37,7 +37,7 @@ const category = projectCategories[project.category];
       </a>
     </h3>
     {project.description && <p>{project.description}</p>}
-    <ul aria-label={`${project.name} language breakdown`}>
+    <ul class="chip-list" aria-label={`${project.name} language breakdown`}>
       {
         project.languages.map(({ name, percentage }) => (
           <li>
@@ -57,7 +57,7 @@ const category = projectCategories[project.category];
     overflow: hidden;
     border: 1px solid var(--border-subtle);
     background: var(--surface-raised);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-raised);
     transition:
       translate 180ms ease,
       border-color 180ms ease,
@@ -67,7 +67,7 @@ const category = projectCategories[project.category];
   .project-showcase:hover,
   .project-showcase:focus-within {
     translate: 0 -0.2rem;
-    border-color: color-mix(in srgb, var(--accent-cyan) 70%, var(--foreground2));
+    border-color: color-mix(in srgb, var(--accent-primary) 70%, var(--foreground2));
     box-shadow: 0 1.4rem 3.2rem rgb(0 0 0 / 28%);
   }
 
@@ -91,11 +91,11 @@ const category = projectCategories[project.category];
   }
 
   .project-visual[data-category='large-minecraft-mods'] {
-    --visual-accent: var(--accent-yellow);
+    --visual-accent: var(--accent-highlight);
   }
 
   .project-visual[data-category='templates-starters'] {
-    --visual-accent: var(--accent-cyan);
+    --visual-accent: var(--accent-primary);
   }
 
   .project-visual[data-category='minecraft-dev-tools'],
@@ -146,13 +146,8 @@ const category = projectCategories[project.category];
   }
 
   .project-meta {
-    display: flex;
-    flex-wrap: wrap;
     gap: 0.45rem 0.75rem;
-    color: var(--foreground2);
-    font: 700 0.72rem/1.2 var(--font-mono);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    line-height: 1.2;
   }
 
   h3 {
@@ -161,40 +156,18 @@ const category = projectCategories[project.category];
     line-height: 1.1;
   }
 
-  h3 a {
-    color: var(--accent-cyan);
-    text-decoration: underline;
-  }
-
-  h3 a:hover {
-    color: var(--foreground0);
-  }
-
   p {
     margin-block: 0.75rem 0;
     color: var(--foreground1);
     line-height: 1.55;
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+  .chip-list {
+    --chip-gap: 0.4rem;
+    --chip-padding: 0.25rem 0.45rem;
+    --chip-tint: 10%;
+    --chip-color: var(--foreground1);
+    --chip-font-size: 0.72rem;
     margin-block: 1rem 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    padding: 0.25rem 0.45rem;
-    background: color-mix(in srgb, var(--accent-cyan) 10%, var(--background2));
-    color: var(--foreground1);
-    font: 0.72rem/1 var(--font-mono);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-showcase {
-      transition: none;
-    }
   }
 </style>

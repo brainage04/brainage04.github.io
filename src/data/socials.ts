@@ -1,10 +1,4 @@
-export type SocialLink = {
-  name: string;
-  href: string;
-  icon: string;
-  iconWidth: number;
-  iconHeight: number;
-};
+import type { SocialLink } from '@brainage04/astro-shell/config';
 
 export const socials: SocialLink[] = [
   {

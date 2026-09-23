@@ -8,10 +8,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    author: z.string().default('brainage04'),
     slug: z.string(),
     topic: z.string(),
-    readingMinutes: z.number().int().positive(),
   }),
 });
 

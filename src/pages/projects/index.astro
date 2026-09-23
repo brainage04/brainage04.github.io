@@ -1,10 +1,10 @@
 ---
 import ProjectCard from '../../components/ProjectCard.astro';
 import { groupProjects, projects } from '../../data/projects';
-import SiteLayout from '../../layouts/SiteLayout.astro';
+import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
+import { pluralize } from '../../lib/pluralize';
 
 const projectGroups = groupProjects(projects);
-const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 ---
 
 <SiteLayout title="Projects">
@@ -15,14 +15,14 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
           <details class="project-group" id={group.id}>
             <summary>
               <span>{group.label}</span>
-              <small>{projectCountLabel(group.projects.length)}</small>
+              <small>{pluralize(group.projects.length, 'project')}</small>
             </summary>
             <div class="subcategory-list">
               {group.subgroups.map((subgroup) => (
                 <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
                   <div class="subcategory-heading">
                     <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
-                    <small>{projectCountLabel(subgroup.projects.length)}</small>
+                    <small>{pluralize(subgroup.projects.length, 'project')}</small>
                   </div>
                   <div class="catalogue-grid">
                     {subgroup.projects.map((project) => (
@@ -67,7 +67,7 @@ const projectCountLabel = (count: number) => `${count} ${count === 1 ? 'project'
 
   .project-group summary:hover,
   .project-group[open] summary {
-    color: var(--accent-cyan);
+    color: var(--accent-primary);
   }
 
   .project-group summary small {

@@ -2,11 +2,27 @@ import { describe, expect, it } from 'vitest';
 import {
   collectRepositoryEntries,
   languageBreakdown,
+  nextPagePath,
   pngWidth,
   projectFromRepository,
   selectIconPath,
   sortProjects,
 } from './project-helpers.mjs';
+
+// Trimmed from the markup of https://github.com/stars/<owner>/lists/<slug>.
+const listEntry = (fullName) => `
+  <div class="col-12 d-block width-full tmp-py-4 border-bottom color-border-muted">
+    <div class="d-inline-block mb-1">
+      <h2 class="h3">
+        <a href="/${fullName}">
+          <span class="text-normal">${fullName.split('/')[0]} / </span>${fullName.split('/')[1]}
+        </a>
+      </h2>
+    </div>
+    <div class="f6 color-fg-muted mt-2">
+      <a class="Link--muted tmp-mr-3" href="/${fullName}/stargazers">0</a>
+    </div>
+  </div>`;
 
 describe('project catalogue helpers', () => {
   it('collects unique repositories, preserves the first category, and applies exclusions', () => {
@@ -16,16 +32,16 @@ describe('project catalogue helpers', () => {
           slug: 'first-list',
           category: 'first-category',
           html: [
-            '<a href="/brainage04/Alpha">Alpha</a>',
-            '<a href="/brainage04/Alpha">Alpha duplicate</a>',
-            '<a href="/stars/brainage04">Ignored GitHub route</a>',
-            '<a href="/brainage04/baritone">Excluded repository</a>',
+            '<a href="/brainage04/NotAnEntry">Page chrome</a>',
+            listEntry('brainage04/Alpha'),
+            listEntry('brainage04/Alpha'),
+            listEntry('brainage04/baritone'),
           ].join(''),
         },
         {
           slug: 'second-list',
           category: 'second-category',
-          html: '<a href="/brainage04/Alpha">Alpha again</a><a href="/other/Beta">Beta</a>',
+          html: listEntry('brainage04/Alpha') + listEntry('other/Beta'),
         },
       ],
       { 'brainage04/baritone': true },
@@ -35,6 +51,22 @@ describe('project catalogue helpers', () => {
       { slug: 'first-list', category: 'first-category', fullName: 'brainage04/Alpha' },
       { slug: 'second-list', category: 'second-category', fullName: 'other/Beta' },
     ]);
+  });
+
+  it('follows the next-page link until the last page', () => {
+    expect(
+      nextPagePath(
+        '<span class="previous_page disabled" aria-disabled="true">Previous</span> ' +
+          '<a rel="next" aria-label="Page 2" href="/stars/brainage04/lists/mods?page=2">2</a> ' +
+          '<a class="next_page" aria-label="Next page" rel="next" href="/stars/brainage04/lists/mods?page=2">Next</a>',
+      ),
+    ).toBe('/stars/brainage04/lists/mods?page=2');
+    expect(
+      nextPagePath(
+        '<a class="previous_page" rel="prev" href="/stars/brainage04/lists/mods?page=1">Previous</a> ' +
+          '<span class="next_page disabled" aria-label="Next page" aria-disabled="true">Next</span>',
+      ),
+    ).toBeUndefined();
   });
 
   it('calculates language percentages and falls back to the primary language', () => {

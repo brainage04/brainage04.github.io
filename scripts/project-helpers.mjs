@@ -1,30 +1,20 @@
-const ignoredRepositoryOwners = {
-  about: true,
-  account: true,
-  contact: true,
-  explore: true,
-  features: true,
-  login: true,
-  marketplace: true,
-  notifications: true,
-  organizations: true,
-  pricing: true,
-  settings: true,
-  signup: true,
-  stars: true,
-};
+// Each list entry is `<h2 class="h3"><a href="/owner/name">`; star counts, languages, and page chrome link elsewhere.
+const listEntryPattern = /<h2 class="h3">\s*<a href="\/([^/"?#]+)\/([^/"?#]+)"/g;
 
 export function repositoryLinks(html) {
   const repositories = new Set();
-  const pattern = /href=["']\/([^/"'?#]+)\/([^/"'?#]+)["']/g;
 
-  for (const match of html.matchAll(pattern)) {
-    const [, owner, name] = match;
-    if (!owner || !name || Object.hasOwn(ignoredRepositoryOwners, owner) || name === 'lists') continue;
+  for (const [, owner, name] of html.matchAll(listEntryPattern)) {
     repositories.add(`${owner}/${name}`);
   }
 
   return [...repositories];
+}
+
+// List pages hold 30 repositories; later pages are linked by `<a class="next_page" href="…?page=N">`.
+// The last page renders a disabled `<span class="next_page">` instead.
+export function nextPagePath(html) {
+  return html.match(/<a\b[^>]*\bclass="next_page"[^>]*\bhref="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
 }
 
 export function collectRepositoryEntries(listPages, excludedRepositories) {

@@ -1,12 +1,10 @@
 import { defineConfig } from 'astro/config';
 import { satteri } from '@astrojs/markdown-satteri';
-
-const site = process.env.PUBLIC_SITE_URL;
-const base = process.env.PUBLIC_BASE_PATH ?? '/';
+import astroShell from '@brainage04/astro-shell';
+import { siteConfig } from './src/site.config.ts';
 
 export default defineConfig({
-  ...(site ? { site } : {}),
-  base,
+  integrations: [astroShell({ config: siteConfig, styles: ['@brainage04/astro-shell/themes/rose.css'] })],
   image: {
     domains: ['raw.githubusercontent.com'],
   },

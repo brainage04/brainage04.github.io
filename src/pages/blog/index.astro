@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogCard from '../../components/BlogCard.astro';
-import SiteLayout from '../../layouts/SiteLayout.astro';
+import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
+import { newestPostFirst } from '../../lib/blog';
 
-const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection('blog')).sort(newestPostFirst);
 ---
 
 <SiteLayout title="Blog">

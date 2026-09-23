@@ -18,7 +18,7 @@ Project, skill, social, and navigation data live in `src/data`. Blog posts live 
 
 ## Project catalogue
 
-`src/data/projects.generated.ts` is generated from the configured GitHub star lists. Run `npm run update-projects` to refresh repository descriptions, language percentages, categories, featured ordering, and removed repositories. The daily `Sync project catalogue` workflow runs the same command with the repository's GitHub token and commits changes.
+`src/data/projects.generated.ts` is generated from the configured GitHub star lists (every page of each list is read). Run `npm run update-projects` to refresh repository descriptions, language percentages, categories, featured ordering, and removed repositories. The daily `Sync project catalogue` workflow runs the same command with the repository's GitHub token; when the catalogue changed it runs `npm run check`, `npm test` and `npm run build`, commits and pushes the result, then deploys that commit through the AstroShell `site-deploy.yml` reusable workflow (pushes made with the workflow token do not trigger the regular deploy).
 
 ## Validation
 
