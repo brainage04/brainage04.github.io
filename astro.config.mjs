@@ -7,6 +7,9 @@ const base = process.env.PUBLIC_BASE_PATH ?? '/';
 export default defineConfig({
   ...(site ? { site } : {}),
   base,
+  image: {
+    domains: ['raw.githubusercontent.com'],
+  },
   markdown: {
     processor: satteri({
       features: {

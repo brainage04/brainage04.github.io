@@ -24,13 +24,13 @@ export type ProjectCategoryMeta = {
 
 export const projectCategories = {
   'large-minecraft-mods': {
-    label: 'Large Minecraft Mods',
+    label: 'Large Minecraft Mod',
     badge: 'Large Mod',
     mark: '▦',
     topLevel: 'minecraft-mods',
   },
   'small-minecraft-mods': {
-    label: 'Small Minecraft Mods',
+    label: 'Small Minecraft Mod',
     badge: 'Small Mod',
     mark: '✦',
     topLevel: 'minecraft-mods',

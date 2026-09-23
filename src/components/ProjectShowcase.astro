@@ -1,31 +1,31 @@
 ---
+import { Image } from 'astro:assets';
 import { projectCategories, type Project } from '../data/projects';
 
 export interface Props {
   project: Project;
-  index: number;
 }
 
-const { project, index } = Astro.props;
+const { project } = Astro.props;
 const category = projectCategories[project.category];
 ---
 
 <article class="project-showcase">
   <div class="project-visual" data-category={project.category} aria-hidden="true">
-    <span class="project-number">{String(index + 1).padStart(2, '0')}</span>
     {
       project.icon ? (
-        <img
+        <Image
           class:list={['project-icon', { pixelated: project.iconPixelated }]}
           src={project.icon}
           alt=""
-          decoding="async"
+          inferSize
+          widths={project.iconPixelated ? undefined : [480, 768, 1024]}
+          sizes="(max-width: 900px) 100vw, 33vw"
         />
       ) : (
         <span class="project-mark">{category.mark}</span>
       )
     }
-    <span class="project-category">{category.badge}</span>
   </div>
   <div class="project-content">
     <div class="project-meta">
@@ -73,7 +73,7 @@ const category = projectCategories[project.category];
 
   .project-visual {
     position: relative;
-    min-height: 10rem;
+    aspect-ratio: 1;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -84,21 +84,6 @@ const category = projectCategories[project.category];
       var(--background0)
     );
     color: var(--visual-accent);
-  }
-
-  .project-visual::before,
-  .project-visual::after {
-    content: '';
-    position: absolute;
-    width: 8rem;
-    aspect-ratio: 1;
-    border: 1px solid color-mix(in srgb, var(--visual-accent) 32%, transparent);
-    rotate: 45deg;
-  }
-
-  .project-visual::after {
-    width: 5rem;
-    rotate: 15deg;
   }
 
   .project-visual[data-category='small-minecraft-mods'] {
@@ -124,26 +109,7 @@ const category = projectCategories[project.category];
     --visual-accent: #b78ac2;
   }
 
-  .project-number,
-  .project-category {
-    position: absolute;
-    z-index: 1;
-    color: var(--foreground1);
-    font: 700 0.72rem/1 var(--font-mono);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .project-number {
-    inset: 0.85rem auto auto 0.9rem;
-  }
-
-  .project-category {
-    inset: auto 0.9rem 0.85rem auto;
-  }
-
-  .project-mark,
-  .project-icon {
+  .project-mark {
     position: absolute;
     inset: 50% auto auto 50%;
     z-index: 1;
@@ -157,14 +123,14 @@ const category = projectCategories[project.category];
     place-items: center;
     text-align: center;
     font: 700 clamp(3.3rem, 9vw, 5.4rem)/1 var(--font-mono);
-    text-shadow: 0 0 2rem color-mix(in srgb, var(--visual-accent) 34%, transparent);
   }
 
   .project-icon {
-    width: clamp(4.5rem, 9vw, 6rem);
-    height: clamp(4.5rem, 9vw, 6rem);
-    object-fit: contain;
-    filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--visual-accent) 34%, transparent));
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .project-icon.pixelated {

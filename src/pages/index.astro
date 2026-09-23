@@ -39,7 +39,7 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
         <a href="/projects/">View the full catalogue</a>
       </div>
       <div class="showcase-grid">
-        {featuredProjects.map((project, index) => <ProjectShowcase project={project} index={index} />)}
+        {featuredProjects.map((project) => <ProjectShowcase project={project} />)}
       </div>
     </section>
   </div>

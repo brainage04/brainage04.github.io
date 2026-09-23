@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { projectCategories, type Project } from '../data/projects';
 
 export interface Props {
@@ -13,12 +14,11 @@ const category = projectCategories[project.category];
   <div class="project-icon" aria-hidden="true">
     {
       project.icon ? (
-        <img
+        <Image
           src={project.icon}
           class:list={{ pixelated: project.iconPixelated }}
           alt=""
-          loading="lazy"
-          decoding="async"
+          {...(project.iconPixelated ? { inferSize: true } : { width: 96, height: 96 })}
         />
       ) : (
         <span>{project.name.slice(0, 2).toUpperCase()}</span>
