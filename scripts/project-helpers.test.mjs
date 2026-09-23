@@ -73,12 +73,11 @@ describe('project catalogue helpers', () => {
     });
   });
 
-  it('prefers the maintained docs icon over stale in-jar icons', () => {
+  it('prefers the in-jar mod icon and ignores docs icon sources', () => {
     const jarIcon = 'common/src/main/resources/assets/magic_carpet/icon.png';
 
-    expect(selectIconPath([jarIcon, 'icon.png', 'docs/icon/icon.png'])).toBe('docs/icon/icon.png');
-    expect(selectIconPath(['docs/icon/provenance/icon.png', 'icon.png', jarIcon])).toBe(jarIcon);
-    expect(selectIconPath(['README.md'])).toBeUndefined();
+    expect(selectIconPath(['docs/icon/icon.png', 'icon.png', jarIcon])).toBe(jarIcon);
+    expect(selectIconPath(['docs/icon/icon.png'])).toBeUndefined();
   });
 
   it('reads PNG widths regardless of the served content type', () => {

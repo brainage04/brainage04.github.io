@@ -40,10 +40,8 @@ export function collectRepositoryEntries(listPages, excludedRepositories) {
   return [...repositories.values()];
 }
 
-// Ordered by preference: `docs/icon/icon.png` is the maintained icon source in each mod repository;
-// the in-jar `assets/<modid>/icon.png` copies lag behind it.
+// Ordered by preference: the in-jar mod icon first, then repository-level icons.
 const projectIconPatterns = [
-  /^docs\/icon\/icon\.(?:png|webp|jpe?g|svg)$/iu,
   /(?:^|\/)src\/main\/resources\/assets\/[^/]+\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
   /(?:^|\/)src\/main\/resources\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
   /^(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
