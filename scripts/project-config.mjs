@@ -16,9 +16,9 @@ export const categoryOverrides = {
   LegacyMinecraftModTemplate: 'templates-starters',
   ModernMinecraftModTemplate: 'templates-starters',
   BrainageLib: 'minecraft-dev-tools',
-  DevUtils: 'minecraft-dev-tools',
   FabricModdingConventions: 'minecraft-dev-tools',
   HudRendererLib: 'minecraft-dev-tools',
+  TextureAtlasGenerator: 'minecraft-dev-tools',
 };
 
 export const featuredOrder = ['MagicCarpet', 'ProceduralDungeon', 'FortniteInMinecraft'];

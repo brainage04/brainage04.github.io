@@ -69,6 +69,24 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
   },
   {
+    name: 'ActionAssist',
+    url: 'https://github.com/brainage04/ActionAssist',
+    description:
+      'A Fabric and NeoForge Minecraft mod that automates repetitive client actions such as using, attacking, sneaking, and hotbar transfers.',
+    icon: 'https://raw.githubusercontent.com/brainage04/ActionAssist/main/src/shared/resources/assets/actionassist/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 99.4,
+      },
+      {
+        name: 'JavaScript',
+        percentage: 0.6,
+      },
+    ],
+    category: 'small-minecraft-mods',
+  },
+  {
     name: 'AstroShell',
     url: 'https://github.com/brainage04/AstroShell',
     description: 'Shared Astro shell and WebTUI foundation for the sites in this workspace.',
@@ -159,15 +177,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 41.6,
+        percentage: 41.1,
       },
       {
         name: 'TypeScript',
-        percentage: 39.2,
+        percentage: 40.2,
       },
       {
         name: 'JavaScript',
-        percentage: 18.1,
+        percentage: 17.6,
       },
       {
         name: 'CSS',
@@ -340,17 +358,18 @@ export const generatedProjects: Project[] = [
     category: 'minecraft-datapacks',
   },
   {
-    name: 'DevUtils',
-    url: 'https://github.com/brainage04/DevUtils',
+    name: 'DimensionStructureVariants',
+    url: 'https://github.com/brainage04/DimensionStructureVariants',
     description:
-      'A client-side Forge Minecraft mod that generates pre-rendered vanilla and Hypixel SkyBlock texture atlases for 1.8.9.',
+      'A Fabric and NeoForge Minecraft mod that adds cross-dimension variants of vanilla structures, such as End villages and Overworld End cities.',
+    icon: 'https://raw.githubusercontent.com/brainage04/DimensionStructureVariants/master/common/src/main/resources/assets/dimensionstructurevariants/icon.png',
     languages: [
       {
         name: 'Java',
         percentage: 100,
       },
     ],
-    category: 'minecraft-dev-tools',
+    category: 'small-minecraft-mods',
   },
   {
     name: 'DiscordPluginInstaller',
@@ -385,6 +404,20 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'minecraft-dev-tools',
+  },
+  {
+    name: 'FloodedEnd',
+    url: 'https://github.com/brainage04/FloodedEnd',
+    description:
+      'A Fabric and NeoForge Minecraft mod that floods the End with a global sea, with End ships moored on the water.',
+    icon: 'https://raw.githubusercontent.com/brainage04/FloodedEnd/master/common/src/main/resources/assets/floodedend/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 100,
+      },
+    ],
+    category: 'small-minecraft-mods',
   },
   {
     name: 'GifStudio',
@@ -435,6 +468,20 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'minecraft-dev-tools',
+  },
+  {
+    name: 'IceSkates',
+    url: 'https://github.com/brainage04/IceSkates',
+    description:
+      'A Fabric and NeoForge Minecraft mod that adds craftable ice skates, roller skates, and ice-themed swords.',
+    icon: 'https://raw.githubusercontent.com/brainage04/IceSkates/master/common/src/main/resources/assets/ice_skates/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 100,
+      },
+    ],
+    category: 'small-minecraft-mods',
   },
   {
     name: 'kashiilol.github.io',
@@ -531,6 +578,20 @@ export const generatedProjects: Project[] = [
     category: 'discord-bots',
   },
   {
+    name: 'SimpleHomes',
+    url: 'https://github.com/brainage04/SimpleHomes',
+    description:
+      'A Fabric and NeoForge Minecraft mod that adds named, persistent homes that players can share with each other.',
+    icon: 'https://raw.githubusercontent.com/brainage04/SimpleHomes/master/common/src/main/resources/assets/simplehomes/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 100,
+      },
+    ],
+    category: 'small-minecraft-mods',
+  },
+  {
     name: 'SimpleTPA',
     url: 'https://github.com/brainage04/SimpleTPA',
     description: 'A Fabric and NeoForge Minecraft mod that adds player-to-player teleport requests.',
@@ -558,6 +619,19 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
   },
   {
+    name: 'SpawnCommands',
+    url: 'https://github.com/brainage04/SpawnCommands',
+    description: 'A Fabric and NeoForge Minecraft mod that adds commands for world, personal, and shared spawn points.',
+    icon: 'https://raw.githubusercontent.com/brainage04/SpawnCommands/master/common/src/main/resources/assets/spawncommands/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 100,
+      },
+    ],
+    category: 'small-minecraft-mods',
+  },
+  {
     name: 'Telekinesis',
     url: 'https://github.com/brainage04/Telekinesis',
     description:
@@ -570,6 +644,20 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+  },
+  {
+    name: 'TextureAtlasGenerator',
+    url: 'https://github.com/brainage04/TextureAtlasGenerator',
+    description:
+      'A Fabric and NeoForge Minecraft mod that exports pre-rendered vanilla and Hypixel SkyBlock item texture atlases.',
+    icon: 'https://raw.githubusercontent.com/brainage04/TextureAtlasGenerator/master/common/src/main/resources/assets/textureatlasgenerator/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 100,
+      },
+    ],
+    category: 'minecraft-dev-tools',
   },
   {
     name: 'ToggleSprint',

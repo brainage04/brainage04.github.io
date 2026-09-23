@@ -78,6 +78,9 @@ describe('project catalogue helpers', () => {
 
     expect(selectIconPath(['docs/icon/icon.png', 'icon.png', jarIcon])).toBe(jarIcon);
     expect(selectIconPath(['docs/icon/icon.png'])).toBeUndefined();
+    expect(selectIconPath(['src/shared/resources/assets/actionassist/icon.png'])).toBe(
+      'src/shared/resources/assets/actionassist/icon.png',
+    );
   });
 
   it('reads PNG widths regardless of the served content type', () => {

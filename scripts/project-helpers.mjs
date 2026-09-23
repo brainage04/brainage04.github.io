@@ -42,7 +42,7 @@ export function collectRepositoryEntries(listPages, excludedRepositories) {
 
 // Ordered by preference: the in-jar mod icon first, then repository-level icons.
 const projectIconPatterns = [
-  /(?:^|\/)src\/main\/resources\/assets\/[^/]+\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
+  /(?:^|\/)src\/(?:main|shared)\/resources\/assets\/[^/]+\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
   /(?:^|\/)src\/main\/resources\/(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
   /^(?:icon|logo)\.(?:png|webp|jpe?g|svg)$/iu,
 ];
