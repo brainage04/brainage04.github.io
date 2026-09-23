@@ -15,16 +15,16 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "0.4.0",
+    "@astrojs/markdown-satteri": "0.4.1",
     "@brainage04/astro-shell": "0.5.0",
     "@webtui/css": "0.1.10"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "astro": "7.3.1",
-    "eslint": "10.9.1",
-    "prettier": "3.9.6",
+    "astro": "7.3.3",
+    "eslint": "10.11.0",
+    "prettier": "3.9.8",
     "typescript": "6.0.3",
-    "vitest": "5.0.0"
+    "vitest": "5.0.1"
   }
 }
