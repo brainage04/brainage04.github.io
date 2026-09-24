@@ -181,7 +181,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'Astro',
-        percentage: 33.9,
+        percentage: 34,
       },
       {
         name: 'JavaScript',
