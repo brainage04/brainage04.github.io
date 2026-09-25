@@ -77,11 +77,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 99.4,
+        percentage: 99.5,
       },
       {
         name: 'JavaScript',
-        percentage: 0.6,
+        percentage: 0.5,
       },
     ],
     category: 'small-minecraft-mods',
@@ -248,7 +248,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 100,
+        percentage: 89.1,
+      },
+      {
+        name: 'Python',
+        percentage: 10.9,
       },
     ],
     category: 'large-minecraft-mods',
@@ -392,11 +396,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 93.8,
+        percentage: 93.9,
       },
       {
         name: 'Python',
-        percentage: 6.2,
+        percentage: 6.1,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -526,20 +530,6 @@ export const generatedProjects: Project[] = [
     category: 'templates-starters',
   },
   {
-    name: 'MilkablePlayers',
-    url: 'https://github.com/brainage04/MilkablePlayers',
-    description: 'A Fabric and NeoForge Minecraft mod that lets players milk other players with buckets.',
-    icon: 'https://raw.githubusercontent.com/brainage04/MilkablePlayers/master/docs/icon/icon.png',
-    iconPixelated: true,
-    languages: [
-      {
-        name: 'Java',
-        percentage: 100,
-      },
-    ],
-    category: 'small-minecraft-mods',
-  },
-  {
     name: 'ModernMinecraftModTemplate',
     url: 'https://github.com/brainage04/ModernMinecraftModTemplate',
     description:
@@ -663,11 +653,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 80,
+        percentage: 85,
       },
       {
         name: 'Java',
-        percentage: 20,
+        percentage: 15,
       },
     ],
     category: 'small-minecraft-mods',
