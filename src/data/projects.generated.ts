@@ -24,15 +24,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 95.9,
+        percentage: 96.8,
       },
       {
         name: 'Shell',
-        percentage: 2.7,
+        percentage: 2.2,
       },
       {
         name: 'mcfunction',
-        percentage: 1.3,
+        percentage: 1,
       },
     ],
     category: 'large-minecraft-mods',
@@ -177,15 +177,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 46,
+        percentage: 45.7,
       },
       {
         name: 'Astro',
-        percentage: 34,
+        percentage: 34.1,
       },
       {
         name: 'JavaScript',
-        percentage: 20.1,
+        percentage: 20.2,
       },
     ],
     category: 'websites',
@@ -653,11 +653,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 85,
+        percentage: 87.4,
       },
       {
         name: 'Java',
-        percentage: 15,
+        percentage: 12.6,
       },
     ],
     category: 'small-minecraft-mods',
