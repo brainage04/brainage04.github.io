@@ -541,12 +541,12 @@ export const generatedProjects: Project[] = [
     icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/docs/icon/icon.png',
     languages: [
       {
-        name: 'Shell',
-        percentage: 58.8,
+        name: 'Java',
+        percentage: 50,
       },
       {
-        name: 'Java',
-        percentage: 41.2,
+        name: 'Shell',
+        percentage: 50,
       },
     ],
     category: 'templates-starters',
