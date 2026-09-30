@@ -43,21 +43,6 @@ export const generatedProjects: Project[] = [
     featured: 2,
   },
   {
-    name: 'FortniteInMinecraft',
-    url: 'https://github.com/brainage04/FortniteInMinecraft',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds Fortnite-inspired building, weapons, resources, and combat mechanics.',
-    icon: 'https://raw.githubusercontent.com/brainage04/FortniteInMinecraft/master/docs/icon/icon.png',
-    languages: [
-      {
-        name: 'Java',
-        percentage: 100,
-      },
-    ],
-    category: 'large-minecraft-mods',
-    featured: 3,
-  },
-  {
     name: 'AcceleratedDamage',
     url: 'https://github.com/brainage04/AcceleratedDamage',
     description:
