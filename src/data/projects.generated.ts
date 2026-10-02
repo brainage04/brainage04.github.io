@@ -9,11 +9,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 79.4,
+        percentage: 79.7,
       },
       {
         name: 'Python',
-        percentage: 20.6,
+        percentage: 20.3,
       },
     ],
     category: 'small-minecraft-mods',
@@ -385,11 +385,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 93.9,
+        percentage: 94,
       },
       {
         name: 'Python',
-        percentage: 6.1,
+        percentage: 6,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -526,12 +526,12 @@ export const generatedProjects: Project[] = [
     icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/docs/icon/icon.png',
     languages: [
       {
-        name: 'Java',
-        percentage: 50,
+        name: 'Shell',
+        percentage: 51.6,
       },
       {
-        name: 'Shell',
-        percentage: 50,
+        name: 'Java',
+        percentage: 48.4,
       },
     ],
     category: 'templates-starters',
