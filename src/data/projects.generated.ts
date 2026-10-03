@@ -48,7 +48,6 @@ export const generatedProjects: Project[] = [
     description:
       'A Fabric and NeoForge Minecraft mod that exposes configurable accelerated combat and damage mechanics as gamerules.',
     icon: 'https://raw.githubusercontent.com/brainage04/AcceleratedDamage/master/docs/icon/icon.png',
-    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -150,7 +149,6 @@ export const generatedProjects: Project[] = [
     description:
       'A Fabric and NeoForge Minecraft mod that adds villager trade rerolls, per-player trade filters, and max-level enchantment outputs.',
     icon: 'https://raw.githubusercontent.com/brainage04/BetterVillagerTrades/master/docs/icon/icon.png',
-    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -252,7 +250,6 @@ export const generatedProjects: Project[] = [
     description:
       'A Fabric and NeoForge Minecraft mod that adds configurable utility gamerules and administrative commands.',
     icon: 'https://raw.githubusercontent.com/brainage04/BrainageServerUtils/master/docs/icon/icon.png',
-    iconPixelated: true,
     languages: [
       {
         name: 'Java',
@@ -385,11 +382,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94,
+        percentage: 94.1,
       },
       {
         name: 'Python',
-        percentage: 6,
+        percentage: 5.9,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -584,7 +581,6 @@ export const generatedProjects: Project[] = [
     url: 'https://github.com/brainage04/SimpleTwitchChat',
     description: 'A Fabric and NeoForge Minecraft mod that connects Minecraft chat with Twitch chat.',
     icon: 'https://raw.githubusercontent.com/brainage04/SimpleTwitchChat/master/docs/icon/icon.png',
-    iconPixelated: true,
     languages: [
       {
         name: 'Java',
