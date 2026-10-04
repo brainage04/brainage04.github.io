@@ -65,11 +65,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 99.5,
+        percentage: 99.6,
       },
       {
         name: 'JavaScript',
-        percentage: 0.5,
+        percentage: 0.4,
       },
     ],
     category: 'small-minecraft-mods',
@@ -164,11 +164,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 45.4,
+        percentage: 45.3,
       },
       {
         name: 'Astro',
-        percentage: 34.3,
+        percentage: 34.4,
       },
       {
         name: 'JavaScript',
@@ -231,15 +231,14 @@ export const generatedProjects: Project[] = [
     description:
       'A Fabric and NeoForge Minecraft mod that provides configurable custom events and an Ultra Hardcore minigame.',
     icon: 'https://raw.githubusercontent.com/brainage04/BrainageMinigames/master/docs/icon/icon.png',
-    iconPixelated: true,
     languages: [
       {
         name: 'Java',
-        percentage: 89.8,
+        percentage: 93.3,
       },
       {
         name: 'Python',
-        percentage: 10.2,
+        percentage: 6.7,
       },
     ],
     category: 'large-minecraft-mods',
@@ -382,11 +381,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94.1,
+        percentage: 94.4,
       },
       {
         name: 'Python',
-        percentage: 5.9,
+        percentage: 5.6,
       },
     ],
     category: 'minecraft-dev-tools',
