@@ -234,11 +234,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94.2,
+        percentage: 94.5,
       },
       {
         name: 'Python',
-        percentage: 5.8,
+        percentage: 5.5,
       },
     ],
     category: 'large-minecraft-mods',
@@ -381,11 +381,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94.5,
+        percentage: 94.9,
       },
       {
         name: 'Python',
-        percentage: 5.5,
+        percentage: 5.1,
       },
     ],
     category: 'minecraft-dev-tools',
