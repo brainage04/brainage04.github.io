@@ -226,24 +226,6 @@ export const generatedProjects: Project[] = [
     category: 'minecraft-dev-tools',
   },
   {
-    name: 'BrainageMinigames',
-    url: 'https://github.com/brainage04/BrainageMinigames',
-    description:
-      'A Fabric and NeoForge Minecraft mod that provides configurable custom events and an Ultra Hardcore minigame.',
-    icon: 'https://raw.githubusercontent.com/brainage04/BrainageMinigames/master/docs/icon/icon.png',
-    languages: [
-      {
-        name: 'Java',
-        percentage: 93,
-      },
-      {
-        name: 'Python',
-        percentage: 7,
-      },
-    ],
-    category: 'large-minecraft-mods',
-  },
-  {
     name: 'BrainageServerUtils',
     url: 'https://github.com/brainage04/BrainageServerUtils',
     description:
