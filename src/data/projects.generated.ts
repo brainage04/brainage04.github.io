@@ -4,7 +4,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'MagicCarpet',
     url: 'https://github.com/brainage04/MagicCarpet',
-    description: 'A Fabric and NeoForge Minecraft mod that adds three tiers of craftable, rideable flying carpets.',
+    description: 'Adds 3 tiers of craftable, rideable flying carpets.',
     icon: 'https://raw.githubusercontent.com/brainage04/MagicCarpet/master/docs/icon/icon.png',
     languages: [
       {
@@ -23,7 +23,7 @@ export const generatedProjects: Project[] = [
     name: 'ProceduralDungeon',
     url: 'https://github.com/brainage04/ProceduralDungeon',
     description:
-      'A Fabric and NeoForge Minecraft mod that adds procedurally generated, tiered dungeons with varied rooms, traps, and loot.',
+      'Highly optimised procedural dungeon generator with 20 themes and 5 difficulty/loot tiers across all 3 vanilla dimensions, with custom rooms, locked chests and boss fights.',
     icon: 'https://raw.githubusercontent.com/brainage04/ProceduralDungeon/master/docs/icon/icon.png',
     languages: [
       {
@@ -46,7 +46,7 @@ export const generatedProjects: Project[] = [
     name: 'AcceleratedDamage',
     url: 'https://github.com/brainage04/AcceleratedDamage',
     description:
-      'A Fabric and NeoForge Minecraft mod that exposes configurable accelerated combat and damage mechanics as gamerules.',
+      'Adds highly configurable accelerated combat and damage mechanics that emulate a server running at up to 10x speed.',
     icon: 'https://raw.githubusercontent.com/brainage04/AcceleratedDamage/master/docs/icon/icon.png',
     languages: [
       {
@@ -60,7 +60,7 @@ export const generatedProjects: Project[] = [
     name: 'ActionAssist',
     url: 'https://github.com/brainage04/ActionAssist',
     description:
-      'A Fabric and NeoForge Minecraft mod that automates repetitive client actions such as using, attacking, sneaking, and hotbar transfers.',
+      'A Minecraft mod that automates repetitive client actions such as using, attacking, sneaking, and hotbar transfers.',
     icon: 'https://raw.githubusercontent.com/brainage04/ActionAssist/main/docs/icon/icon.png',
     languages: [
       {
@@ -146,8 +146,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'BetterVillagerTrades',
     url: 'https://github.com/brainage04/BetterVillagerTrades',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds villager trade rerolls, per-player trade filters, and max-level enchantment outputs.',
+    description: 'Adds villager trade rerolls, per-player trade filters, and max-level enchantment outputs.',
     icon: 'https://raw.githubusercontent.com/brainage04/BetterVillagerTrades/master/docs/icon/icon.png',
     languages: [
       {
@@ -198,7 +197,7 @@ export const generatedProjects: Project[] = [
     name: 'BrainageHUD',
     url: 'https://github.com/brainage04/BrainageHUD',
     description:
-      'A Fabric and NeoForge Minecraft mod that adds configurable HUD elements such as time, ping and TPS, performance, position, and reach readouts.',
+      'Highly configurable modern HUD mod that can display position, reach, armour, keystrokes, enchants, status effects and much more!',
     icon: 'https://raw.githubusercontent.com/brainage04/BrainageHUD/master/docs/icon/icon.png',
     languages: [
       {
@@ -219,7 +218,7 @@ export const generatedProjects: Project[] = [
     name: 'BrainageLib',
     url: 'https://github.com/brainage04/BrainageLib',
     description:
-      "A Fabric and NeoForge Minecraft mod that provides shared command feedback and a combined first-join help message for brainage04's server mods.",
+      "A Minecraft mod that provides shared command feedback and a combined first-join help message for brainage04's server mods.",
     icon: 'https://raw.githubusercontent.com/brainage04/BrainageLib/master/docs/icon/icon.png',
     languages: [
       {
@@ -232,8 +231,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'BrainageServerUtils',
     url: 'https://github.com/brainage04/BrainageServerUtils',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds configurable utility gamerules and administrative commands.',
+    description: 'A Minecraft mod that adds configurable utility gamerules and administrative commands.',
     icon: 'https://raw.githubusercontent.com/brainage04/BrainageServerUtils/master/docs/icon/icon.png',
     languages: [
       {
@@ -331,8 +329,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'DimensionStructureVariants',
     url: 'https://github.com/brainage04/DimensionStructureVariants',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds cross-dimension variants of vanilla structures, such as End villages and Overworld End cities.',
+    description: 'Adds cross-dimension variants of vanilla structures, such as End villages and Overworld End cities.',
     icon: 'https://raw.githubusercontent.com/brainage04/DimensionStructureVariants/master/docs/icon/icon.png',
     languages: [
       {
@@ -362,7 +359,7 @@ export const generatedProjects: Project[] = [
     name: 'FabricModdingConventions',
     url: 'https://github.com/brainage04/FabricModdingConventions',
     description:
-      'A Fabric Minecraft mod that provides client GameTest recording helpers, bundled with Gradle plugins for shared Fabric and NeoForge build conventions.',
+      'A Minecraft mod that provides client GameTest recording helpers, bundled with Gradle plugins for shared Fabric and NeoForge build conventions.',
     icon: 'https://raw.githubusercontent.com/brainage04/FabricModdingConventions/main/docs/icon/icon.png',
     languages: [
       {
@@ -379,8 +376,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'FloodedEnd',
     url: 'https://github.com/brainage04/FloodedEnd',
-    description:
-      'A Fabric and NeoForge Minecraft mod that floods the End with a global sea, with End ships moored on the water.',
+    description: 'Floods the End with water.',
     icon: 'https://raw.githubusercontent.com/brainage04/FloodedEnd/master/docs/icon/icon.png',
     languages: [
       {
@@ -429,8 +425,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'HudRendererLib',
     url: 'https://github.com/brainage04/HudRendererLib',
-    description:
-      'A Fabric and NeoForge Minecraft mod that provides shared rendering code for configurable HUD elements.',
+    description: 'A Minecraft mod that provides shared rendering code for configurable HUD elements.',
     icon: 'https://raw.githubusercontent.com/brainage04/HudRendererLib/master/docs/icon/icon.png',
     languages: [
       {
@@ -443,8 +438,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'IceSkates',
     url: 'https://github.com/brainage04/IceSkates',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds craftable ice skates, roller skates, and ice-themed swords.',
+    description: 'Adds craftable ice skates, roller skates, and ice-themed swords.',
     icon: 'https://raw.githubusercontent.com/brainage04/IceSkates/master/docs/icon/icon.png',
     languages: [
       {
@@ -482,7 +476,7 @@ export const generatedProjects: Project[] = [
     name: 'LegacyMinecraftModTemplate',
     url: 'https://github.com/brainage04/LegacyMinecraftModTemplate',
     description:
-      'A Forge 1.8.9 Minecraft mod template that sets up Kotlin, Mixin, MoulConfig, and reusable configuration utilities.',
+      'A 1.8.9 Minecraft mod template that sets up Kotlin, Mixin, MoulConfig, and reusable configuration utilities.',
     icon: 'https://raw.githubusercontent.com/brainage04/LegacyMinecraftModTemplate/main/docs/icon/icon.png',
     languages: [
       {
@@ -504,7 +498,7 @@ export const generatedProjects: Project[] = [
     name: 'ModernMinecraftModTemplate',
     url: 'https://github.com/brainage04/ModernMinecraftModTemplate',
     description:
-      'A Fabric Minecraft mod template that sets up split common and client sources, GameTests, and a project init script.',
+      'A Minecraft mod template that sets up split common and client sources, GameTests, and a project init script.',
     icon: 'https://raw.githubusercontent.com/brainage04/ModernMinecraftModTemplate/master/docs/icon/icon.png',
     languages: [
       {
@@ -537,8 +531,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'SimpleHomes',
     url: 'https://github.com/brainage04/SimpleHomes',
-    description:
-      'A Fabric and NeoForge Minecraft mod that adds named, persistent homes that players can share with each other.',
+    description: 'Adds named, persistent homes that players can share with each other.',
     icon: 'https://raw.githubusercontent.com/brainage04/SimpleHomes/master/docs/icon/icon.png',
     languages: [
       {
@@ -551,7 +544,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'SimpleTPA',
     url: 'https://github.com/brainage04/SimpleTPA',
-    description: 'A Fabric and NeoForge Minecraft mod that adds player-to-player teleport requests.',
+    description: 'Adds a player-to-player teleport request system.',
     icon: 'https://raw.githubusercontent.com/brainage04/SimpleTPA/master/docs/icon/icon.png',
     languages: [
       {
@@ -564,7 +557,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'SimpleTwitchChat',
     url: 'https://github.com/brainage04/SimpleTwitchChat',
-    description: 'A Fabric and NeoForge Minecraft mod that connects Minecraft chat with Twitch chat.',
+    description: 'Integrates Twitch chat into Minecraft chat.',
     icon: 'https://raw.githubusercontent.com/brainage04/SimpleTwitchChat/master/docs/icon/icon.png',
     languages: [
       {
@@ -577,7 +570,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'SpawnCommands',
     url: 'https://github.com/brainage04/SpawnCommands',
-    description: 'A Fabric and NeoForge Minecraft mod that adds commands for world, personal, and shared spawn points.',
+    description: 'Adds commands for world, personal, and shared spawn points.',
     icon: 'https://raw.githubusercontent.com/brainage04/SpawnCommands/master/docs/icon/icon.png',
     languages: [
       {
@@ -590,8 +583,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'Telekinesis',
     url: 'https://github.com/brainage04/Telekinesis',
-    description:
-      'A Fabric and NeoForge Minecraft mod that sends mined block drops and experience directly to the player.',
+    description: 'Sends mined block drops and experience directly to the player instead of dropping it on the ground.',
     icon: 'https://raw.githubusercontent.com/brainage04/Telekinesis/master/docs/icon/icon.png',
     languages: [
       {
@@ -604,8 +596,7 @@ export const generatedProjects: Project[] = [
   {
     name: 'TextureAtlasGenerator',
     url: 'https://github.com/brainage04/TextureAtlasGenerator',
-    description:
-      'A Fabric and NeoForge Minecraft mod that exports pre-rendered vanilla and Hypixel SkyBlock item texture atlases.',
+    description: 'Exports vanilla and Hypixel SkyBlock item texture atlases.',
     icon: 'https://raw.githubusercontent.com/brainage04/TextureAtlasGenerator/master/docs/icon/icon.png',
     languages: [
       {
@@ -618,7 +609,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'ToggleSprint',
     url: 'https://github.com/brainage04/ToggleSprint',
-    description: 'A Forge 1.8.9 Minecraft mod that adds configurable toggle sprint and sneak behavior.',
+    description:
+      'Highly configurable legacy HUD mod that can display position, reach, armour, keystrokes, enchants, status effects and much more! Also adds toggle sprint and sneak.',
     icon: 'https://raw.githubusercontent.com/brainage04/ToggleSprint/main/docs/icon/icon.png',
     languages: [
       {
@@ -635,7 +627,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'VeinMiner',
     url: 'https://github.com/brainage04/VeinMiner',
-    description: 'A Fabric and NeoForge Minecraft mod that mines connected ore and tree blocks together.',
+    description:
+      'Facilitates mining of connected ore and tree blocks together (accounts for deepslate ore and log variants!)',
     icon: 'https://raw.githubusercontent.com/brainage04/VeinMiner/master/docs/icon/icon.png',
     languages: [
       {
