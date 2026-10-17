@@ -297,15 +297,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'JavaScript',
-        percentage: 66.6,
+        percentage: 68.4,
       },
       {
         name: 'HTML',
-        percentage: 20.2,
+        percentage: 19.6,
       },
       {
         name: 'CSS',
-        percentage: 13.1,
+        percentage: 12,
       },
     ],
     category: 'browser-extensions',
