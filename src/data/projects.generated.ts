@@ -17,6 +17,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
     featured: 1,
   },
   {
@@ -40,6 +43,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'large-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'server',
+    versions: ['26.2'],
     featured: 2,
   },
   {
@@ -55,6 +61,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -73,6 +82,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'client',
+    versions: ['1.21.1', '1.21.4', '1.21.5', '1.21.8', '1.21.10', '1.21.11', '26.1.2', '26.2'],
   },
   {
     name: 'AstroShell',
@@ -155,6 +167,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'brainage04.github.io',
@@ -205,7 +220,10 @@ export const generatedProjects: Project[] = [
         percentage: 100,
       },
     ],
-    category: 'large-minecraft-mods',
+    category: 'medium-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'BrainageKits',
@@ -227,6 +245,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'minecraft-dev-tools',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'BrainageServerUtils',
@@ -240,6 +261,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'BrainageUtilities',
@@ -338,6 +362,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -372,6 +399,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'minecraft-dev-tools',
+    loaders: ['Fabric'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'FloodedEnd',
@@ -385,6 +415,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'GifStudio',
@@ -434,6 +467,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'minecraft-dev-tools',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'IceSkates',
@@ -447,6 +483,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'kashiilol.github.io',
@@ -493,6 +532,8 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'templates-starters',
+    loaders: ['Forge'],
+    versions: ['1.8.9'],
   },
   {
     name: 'ModernMinecraftModTemplate',
@@ -511,6 +552,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'templates-starters',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'RevengeVencordPluginTemplate',
@@ -540,6 +584,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'SimpleTPA',
@@ -553,6 +600,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'SimpleTwitchChat',
@@ -566,6 +616,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'SpawnCommands',
@@ -579,6 +632,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'Telekinesis',
@@ -592,6 +648,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'TextureAtlasGenerator',
@@ -604,7 +663,10 @@ export const generatedProjects: Project[] = [
         percentage: 100,
       },
     ],
-    category: 'minecraft-dev-tools',
+    category: 'medium-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'ToggleSprint',
@@ -622,7 +684,9 @@ export const generatedProjects: Project[] = [
         percentage: 12.6,
       },
     ],
-    category: 'small-minecraft-mods',
+    category: 'medium-minecraft-mods',
+    loaders: ['Forge'],
+    versions: ['1.8.9'],
   },
   {
     name: 'VeinMiner',
@@ -637,6 +701,9 @@ export const generatedProjects: Project[] = [
       },
     ],
     category: 'small-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'WebTuiAstroTemplate',

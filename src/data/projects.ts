@@ -1,7 +1,11 @@
+import type { ImageMetadata } from 'astro';
+import { closedSourceProjects } from './closedSourceProjects';
+import { projectSides, type ReviewedSide } from './projectSides';
 import { generatedProjects } from './projects.generated';
 
 export const projectCategoryOrder = [
   'large-minecraft-mods',
+  'medium-minecraft-mods',
   'small-minecraft-mods',
   'templates-starters',
   'minecraft-dev-tools',
@@ -15,85 +19,130 @@ export type ProjectCategoryId = (typeof projectCategoryOrder)[number];
 export type TopLevelCategoryId =
   'minecraft-mods' | 'minecraft-datapacks' | 'browser-extensions' | 'websites' | 'discord-bots';
 
+/** Project sizes and types, in display order. */
+export const projectSizes = ['Large', 'Medium', 'Small'] as const;
+export const projectTypes = ['Mod', 'Datapack'] as const;
+
+export type ProjectSize = (typeof projectSizes)[number];
+export type ProjectType = (typeof projectTypes)[number];
+
 export type ProjectCategoryMeta = {
   label: string;
-  badge: string;
   mark: string;
   topLevel: TopLevelCategoryId;
+  /** The size of every project in the category: the one source of truth for a mod's size on every page. */
+  size?: ProjectSize;
 };
 
-export const projectCategories = {
+export const projectCategories: Record<ProjectCategoryId, ProjectCategoryMeta> = {
   'large-minecraft-mods': {
     label: 'Large Minecraft Mod',
-    badge: 'Large Mod',
+    size: 'Large',
     mark: '▦',
+    topLevel: 'minecraft-mods',
+  },
+  'medium-minecraft-mods': {
+    label: 'Medium Minecraft Mod',
+    size: 'Medium',
+    mark: '◈',
     topLevel: 'minecraft-mods',
   },
   'small-minecraft-mods': {
     label: 'Small Minecraft Mod',
-    badge: 'Small Mod',
+    size: 'Small',
     mark: '✦',
     topLevel: 'minecraft-mods',
   },
   'templates-starters': {
     label: 'Templates & Starters',
-    badge: 'Template',
     mark: '</>',
     topLevel: 'minecraft-mods',
   },
   'minecraft-dev-tools': {
     label: 'Minecraft Dev Tools & Libraries',
-    badge: 'Dev Tool',
     mark: '⌘',
     topLevel: 'minecraft-mods',
   },
   'minecraft-datapacks': {
     label: 'Minecraft Datapacks',
-    badge: 'Datapack',
     mark: '{}',
     topLevel: 'minecraft-datapacks',
   },
   'browser-extensions': {
     label: 'Browser Extensions',
-    badge: 'Extension',
     mark: '◫',
     topLevel: 'browser-extensions',
   },
   websites: {
     label: 'Websites & Website Templates',
-    badge: 'Website',
     mark: '>_',
     topLevel: 'websites',
   },
   'discord-bots': {
     label: 'Discord Bots & Plugins',
-    badge: 'Discord',
     mark: '◉',
     topLevel: 'discord-bots',
   },
-} satisfies Record<ProjectCategoryId, ProjectCategoryMeta>;
+};
 
 export type ProjectLanguage = {
   name: string;
   percentage: number;
 };
 
+/** Mod loaders in display order. */
+export const modLoaders = ['Fabric', 'NeoForge', 'Forge'] as const;
+export type ModLoader = (typeof modLoaders)[number];
+
+/**
+ * Where a mod must be installed: client only, server only, or both. Reviewed sides (src/data/projectSides.ts) win over
+ * the side detected from metadata files (detectModSide in scripts/project-helpers.mjs).
+ */
+export type ModSide = 'client' | 'server' | 'both';
+
 export type Project = {
   name: string;
-  url: string;
+  /** The public GitHub repository. Closed-source projects have none, and their cards show no link. */
+  url?: string;
   description: string;
-  icon?: string;
+  /** A remote URL from the generated catalogue, or a bundled image for closed-source projects. */
+  icon?: string | ImageMetadata;
   iconPixelated?: boolean;
   languages: ProjectLanguage[];
   category: ProjectCategoryId;
+  loaders?: ModLoader[];
+  side?: ModSide;
+  /** The Minecraft versions the mod targets, oldest first (detectMinecraftVersions in scripts/project-helpers.mjs). */
+  versions?: string[];
+  /** Sorts the project ahead of the rest of the catalogue (from `featuredOrder` in scripts/project-config.mjs). */
   featured?: number;
 };
 
-export const projects = generatedProjects;
+/**
+ * Adds hand-written entries to the generated catalogue, ordered like the generator orders it (featured first, then by
+ * name). The sync workflow only rewrites projects.generated.ts, so these entries survive every sync. A name in both
+ * fails the build, e.g. when a closed-source repository is made public and starred into a list: remove its entry then.
+ */
+export function mergeCatalogue(generated: readonly Project[], extra: readonly Project[]): Project[] {
+  const names = new Set(generated.map(({ name }) => name));
+  for (const { name } of extra) {
+    if (names.has(name)) throw new Error(`${name} is in both the generated catalogue and the closed-source entries`);
+  }
+  return [...generated, ...extra].sort((left, right) => {
+    const order = (left.featured ?? Infinity) - (right.featured ?? Infinity);
+    return order || left.name.localeCompare(right.name);
+  });
+}
 
-const isFeaturedProject = (item: Project): item is Project & { featured: number } => typeof item.featured === 'number';
-export const getFeaturedProjects = () =>
-  projects.filter(isFeaturedProject).sort((left, right) => left.featured - right.featured);
+/** Replaces each project's detected side with its reviewed one, when it has one (a null side removes it). */
+export function applyReviewedSides(catalogue: readonly Project[], sides: Record<string, ReviewedSide>): Project[] {
+  return catalogue.map((project) => {
+    const reviewed = sides[project.name];
+    return reviewed ? { ...project, side: reviewed.side ?? undefined } : project;
+  });
+}
+
+export const projects = applyReviewedSides(mergeCatalogue(generatedProjects, closedSourceProjects), projectSides);
 
 export const topLevelCategories = [
   {
@@ -143,6 +192,7 @@ type ProjectSubgroupRule = {
 const projectSubgroupRules: Record<TopLevelCategoryId, readonly ProjectSubgroupRule[]> = {
   'minecraft-mods': [
     { id: 'large-minecraft-mods', label: 'Large Minecraft Mods', categories: ['large-minecraft-mods'] },
+    { id: 'medium-minecraft-mods', label: 'Medium Minecraft Mods', categories: ['medium-minecraft-mods'] },
     { id: 'small-minecraft-mods', label: 'Small Minecraft Mods', categories: ['small-minecraft-mods'] },
     { id: 'templates-starters', label: 'Templates & Starters', categories: ['templates-starters'] },
     {
@@ -152,20 +202,20 @@ const projectSubgroupRules: Record<TopLevelCategoryId, readonly ProjectSubgroupR
     },
   ],
   'discord-bots': [
-    { id: 'discord-templates', label: 'Templates', projectNames: ['RevengeVencordPluginTemplate'] },
+    { id: 'discord-templates', label: 'Discord Templates', projectNames: ['RevengeVencordPluginTemplate'] },
     { id: 'discord-bot-projects', label: 'Bots', projectNames: ['HiBackBot'] },
     { id: 'discord-plugins', label: 'Plugins' },
   ],
   websites: [
-    { id: 'website-templates', label: 'Templates', projectNames: ['WebTuiAstroTemplate', 'AstroShell'] },
+    { id: 'website-templates', label: 'Website Templates', projectNames: ['WebTuiAstroTemplate', 'AstroShell'] },
     { id: 'website-projects', label: 'Websites' },
   ],
   'browser-extensions': [
-    { id: 'browser-extension-templates', label: 'Templates', projectNames: ['BrowserExtensionTemplate'] },
+    { id: 'browser-extension-templates', label: 'Extension Templates', projectNames: ['BrowserExtensionTemplate'] },
     { id: 'browser-extension-projects', label: 'Browser Extensions' },
   ],
   'minecraft-datapacks': [
-    { id: 'minecraft-datapack-templates', label: 'Templates', projectNames: ['DatapackTemplate'] },
+    { id: 'minecraft-datapack-templates', label: 'Datapack Templates', projectNames: ['DatapackTemplate'] },
     { id: 'minecraft-datapack-projects', label: 'Datapacks' },
   ],
 };
