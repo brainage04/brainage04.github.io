@@ -1,141 +1,241 @@
 ---
 import { Image } from 'astro:assets';
-import { projectCategories, type Project } from '../data/projects';
+import { projectCategories, type Project, type ProjectType } from '../data/projects';
+import { resolveProjectIcon } from '../lib/projectIcon';
+import { projectMeta, titleSegments } from '../lib/projectMeta';
 
 export interface Props {
-  project: Project;
+  /** Portfolio items carry their type; other projects take it from their category. */
+  project: Project & { type?: ProjectType };
+  /** The title's heading level, one below the heading of the list the card is in. */
+  headingLevel?: 3 | 4;
+  /** The language percentages, shown in the catalogue but not to commission clients. */
+  showLanguages?: boolean;
 }
 
-const { project } = Astro.props;
+/** The icon size in CSS pixels; images are generated at 1x and 2x of it. */
+const iconSize = 192;
+const { project, headingLevel = 3, showLanguages = true } = Astro.props;
+const Heading = `h${headingLevel}` as const;
 const category = projectCategories[project.category];
+const meta = projectMeta(project);
+// The name split at its camel-case humps, joined by <wbr> below: a long name wraps between words, never inside one.
+const segments = titleSegments(project.name);
+const languages = showLanguages
+  ? project.languages.map(({ name, percentage }) => `${name} ${percentage}%`).join(' · ')
+  : '';
+const icon = await resolveProjectIcon(project);
+/** Pixel art keeps its own size (CSS scales it up unsmoothed); other icons are resized to the card size. */
+function iconImage(resolved: NonNullable<typeof icon>) {
+  if (project.iconPixelated) return resolved;
+  const { width, height } = 'width' in resolved ? resolved : resolved.src;
+  return { ...resolved, width: iconSize, height: Math.round((iconSize * height) / width), densities: [1, 2] };
+}
 ---
 
 <article class="project-card">
-  <div class="project-icon" aria-hidden="true">
+  <div class="project-visual" data-category={project.category} aria-hidden="true">
     {
-      project.icon ? (
-        <Image
-          src={project.icon}
-          class:list={{ pixelated: project.iconPixelated }}
-          alt=""
-          {...(project.iconPixelated ? { inferSize: true } : { width: 96, height: 96 })}
-        />
+      icon ? (
+        <Image {...iconImage(icon)} class:list={{ pixelated: project.iconPixelated }} alt="" />
       ) : (
-        <span>{project.name.slice(0, 2).toUpperCase()}</span>
+        <span class="project-mark">{category.mark}</span>
       )
     }
   </div>
-  <div class="project-copy">
-    <div class="meta-row project-meta">
-      <span>{category.badge}</span>
-    </div>
-    <h3>
-      <a href={project.url}>
-        {project.name}
-      </a>
-    </h3>
-    {project.description && <p>{project.description}</p>}
-    <ul class="chip-list" aria-label={`${project.name} language breakdown`}>
+  <div class="project-content">
+    <Heading class="project-title">
       {
-        project.languages.map(({ name, percentage }) => (
-          <li>
-            {name} {percentage}%
-          </li>
-        ))
+        project.url ? (
+          <a href={project.url}>{segments.map((segment, index) => (index > 0 ? [<wbr />, segment] : segment))}</a>
+        ) : (
+          segments.map((segment, index) => (index > 0 ? [<wbr />, segment] : segment))
+        )
       }
-    </ul>
+    </Heading>
+    {meta && <p class="project-meta">{meta}</p>}
+    {project.description && <p class="project-description">{project.description}</p>}
+    {
+      languages && (
+        <p class="project-languages">
+          <span class="sr-only">Languages: </span>
+          {languages}
+        </p>
+      )
+    }
   </div>
 </article>
 
 <style>
+  /*
+   * A wide card exactly as tall as its icon: the icon on the left; the title, the detail line under it, a divider, the
+   * description and the languages on the right, centred vertically against the icon. The text sizes are fixed so that
+   * the text fits the icon's height; a description too long for the lines left is clamped (5 lines with a languages
+   * line, 6 without).
+   */
   .project-card {
+    --icon-size: 192px;
+    --description-lines: 6;
     min-width: 0;
+    height: calc(var(--icon-size) + 2px);
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.9rem;
-    padding: 1rem;
-    border-block-start: 1px solid var(--border-subtle);
-    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    /* The icon column is the icon plus its 1px divider. */
+    grid-template-columns: calc(var(--icon-size) + 1px) minmax(0, 1fr);
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-raised);
     transition:
-      border-color 170ms ease,
-      background-color 170ms ease,
-      translate 170ms ease;
+      translate 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .project-card:has(.project-languages) {
+    --description-lines: 5;
   }
 
   .project-card:hover,
   .project-card:focus-within {
-    translate: 0 -0.12rem;
-    border-block-start-color: var(--accent-primary);
-    background: var(--surface-raised);
+    translate: 0 -0.15rem;
+    border-color: color-mix(in srgb, var(--accent-primary) 70%, var(--foreground2));
   }
 
-  .project-icon {
-    width: 2.4rem;
-    height: 2.4rem;
+  .project-visual {
     display: grid;
     place-items: center;
-    border: 1px solid var(--border-subtle);
-    background: var(--background1);
-    color: var(--accent-primary);
-    font: 700 0.88rem/1 var(--font-mono);
+    border-inline-end: 1px solid var(--border-subtle);
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--visual-accent) 13%, var(--background1)),
+      var(--background0)
+    );
+    color: var(--visual-accent);
   }
 
-  .project-icon img,
-  .project-icon span {
-    width: 100%;
-    height: 100%;
+  .project-visual[data-category='small-minecraft-mods'] {
+    --visual-accent: #efb3c3;
   }
 
-  .project-icon img {
+  .project-visual[data-category='large-minecraft-mods'],
+  .project-visual[data-category='medium-minecraft-mods'] {
+    --visual-accent: var(--accent-highlight);
+  }
+
+  .project-visual[data-category='templates-starters'] {
+    --visual-accent: var(--accent-primary);
+  }
+
+  .project-visual[data-category='minecraft-dev-tools'],
+  .project-visual[data-category='minecraft-datapacks'] {
+    --visual-accent: #c9a2dc;
+  }
+
+  .project-visual[data-category='browser-extensions'],
+  .project-visual[data-category='websites'],
+  .project-visual[data-category='discord-bots'] {
+    --visual-accent: #b78ac2;
+  }
+
+  .project-visual img {
+    width: var(--icon-size);
+    height: var(--icon-size);
     display: block;
     object-fit: contain;
   }
 
-  .project-icon img.pixelated {
+  .project-visual img.pixelated {
     image-rendering: pixelated;
   }
 
-  .project-icon span {
-    display: grid;
-    place-items: center;
-    text-align: center;
+  .project-mark {
+    font: 700 3rem/1 var(--font-mono);
   }
 
-  .project-copy {
+  /* `safe` keeps the title in view if the text ever outgrows the card, instead of clipping it at both ends. */
+  .project-content {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    gap: 0.25rem;
+    overflow: hidden;
+    /* Slimmer than the inline padding, so the divider's spacing still leaves room for every description line. */
+    padding: 0.55rem 1rem;
   }
 
+  /* Titles wrap only at the <wbr> between camel-case words and before the dots of a domain name. */
+  .project-title {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  /* Dimmer than the description but still above 5:1 contrast on the card (WCAG AA for its small size). */
   .project-meta {
-    gap: 0.35rem 0.7rem;
-    font-size: 0.65rem;
-    line-height: 1.2;
+    max-width: none;
+    margin: 0;
+    color: color-mix(in srgb, var(--foreground2) 80%, var(--surface-raised));
+    font: 700 0.68rem/1.4 var(--font-mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  h3 {
-    margin-block: 0.55rem 0;
-    font-size: 1rem;
-    line-height: 1.2;
+  /* A 1px rule, the site's divider colour, between the detail line and the description. */
+  .project-meta + .project-description {
+    margin-block-start: 0.3rem;
+    padding-block-start: 0.4rem;
+    border-block-start: 1px solid var(--border-subtle);
   }
 
-  p {
-    margin-block: 0.55rem 0;
+  .project-description {
+    display: -webkit-box;
+    max-width: 72ch;
+    margin: 0.15rem 0 0;
+    overflow: hidden;
     color: var(--foreground1);
-    font-size: 0.86rem;
+    font-size: 0.8rem;
     line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--description-lines);
   }
 
-  .chip-list {
-    margin-block: 0.75rem 0;
+  /* Language percentages as plain muted text under the description. */
+  .project-languages {
+    max-width: none;
+    margin: 0;
+    color: var(--foreground2);
+    font: 0.72rem/1.4 var(--font-mono);
   }
 
-  @media (max-width: 420px) {
+  /* Phones: a small icon beside the text. */
+  @media (max-width: 640px) {
     .project-card {
-      grid-template-columns: 1fr;
+      --icon-size: 4.5rem;
+      height: auto;
     }
 
-    .project-icon {
-      width: 2rem;
-      height: 2rem;
+    .project-description {
+      -webkit-line-clamp: unset;
+    }
+
+    .project-visual {
+      align-items: start;
+      padding-block: 0.75rem;
+      border-inline-end: 0;
+      background: none;
+    }
+
+    .project-visual img {
+      width: calc(var(--icon-size) - 1rem);
+      height: calc(var(--icon-size) - 1rem);
+    }
+
+    .project-mark {
+      font-size: 1.8rem;
+    }
+
+    .project-content {
+      padding: 0.75rem 0.9rem 0.9rem 0;
     }
   }
 </style>

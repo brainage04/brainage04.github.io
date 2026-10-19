@@ -2,17 +2,19 @@
 import ProfileCard from '@brainage04/astro-shell/components/ProfileCard.astro';
 import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
 import { withBase } from '@brainage04/astro-shell/withBase';
-import ProjectShowcase from '../components/ProjectShowcase.astro';
-import { getFeaturedProjects, groupProjects, projects } from '../data/projects';
+import ProjectList from '../components/ProjectList.astro';
+import ProjectSourceNote from '../components/ProjectSourceNote.astro';
+import { commissionPortfolio, featuredPortfolio } from '../data/commissions';
+import { groupProjects, projects } from '../data/projects';
 import { socials } from '../data/socials';
 import { pluralize } from '../lib/pluralize';
 
 const projectGroups = groupProjects(projects);
-const featuredProjects = getFeaturedProjects().slice(0, 3);
+const featuredProjects = featuredPortfolio(commissionPortfolio(projects));
 ---
 
 <SiteLayout>
-  <div class="home-stack">
+  <div class="page-sections">
     <ProfileCard name="Thomas / brainage04" avatar="/pfp.webp" socials={socials}>
       <p class="lead">
         I make Minecraft mods/datapacks, Discord bots/plugins, websites, browser extensions and various other stuff.
@@ -52,19 +54,13 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
         <h2 id="featured-projects-heading">Featured projects</h2>
         <a href={withBase('/projects/')}>View the full catalogue</a>
       </div>
-      <div class="showcase-grid">
-        {featuredProjects.map((project) => <ProjectShowcase project={project} />)}
-      </div>
+      <ProjectSourceNote />
+      <ProjectList projects={featuredProjects} />
     </section>
   </div>
 </SiteLayout>
 
 <style>
-  .home-stack {
-    display: grid;
-    gap: clamp(3rem, 8vw, 6rem);
-  }
-
   .section-intro {
     display: grid;
     gap: 0.75rem;
@@ -129,12 +125,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
     text-underline-offset: 0.2em;
   }
 
-  .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(0.9rem, 2vw, 1.3rem);
-  }
-
   .lead {
     max-width: 58ch;
     margin: 0;
@@ -191,10 +181,6 @@ const featuredProjects = getFeaturedProjects().slice(0, 3);
 
     .capability-list article:last-child {
       grid-column: 1 / -1;
-    }
-
-    .showcase-grid {
-      grid-template-columns: 1fr;
     }
   }
 

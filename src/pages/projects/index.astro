@@ -1,5 +1,6 @@
 ---
-import ProjectCard from '../../components/ProjectCard.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import ProjectSourceNote from '../../components/ProjectSourceNote.astro';
 import { groupProjects, projects } from '../../data/projects';
 import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
 import { pluralize } from '../../lib/pluralize';
@@ -8,38 +9,45 @@ const projectGroups = groupProjects(projects);
 ---
 
 <SiteLayout title="Projects">
-  <section aria-label="Projects">
-    <div class="category-list">
-      {
-        projectGroups.map((group) => (
-          <details class="project-group" id={group.id}>
-            <summary>
-              <span>{group.label}</span>
-              <small>{pluralize(group.projects.length, 'project')}</small>
-            </summary>
-            <div class="subcategory-list">
-              {group.subgroups.map((subgroup) => (
-                <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
-                  <div class="subcategory-heading">
-                    <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
-                    <small>{pluralize(subgroup.projects.length, 'project')}</small>
-                  </div>
-                  <div class="catalogue-grid">
-                    {subgroup.projects.map((project) => (
-                      <ProjectCard project={project} />
-                    ))}
-                  </div>
-                </section>
-              ))}
-            </div>
-          </details>
-        ))
-      }
-    </div>
-  </section>
+  <div class="page-sections">
+    <section aria-labelledby="projects-title">
+      <h1 id="projects-title">Projects</h1>
+      <ProjectSourceNote />
+      <div class="category-list">
+        {
+          projectGroups.map((group) => (
+            <details class="project-group" id={group.id}>
+              <summary>
+                <span>{group.label}</span>
+                <small>{pluralize(group.projects.length, 'project')}</small>
+              </summary>
+              <div class="subcategory-list">
+                {group.subgroups.map((subgroup) => (
+                  <section class="project-subgroup" aria-labelledby={`${subgroup.id}-title`}>
+                    <div class="subcategory-heading">
+                      <h2 id={`${subgroup.id}-title`}>{subgroup.label}</h2>
+                      <small>{pluralize(subgroup.projects.length, 'project')}</small>
+                    </div>
+                    <ProjectList projects={subgroup.projects} />
+                  </section>
+                ))}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </div>
 </SiteLayout>
 
 <style>
+  h1 {
+    margin: 0 0 1.2rem;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
   .category-list {
     display: grid;
     gap: 0.75rem;
@@ -50,6 +58,14 @@ const projectGroups = groupProjects(projects);
     scroll-margin-block-start: 5rem;
     border-block-start: 1px solid var(--border-strong);
     background: var(--surface);
+  }
+
+  /*
+   * Closed groups are not rendered, but their lazy icons still report a layout position, so the dev toolbar audit
+   * flags them as above-the-fold lazy images. Taking them out of layout makes the closed state explicit.
+   */
+  .project-group:not([open]) :global(.project-visual img) {
+    display: none;
   }
 
   .project-group summary {
@@ -109,24 +125,6 @@ const projectGroups = groupProjects(projects);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
-  }
-
-  .catalogue-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px;
-    padding: 1px;
-    background: var(--border-subtle);
-  }
-
-  .catalogue-grid > :global(.project-card:last-child:nth-child(odd)) {
-    grid-column: 1 / -1;
-  }
-
-  @media (max-width: 760px) {
-    .catalogue-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 420px) {

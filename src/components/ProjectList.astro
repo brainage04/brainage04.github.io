@@ -1,0 +1,40 @@
+---
+import type { ComponentProps } from 'astro/types';
+import ProjectCard from './ProjectCard.astro';
+
+type CardProps = ComponentProps<typeof ProjectCard>;
+
+export interface Props {
+  projects: CardProps['project'][];
+  headingLevel?: CardProps['headingLevel'];
+  showLanguages?: CardProps['showLanguages'];
+}
+
+const { projects, headingLevel, showLanguages } = Astro.props;
+---
+
+<div class="project-list">
+  {
+    projects.map((project) => (
+      <ProjectCard project={project} headingLevel={headingLevel} showLanguages={showLanguages} />
+    ))
+  }
+</div>
+
+<style>
+  /*
+   * Two stacks of wide cards side by side on desktops. Below 1180px the cards would be too narrow for the detail line
+   * (e.g. LARGE MOD | FABRIC, NEOFORGE | SERVER-AND-CLIENT) to fit on one line, so they stack in one column.
+   */
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.6vw, 1rem);
+  }
+
+  @media (max-width: 1179px) {
+    .project-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
