@@ -383,27 +383,6 @@ export const generatedProjects: Project[] = [
     category: 'discord-bots',
   },
   {
-    name: 'FabricModdingConventions',
-    url: 'https://github.com/brainage04/FabricModdingConventions',
-    description:
-      'A Minecraft mod that provides client GameTest recording helpers, bundled with Gradle plugins for shared Fabric and NeoForge build conventions.',
-    icon: 'https://raw.githubusercontent.com/brainage04/FabricModdingConventions/main/docs/icon/icon.png',
-    languages: [
-      {
-        name: 'Java',
-        percentage: 94.9,
-      },
-      {
-        name: 'Python',
-        percentage: 5.1,
-      },
-    ],
-    category: 'minecraft-dev-tools',
-    loaders: ['Fabric'],
-    side: 'client',
-    versions: ['26.2'],
-  },
-  {
     name: 'FloodedEnd',
     url: 'https://github.com/brainage04/FloodedEnd',
     description: 'Floods the End with water.',
@@ -534,6 +513,27 @@ export const generatedProjects: Project[] = [
     category: 'templates-starters',
     loaders: ['Forge'],
     versions: ['1.8.9'],
+  },
+  {
+    name: 'MinecraftModConventions',
+    url: 'https://github.com/brainage04/MinecraftModConventions',
+    description:
+      'A Minecraft mod that provides client GameTest recording helpers, bundled with Gradle plugins for shared Fabric and NeoForge build conventions.',
+    icon: 'https://raw.githubusercontent.com/brainage04/MinecraftModConventions/main/docs/icon/icon.png',
+    languages: [
+      {
+        name: 'Java',
+        percentage: 94.9,
+      },
+      {
+        name: 'Python',
+        percentage: 5.1,
+      },
+    ],
+    category: 'minecraft-dev-tools',
+    loaders: ['Fabric'],
+    side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'ModernMinecraftModTemplate',

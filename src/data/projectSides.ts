@@ -33,7 +33,7 @@ export const projectSides: Record<string, ReviewedSide> = {
     side: 'server',
     source: 'README: "vanilla clients can join without installing the mod or a resource pack"',
   },
-  FabricModdingConventions: { side: null, source: 'README: Gradle plugins and test helpers, not installed in a game' },
+  MinecraftModConventions: { side: null, source: 'README: Gradle plugins and test helpers, not installed in a game' },
   FloodedEnd: { side: 'server', source: 'README: "Nothing is required on the client"' },
   FortniteInMinecraft: {
     side: 'both',

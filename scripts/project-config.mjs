@@ -20,7 +20,7 @@ export const categoryOverrides = {
   LegacyMinecraftModTemplate: 'templates-starters',
   ModernMinecraftModTemplate: 'templates-starters',
   BrainageLib: 'minecraft-dev-tools',
-  FabricModdingConventions: 'minecraft-dev-tools',
+  MinecraftModConventions: 'minecraft-dev-tools',
   HudRendererLib: 'minecraft-dev-tools',
 };
 
