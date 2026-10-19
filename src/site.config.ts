@@ -8,6 +8,7 @@ export const siteConfig = {
     { name: 'Home', href: '/' },
     { name: 'Projects', href: '/projects/', activeMode: 'prefix' },
     { name: 'Blog', href: '/blog/', activeMode: 'prefix' },
+    { name: 'Commissions', href: '/commissions/' },
     { name: 'Recipes', href: 'https://brainage04.github.io/BakingCookingRecipes/' },
     { name: 'GifStudio', href: 'https://brainage04.github.io/GifStudio/' },
   ],

@@ -1,0 +1,404 @@
+---
+import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
+import PopoutPicker from '../components/PopoutPicker.astro';
+import ProjectList from '../components/ProjectList.astro';
+import ProjectSourceNote from '../components/ProjectSourceNote.astro';
+import { commissionExtras, commissionExtrasNote, commissionPortfolio, commissionRates } from '../data/commissions';
+import { projects, projectSizes } from '../data/projects';
+import { socials } from '../data/socials';
+import { baseCurrency, conversionNote, currencies, formatPrice } from '../lib/currency';
+
+const discordHref = socials.find((social) => social.name === 'Discord')?.href;
+if (!discordHref) throw new Error('The Discord social link is missing from src/data/socials.ts');
+
+const portfolio = commissionPortfolio(projects);
+const portfolioSections = projectSizes.map((size) => ({
+  id: `portfolio-${size.toLowerCase()}`,
+  title: size,
+  items: portfolio.filter((project) => project.size === size),
+}));
+
+const terms = [
+  "Fixed quote after a short call or chat about what you need. I'll then draft a requirements document and a contract for you to sign before work starts.",
+  '50% up front, the rest at delivery. Larger projects are split into milestones.',
+  'Three rounds of changes included. Anything outside the agreed scope is quoted separately.',
+  'Every delivery comes with automated in-game end-to-end (e2e) tests and recordings of all features working.',
+  'Most familiar with Fabric and NeoForge from 1.20 to 26.3, plus Forge 1.8.9, but open to any mod loader on any version.',
+] as const;
+
+const usdNote = 'Quotes and invoices are in USD.';
+// The longest note the page can show, rendered invisibly under the live one so that switching currency never moves
+// the cards below it.
+const longestNote = conversionNote('NZD', '2026-09-28', usdNote);
+---
+
+<SiteLayout title="Commissions">
+  <div class="commission-stack page-sections">
+    <section class="intro" aria-labelledby="commissions-title">
+      <h1 id="commissions-title">Minecraft mod commissions</h1>
+      <p class="lead">
+        I build custom Minecraft mods and datapacks, especially for streamers: Twitch chat integration,
+        viewer-controlled gameplay and custom minigames. I've also delivered private client commissions.
+      </p>
+      <p>
+        Message me on Discord (<a href={discordHref}>brainage04</a>) or email{' '}
+        <a href="mailto:thomasmcmah21@gmail.com">thomasmcmah21@gmail.com</a> with what you have in mind.
+      </p>
+    </section>
+
+    <section aria-labelledby="rates-title">
+      <h2 id="rates-title">
+        Rates in
+        <PopoutPicker
+          id="rate-currency"
+          label="Currency"
+          options={Object.entries(currencies).map(([code, currency]) => ({ value: code, label: currency.label }))}
+          selected={baseCurrency}
+        />
+      </h2>
+      <div class="rate-note">
+        <p id="rate-note" aria-live="polite" data-usd-note={usdNote}>{usdNote}</p>
+        <p class="rate-note-sizer" aria-hidden="true">{longestNote}</p>
+      </div>
+      <div class="rate-grid">
+        {
+          commissionRates.map((rate, index) => (
+            <article class:list={{ 'rate-wide': index === 0 }}>
+              <div class="rate-head">
+                <h3>{rate.name}</h3>
+                <p class="price" data-usd={rate.usd} data-kind={rate.kind}>
+                  {formatPrice(rate.usd, rate.kind)}
+                </p>
+                {rate.time && <p class="rate-time">{rate.time}</p>}
+              </div>
+              <p>{rate.examples}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="rate-extras">
+        <h3 id="extras-title">Extras</h3>
+        <dl aria-labelledby="extras-title">
+          {
+            commissionExtras.map((extra) => (
+              <div>
+                <dt>{extra.topic}</dt>
+                {extra.adjustments.map((adjustment) => (
+                  <dd>
+                    <span>{adjustment.condition}</span>
+                    <strong>{adjustment.change}</strong>
+                  </dd>
+                ))}
+              </div>
+            ))
+          }
+        </dl>
+        <p class="extras-note">{commissionExtrasNote}</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="terms-title">
+      <h2 id="terms-title">How it works</h2>
+      <ul class="terms">
+        {terms.map((term) => <li>{term}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title">Portfolio</h2>
+      <ProjectSourceNote />
+      {
+        portfolioSections.map((section) => (
+          <section class="portfolio-section" id={section.id} aria-labelledby={`${section.id}-title`}>
+            <h3 id={`${section.id}-title`}>{section.title}</h3>
+            <ProjectList projects={section.items} headingLevel={4} showLanguages={false} />
+          </section>
+        ))
+      }
+    </section>
+  </div>
+</SiteLayout>
+
+<script>
+  import type { PopoutPicker } from '../lib/popoutPicker';
+  import '../lib/popoutPicker';
+  import {
+    baseCurrency,
+    conversionNote,
+    formatPrice,
+    isCurrencyCode,
+    parseRates,
+    ratesUrl,
+    resolveCurrency,
+    type CurrencyCode,
+    type ExchangeRates,
+    type PriceKind,
+  } from '../lib/currency';
+
+  // Currency
+  const storageKey = 'commission-currency';
+  const picker = document.querySelector<PopoutPicker>('popout-picker#rate-currency');
+  const note = document.querySelector<HTMLElement>('#rate-note');
+  const prices = document.querySelectorAll<HTMLElement>('[data-usd]');
+  let ratesRequest: Promise<ExchangeRates> | undefined;
+
+  function render(currency: CurrencyCode, rate = 1) {
+    for (const price of prices) {
+      price.textContent = formatPrice(Number(price.dataset.usd), price.dataset.kind as PriceKind, currency, rate);
+    }
+  }
+
+  async function showCurrency(currency: CurrencyCode) {
+    if (!picker || !note) return;
+    const usdNote = note.dataset.usdNote ?? '';
+
+    const outcome = await resolveCurrency(
+      currency,
+      () =>
+        (ratesRequest ??= fetch(ratesUrl).then(async (response) => {
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          return parseRates(await response.json());
+        })),
+      (requested) => picker.value === requested,
+    );
+
+    if (outcome.kind === 'stale') return;
+    if (outcome.kind === 'converted') {
+      render(outcome.currency, outcome.rate);
+      note.textContent = conversionNote(outcome.currency, outcome.date, usdNote);
+      return;
+    }
+    if (outcome.kind === 'failed') {
+      console.warn('Could not load exchange rates:', outcome.error);
+      ratesRequest = undefined;
+      picker.value = baseCurrency;
+    }
+    render(baseCurrency);
+    note.textContent =
+      outcome.kind === 'failed'
+        ? `Exchange rates could not be loaded, so prices are shown in USD. ${usdNote}`
+        : usdNote;
+  }
+
+  if (picker) {
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(storageKey);
+    } catch {
+      // Storage can be unavailable (privacy modes); the page then always starts in USD.
+    }
+    if (isCurrencyCode(stored) && stored !== baseCurrency) {
+      // The saved currency is shown in the picker at once, but its rates are fetched only once the page has settled
+      // (after load, when the browser is idle); prices stay in USD until they arrive.
+      picker.value = stored;
+      const convert = () => {
+        if (picker.value === stored) void showCurrency(stored);
+      };
+      const whenIdle = () =>
+        'requestIdleCallback' in window ? requestIdleCallback(convert, { timeout: 2000 }) : setTimeout(convert, 200);
+      if (document.readyState === 'complete') whenIdle();
+      else window.addEventListener('load', whenIdle, { once: true });
+    }
+
+    picker.addEventListener('popout-change', () => {
+      const currency = picker.value;
+      if (!isCurrencyCode(currency)) return;
+      try {
+        localStorage.setItem(storageKey, currency);
+      } catch {
+        // Not remembering the choice is fine.
+      }
+      void showCurrency(currency);
+    });
+  }
+</script>
+
+<style>
+  /* AstroShell caps every p and li at 72ch; on this page text fills the content width like the cards around it. */
+  .commission-stack :global(:is(p, li)) {
+    max-width: none;
+  }
+
+  h1,
+  h2 {
+    margin: 0 0 1.2rem;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  .intro p {
+    margin: 0;
+  }
+
+  .intro p + p {
+    margin-block-start: 1rem;
+  }
+
+  .intro a {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .lead {
+    color: var(--foreground1);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+  }
+
+  #rates-title :global(popout-picker) {
+    /* One space wide in the monospace heading font; template whitespace before the element is not kept. */
+    margin-inline-start: 1ch;
+  }
+
+  .portfolio-section + .portfolio-section {
+    margin-block-start: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .portfolio-section h3 {
+    margin: 0 0 0.9rem;
+    color: var(--foreground1);
+    font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  }
+
+  /* The live note and an invisible copy of the longest note share one grid cell, which keeps the note's height fixed. */
+  .rate-note {
+    display: grid;
+    margin: -0.6rem 0 1.2rem;
+    color: var(--foreground2);
+    font-size: 0.84rem;
+  }
+
+  .rate-note > p {
+    grid-area: 1 / 1;
+    margin: 0;
+  }
+
+  .rate-note-sizer {
+    visibility: hidden;
+  }
+
+  /*
+   * The first rate (Large) spans the full width on top, its name, price and time on the left and its description on the
+   * right; the other three share one row below it. 1px gaps are the divider lines. Everything stacks into one column,
+   * in data order, below 1180px, where the project cards also drop to one column (src/components/ProjectList.astro).
+   */
+  .rate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+  }
+
+  .rate-grid .rate-wide {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 0 clamp(1rem, 2.5vw, 1.5rem);
+    align-items: start;
+  }
+
+  .rate-grid article {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: var(--surface);
+  }
+
+  .rate-grid h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .price {
+    margin-block: 0.5rem;
+    color: var(--accent-primary);
+    font: 700 1.3rem/1.2 var(--font-mono);
+  }
+
+  .rate-grid p:not(.price) {
+    margin: 0;
+    color: var(--foreground1);
+    font-size: 0.88rem;
+  }
+
+  .rate-grid p.rate-time {
+    margin-block-end: 0.5rem;
+    color: var(--foreground2);
+    font: 700 0.75rem/1.4 var(--font-mono);
+  }
+
+  .rate-grid .rate-wide p.rate-time {
+    margin-block-end: 0;
+  }
+
+  .rate-extras {
+    margin-block-start: 1.2rem;
+    color: var(--foreground1);
+    font-size: 0.88rem;
+  }
+
+  .rate-extras h3 {
+    margin: 0 0 0.6rem;
+    color: var(--foreground0);
+    font-size: 1rem;
+  }
+
+  /* Topics side by side on wide screens; each line is a condition with its price change aligned to the right. */
+  .rate-extras dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+    gap: 0.9rem 2.5rem;
+    margin: 0;
+  }
+
+  .rate-extras dt {
+    margin-block-end: 0.2rem;
+    color: var(--foreground0);
+    font-weight: 700;
+  }
+
+  .rate-extras dd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 0;
+    padding-block: 0.2rem;
+    border-block-end: 1px solid var(--border-subtle);
+  }
+
+  .rate-extras dd strong {
+    color: var(--accent-primary);
+    white-space: nowrap;
+  }
+
+  .extras-note {
+    margin: 1rem 0 0;
+    color: var(--foreground2);
+    font-size: inherit;
+  }
+
+  .terms {
+    display: grid;
+    gap: 0.6rem;
+    padding-inline-start: 1.2rem;
+    color: var(--foreground1);
+  }
+
+  @media (max-width: 1179px) {
+    .rate-grid,
+    .rate-grid .rate-wide {
+      grid-template-columns: 1fr;
+    }
+
+    .rate-grid .rate-wide p.rate-time {
+      margin-block-end: 0.5rem;
+    }
+  }
+</style>
