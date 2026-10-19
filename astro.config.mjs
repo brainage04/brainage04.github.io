@@ -36,7 +36,12 @@ const publicDirectoryIndex = {
 };
 
 export default defineConfig({
-  integrations: [astroShell({ config: siteConfig, styles: ['@brainage04/astro-shell/themes/rose.css'] })],
+  integrations: [
+    astroShell({
+      config: siteConfig,
+      styles: ['@brainage04/astro-shell/themes/rose.css', './src/styles/site.css'],
+    }),
+  ],
   image: {
     domains: ['raw.githubusercontent.com'],
   },

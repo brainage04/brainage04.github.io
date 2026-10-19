@@ -8,7 +8,7 @@ const posts = (await getCollection('blog')).sort(newestPostFirst);
 ---
 
 <SiteLayout title="Blog">
-  <div class="blog-index">
+  <div class="blog-index page-sections">
     <h1 class="sr-only">Blog</h1>
     <div class="post-list">
       {posts.map((post) => <BlogCard post={post} />)}
@@ -19,8 +19,6 @@ const posts = (await getCollection('blog')).sort(newestPostFirst);
 <style>
   .blog-index {
     width: min(100%, 58rem);
-    display: grid;
-    gap: clamp(2.5rem, 7vw, 5rem);
     margin-inline: auto;
   }
 

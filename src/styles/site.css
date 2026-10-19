@@ -1,0 +1,14 @@
+/*
+ * Page sections: every page puts its main sections in a `.page-sections` container, which splits them with a thin rule
+ * and the same space above and below it. A visually hidden heading at the start takes no space and gets no rule.
+ */
+.page-sections {
+  --section-space: clamp(2.5rem, 6vw, 4.5rem);
+  display: grid;
+  gap: var(--section-space);
+}
+
+.page-sections > :not(.sr-only) ~ * {
+  padding-block-start: var(--section-space);
+  border-block-start: 1px solid var(--border-subtle);
+}

@@ -30,58 +30,62 @@ const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.
 ---
 
 <SiteLayout title={title} ogType="article">
-  <article class="blog-article">
-    <header class="post-header">
-      <a class="back-link" href={withBase('/blog/')}>All posts</a>
-      <div class="meta-row post-meta">
-        <span>{topic}</span>
-        <span>{date}</span>
-        <span>{readingMinutes} min read</span>
+  <article class="blog-article page-sections">
+    <div class="post-body">
+      <header class="post-header">
+        <a class="back-link" href={withBase('/blog/')}>All posts</a>
+        <div class="meta-row post-meta">
+          <span>{topic}</span>
+          <span>{date}</span>
+          <span>{readingMinutes} min read</span>
+        </div>
+        <h1>{title}</h1>
+      </header>
+
+      {
+        tocHeadings.length >= 4 && (
+          <details class="post-toc">
+            <summary>On this page</summary>
+            <ol>
+              {tocHeadings.map((heading) => (
+                <li data-depth={heading.depth}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )
+      }
+
+      <div class="prose">
+        <slot />
       </div>
-      <h1>{title}</h1>
-    </header>
-
-    {
-      tocHeadings.length >= 4 && (
-        <details class="post-toc">
-          <summary>On this page</summary>
-          <ol>
-            {tocHeadings.map((heading) => (
-              <li data-depth={heading.depth}>
-                <a href={`#${heading.slug}`}>{heading.text}</a>
-              </li>
-            ))}
-          </ol>
-        </details>
-      )
-    }
-
-    <div class="prose">
-      <slot />
     </div>
 
-    <nav class="post-navigation" aria-label="Blog post navigation">
-      <div>
-        {
-          previous && (
-            <a href={previous.href}>
-              <span>Previous post</span>
-              <strong>{previous.title}</strong>
-            </a>
-          )
-        }
-      </div>
-      <div>
-        {
-          next && (
-            <a href={next.href}>
-              <span>Next post</span>
-              <strong>{next.title}</strong>
-            </a>
-          )
-        }
-      </div>
-    </nav>
+    <footer>
+      <nav class="post-navigation" aria-label="Blog post navigation">
+        <div>
+          {
+            previous && (
+              <a href={previous.href}>
+                <span>Previous post</span>
+                <strong>{previous.title}</strong>
+              </a>
+            )
+          }
+        </div>
+        <div>
+          {
+            next && (
+              <a href={next.href}>
+                <span>Next post</span>
+                <strong>{next.title}</strong>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </footer>
   </article>
 </SiteLayout>
 
@@ -227,7 +231,7 @@ const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1px;
-    margin: clamp(3rem, 8vw, 6rem) auto 0;
+    margin-inline: auto;
     background: var(--border-subtle);
   }
 
