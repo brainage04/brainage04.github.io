@@ -55,6 +55,10 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         run: npm run build
 
+      - name: Check routes
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run check:routes
+
       - name: Commit catalogue changes
         id: commit
         if: steps.diff.outputs.changed == 'true'
