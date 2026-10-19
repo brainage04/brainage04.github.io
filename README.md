@@ -28,7 +28,10 @@ npm run lint
 npm run format:check
 npm test
 npm run build
+npm run check:routes
 ```
+
+`npm run check:routes` needs a fresh `dist`. It starts `astro preview` and `astro dev` on free ports and requests every built page (all Astro routes plus each `public/**/*.html`, also by its directory URL) and a missing page, failing on any unexpected status or error overlay. The Validate workflow runs it in a separate job, and the catalogue sync runs it before committing. In dev, `public/<dir>/index.html` is served at `/<dir>/` by a small dev-only Vite plugin in `astro.config.mjs`, matching GitHub Pages.
 
 ## Deployment
 
