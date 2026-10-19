@@ -24,7 +24,7 @@ export const socials: SocialLink[] = [
   },
   {
     name: 'Discord',
-    href: 'https://discord.com/users/brainage04',
+    href: 'https://discord.com/users/508541102220116000',
     icon: '/icons/discord.svg',
     iconWidth: 64,
     iconHeight: 48,
