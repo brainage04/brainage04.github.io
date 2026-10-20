@@ -9,11 +9,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 79.7,
+        percentage: 84.2,
       },
       {
         name: 'Python',
-        percentage: 20.3,
+        percentage: 15.8,
       },
     ],
     category: 'small-minecraft-mods',
@@ -35,7 +35,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'Shell',
-        percentage: 1.8,
+        percentage: 1.7,
       },
       {
         name: 'mcfunction',
@@ -178,19 +178,23 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 43.3,
+        percentage: 51.3,
       },
       {
         name: 'Astro',
-        percentage: 33.9,
+        percentage: 26.1,
       },
       {
         name: 'JavaScript',
-        percentage: 20,
+        percentage: 20.9,
       },
       {
         name: 'HTML',
-        percentage: 2.7,
+        percentage: 1.3,
+      },
+      {
+        name: 'CSS',
+        percentage: 0.3,
       },
     ],
     category: 'websites',
@@ -523,11 +527,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94.9,
+        percentage: 95.2,
       },
       {
         name: 'Python',
-        percentage: 5.1,
+        percentage: 4.8,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -544,11 +548,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Shell',
-        percentage: 51.6,
+        percentage: 51.5,
       },
       {
         name: 'Java',
-        percentage: 48.4,
+        percentage: 48.5,
       },
     ],
     category: 'templates-starters',
@@ -677,11 +681,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 87.4,
+        percentage: 88.5,
       },
       {
         name: 'Java',
-        percentage: 12.6,
+        percentage: 11.5,
       },
     ],
     category: 'medium-minecraft-mods',
