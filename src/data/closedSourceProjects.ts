@@ -2,6 +2,7 @@ import brainageMinigamesIcon from '../assets/projects/brainageminigames.png';
 import debugHudBackportIcon from '../assets/projects/debughudbackport.png';
 import fortniteInMinecraftIcon from '../assets/projects/fortniteinminecraft.png';
 import genshinInMinecraftIcon from '../assets/projects/genshininminecraft.png';
+import proceduralDungeonIcon from '../assets/projects/proceduraldungeon.png';
 import sparringBotsIcon from '../assets/projects/sparringbots.png';
 import twitchPlaysMinecraftIcon from '../assets/projects/twitchplaysminecraft.png';
 import type { Project } from './projects';
@@ -27,6 +28,18 @@ export const closedSourceProjects: Project[] = [
     category: 'large-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     versions: ['26.2'],
+  },
+  {
+    name: 'ProceduralDungeon',
+    description:
+      'Highly optimised procedural dungeon generator with 20 themes and 5 difficulty/loot tiers across all 3 vanilla dimensions, with custom rooms, locked chests and boss fights.',
+    icon: proceduralDungeonIcon,
+    languages: [],
+    category: 'large-minecraft-mods',
+    loaders: ['Fabric', 'NeoForge'],
+    versions: ['26.2'],
+    // Its place in featuredOrder (scripts/project-config.mjs), which the generator applied while the repository was public.
+    featured: 2,
   },
   {
     name: 'SparringBots',

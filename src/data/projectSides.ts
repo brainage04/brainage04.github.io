@@ -53,7 +53,7 @@ export const projectSides: Record<string, ReviewedSide> = {
   ModernMinecraftModTemplate: { side: null, source: 'README: a mod template, not installed in a game' },
   ProceduralDungeon: {
     side: 'server',
-    source: 'README: "server-side only … players can join with an unmodded vanilla client"',
+    source: 'README (private repo): "server-side only … players can join with an unmodded vanilla client"',
   },
   SimpleHomes: { side: 'server', source: 'README: "Vanilla clients can join without installing the mod"' },
   SimpleTPA: { side: 'server', source: 'README: "Vanilla clients can join without installing the mod"' },

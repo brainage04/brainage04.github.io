@@ -18,7 +18,7 @@ describe('commissionPortfolio', () => {
     expect(portfolio.map(({ name, size, type, url }) => `${name}:${size}:${type}:${url ? 'Open' : 'Closed'}`)).toEqual([
       'BrainageMinigames:Large:Mod:Closed',
       'SparringBots:Large:Mod:Closed',
-      'ProceduralDungeon:Large:Mod:Open',
+      'ProceduralDungeon:Large:Mod:Closed',
       'TwitchPlaysMinecraft:Large:Mod:Closed',
       'FortniteInMinecraft:Large:Mod:Closed',
       'GenshinInMinecraft:Large:Mod:Closed',
@@ -45,7 +45,7 @@ describe('commissionPortfolio', () => {
   it('gives closed-source entries no repository link, no languages and a bundled, not remote, icon', () => {
     const closed = portfolio.filter(({ name }) => closedNames.includes(name));
 
-    expect(closed).toHaveLength(6);
+    expect(closed).toHaveLength(7);
     for (const item of closed) {
       expect(item.url).toBeUndefined();
       expect(item.languages).toEqual([]);

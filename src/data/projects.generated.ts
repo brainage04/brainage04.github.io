@@ -23,28 +23,6 @@ export const generatedProjects: Project[] = [
     featured: 1,
   },
   {
-    name: 'ProceduralDungeon',
-    url: 'https://github.com/brainage04/ProceduralDungeon',
-    description:
-      'Highly optimised procedural dungeon generator with 20 themes and 5 difficulty/loot tiers across all 3 vanilla dimensions, with custom rooms, locked chests and boss fights.',
-    icon: 'https://raw.githubusercontent.com/brainage04/ProceduralDungeon/master/docs/icon/icon.png',
-    languages: [
-      {
-        name: 'Java',
-        percentage: 99,
-      },
-      {
-        name: 'Shell',
-        percentage: 1,
-      },
-    ],
-    category: 'large-minecraft-mods',
-    loaders: ['Fabric', 'NeoForge'],
-    side: 'server',
-    versions: ['26.2'],
-    featured: 2,
-  },
-  {
     name: 'AcceleratedDamage',
     url: 'https://github.com/brainage04/AcceleratedDamage',
     description:
