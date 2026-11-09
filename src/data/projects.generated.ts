@@ -9,17 +9,16 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 84.2,
+        percentage: 87.3,
       },
       {
         name: 'Python',
-        percentage: 15.8,
+        percentage: 12.7,
       },
     ],
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
     featured: 1,
   },
   {
@@ -37,7 +36,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -143,7 +141,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'brainage04.github.io',
@@ -152,19 +149,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 51.3,
+        percentage: 50,
       },
       {
         name: 'Astro',
-        percentage: 26.1,
+        percentage: 26,
       },
       {
         name: 'JavaScript',
-        percentage: 20.9,
+        percentage: 22.3,
       },
       {
         name: 'HTML',
-        percentage: 1.3,
+        percentage: 1.4,
       },
       {
         name: 'CSS',
@@ -201,7 +198,7 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'BrainageKits',
@@ -225,7 +222,7 @@ export const generatedProjects: Project[] = [
     category: 'minecraft-dev-tools',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'BrainageServerUtils',
@@ -283,11 +280,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 86.7,
+        percentage: 74.7,
       },
       {
         name: 'JavaScript',
-        percentage: 13.3,
+        percentage: 11.9,
+      },
+      {
+        name: 'Astro',
+        percentage: 9.8,
+      },
+      {
+        name: 'CSS',
+        percentage: 3.7,
       },
     ],
     category: 'discord-bots',
@@ -342,7 +347,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -351,11 +355,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'JavaScript',
-        percentage: 99.1,
+        percentage: 99.2,
       },
       {
         name: 'Shell',
-        percentage: 0.9,
+        percentage: 0.8,
       },
     ],
     category: 'discord-bots',
@@ -374,7 +378,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'GifStudio',
@@ -426,7 +429,7 @@ export const generatedProjects: Project[] = [
     category: 'minecraft-dev-tools',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'IceSkates',
@@ -442,7 +445,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'kashiilol.github.io',
@@ -451,19 +453,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 67.5,
+        percentage: 57.7,
       },
       {
         name: 'TypeScript',
-        percentage: 26.6,
+        percentage: 37.6,
       },
       {
         name: 'CSS',
-        percentage: 4.8,
+        percentage: 3.8,
       },
       {
         name: 'JavaScript',
-        percentage: 1.1,
+        percentage: 0.9,
       },
     ],
     category: 'websites',
@@ -501,11 +503,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 95.2,
+        percentage: 94,
       },
       {
         name: 'Python',
-        percentage: 4.8,
+        percentage: 6,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -541,11 +543,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 54.7,
+        percentage: 40.5,
       },
       {
         name: 'JavaScript',
-        percentage: 45.3,
+        percentage: 27.9,
+      },
+      {
+        name: 'Astro',
+        percentage: 23,
+      },
+      {
+        name: 'CSS',
+        percentage: 8.6,
       },
     ],
     category: 'discord-bots',
@@ -599,6 +609,30 @@ export const generatedProjects: Project[] = [
     versions: ['26.2'],
   },
   {
+    name: 'SocialEmbedFixer',
+    url: 'https://github.com/brainage04/SocialEmbedFixer',
+    description: 'Vencord and Revenge plugin that rewrites X/Twitter and Instagram links for reliable Discord embeds.',
+    languages: [
+      {
+        name: 'TypeScript',
+        percentage: 82.8,
+      },
+      {
+        name: 'JavaScript',
+        percentage: 8,
+      },
+      {
+        name: 'Astro',
+        percentage: 6.6,
+      },
+      {
+        name: 'CSS',
+        percentage: 2.5,
+      },
+    ],
+    category: 'discord-bots',
+  },
+  {
     name: 'SpawnCommands',
     url: 'https://github.com/brainage04/SpawnCommands',
     description: 'Adds commands for world, personal, and shared spawn points.',
@@ -612,7 +646,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'Telekinesis',
@@ -628,7 +661,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'TextureAtlasGenerator',
@@ -644,7 +677,6 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
   },
   {
     name: 'ToggleSprint',
@@ -715,41 +747,29 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 53.3,
+        percentage: 55.6,
       },
       {
         name: 'JavaScript',
-        percentage: 30.6,
+        percentage: 27.3,
       },
       {
         name: 'Shell',
-        percentage: 9.3,
+        percentage: 7.7,
       },
       {
         name: 'HTML',
-        percentage: 3.9,
+        percentage: 3.5,
+      },
+      {
+        name: 'Kotlin',
+        percentage: 3.3,
       },
       {
         name: 'CSS',
-        percentage: 2.9,
+        percentage: 2.6,
       },
     ],
     category: 'browser-extensions',
-  },
-  {
-    name: 'XEmbedFixer',
-    url: 'https://github.com/brainage04/XEmbedFixer',
-    description: 'Vencord and Revenge plugin that rewrites X/Twitter links for reliable Discord embeds.',
-    languages: [
-      {
-        name: 'TypeScript',
-        percentage: 86,
-      },
-      {
-        name: 'JavaScript',
-        percentage: 14,
-      },
-    ],
-    category: 'discord-bots',
   },
 ];
