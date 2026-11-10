@@ -36,6 +36,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -149,7 +150,7 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 50,
+        percentage: 50.1,
       },
       {
         name: 'Astro',
@@ -157,7 +158,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'JavaScript',
-        percentage: 22.3,
+        percentage: 22.2,
       },
       {
         name: 'HTML',
@@ -347,6 +348,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -386,19 +388,23 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 80.9,
+        percentage: 70.3,
+      },
+      {
+        name: 'Python',
+        percentage: 18.3,
       },
       {
         name: 'Astro',
-        percentage: 10.2,
+        percentage: 7.3,
       },
       {
         name: 'CSS',
-        percentage: 8.1,
+        percentage: 3.8,
       },
       {
         name: 'JavaScript',
-        percentage: 0.7,
+        percentage: 0.2,
       },
     ],
     category: 'websites',
@@ -445,6 +451,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
