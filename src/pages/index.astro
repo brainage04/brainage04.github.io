@@ -16,10 +16,6 @@ const featuredProjects = featuredPortfolio(commissionPortfolio(projects));
 <SiteLayout>
   <div class="page-sections">
     <ProfileCard name="Thomas / brainage04" avatar="/pfp.webp" socials={socials}>
-      <p class="lead">
-        I make Minecraft mods/datapacks, Discord bots/plugins, websites, browser extensions and various other stuff.
-        Based in Brisbane, Queensland, Australia.
-      </p>
       <dl class="credentials">
         <div>
           <dt>Current role</dt>
@@ -125,13 +121,6 @@ const featuredProjects = featuredPortfolio(commissionPortfolio(projects));
     text-underline-offset: 0.2em;
   }
 
-  .lead {
-    max-width: 58ch;
-    margin: 0;
-    color: var(--foreground1);
-    font-size: clamp(1rem, 1.4vw, 1.15rem);
-  }
-
   .credentials {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -159,10 +148,6 @@ const featuredProjects = featuredPortfolio(commissionPortfolio(projects));
   }
 
   @media (max-width: 700px) {
-    .lead {
-      margin-inline: auto;
-    }
-
     .credentials {
       grid-template-columns: 1fr;
       text-align: start;
