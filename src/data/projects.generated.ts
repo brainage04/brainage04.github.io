@@ -9,11 +9,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 87.3,
+        percentage: 86.9,
       },
       {
         name: 'Python',
-        percentage: 12.7,
+        percentage: 13.1,
       },
     ],
     category: 'small-minecraft-mods',
@@ -36,7 +36,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -142,6 +141,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'brainage04.github.io',
@@ -348,7 +348,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -380,6 +379,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'GifStudio',
@@ -451,7 +451,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -510,11 +509,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94,
+        percentage: 91.7,
       },
       {
         name: 'Python',
-        percentage: 6,
+        percentage: 8.3,
       },
     ],
     category: 'minecraft-dev-tools',
@@ -531,11 +530,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Shell',
-        percentage: 51.5,
+        percentage: 53.4,
       },
       {
         name: 'Java',
-        percentage: 48.5,
+        percentage: 46.6,
       },
     ],
     category: 'templates-starters',
@@ -694,11 +693,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 88.5,
+        percentage: 88.6,
       },
       {
         name: 'Java',
-        percentage: 11.5,
+        percentage: 11.4,
       },
     ],
     category: 'medium-minecraft-mods',
