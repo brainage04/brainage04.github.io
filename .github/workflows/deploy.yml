@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  # Once Dependabot's auto-merge is set up, its merges (made with the GITHUB_TOKEN) start no push run, so a daily
-  # build deploys them.
+  # Merges made with the GITHUB_TOKEN (Dependabot's auto-merge) start no push run, so a daily build deploys them.
   schedule:
     - cron: '17 3 * * *'
 
