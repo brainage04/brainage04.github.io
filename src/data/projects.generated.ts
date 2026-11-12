@@ -19,6 +19,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
     featured: 1,
   },
   {
@@ -141,7 +142,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'brainage04.github.io',
@@ -150,19 +150,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 50.1,
+        percentage: 50.8,
       },
       {
         name: 'Astro',
-        percentage: 26,
+        percentage: 26.3,
       },
       {
         name: 'JavaScript',
-        percentage: 22.2,
-      },
-      {
-        name: 'HTML',
-        percentage: 1.4,
+        percentage: 22.5,
       },
       {
         name: 'CSS',
@@ -379,7 +375,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'GifStudio',
@@ -451,6 +446,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -509,17 +505,17 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 91.7,
+        percentage: 93.6,
       },
       {
         name: 'Python',
-        percentage: 8.3,
+        percentage: 6.4,
       },
     ],
     category: 'minecraft-dev-tools',
     loaders: ['Fabric'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'ModernMinecraftModTemplate',
@@ -580,7 +576,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SimpleTPA',
@@ -596,7 +592,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SimpleTwitchChat',
@@ -612,7 +608,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SocialEmbedFixer',
@@ -683,6 +679,7 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'ToggleSprint',
@@ -719,7 +716,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'WebTuiAstroTemplate',
