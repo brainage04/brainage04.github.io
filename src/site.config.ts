@@ -17,6 +17,7 @@ export const siteConfig = {
   faviconType: 'image/webp',
   image: '/pfp.webp',
   themeColor: '#171218',
+  themeColorLight: '#fbf5f8',
   ownerHref: 'https://github.com/brainage04',
   ownerName: 'brainage04',
 } as const satisfies SiteConfig;
