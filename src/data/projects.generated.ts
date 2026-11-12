@@ -9,16 +9,17 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 87.3,
+        percentage: 86.9,
       },
       {
         name: 'Python',
-        percentage: 12.7,
+        percentage: 13.1,
       },
     ],
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
     featured: 1,
   },
   {
@@ -149,19 +150,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 50,
+        percentage: 50.8,
       },
       {
         name: 'Astro',
-        percentage: 26,
+        percentage: 26.3,
       },
       {
         name: 'JavaScript',
-        percentage: 22.3,
-      },
-      {
-        name: 'HTML',
-        percentage: 1.4,
+        percentage: 22.5,
       },
       {
         name: 'CSS',
@@ -386,19 +383,23 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 80.9,
+        percentage: 70.3,
+      },
+      {
+        name: 'Python',
+        percentage: 18.3,
       },
       {
         name: 'Astro',
-        percentage: 10.2,
+        percentage: 7.3,
       },
       {
         name: 'CSS',
-        percentage: 8.1,
+        percentage: 3.8,
       },
       {
         name: 'JavaScript',
-        percentage: 0.7,
+        percentage: 0.2,
       },
     ],
     category: 'websites',
@@ -445,6 +446,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -503,17 +505,17 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 94,
+        percentage: 93.6,
       },
       {
         name: 'Python',
-        percentage: 6,
+        percentage: 6.4,
       },
     ],
     category: 'minecraft-dev-tools',
     loaders: ['Fabric'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'ModernMinecraftModTemplate',
@@ -524,11 +526,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Shell',
-        percentage: 51.5,
+        percentage: 53.4,
       },
       {
         name: 'Java',
-        percentage: 48.5,
+        percentage: 46.6,
       },
     ],
     category: 'templates-starters',
@@ -574,7 +576,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SimpleTPA',
@@ -590,7 +592,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SimpleTwitchChat',
@@ -606,7 +608,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'SocialEmbedFixer',
@@ -677,6 +679,7 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
+    versions: ['26.2'],
   },
   {
     name: 'ToggleSprint',
@@ -687,11 +690,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 88.5,
+        percentage: 88.6,
       },
       {
         name: 'Java',
-        percentage: 11.5,
+        percentage: 11.4,
       },
     ],
     category: 'medium-minecraft-mods',
@@ -713,7 +716,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'WebTuiAstroTemplate',
