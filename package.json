@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
-    "astro": "7.4.7",
+    "astro": "7.4.8",
     "eslint": "10.14.0",
     "prettier": "3.9.10",
     "typescript": "6.0.3",
