@@ -19,7 +19,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
     featured: 1,
   },
   {
@@ -37,6 +36,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -66,19 +66,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 46,
+        percentage: 57.7,
       },
       {
         name: 'CSS',
-        percentage: 32,
+        percentage: 25.6,
       },
       {
         name: 'TypeScript',
-        percentage: 14.8,
+        percentage: 11.7,
       },
       {
         name: 'JavaScript',
-        percentage: 7.2,
+        percentage: 5,
       },
     ],
     category: 'websites',
@@ -91,11 +91,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 77.7,
+        percentage: 77.6,
       },
       {
         name: 'Astro',
-        percentage: 15.4,
+        percentage: 15.5,
       },
       {
         name: 'CSS',
@@ -142,6 +142,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'brainage04.github.io',
@@ -150,15 +151,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 50.8,
+        percentage: 50.9,
       },
       {
         name: 'Astro',
-        percentage: 26.3,
+        percentage: 26.2,
       },
       {
         name: 'JavaScript',
-        percentage: 22.5,
+        percentage: 22.6,
       },
       {
         name: 'CSS',
@@ -281,7 +282,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'JavaScript',
-        percentage: 11.9,
+        percentage: 11.8,
       },
       {
         name: 'Astro',
@@ -289,7 +290,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'CSS',
-        percentage: 3.7,
+        percentage: 3.6,
       },
     ],
     category: 'discord-bots',
@@ -344,6 +345,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -375,6 +377,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'GifStudio',
@@ -446,7 +449,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -455,15 +457,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 57.7,
+        percentage: 56.9,
       },
       {
         name: 'TypeScript',
-        percentage: 37.6,
+        percentage: 37.7,
       },
       {
         name: 'CSS',
-        percentage: 3.8,
+        percentage: 4.5,
       },
       {
         name: 'JavaScript',
@@ -545,7 +547,7 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 40.5,
+        percentage: 40.6,
       },
       {
         name: 'JavaScript',
@@ -553,7 +555,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'Astro',
-        percentage: 23,
+        percentage: 22.9,
       },
       {
         name: 'CSS',
@@ -617,7 +619,7 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 82.8,
+        percentage: 82.9,
       },
       {
         name: 'JavaScript',
@@ -725,7 +727,7 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 71.2,
+        percentage: 71.3,
       },
       {
         name: 'TypeScript',
