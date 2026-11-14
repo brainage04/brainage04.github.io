@@ -11,6 +11,7 @@ export const siteConfig = {
     { name: 'Commissions', href: '/commissions/' },
     { name: 'Recipes', href: 'https://brainage04.github.io/BakingCookingRecipes/' },
     { name: 'GifStudio', href: 'https://brainage04.github.io/GifStudio/' },
+    { name: 'Skyport', href: 'https://skyportminigames.com/' },
   ],
   sourceHref: 'https://github.com/brainage04/brainage04.github.io',
   faviconHref: '/pfp.webp',
