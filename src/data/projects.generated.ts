@@ -159,7 +159,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'JavaScript',
-        percentage: 22.6,
+        percentage: 22.5,
       },
       {
         name: 'CSS',
@@ -377,7 +377,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'GifStudio',
@@ -681,7 +680,6 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
   },
   {
     name: 'ToggleSprint',
