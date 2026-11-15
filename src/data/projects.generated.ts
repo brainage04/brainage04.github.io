@@ -9,16 +9,17 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 86.9,
+        percentage: 91.6,
       },
       {
         name: 'Python',
-        percentage: 13.1,
+        percentage: 8.4,
       },
     ],
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
     featured: 1,
   },
   {
@@ -36,7 +37,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -345,7 +345,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -448,6 +447,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -482,15 +482,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Kotlin',
-        percentage: 66.1,
+        percentage: 63.9,
       },
       {
         name: 'Java',
-        percentage: 21.1,
+        percentage: 22.8,
       },
       {
         name: 'Shell',
-        percentage: 12.8,
+        percentage: 13.3,
       },
     ],
     category: 'templates-starters',
@@ -649,6 +649,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'Telekinesis',
