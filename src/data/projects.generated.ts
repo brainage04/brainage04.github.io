@@ -19,7 +19,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
     featured: 1,
   },
   {
@@ -37,6 +36,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.2'],
   },
   {
     name: 'ActionAssist',
@@ -345,6 +345,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'DiscordPluginInstaller',
@@ -376,6 +377,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
+    versions: ['26.3'],
   },
   {
     name: 'GifStudio',
@@ -447,7 +449,6 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.3'],
   },
   {
     name: 'kashiilol.github.io',
@@ -654,7 +655,8 @@ export const generatedProjects: Project[] = [
   {
     name: 'Telekinesis',
     url: 'https://github.com/brainage04/Telekinesis',
-    description: 'Sends mined block drops and experience directly to the player instead of dropping it on the ground.',
+    description:
+      'Server-side mod that puts the drops and experience from blocks you mine, trees you cut, mobs you kill and explosions you cause straight into your inventory.',
     icon: 'https://raw.githubusercontent.com/brainage04/Telekinesis/master/docs/icon/icon.png',
     languages: [
       {
