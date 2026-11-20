@@ -37,7 +37,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'ActionAssist',
@@ -237,7 +237,7 @@ export const generatedProjects: Project[] = [
     category: 'small-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'both',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'BrainageUtilities',
@@ -685,7 +685,7 @@ export const generatedProjects: Project[] = [
     category: 'medium-minecraft-mods',
     loaders: ['Fabric', 'NeoForge'],
     side: 'client',
-    versions: ['26.2'],
+    versions: ['26.3'],
   },
   {
     name: 'ToggleSprint',
