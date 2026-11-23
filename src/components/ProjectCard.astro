@@ -208,13 +208,12 @@ function iconImage(resolved: NonNullable<typeof icon>) {
     font: 0.72rem/1.4 var(--font-mono);
   }
 
-  /* Phones: a small icon beside the text, on one padding value: the card's edge, the gap and the far edge all match. */
   @media (max-width: 640px) {
     .project-card {
       --icon-size: 4.5rem;
       --card-padding: 0.9rem;
       height: auto;
-      /* The icon column is the icon plus the card's own padding, so the icon is not squeezed by it. */
+      /* The column is the icon plus the card's padding, so the icon's left inset matches the text's right inset. */
       grid-template-columns: calc(var(--icon-size) - 1rem + var(--card-padding)) minmax(0, 1fr);
     }
 
@@ -240,7 +239,6 @@ function iconImage(resolved: NonNullable<typeof icon>) {
 
     .project-content {
       padding: var(--card-padding);
-      padding-inline-start: var(--card-padding);
     }
   }
 </style>
