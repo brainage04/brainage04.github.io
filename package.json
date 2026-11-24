@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",
-    "@brainage04/astro-shell": "0.7.0",
+    "@brainage04/astro-shell": "0.8.0",
     "@webtui/css": "0.1.10"
   },
   "devDependencies": {

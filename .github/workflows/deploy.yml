@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    uses: brainage04/AstroShell/.github/workflows/site-deploy.yml@545949e3f47f83acfe5d28f74921c427fd410eff # v0.7.0
+    uses: brainage04/AstroShell/.github/workflows/site-deploy.yml@b181a2e2ded08a05e25ad05487c7683ec2644fa8 # v0.8.0
     permissions:
       contents: read
       pages: write
