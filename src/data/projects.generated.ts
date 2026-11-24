@@ -67,15 +67,15 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 57.7,
+        percentage: 57.2,
       },
       {
         name: 'CSS',
-        percentage: 25.6,
+        percentage: 26.2,
       },
       {
         name: 'TypeScript',
-        percentage: 11.7,
+        percentage: 11.6,
       },
       {
         name: 'JavaScript',
@@ -92,19 +92,19 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 77.6,
+        percentage: 78.8,
       },
       {
         name: 'Astro',
-        percentage: 15.5,
+        percentage: 16.9,
       },
       {
         name: 'CSS',
-        percentage: 6.3,
+        percentage: 3.9,
       },
       {
         name: 'JavaScript',
-        percentage: 0.6,
+        percentage: 0.4,
       },
     ],
     category: 'websites',
@@ -152,11 +152,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 51,
+        percentage: 50.9,
       },
       {
         name: 'Astro',
-        percentage: 26.2,
+        percentage: 26.3,
       },
       {
         name: 'JavaScript',
@@ -387,7 +387,7 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'TypeScript',
-        percentage: 70.3,
+        percentage: 70.2,
       },
       {
         name: 'Python',
@@ -399,7 +399,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'CSS',
-        percentage: 3.8,
+        percentage: 3.9,
       },
       {
         name: 'JavaScript',
@@ -731,11 +731,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Astro',
-        percentage: 71.3,
+        percentage: 71.2,
       },
       {
         name: 'TypeScript',
-        percentage: 19.8,
+        percentage: 19.7,
       },
       {
         name: 'JavaScript',
@@ -743,7 +743,7 @@ export const generatedProjects: Project[] = [
       },
       {
         name: 'CSS',
-        percentage: 1.7,
+        percentage: 1.9,
       },
     ],
     category: 'websites',
