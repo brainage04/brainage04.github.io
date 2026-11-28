@@ -340,7 +340,11 @@ export const generatedProjects: Project[] = [
     languages: [
       {
         name: 'Java',
-        percentage: 100,
+        percentage: 95,
+      },
+      {
+        name: 'Python',
+        percentage: 5,
       },
     ],
     category: 'small-minecraft-mods',
